@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko" data-lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yachtholic — 부산 광안리 요트투어 (개념 시안)</title>
+<meta name="description" content="Concept preview for Yachtholic, Gwangalli yacht tours in Busan, with a six-language switch.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0E2233">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230F0E0B'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='13' fill='%23F5F1E8' text-anchor='middle'%3EY%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#F7F5EF; --bg2:#EFEBE1; --card:#FFFFFF; --ink:#15140F; --ink2:#43403A;
+    --muted:#787264; --line:rgba(21,20,15,.14); --accent:#8C5A2B; --accent2:#2E4038;
+    --tint:rgba(140,90,43,.08);
+    --serif:"New York",ui-serif,"Iowan Old Style","Palatino Linotype",Georgia,"Noto Serif KR",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Pretendard",Roboto,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --r:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  h1,h2,h3{margin:0;font-family:var(--serif);font-weight:400;letter-spacing:-.01em}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+  .eyebrow{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+  .topbar{position:fixed;inset:0 0 auto;z-index:50;background:var(--bg);background:color-mix(in srgb,var(--bg) 93%,transparent);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .topbar-in{max-width:1140px;margin:0 auto;padding:11px 28px;display:flex;align-items:center;gap:22px}
+  .brand{display:flex;flex-direction:column;line-height:1}
+  .brand strong{font-family:var(--serif);font-weight:400;font-size:20px;letter-spacing:.01em}
+  .brand i{font-style:normal;font-family:var(--mono);font-size:7.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .nav{display:flex;gap:18px}
+  .nav a{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);
+    padding-bottom:3px;border-bottom:1px solid transparent}
+  .nav a:hover{color:var(--accent);border-color:var(--accent)}
+  .langs{display:flex;gap:5px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+  .langs::-webkit-scrollbar{display:none}
+  .lang{font-family:var(--mono);font-size:9.5px;border:1px solid var(--line);border-radius:99px;padding:6px 8px;
+    white-space:nowrap;color:var(--ink2);transition:.16s}
+  .lang:hover{border-color:var(--accent);color:var(--accent)}
+  .lang.is-on{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent2);color:#fff;border:1px solid var(--accent2);
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;padding:12px 18px;border-radius:99px;transition:.18s}
+  .btn:hover{background:var(--accent);border-color:var(--accent)}
+  .btn-sm{padding:9px 14px;font-size:8.5px;flex:0 0 auto}
+  .btn-ghost{background:transparent;color:var(--accent2);border-color:var(--line)}
+  .btn-ghost:hover{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+
+  .hero{padding:132px 0 60px}
+  .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:48px;align-items:center}
+  .kicker{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  h1{margin-top:16px;font-size:clamp(36px,4.8vw,58px);line-height:1.05}
+  h1 em{font-style:italic;color:var(--accent)}
+  .hero p{margin:18px 0 0;font-size:15.5px;line-height:1.7;color:var(--ink2);max-width:46ch}
+  .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+  .art{position:relative;border-radius:20px;overflow:hidden;min-height:360px;border:1px solid var(--line);
+    background:linear-gradient(168deg,var(--bg2),var(--bg));
+    background-image:linear-gradient(168deg,var(--bg2),color-mix(in srgb,var(--accent) 12%,var(--bg2)))}
+  .art::before{content:"";position:absolute;width:280px;height:280px;border-radius:50%;left:-50px;top:-70px;
+    border:1px solid var(--line);border-color:color-mix(in srgb,var(--accent) 30%,transparent)}
+  .art::after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-30px;bottom:70px;
+    background:radial-gradient(circle at 35% 30%,#fff,transparent 70%)}
+  .art-note{position:absolute;left:22px;top:22px;font-family:var(--mono);font-size:8px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--accent)}
+  .art-quote{position:absolute;left:22px;right:22px;top:46%;transform:translateY(-50%);font-family:var(--serif);
+    font-size:23px;line-height:1.28;color:var(--accent2);max-width:24ch}
+  .art-fact{position:absolute;left:22px;right:22px;bottom:20px;background:rgba(255,255,255,.86);border-radius:12px;
+    padding:12px 14px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);
+    box-shadow:0 12px 26px -20px rgba(21,20,15,.5)}
+  .concept{position:absolute;right:16px;top:16px;background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:99px;
+    padding:5px 10px;font-family:var(--mono);font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+  .sec{padding:58px 0;border-top:1px solid var(--line)}
+  .sec-head{margin-bottom:26px;max-width:62ch}
+  h2{font-size:clamp(25px,3vw,36px);line-height:1.12;margin-top:10px}
+  .sec-head p{margin:10px 0 0;font-size:13px;line-height:1.65;color:var(--muted)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .item{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;transition:.2s}
+  .item:hover{border-color:var(--accent);box-shadow:0 16px 30px -26px rgba(21,20,15,.5)}
+  .item .n{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--accent)}
+  .item h3{font-size:18px;margin-top:8px;line-height:1.28}
+  .item p{margin:8px 0 0;font-size:12px;line-height:1.62;color:var(--muted)}
+
+  .visit{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .row{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .row b{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .row span{font-family:var(--mono);font-size:10.5px;color:var(--ink2);text-align:right}
+  .blocks{margin-top:18px}
+  .block{margin-top:14px}
+  .block b{display:block;font-family:var(--mono);font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .block span{display:block;margin-top:5px;font-size:12.5px;line-height:1.65;color:var(--ink2)}
+  .contact{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;align-self:start}
+  .contact h3{font-size:19px}
+  .cline{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .cline:last-of-type{border-bottom:0}
+  .cline b{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .cline a{font-size:12px;color:var(--accent2);border-bottom:1px solid var(--line);border-bottom-color:color-mix(in srgb,var(--accent) 50%,transparent);
+    text-underline-offset:2px;word-break:break-all}
+  .contact .btn{margin-top:16px;width:100%;justify-content:center}
+
+  footer{background:var(--ink);color:#EEE9DF;padding:44px 0 26px;margin-top:14px}
+  .foot{display:grid;grid-template-columns:1.4fr .6fr;gap:26px}
+  .foot strong{font-family:var(--serif);font-weight:400;font-size:19px}
+  .foot p{margin:12px 0 0;font-size:10.5px;line-height:1.7;color:#B6AE9E;max-width:52ch}
+  .foot .credit{margin-top:14px;font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;color:#D8D0C0}
+  .foot .credit a{border-bottom:1px solid rgba(216,208,192,.5)}
+  .foot-bottom{margin-top:24px;padding-top:14px;border-top:1px solid rgba(238,233,223,.16);display:flex;
+    justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:8px;letter-spacing:.1em;
+    text-transform:uppercase;color:#9A9282}
+  .foot .concept-note{font-size:10px;line-height:1.6;color:#9A9282;max-width:60ch}
+
+  @media (max-width:960px){
+    .nav{display:none}
+    .hero{padding-top:112px}
+    .hero-grid,.visit,.grid{grid-template-columns:1fr;gap:26px}
+    .foot{grid-template-columns:1fr}
+    .topbar-in{flex-wrap:wrap;gap:10px}
+    .langs{order:3;width:100%;margin-left:0}
+    .btn-sm{margin-left:auto}
+    .art{min-height:320px}
+  }
+  @media (max-width:600px){
+    .wrap,.topbar-in{padding-left:18px;padding-right:18px}
+    .art-quote{font-size:20px}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="#top"><strong>Yachtholic</strong><i data-i18n="brand_sub">부산 광안리 요트투어</i></a>
+    <nav class="nav">
+      <a href="#offer" data-i18n="nav1">투어</a>
+      <a href="#visit" data-i18n="nav2">탑승 안내</a>
+      <a href="mailto:yh@yachtholic.com" data-i18n="nav3">문의</a>
+    </nav>
+    <div class="langs" role="group" data-i18n-aria="lang_aria" aria-label="Language">
+      <button type="button" class="lang" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" class="lang is-on" data-lang="ko" aria-pressed="true">KO</button>
+      <button type="button" class="lang" data-lang="ja" aria-pressed="false">JA</button>
+      <button type="button" class="lang" data-lang="zh" aria-pressed="false">ZH</button>
+      <button type="button" class="lang" data-lang="es" aria-pressed="false">ES</button>
+      <button type="button" class="lang" data-lang="vi" aria-pressed="false">VI</button>
+    </div>
+    <a class="btn btn-sm" href="#visit" data-i18n="nav_cta">예약 문의</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="kicker" data-i18n="hero_kick">부산 광안리 해수욕장</div>
+        <h1 data-i18n="hero_title">광안대교를, <em>바다 위에서.</em></h1>
+        <p data-i18n="hero_lede">광안리 해수욕장에서 출발해 광안대교 아래를 지나 마린시티까지, 50분. 맥주와 다과, 사진 촬영 직원이 함께하며 낮·선셋·야경 시간대 중에 고르실 수 있습니다.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#offer" data-i18n="cta1">투어 보기</a>
+          <a class="btn btn-ghost" href="#visit" data-i18n="cta2">탑승 장소</a>
+        </div>
+      </div>
+      <div class="art" aria-hidden="true">
+        <div class="concept" data-i18n="concept_badge">Concept preview · Atelier Web</div>
+        <div class="art-note" data-i18n="art_note">50분, 다리 하나</div>
+        <div class="art-quote" data-i18n="art_quote">“다리와 바다, 그 뒤의 도시까지.”</div>
+        <div class="art-fact" data-i18n="art_fact">50분 · 광안리 → 광안대교 → 마린시티</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="offer">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow" data-i18n="sec1_kick">01 — 투어</div>
+        <h2 data-i18n="sec1_title">네 가지 시간대, 하나의 50분 코스.</h2>
+        <p data-i18n="sec1_lede">모든 투어는 광안리 해수욕장에서 출발해 같은 코스를 돕니다. 시간대에 따라 풍경이 완전히 달라집니다. 다과와 맥주, 음료는 선상에서 무료입니다.</p>
+      </div>
+      <div class="grid">
+        <article class="item"><div class="n">i1</div><h3 data-i18n="i1_n">주간 투어</h3><p data-i18n="i1_d">현재 시간표 기준 14:30, 16:30 출항이며 계절에 따라 조정됩니다. 물빛이 가장 맑고 아이와 첫 탑승객에게 편합니다.</p></article>
+        <article class="item"><div class="n">i2</div><h3 data-i18n="i2_n">선셋 투어</h3><p data-i18n="i2_d">가장 인기 있는 시간대. 밝은 바다로 나가 노을과 함께 돌아옵니다. 출항 15분 전까지 도착해 주세요.</p></article>
+        <article class="item"><div class="n">i3</div><h3 data-i18n="i3_n">야경 투어</h3><p data-i18n="i3_d">불이 들어온 광안대교와 마린시티 스카이라인, 선상에서 나눠 주는 폭죽까지.</p></article>
+        <article class="item"><div class="n">i4</div><h3 data-i18n="i4_n">드론쇼 투어</h3><p data-i18n="i4_d">토요일 한정, 광안리 드론쇼 시간에 맞춘 출항. 기상에 따라 달라지므로 예약 시 확인하세요.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="visit">
+    <div class="wrap visit">
+      <div>
+        <div class="eyebrow" data-i18n="sec2_kick">02 — 탑승과 운항</div>
+        <h2 data-i18n="sec2_title">오시는 길과 운항 시간.</h2>
+        <div style="margin-top:18px">
+          <div class="row"><b data-i18n="h1_l">문의 시간</b><span data-i18n="h1_v">매일 12:00 – 23:00</span></div>
+          <div class="row"><b data-i18n="h2_l">출항</b><span data-i18n="h2_v">주간 · 선셋 · 야경</span></div>
+          <div class="row"><b data-i18n="h3_l">최소 인원</b><span data-i18n="h3_v">회차당 4명</span></div>
+        </div>
+        <div class="blocks">
+          <div class="block"><b data-i18n="lbl_address">Address</b><span data-i18n="addr">부산광역시 수영구 광안해변로54번길 222, 광안리해양레포츠센터</span></div>
+          <div class="block"><b data-i18n="lbl_getting">Getting here</b><span data-i18n="transit">2호선 금련산역 3번 출구에서 도보 10분. 해변 도로변 유료 주차장을 이용하세요.</span></div>
+        </div>
+      </div>
+      <div class="contact">
+        <h3 data-i18n="contact_title" style="font-size:16px">Talk to us directly</h3>
+        <div style="margin-top:8px">
+          <div class="cline"><b data-i18n="lbl_email">Email</b><a href="mailto:yh@yachtholic.com">yh@yachtholic.com</a></div>
+          <div class="cline"><b data-i18n="lbl_phone">Phone</b><a href="tel:+8216009673">1600-9673</a></div>
+
+        </div>
+        <a class="btn" href="mailto:yh@yachtholic.com" data-i18n="cta_email">Write an email</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <strong>Yachtholic</strong>
+        <p data-i18n="foot_tagline">부산 광안리 해수욕장에서 출발하는 요트투어 — 광안대교 아래 주간·선셋·야경 운항.</p>
+        <p class="concept-note" data-i18n="concept_note">이 페이지는 Atelier Web이 제안용으로 만든 시안이며 Yachtholic의 공식 홈페이지가 아닙니다.</p>
+        <div class="credit">Concept preview prepared by Atelier Web (<a href="https://atelierweb-studio.github.io/" target="_blank" rel="noopener">atelierweb-studio.github.io</a>)</div>
+      </div>
+      <div>
+        <p style="font-family:var(--mono);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:#8E8677;margin:0" data-i18n="lbl_hours">Hours</p>
+        <p style="margin-top:8px;font-family:var(--mono);font-size:10px;line-height:1.9;color:#CBC3B3">12:00 – 23:00 · daily</p>
+        <p style="margin-top:10px;font-family:var(--mono);font-size:9px;color:#8E8677" data-i18n="foot_lang">EN · KO · JA · ZH · ES · VI</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Yachtholic · Busan · Gwangalli</span>
+      <span>© 2026 Atelier Web · concept</span>
+    </div>
+  </div>
+</footer>
+
+<noscript><div style="position:fixed;left:0;right:0;bottom:0;z-index:80;background:#15140F;color:#EEE9DF;font-family:monospace;font-size:9px;padding:9px 14px;text-align:center">JavaScript is off. Open this page in Safari or Chrome for the six-language switch.</div></noscript>
+
+<script>
+window.I18N = {"en":{"lang_aria":"Language","lbl_hours":"Hours","lbl_address":"Address","lbl_getting":"Getting here","lbl_email":"Email","lbl_phone":"Phone","lbl_messenger":"Message","concept_badge":"Concept preview · Atelier Web","concept_note":"This page is an unsolicited concept preview prepared by Atelier Web. It is not the official website of Yachtholic.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Talk to us directly","cta_email":"Write an email","brand_sub":"Gwangalli yacht tours · Busan","nav1":"Tours","nav2":"Boarding","nav3":"Contact","nav_cta":"Plan a ride","hero_kick":"Gwangalli Beach · Busan","hero_title":"The bridge, <em>from the water.</em>","hero_lede":"Fifty minutes out of Gwangalli Beach, under Gwangan Bridge and past Marine City. Beer, snacks and a photographer on board, with daytime, sunset and night departures.","cta1":"See the tours","cta2":"Boarding point","art_note":"Fifty minutes, one bridge","art_quote":"“The bridge, the bay, and the city behind it.”","art_fact":"50 min · Gwangalli → Gwangan Bridge → Marine City","sec1_kick":"01 — Tours","sec1_title":"Four departure times, one 50-minute course.","sec1_lede":"Every tour leaves from Gwangalli Beach and follows the same course; the hour of the day changes the whole picture. Snacks, beer and soft drinks are free on board.","i1_n":"Daytime tour","i1_d":"Daytime departures in the current timetable are 14:30 and 16:30; the schedule moves with the season. Clearest water — easiest with children and first-timers.","i2_n":"Sunset tour","i2_d":"The most requested slot: out in daylight, back as the sky turns. Be at the dock 15 minutes before departure.","i3_n":"Night tour","i3_d":"Gwangan Bridge lit up, the Marine City skyline, and fireworks handed out on board.","i4_n":"Drone show tour","i4_d":"Saturdays only, timed to the city's drone show over Gwangalli. Weather-dependent — ask when you book.","sec2_kick":"02 — Boarding and hours","sec2_title":"Where to find us, and when we sail.","h1_l":"Office hours","h1_v":"12:00 – 23:00 daily","h2_l":"Departures","h2_v":"Day · sunset · night","h3_l":"Minimum","h3_v":"4 guests per boat","addr":"Gwangalli Marine Leisure Centre, 222 Gwanganhaebyeon-ro 54beon-gil, Suyeong-gu, Busan","transit":"10 minutes on foot from Geumnyeonsan Station (Line 2), exit 3. Paid parking along the beach road.","foot_tagline":"Yacht tours from Gwangalli Beach, Busan — daytime, sunset and night departures under Gwangan Bridge."},"ko":{"lang_aria":"언어 선택","lbl_hours":"영업시간","lbl_address":"주소","lbl_getting":"오시는 길","lbl_email":"이메일","lbl_phone":"전화","lbl_messenger":"메신저","concept_badge":"시안 미리보기 · Atelier Web","concept_note":"이 페이지는 Atelier Web이 제안용으로 만든 시안이며 Yachtholic의 공식 홈페이지가 아닙니다.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"바로 연락하기","cta_email":"이메일 보내기","brand_sub":"부산 광안리 요트투어","nav1":"투어","nav2":"탑승 안내","nav3":"문의","nav_cta":"예약 문의","hero_kick":"부산 광안리 해수욕장","hero_title":"광안대교를, <em>바다 위에서.</em>","hero_lede":"광안리 해수욕장에서 출발해 광안대교 아래를 지나 마린시티까지, 50분. 맥주와 다과, 사진 촬영 직원이 함께하며 낮·선셋·야경 시간대 중에 고르실 수 있습니다.","cta1":"투어 보기","cta2":"탑승 장소","art_note":"50분, 다리 하나","art_quote":"“다리와 바다, 그 뒤의 도시까지.”","art_fact":"50분 · 광안리 → 광안대교 → 마린시티","sec1_kick":"01 — 투어","sec1_title":"네 가지 시간대, 하나의 50분 코스.","sec1_lede":"모든 투어는 광안리 해수욕장에서 출발해 같은 코스를 돕니다. 시간대에 따라 풍경이 완전히 달라집니다. 다과와 맥주, 음료는 선상에서 무료입니다.","i1_n":"주간 투어","i1_d":"현재 시간표 기준 14:30, 16:30 출항이며 계절에 따라 조정됩니다. 물빛이 가장 맑고 아이와 첫 탑승객에게 편합니다.","i2_n":"선셋 투어","i2_d":"가장 인기 있는 시간대. 밝은 바다로 나가 노을과 함께 돌아옵니다. 출항 15분 전까지 도착해 주세요.","i3_n":"야경 투어","i3_d":"불이 들어온 광안대교와 마린시티 스카이라인, 선상에서 나눠 주는 폭죽까지.","i4_n":"드론쇼 투어","i4_d":"토요일 한정, 광안리 드론쇼 시간에 맞춘 출항. 기상에 따라 달라지므로 예약 시 확인하세요.","sec2_kick":"02 — 탑승과 운항","sec2_title":"오시는 길과 운항 시간.","h1_l":"문의 시간","h1_v":"매일 12:00 – 23:00","h2_l":"출항","h2_v":"주간 · 선셋 · 야경","h3_l":"최소 인원","h3_v":"회차당 4명","addr":"부산광역시 수영구 광안해변로54번길 222, 광안리해양레포츠센터","transit":"2호선 금련산역 3번 출구에서 도보 10분. 해변 도로변 유료 주차장을 이용하세요.","foot_tagline":"부산 광안리 해수욕장에서 출발하는 요트투어 — 광안대교 아래 주간·선셋·야경 운항."},"ja":{"lang_aria":"言語","lbl_hours":"営業時間","lbl_address":"住所","lbl_getting":"アクセス","lbl_email":"メール","lbl_phone":"電話","lbl_messenger":"メッセージ","concept_badge":"コンセプトプレビュー · Atelier Web","concept_note":"このページは Atelier Web が提案用に制作したコンセプトで、Yachtholic の公式サイトではありません。","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"直接のご連絡","cta_email":"メールを書く","brand_sub":"釜山 広安里 ヨットツアー","nav1":"ツアー","nav2":"乗船案内","nav3":"お問い合わせ","nav_cta":"予約相談","hero_kick":"釜山 広安里（クァンアンリ）海水浴場","hero_title":"広安大橋を、<em>海の上から。</em>","hero_lede":"広安里海水浴場を出発し、広安大橋の下からマリンシティまで約50分。ビールと軽食、撮影スタッフが同乗し、昼・サンセット・夜景の時間帯から選べます。","cta1":"ツアーを見る","cta2":"乗船場所","art_note":"50分、ひとつの橋","art_quote":"「橋と海、その向こうの街まで。」","art_fact":"50分 · 広安里 → 広安大橋 → マリンシティ","sec1_kick":"01 — ツアー","sec1_title":"4つの時間帯、ひとつの50分コース。","sec1_lede":"どのツアーも広安里海水浴場を出発し、同じコースを周ります。時間帯によって景色はまったく変わります。軽食・ビール・飲み物は船内で無料です。","i1_n":"昼ツアー","i1_d":"現在の時刻表では14:30、16:30発（季節で変わります）。水の色が最も澄み、子どもや初めての方にも楽です。","i2_n":"サンセットツアー","i2_d":"最も人気の時間帯。明るい海に出て、夕暮れとともに戻ります。出航15分前までにお越しください。","i3_n":"夜景ツアー","i3_d":"灯りが入る広安大橋とマリンシティのスカイライン、船内で配られる花火も。","i4_n":"ドローンショーツアー","i4_d":"土曜限定、広安里のドローンショーに合わせた出航。天候により変わるため予約時にご確認ください。","sec2_kick":"02 — 乗船と運航","sec2_title":"場所と、運航の時間。","h1_l":"お問い合わせ時間","h1_v":"毎日 12:00 – 23:00","h2_l":"出航","h2_v":"昼 · サンセット · 夜景","h3_l":"最少人数","h3_v":"1回4名から","addr":"釜山広域市 水営区 広安海辺路54番キル 222、広安里海洋レジャーセンター","transit":"2号線クムニョンサン（金蓮山）駅3番出口から徒歩10分。海辺道路沿いの有料駐車場をご利用ください。","foot_tagline":"釜山・広安里海水浴場発のヨットツアー。広安大橋の下を昼・サンセット・夜景に運航します。"},"zh":{"lang_aria":"语言","lbl_hours":"营业时间","lbl_address":"地址","lbl_getting":"交通","lbl_email":"邮箱","lbl_phone":"电话","lbl_messenger":"消息","concept_badge":"方案预览 · Atelier Web","concept_note":"本页面是 Atelier Web 制作的概念方案，并非 Yachtholic 的官方网站。","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"直接联系","cta_email":"写邮件","brand_sub":"釜山广安里游艇游","nav1":"航线","nav2":"登船信息","nav3":"联系","nav_cta":"预约咨询","hero_kick":"釜山 广安里海水浴场","hero_title":"广安大桥，<em>从海上看。</em>","hero_lede":"从广安里海水浴场出发，穿过广安大桥下方，经 Marino City 返回，全程约 50 分钟。船上提供啤酒、小食与拍照服务，可选白天、日落、夜景三个时段。","cta1":"查看航线","cta2":"登船地点","art_note":"50 分钟，一座桥","art_quote":"“桥、海湾，以及它们身后的城市。”","art_fact":"50 分钟 · 广安里 → 广安大桥 → Marino City","sec1_kick":"01 — 航线","sec1_title":"四个时段，同一条 50 分钟航线。","sec1_lede":"所有班次都从广安里海水浴场出发，走同一条航线，时段不同风景完全不同。船上小食、啤酒与饮料免费。","i1_n":"白天班","i1_d":"现行时刻为 14:30、16:30（随季节调整）。水色最清，适合带小孩和第一次乘船的人。","i2_n":"日落班","i2_d":"最抢手的时段：天亮时出海，天色变化时回港。请提前 15 分钟到达码头。","i3_n":"夜景班","i3_d":"灯火亮起的广安大桥、Marino City 天际线，船上还会发放烟花。","i4_n":"无人机秀班","i4_d":"仅周六，配合广安里无人机秀出航。受天气影响，预约时请确认。","sec2_kick":"02 — 登船与运营","sec2_title":"地点与开航时间。","h1_l":"咨询时间","h1_v":"每天 12:00 – 23:00","h2_l":"开航","h2_v":"白天 · 日落 · 夜景","h3_l":"最低人数","h3_v":"每班 4 人起","addr":"釜山广域市水营区广安海边路54号街 222，广安里海洋休闲中心","transit":"地铁 2 号线金莲山站 3 号出口步行 10 分钟。海边道路沿线有收费停车场。","foot_tagline":"釜山广安里海水浴场出发的游艇游——白天、日落、夜景穿行广安大桥之下。"},"es":{"lang_aria":"Idioma","lbl_hours":"Horario","lbl_address":"Dirección","lbl_getting":"Cómo llegar","lbl_email":"Correo","lbl_phone":"Teléfono","lbl_messenger":"Mensaje","concept_badge":"Vista de concepto · Atelier Web","concept_note":"Esta página es una propuesta de concepto preparada por Atelier Web. No es el sitio oficial de Yachtholic.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Contacto directo","cta_email":"Escribir un correo","brand_sub":"Paseos en yate · Gwangalli, Busan","nav1":"Rutas","nav2":"Embarque","nav3":"Contacto","nav_cta":"Consultar","hero_kick":"Playa de Gwangalli · Busan","hero_title":"El puente, <em>desde el agua.</em>","hero_lede":"Cincuenta minutos desde la playa de Gwangalli, bajo el puente de Gwangan y hasta Marine City. Cerveza, aperitivos y fotógrafo a bordo, con salidas de día, al atardecer y de noche.","cta1":"Ver las rutas","cta2":"Punto de embarque","art_note":"Cincuenta minutos, un puente","art_quote":"«El puente, la bahía y la ciudad detrás.»","art_fact":"50 min · Gwangalli → puente de Gwangan → Marine City","sec1_kick":"01 — Rutas","sec1_title":"Cuatro horarios, un recorrido de 50 minutos.","sec1_lede":"Todas las salidas parten de la playa de Gwangalli y siguen el mismo recorrido; la hora del día cambia todo el paisaje. Aperitivos, cerveza y refrescos incluidos a bordo.","i1_n":"Salida de día","i1_d":"En el horario actual salen a las 14:30 y 16:30, con cambios según la temporada. El agua más clara: ideal con niños y para quien sube por primera vez.","i2_n":"Salida al atardecer","i2_d":"La franja más pedida: se sale con luz y se vuelve cuando el cielo cambia. Llega al muelle 15 minutos antes.","i3_n":"Salida nocturna","i3_d":"El puente de Gwangan iluminado, el perfil de Marine City y fuegos artificiales a bordo.","i4_n":"Salida con drones","i4_d":"Solo los sábados, coordinada con el espectáculo de drones de Gwangalli. Depende del tiempo; confirma al reservar.","sec2_kick":"02 — Embarque y horario","sec2_title":"Dónde estamos y cuándo zarpamos.","h1_l":"Atención","h1_v":"12:00 – 23:00 todos los días","h2_l":"Salidas","h2_v":"Día · atardecer · noche","h3_l":"Mínimo","h3_v":"4 personas por barco","addr":"Centro de Ocio Marino de Gwangalli, 222 Gwanganhaebyeon-ro 54beon-gil, Suyeong-gu, Busan","transit":"10 minutos a pie desde la estación Geumnyeonsan (línea 2), salida 3. Aparcamiento de pago junto a la playa.","foot_tagline":"Paseos en yate desde la playa de Gwangalli, Busan: salidas de día, al atardecer y de noche bajo el puente de Gwangan."},"vi":{"lang_aria":"Ngôn ngữ","lbl_hours":"Giờ mở cửa","lbl_address":"Địa chỉ","lbl_getting":"Đường đi","lbl_email":"Email","lbl_phone":"Điện thoại","lbl_messenger":"Tin nhắn","concept_badge":"Bản xem trước ý tưởng · Atelier Web","concept_note":"Trang này là bản phác thảo ý tưởng do Atelier Web thực hiện, không phải website chính thức của Yachtholic.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Liên hệ trực tiếp","cta_email":"Gửi email","brand_sub":"Tour du thuyền Gwangalli · Busan","nav1":"Hành trình","nav2":"Lên thuyền","nav3":"Liên hệ","nav_cta":"Hỏi lịch","hero_kick":"Bãi biển Gwangalli · Busan","hero_title":"Cây cầu, <em>nhìn từ mặt nước.</em>","hero_lede":"Năm mươi phút từ bãi biển Gwangalli, qua dưới cầu Gwangan và vòng qua Marine City. Có bia, đồ ăn nhẹ và nhân viên chụp ảnh trên thuyền; chọn khung giờ ban ngày, hoàng hôn hoặc ban đêm.","cta1":"Xem hành trình","cta2":"Điểm lên thuyền","art_note":"Năm mươi phút, một cây cầu","art_quote":"“Cây cầu, vịnh biển và thành phố phía sau.”","art_fact":"50 phút · Gwangalli → cầu Gwangan → Marine City","sec1_kick":"01 — Hành trình","sec1_title":"Bốn khung giờ, một hành trình 50 phút.","sec1_lede":"Mọi chuyến đều khởi hành từ bãi biển Gwangalli và đi cùng một hành trình; khung giờ khác nhau thì khung cảnh khác hẳn. Đồ ăn nhẹ, bia và nước ngọt miễn phí trên thuyền.","i1_n":"Chuyến ban ngày","i1_d":"Lịch hiện tại có chuyến 14:30 và 16:30, thay đổi theo mùa. Nước trong nhất, dễ chịu cho trẻ em và người đi lần đầu.","i2_n":"Chuyến hoàng hôn","i2_d":"Khung giờ được đặt nhiều nhất: ra khơi khi còn nắng, quay về lúc trời đổi màu. Có mặt trước giờ khởi hành 15 phút.","i3_n":"Chuyến ban đêm","i3_d":"Cầu Gwangan lên đèn, đường chân trời Marine City và pháo hoa phát trên thuyền.","i4_n":"Chuyến drone show","i4_d":"Chỉ thứ Bảy, canh đúng giờ trình diễn drone ở Gwangalli. Phụ thuộc thời tiết — hỏi khi đặt.","sec2_kick":"02 — Lên thuyền và giờ chạy","sec2_title":"Địa điểm và giờ khởi hành.","h1_l":"Giờ liên hệ","h1_v":"12:00 – 23:00 hằng ngày","h2_l":"Khởi hành","h2_v":"Ngày · hoàng hôn · đêm","h3_l":"Tối thiểu","h3_v":"4 khách mỗi chuyến","addr":"Trung tâm Thể thao Biển Gwangalli, 222 Gwanganhaebyeon-ro 54beon-gil, Suyeong-gu, Busan","transit":"Đi bộ 10 phút từ ga Geumnyeonsan (tuyến 2), cửa số 3. Có bãi đỗ xe thu phí dọc đường ven biển.","foot_tagline":"Tour du thuyền từ bãi biển Gwangalli, Busan — khung giờ ban ngày, hoàng hôn và ban đêm dưới cầu Gwangan."}};
+</script>
+<script>
+(function(){
+  var dict = window.I18N || {}, LANGS = ['en','ko','ja','zh','es','vi'], current = 'ko';
+  function t(k){
+    var pack = dict[current] || dict.en || {};
+    if (pack[k] !== undefined) return pack[k];
+    return (dict.en && dict.en[k] !== undefined) ? dict.en[k] : '';
+  }
+  function apply(lang){
+    if (LANGS.indexOf(lang) < 0) lang = 'en';
+    current = lang;
+    document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-Hans' : lang);
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n'));
+      if (v !== '') el.innerHTML = v;
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n-aria'));
+      if (v !== '') el.setAttribute('aria-label', v);
+    });
+    document.querySelectorAll('.lang').forEach(function(b){
+      var on = b.getAttribute('data-lang') === lang;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    try { localStorage.setItem('aw_concept_lang', lang); } catch(e) {}
+  }
+  document.querySelectorAll('.lang').forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.getAttribute('data-lang')); });
+  });
+  var saved = null;
+  try { saved = localStorage.getItem('aw_concept_lang'); } catch(e) {}
+  if (LANGS.indexOf(saved) < 0) saved = 'ko';
+  apply(saved);
+})();
+</script>
+</body>
+</html>

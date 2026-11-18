@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko" data-lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MIDO Hostel — 제주 서귀포 게스트하우스 (개념 시안)</title>
+<meta name="description" content="Concept preview for MIDO Hostel, a backpackers' hostel in Seogwipo, Jeju, with a six-language switch.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#7A3B2A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230F0E0B'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='13' fill='%23F5F1E8' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#F7F5EF; --bg2:#EFEBE1; --card:#FFFFFF; --ink:#15140F; --ink2:#43403A;
+    --muted:#787264; --line:rgba(21,20,15,.14); --accent:#8C5A2B; --accent2:#2E4038;
+    --tint:rgba(140,90,43,.08);
+    --serif:"New York",ui-serif,"Iowan Old Style","Palatino Linotype",Georgia,"Noto Serif KR",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Pretendard",Roboto,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --r:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  h1,h2,h3{margin:0;font-family:var(--serif);font-weight:400;letter-spacing:-.01em}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+  .eyebrow{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+  .topbar{position:fixed;inset:0 0 auto;z-index:50;background:var(--bg);background:color-mix(in srgb,var(--bg) 93%,transparent);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .topbar-in{max-width:1140px;margin:0 auto;padding:11px 28px;display:flex;align-items:center;gap:22px}
+  .brand{display:flex;flex-direction:column;line-height:1}
+  .brand strong{font-family:var(--serif);font-weight:400;font-size:20px;letter-spacing:.01em}
+  .brand i{font-style:normal;font-family:var(--mono);font-size:7.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .nav{display:flex;gap:18px}
+  .nav a{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);
+    padding-bottom:3px;border-bottom:1px solid transparent}
+  .nav a:hover{color:var(--accent);border-color:var(--accent)}
+  .langs{display:flex;gap:5px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+  .langs::-webkit-scrollbar{display:none}
+  .lang{font-family:var(--mono);font-size:9.5px;border:1px solid var(--line);border-radius:99px;padding:6px 8px;
+    white-space:nowrap;color:var(--ink2);transition:.16s}
+  .lang:hover{border-color:var(--accent);color:var(--accent)}
+  .lang.is-on{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent2);color:#fff;border:1px solid var(--accent2);
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;padding:12px 18px;border-radius:99px;transition:.18s}
+  .btn:hover{background:var(--accent);border-color:var(--accent)}
+  .btn-sm{padding:9px 14px;font-size:8.5px;flex:0 0 auto}
+  .btn-ghost{background:transparent;color:var(--accent2);border-color:var(--line)}
+  .btn-ghost:hover{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+
+  .hero{padding:132px 0 60px}
+  .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:48px;align-items:center}
+  .kicker{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  h1{margin-top:16px;font-size:clamp(36px,4.8vw,58px);line-height:1.05}
+  h1 em{font-style:italic;color:var(--accent)}
+  .hero p{margin:18px 0 0;font-size:15.5px;line-height:1.7;color:var(--ink2);max-width:46ch}
+  .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+  .art{position:relative;border-radius:20px;overflow:hidden;min-height:360px;border:1px solid var(--line);
+    background:linear-gradient(168deg,var(--bg2),var(--bg));
+    background-image:linear-gradient(168deg,var(--bg2),color-mix(in srgb,var(--accent) 12%,var(--bg2)))}
+  .art::before{content:"";position:absolute;width:280px;height:280px;border-radius:50%;left:-50px;top:-70px;
+    border:1px solid var(--line);border-color:color-mix(in srgb,var(--accent) 30%,transparent)}
+  .art::after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-30px;bottom:70px;
+    background:radial-gradient(circle at 35% 30%,#fff,transparent 70%)}
+  .art-note{position:absolute;left:22px;top:22px;font-family:var(--mono);font-size:8px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--accent)}
+  .art-quote{position:absolute;left:22px;right:22px;top:46%;transform:translateY(-50%);font-family:var(--serif);
+    font-size:23px;line-height:1.28;color:var(--accent2);max-width:24ch}
+  .art-fact{position:absolute;left:22px;right:22px;bottom:20px;background:rgba(255,255,255,.86);border-radius:12px;
+    padding:12px 14px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);
+    box-shadow:0 12px 26px -20px rgba(21,20,15,.5)}
+  .concept{position:absolute;right:16px;top:16px;background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:99px;
+    padding:5px 10px;font-family:var(--mono);font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+  .sec{padding:58px 0;border-top:1px solid var(--line)}
+  .sec-head{margin-bottom:26px;max-width:62ch}
+  h2{font-size:clamp(25px,3vw,36px);line-height:1.12;margin-top:10px}
+  .sec-head p{margin:10px 0 0;font-size:13px;line-height:1.65;color:var(--muted)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .item{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;transition:.2s}
+  .item:hover{border-color:var(--accent);box-shadow:0 16px 30px -26px rgba(21,20,15,.5)}
+  .item .n{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--accent)}
+  .item h3{font-size:18px;margin-top:8px;line-height:1.28}
+  .item p{margin:8px 0 0;font-size:12px;line-height:1.62;color:var(--muted)}
+
+  .visit{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .row{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .row b{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .row span{font-family:var(--mono);font-size:10.5px;color:var(--ink2);text-align:right}
+  .blocks{margin-top:18px}
+  .block{margin-top:14px}
+  .block b{display:block;font-family:var(--mono);font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .block span{display:block;margin-top:5px;font-size:12.5px;line-height:1.65;color:var(--ink2)}
+  .contact{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;align-self:start}
+  .contact h3{font-size:19px}
+  .cline{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .cline:last-of-type{border-bottom:0}
+  .cline b{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .cline a{font-size:12px;color:var(--accent2);border-bottom:1px solid var(--line);border-bottom-color:color-mix(in srgb,var(--accent) 50%,transparent);
+    text-underline-offset:2px;word-break:break-all}
+  .contact .btn{margin-top:16px;width:100%;justify-content:center}
+
+  footer{background:var(--ink);color:#EEE9DF;padding:44px 0 26px;margin-top:14px}
+  .foot{display:grid;grid-template-columns:1.4fr .6fr;gap:26px}
+  .foot strong{font-family:var(--serif);font-weight:400;font-size:19px}
+  .foot p{margin:12px 0 0;font-size:10.5px;line-height:1.7;color:#B6AE9E;max-width:52ch}
+  .foot .credit{margin-top:14px;font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;color:#D8D0C0}
+  .foot .credit a{border-bottom:1px solid rgba(216,208,192,.5)}
+  .foot-bottom{margin-top:24px;padding-top:14px;border-top:1px solid rgba(238,233,223,.16);display:flex;
+    justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:8px;letter-spacing:.1em;
+    text-transform:uppercase;color:#9A9282}
+  .foot .concept-note{font-size:10px;line-height:1.6;color:#9A9282;max-width:60ch}
+
+  @media (max-width:960px){
+    .nav{display:none}
+    .hero{padding-top:112px}
+    .hero-grid,.visit,.grid{grid-template-columns:1fr;gap:26px}
+    .foot{grid-template-columns:1fr}
+    .topbar-in{flex-wrap:wrap;gap:10px}
+    .langs{order:3;width:100%;margin-left:0}
+    .btn-sm{margin-left:auto}
+    .art{min-height:320px}
+  }
+  @media (max-width:600px){
+    .wrap,.topbar-in{padding-left:18px;padding-right:18px}
+    .art-quote{font-size:20px}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="#top"><strong>MIDO Hostel</strong><i data-i18n="brand_sub">제주 서귀포 게스트하우스</i></a>
+    <nav class="nav">
+      <a href="#offer" data-i18n="nav1">객실</a>
+      <a href="#visit" data-i18n="nav2">체크인 안내</a>
+      <a href="mailto:midohostel@gmail.com" data-i18n="nav3">문의</a>
+    </nav>
+    <div class="langs" role="group" data-i18n-aria="lang_aria" aria-label="Language">
+      <button type="button" class="lang" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" class="lang is-on" data-lang="ko" aria-pressed="true">KO</button>
+      <button type="button" class="lang" data-lang="ja" aria-pressed="false">JA</button>
+      <button type="button" class="lang" data-lang="zh" aria-pressed="false">ZH</button>
+      <button type="button" class="lang" data-lang="es" aria-pressed="false">ES</button>
+      <button type="button" class="lang" data-lang="vi" aria-pressed="false">VI</button>
+    </div>
+    <a class="btn btn-sm" href="#visit" data-i18n="nav_cta">예약 문의</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="kicker" data-i18n="hero_kick">제주 서귀포 구시가지</div>
+        <h1 data-i18n="hero_title">여행자 공화국, <em>항구에서 5분.</em></h1>
+        <p data-i18n="hero_lede">4인부터 12인까지 도미토리, 개인실 싱글·더블, 조식과 웰컴드링크까지 포함. 시장과 항구, 올레길이 모두 걸어서 닿는 거리에서 시작됩니다.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#offer" data-i18n="cta1">객실 보기</a>
+          <a class="btn btn-ghost" href="#visit" data-i18n="cta2">체크인·오시는 길</a>
+        </div>
+      </div>
+      <div class="art" aria-hidden="true">
+        <div class="concept" data-i18n="concept_badge">Concept preview · Atelier Web</div>
+        <div class="art-note" data-i18n="art_note">조식과 웰컴드링크</div>
+        <div class="art-quote" data-i18n="art_quote">“침대 하나, 샤워 하나, 카운터의 맥주 한 잔 — 그리고 문 밖의 섬.”</div>
+        <div class="art-fact" data-i18n="art_fact">도미토리 · 개인실 · 테라스 트리플 · 도미토리 만 12세부터</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="offer">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow" data-i18n="sec1_kick">01 — 객실</div>
+        <h2 data-i18n="sec1_title">네 가지 객실, 하나의 원칙.</h2>
+        <p data-i18n="sec1_lede">도미토리는 성별로 나뉘고, 침대마다 커튼과 콘센트, 사물함이 있습니다. 요금은 계절에 따라 달라지니 날짜를 알려주시면 그 날짜 기준으로 안내드립니다.</p>
+      </div>
+      <div class="grid">
+        <article class="item"><div class="n">i1</div><h3 data-i18n="i1_n">도미토리 4·6·8·12인실</h3><p data-i18n="i1_d">침대마다 개인 커튼, 콘센트 2구, 멀티 USB 충전 포트, 무료 개인 사물함.</p></article>
+        <article class="item"><div class="n">i2</div><h3 data-i18n="i2_n">개인실 더블·트윈</h3><p data-i18n="i2_d">개별 욕실, 냉장고, 헤어드라이어, 크롬캐스트. 건물의 조용한 쪽에 있습니다.</p></article>
+        <article class="item"><div class="n">i3</div><h3 data-i18n="i3_n">테라스 트리플</h3><p data-i18n="i3_d">침대 세 개와 작은 테라스. 48개월 이하 아동은 보호자 동반 시 무료입니다.</p></article>
+        <article class="item"><div class="n">i4</div><h3 data-i18n="i4_n">조식과 웰컴드링크</h3><p data-i18n="i4_d">07:30부터 빵과 샐러드, 커피. 카운터에서 포터·페일에일·아메리카노 중 한 잔을 드립니다.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="visit">
+    <div class="wrap visit">
+      <div>
+        <div class="eyebrow" data-i18n="sec2_kick">02 — 체크인과 오시는 길</div>
+        <h2 data-i18n="sec2_title">언제 도착하면 되고, 어떻게 걸어오면 되는지.</h2>
+        <div style="margin-top:18px">
+          <div class="row"><b data-i18n="h1_l">체크인</b><span data-i18n="h1_v">15:00 – 23:00</span></div>
+          <div class="row"><b data-i18n="h2_l">체크아웃</b><span data-i18n="h2_v">11:00</span></div>
+          <div class="row"><b data-i18n="h3_l">조식</b><span data-i18n="h3_v">07:30 – 09:00</span></div>
+        </div>
+        <div class="blocks">
+          <div class="block"><b data-i18n="lbl_address">Address</b><span data-i18n="addr">제주특별자치도 서귀포시 동문동로 13-1 (서귀동 258-2)</span></div>
+          <div class="block"><b data-i18n="lbl_getting">Getting here</b><span data-i18n="transit">동문로터리에서 도보 3~4분. 소방서·시민회관 공영주차장 무료, 도보 5분.</span></div>
+        </div>
+      </div>
+      <div class="contact">
+        <h3 data-i18n="contact_title" style="font-size:16px">Talk to us directly</h3>
+        <div style="margin-top:8px">
+          <div class="cline"><b data-i18n="lbl_email">Email</b><a href="mailto:midohostel@gmail.com">midohostel@gmail.com</a></div>
+          <div class="cline"><b data-i18n="lbl_phone">Phone</b><a href="tel:+82647627627">064-762-7627</a></div>
+          <div class="cline"><b data-i18n="lbl_messenger">Message</b><span style="font-size:12px;color:var(--ink2)">KakaoTalk · midohostel</span></div>
+        </div>
+        <a class="btn" href="mailto:midohostel@gmail.com" data-i18n="cta_email">Write an email</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <strong>MIDO Hostel</strong>
+        <p data-i18n="foot_tagline">제주 서귀포 구시가지의 게스트하우스 — 도미토리와 개인실, 조식 포함, 시장과 항구까지 도보 5분.</p>
+        <p class="concept-note" data-i18n="concept_note">이 페이지는 Atelier Web이 제안용으로 만든 시안이며 MIDO Hostel의 공식 홈페이지가 아닙니다.</p>
+        <div class="credit">Concept preview prepared by Atelier Web (<a href="https://atelierweb-studio.github.io/" target="_blank" rel="noopener">atelierweb-studio.github.io</a>)</div>
+      </div>
+      <div>
+        <p style="font-family:var(--mono);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:#8E8677;margin:0" data-i18n="lbl_hours">Hours</p>
+        <p style="margin-top:8px;font-family:var(--mono);font-size:10px;line-height:1.9;color:#CBC3B3">Front desk 09:00 – 23:00</p>
+        <p style="margin-top:10px;font-family:var(--mono);font-size:9px;color:#8E8677" data-i18n="foot_lang">EN · KO · JA · ZH · ES · VI</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>MIDO Hostel · Jeju · Seogwipo</span>
+      <span>© 2026 Atelier Web · concept</span>
+    </div>
+  </div>
+</footer>
+
+<noscript><div style="position:fixed;left:0;right:0;bottom:0;z-index:80;background:#15140F;color:#EEE9DF;font-family:monospace;font-size:9px;padding:9px 14px;text-align:center">JavaScript is off. Open this page in Safari or Chrome for the six-language switch.</div></noscript>
+
+<script>
+window.I18N = {"en":{"lang_aria":"Language","lbl_hours":"Hours","lbl_address":"Address","lbl_getting":"Getting here","lbl_email":"Email","lbl_phone":"Phone","lbl_messenger":"Message","concept_badge":"Concept preview · Atelier Web","concept_note":"This page is an unsolicited concept preview prepared by Atelier Web. It is not the official website of MIDO Hostel.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Talk to us directly","cta_email":"Write an email","brand_sub":"Backpackers' hostel · Seogwipo, Jeju","nav1":"Rooms","nav2":"Check-in","nav3":"Contact","nav_cta":"Ask for a bed","hero_kick":"Seogwipo old town · Jeju","hero_title":"A travellers' republic, <em>five minutes from the harbour.</em>","hero_lede":"Dorms of four to twelve beds, private singles and doubles, breakfast and a welcome drink included. The market, the harbour and the Olle trail all start within a short walk.","cta1":"See the rooms","cta2":"Check-in and directions","art_note":"Breakfast and a welcome drink","art_quote":"“A bed, a shower, a beer at the counter — and the island outside.”","art_fact":"Dorm · private · terrace triple · dorms from age 12","sec1_kick":"01 — Rooms","sec1_title":"Four room types, one simple idea.","sec1_lede":"Dorms are separated by gender and every bed has its own curtain, sockets and locker. Rates move with the season — tell us your dates and we will send the price for those nights.","i1_n":"Dormitory 4 · 6 · 8 · 12","i1_d":"Bunk bed with a private curtain, two sockets and a multi-USB point at each bed, plus a free locker.","i2_n":"Private double and twin","i2_d":"Own bathroom, fridge, hair dryer and Chromecast. On the quiet side of the building.","i3_n":"Terrace triple","i3_d":"Three beds and a small terrace. Children under 48 months stay free with a guardian.","i4_n":"Breakfast and welcome drink","i4_d":"Bread, salad and coffee from 07:30, plus one drink at the counter: porter, pale ale or americano.","sec2_kick":"02 — Check-in and directions","sec2_title":"When to arrive, and how to walk in.","h1_l":"Check-in","h1_v":"15:00 – 23:00","h2_l":"Check-out","h2_v":"11:00","h3_l":"Breakfast","h3_v":"07:30 – 09:00","addr":"13-1 Dongmundong-ro, Seogwipo-si, Jeju (258-2 Seogwi-dong)","transit":"3–4 minutes on foot from Dongmun rotary. Free public parking at the fire station and civic centre, five minutes away.","foot_tagline":"Hostel in Seogwipo old town, Jeju — dorms and private rooms, breakfast included, five minutes from the market and harbour."},"ko":{"lang_aria":"언어 선택","lbl_hours":"영업시간","lbl_address":"주소","lbl_getting":"오시는 길","lbl_email":"이메일","lbl_phone":"전화","lbl_messenger":"메신저","concept_badge":"시안 미리보기 · Atelier Web","concept_note":"이 페이지는 Atelier Web이 제안용으로 만든 시안이며 MIDO Hostel의 공식 홈페이지가 아닙니다.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"바로 연락하기","cta_email":"이메일 보내기","brand_sub":"제주 서귀포 게스트하우스","nav1":"객실","nav2":"체크인 안내","nav3":"문의","nav_cta":"예약 문의","hero_kick":"제주 서귀포 구시가지","hero_title":"여행자 공화국, <em>항구에서 5분.</em>","hero_lede":"4인부터 12인까지 도미토리, 개인실 싱글·더블, 조식과 웰컴드링크까지 포함. 시장과 항구, 올레길이 모두 걸어서 닿는 거리에서 시작됩니다.","cta1":"객실 보기","cta2":"체크인·오시는 길","art_note":"조식과 웰컴드링크","art_quote":"“침대 하나, 샤워 하나, 카운터의 맥주 한 잔 — 그리고 문 밖의 섬.”","art_fact":"도미토리 · 개인실 · 테라스 트리플 · 도미토리 만 12세부터","sec1_kick":"01 — 객실","sec1_title":"네 가지 객실, 하나의 원칙.","sec1_lede":"도미토리는 성별로 나뉘고, 침대마다 커튼과 콘센트, 사물함이 있습니다. 요금은 계절에 따라 달라지니 날짜를 알려주시면 그 날짜 기준으로 안내드립니다.","i1_n":"도미토리 4·6·8·12인실","i1_d":"침대마다 개인 커튼, 콘센트 2구, 멀티 USB 충전 포트, 무료 개인 사물함.","i2_n":"개인실 더블·트윈","i2_d":"개별 욕실, 냉장고, 헤어드라이어, 크롬캐스트. 건물의 조용한 쪽에 있습니다.","i3_n":"테라스 트리플","i3_d":"침대 세 개와 작은 테라스. 48개월 이하 아동은 보호자 동반 시 무료입니다.","i4_n":"조식과 웰컴드링크","i4_d":"07:30부터 빵과 샐러드, 커피. 카운터에서 포터·페일에일·아메리카노 중 한 잔을 드립니다.","sec2_kick":"02 — 체크인과 오시는 길","sec2_title":"언제 도착하면 되고, 어떻게 걸어오면 되는지.","h1_l":"체크인","h1_v":"15:00 – 23:00","h2_l":"체크아웃","h2_v":"11:00","h3_l":"조식","h3_v":"07:30 – 09:00","addr":"제주특별자치도 서귀포시 동문동로 13-1 (서귀동 258-2)","transit":"동문로터리에서 도보 3~4분. 소방서·시민회관 공영주차장 무료, 도보 5분.","foot_tagline":"제주 서귀포 구시가지의 게스트하우스 — 도미토리와 개인실, 조식 포함, 시장과 항구까지 도보 5분."},"ja":{"lang_aria":"言語","lbl_hours":"営業時間","lbl_address":"住所","lbl_getting":"アクセス","lbl_email":"メール","lbl_phone":"電話","lbl_messenger":"メッセージ","concept_badge":"コンセプトプレビュー · Atelier Web","concept_note":"このページは Atelier Web が提案用に制作したコンセプトで、MIDO Hostel の公式サイトではありません。","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"直接のご連絡","cta_email":"メールを書く","brand_sub":"済州 西帰浦 ゲストハウス","nav1":"客室","nav2":"チェックイン","nav3":"お問い合わせ","nav_cta":"予約相談","hero_kick":"済州 西帰浦 旧市街","hero_title":"旅人の共和国、<em>港から徒歩5分。</em>","hero_lede":"4人部屋から12人部屋のドミトリー、個室のシングルとダブル、朝食とウェルカムドリンク付き。市場も港もオレ道も、歩いて行ける距離から始まります。","cta1":"客室を見る","cta2":"チェックインとアクセス","art_note":"朝食とウェルカムドリンク","art_quote":"「ベッドとシャワー、カウンターのビール一杯 — そして扉の外には島。」","art_fact":"ドミトリー · 個室 · テラス3人部屋 · ドミトリーは12歳から","sec1_kick":"01 — 客室","sec1_title":"4つの部屋、ひとつの考え方。","sec1_lede":"ドミトリーは男女別で、ベッドごとにカーテン、コンセント、ロッカーがあります。料金は季節で変わるため、日程をお知らせいただければその日の料金をご案内します。","i1_n":"ドミトリー 4・6・8・12人","i1_d":"ベッドごとに個別カーテン、コンセント2口、マルチUSB充電、無料ロッカー付き。","i2_n":"個室ダブル・ツイン","i2_d":"専用バスルーム、冷蔵庫、ドライヤー、Chromecast。建物の静かな側です。","i3_n":"テラス3人部屋","i3_d":"ベッド3台と小さなテラス。48か月以下の子どもは保護者同伴で無料です。","i4_n":"朝食とウェルカムドリンク","i4_d":"7:30からパンとサラダ、コーヒー。カウンターでポーター、ペールエール、アメリカーノから一杯。","sec2_kick":"02 — チェックインとアクセス","sec2_title":"到着の時間と、歩き方。","h1_l":"チェックイン","h1_v":"15:00 – 23:00","h2_l":"チェックアウト","h2_v":"11:00","h3_l":"朝食","h3_v":"07:30 – 09:00","addr":"済州特別自治道 西帰浦市 東門洞路 13-1（西帰洞 258-2）","transit":"東門ロータリーから徒歩3〜4分。消防署・市民会館の公共駐車場が無料、徒歩5分。","foot_tagline":"済州・西帰浦旧市街のゲストハウス。ドミトリーと個室、朝食付き、市場と港まで徒歩5分。"},"zh":{"lang_aria":"语言","lbl_hours":"营业时间","lbl_address":"地址","lbl_getting":"交通","lbl_email":"邮箱","lbl_phone":"电话","lbl_messenger":"消息","concept_badge":"方案预览 · Atelier Web","concept_note":"本页面是 Atelier Web 制作的概念方案，并非 MIDO Hostel 的官方网站。","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"直接联系","cta_email":"写邮件","brand_sub":"济州西归浦青年旅舍","nav1":"房型","nav2":"入住信息","nav3":"联系","nav_cta":"询问床位","hero_kick":"济州 西归浦老城区","hero_title":"旅行者共和国，<em>距港口步行 5 分钟。</em>","hero_lede":"4 至 12 人多人间，单人、双人独立房，含早餐与欢迎饮品。市场、港口和偶来小路都在步行范围内。","cta1":"查看房型","cta2":"入住与交通","art_note":"含早餐与欢迎饮品","art_quote":"“一张床、一个淋浴、吧台一杯啤酒——门外就是岛。”","art_fact":"多人间 · 独立房 · 露台三人房 · 多人间 12 岁起","sec1_kick":"01 — 房型","sec1_title":"四种房型，一个原则。","sec1_lede":"多人间男女分开，每个床位都有独立床帘、插座与储物柜。房价随季节变化，告诉我们日期，我们按那几晚报价。","i1_n":"多人间 4·6·8·12 人","i1_d":"每个床位配独立床帘、两个插座、多口 USB 充电与免费储物柜。","i2_n":"独立双人房·双床房","i2_d":"独立卫浴、冰箱、吹风机、Chromecast，位于楼内安静一侧。","i3_n":"露台三人房","i3_d":"三张床与一个小露台。48 个月以下儿童由监护人陪同免费。","i4_n":"早餐与欢迎饮品","i4_d":"07:30 起供应面包、沙拉与咖啡，吧台另赠一杯：黑啤、淡艾尔或美式咖啡。","sec2_kick":"02 — 入住与交通","sec2_title":"几点到，怎么走进来。","h1_l":"入住","h1_v":"15:00 – 23:00","h2_l":"退房","h2_v":"11:00","h3_l":"早餐","h3_v":"07:30 – 09:00","addr":"济州特别自治道西归浦市东门洞路 13-1（西归洞 258-2）","transit":"距东门环岛步行 3–4 分钟。消防署与市民会馆公共停车场免费，步行 5 分钟。","foot_tagline":"济州西归浦老城区的青年旅舍——多人间与独立房，含早餐，距市场与港口步行 5 分钟。"},"es":{"lang_aria":"Idioma","lbl_hours":"Horario","lbl_address":"Dirección","lbl_getting":"Cómo llegar","lbl_email":"Correo","lbl_phone":"Teléfono","lbl_messenger":"Mensaje","concept_badge":"Vista de concepto · Atelier Web","concept_note":"Esta página es una propuesta de concepto preparada por Atelier Web. No es el sitio oficial de MIDO Hostel.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Contacto directo","cta_email":"Escribir un correo","brand_sub":"Albergue · Seogwipo, Jeju","nav1":"Habitaciones","nav2":"Llegada","nav3":"Contacto","nav_cta":"Consultar cama","hero_kick":"Casco antiguo de Seogwipo · Jeju","hero_title":"Una república de viajeros, <em>a cinco minutos del puerto.</em>","hero_lede":"Dormitorios de cuatro a doce camas, habitaciones privadas individuales y dobles, desayuno y bebida de bienvenida incluidos. El mercado, el puerto y el sendero Olle empiezan a un paseo corto.","cta1":"Ver habitaciones","cta2":"Llegada y cómo llegar","art_note":"Desayuno y bebida de bienvenida","art_quote":"«Una cama, una ducha, una cerveza en la barra y la isla afuera.»","art_fact":"Dormitorio · privada · triple con terraza · dormitorios desde 12 años","sec1_kick":"01 — Habitaciones","sec1_title":"Cuatro tipos, una misma idea.","sec1_lede":"Los dormitorios están separados por sexo y cada cama tiene cortina, enchufes y taquilla. Las tarifas cambian con la temporada: dinos las fechas y te pasamos el precio de esas noches.","i1_n":"Dormitorio 4 · 6 · 8 · 12","i1_d":"Litera con cortina propia, dos enchufes y toma USB múltiple en cada cama, más taquilla gratuita.","i2_n":"Doble y twin privadas","i2_d":"Baño propio, nevera, secador y Chromecast. En el lado tranquilo del edificio.","i3_n":"Triple con terraza","i3_d":"Tres camas y una terraza pequeña. Los menores de 48 meses se alojan gratis con un adulto.","i4_n":"Desayuno y bebida de bienvenida","i4_d":"Pan, ensalada y café desde las 07:30, más una bebida en la barra: porter, pale ale o americano.","sec2_kick":"02 — Llegada y cómo llegar","sec2_title":"A qué hora llegar y cómo entrar.","h1_l":"Entrada","h1_v":"15:00 – 23:00","h2_l":"Salida","h2_v":"11:00","h3_l":"Desayuno","h3_v":"07:30 – 09:00","addr":"13-1 Dongmundong-ro, Seogwipo-si, Jeju (258-2 Seogwi-dong)","transit":"3–4 minutos a pie de la rotonda de Dongmun. Aparcamiento público gratuito en el parque de bomberos y el centro cívico, a cinco minutos.","foot_tagline":"Albergue en el casco antiguo de Seogwipo, Jeju: dormitorios y habitaciones privadas, desayuno incluido, a cinco minutos del mercado y del puerto."},"vi":{"lang_aria":"Ngôn ngữ","lbl_hours":"Giờ mở cửa","lbl_address":"Địa chỉ","lbl_getting":"Đường đi","lbl_email":"Email","lbl_phone":"Điện thoại","lbl_messenger":"Tin nhắn","concept_badge":"Bản xem trước ý tưởng · Atelier Web","concept_note":"Trang này là bản phác thảo ý tưởng do Atelier Web thực hiện, không phải website chính thức của MIDO Hostel.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Liên hệ trực tiếp","cta_email":"Gửi email","brand_sub":"Nhà nghỉ thanh niên · Seogwipo, Jeju","nav1":"Phòng","nav2":"Nhận phòng","nav3":"Liên hệ","nav_cta":"Hỏi giường","hero_kick":"Trung tâm cũ Seogwipo · Jeju","hero_title":"Một nước cộng hoà của người đi đường, <em>cách cảng 5 phút.</em>","hero_lede":"Phòng tập thể 4 đến 12 giường, phòng riêng đơn và đôi, kèm bữa sáng và đồ uống chào mừng. Chợ, cảng và đường mòn Olle đều nằm trong khoảng đi bộ ngắn.","cta1":"Xem phòng","cta2":"Nhận phòng và đường đi","art_note":"Bữa sáng và đồ uống chào mừng","art_quote":"“Một chiếc giường, một vòi sen, một cốc bia ở quầy — và hòn đảo ngoài kia.”","art_fact":"Tập thể · phòng riêng · ba giường có sân · tập thể từ 12 tuổi","sec1_kick":"01 — Phòng","sec1_title":"Bốn kiểu phòng, một nguyên tắc.","sec1_lede":"Phòng tập thể chia theo giới tính, mỗi giường có rèm riêng, ổ cắm và tủ khoá. Giá thay đổi theo mùa — cho chúng tôi ngày ở, chúng tôi báo giá đúng những đêm đó.","i1_n":"Tập thể 4 · 6 · 8 · 12","i1_d":"Giường tầng có rèm riêng, hai ổ cắm và cổng USB đa năng, kèm tủ khoá miễn phí.","i2_n":"Phòng đôi và hai giường riêng","i2_d":"Phòng tắm riêng, tủ lạnh, máy sấy tóc và Chromecast. Nằm ở phía yên tĩnh của toà nhà.","i3_n":"Phòng ba giường có sân","i3_d":"Ba giường và sân nhỏ. Trẻ dưới 48 tháng ở miễn phí khi đi cùng người giám hộ.","i4_n":"Bữa sáng và đồ uống chào mừng","i4_d":"Bánh mì, salad và cà phê từ 07:30, kèm một ly tại quầy: porter, pale ale hoặc americano.","sec2_kick":"02 — Nhận phòng và đường đi","sec2_title":"Mấy giờ đến, và đi bộ vào thế nào.","h1_l":"Nhận phòng","h1_v":"15:00 – 23:00","h2_l":"Trả phòng","h2_v":"11:00","h3_l":"Bữa sáng","h3_v":"07:30 – 09:00","addr":"13-1 Dongmundong-ro, Seogwipo-si, Jeju (258-2 Seogwi-dong)","transit":"Đi bộ 3–4 phút từ vòng xoay Dongmun. Bãi đỗ xe công cộng miễn phí ở trạm cứu hoả và trung tâm hành chính, cách 5 phút đi bộ.","foot_tagline":"Nhà nghỉ ở trung tâm cũ Seogwipo, Jeju — phòng tập thể và phòng riêng, có bữa sáng, cách chợ và cảng 5 phút đi bộ."}};
+</script>
+<script>
+(function(){
+  var dict = window.I18N || {}, LANGS = ['en','ko','ja','zh','es','vi'], current = 'ko';
+  function t(k){
+    var pack = dict[current] || dict.en || {};
+    if (pack[k] !== undefined) return pack[k];
+    return (dict.en && dict.en[k] !== undefined) ? dict.en[k] : '';
+  }
+  function apply(lang){
+    if (LANGS.indexOf(lang) < 0) lang = 'en';
+    current = lang;
+    document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-Hans' : lang);
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n'));
+      if (v !== '') el.innerHTML = v;
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n-aria'));
+      if (v !== '') el.setAttribute('aria-label', v);
+    });
+    document.querySelectorAll('.lang').forEach(function(b){
+      var on = b.getAttribute('data-lang') === lang;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    try { localStorage.setItem('aw_concept_lang', lang); } catch(e) {}
+  }
+  document.querySelectorAll('.lang').forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.getAttribute('data-lang')); });
+  });
+  var saved = null;
+  try { saved = localStorage.getItem('aw_concept_lang'); } catch(e) {}
+  if (LANGS.indexOf(saved) < 0) saved = 'ko';
+  apply(saved);
+})();
+</script>
+</body>
+</html>

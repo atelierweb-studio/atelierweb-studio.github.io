@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko" data-lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bubble Tank — 제주 서귀포 스쿠버다이빙 (개념 시안)</title>
+<meta name="description" content="Concept preview for Bubble Tank, a PADI dive centre in Seogwipo, Jeju, with a six-language switch.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0F3B3A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230F0E0B'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='13' fill='%23F5F1E8' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#F7F5EF; --bg2:#EFEBE1; --card:#FFFFFF; --ink:#15140F; --ink2:#43403A;
+    --muted:#787264; --line:rgba(21,20,15,.14); --accent:#8C5A2B; --accent2:#2E4038;
+    --tint:rgba(140,90,43,.08);
+    --serif:"New York",ui-serif,"Iowan Old Style","Palatino Linotype",Georgia,"Noto Serif KR",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Pretendard",Roboto,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --r:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  h1,h2,h3{margin:0;font-family:var(--serif);font-weight:400;letter-spacing:-.01em}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+  .eyebrow{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+  .topbar{position:fixed;inset:0 0 auto;z-index:50;background:var(--bg);background:color-mix(in srgb,var(--bg) 93%,transparent);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .topbar-in{max-width:1140px;margin:0 auto;padding:11px 28px;display:flex;align-items:center;gap:22px}
+  .brand{display:flex;flex-direction:column;line-height:1}
+  .brand strong{font-family:var(--serif);font-weight:400;font-size:20px;letter-spacing:.01em}
+  .brand i{font-style:normal;font-family:var(--mono);font-size:7.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .nav{display:flex;gap:18px}
+  .nav a{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);
+    padding-bottom:3px;border-bottom:1px solid transparent}
+  .nav a:hover{color:var(--accent);border-color:var(--accent)}
+  .langs{display:flex;gap:5px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+  .langs::-webkit-scrollbar{display:none}
+  .lang{font-family:var(--mono);font-size:9.5px;border:1px solid var(--line);border-radius:99px;padding:6px 8px;
+    white-space:nowrap;color:var(--ink2);transition:.16s}
+  .lang:hover{border-color:var(--accent);color:var(--accent)}
+  .lang.is-on{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent2);color:#fff;border:1px solid var(--accent2);
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;padding:12px 18px;border-radius:99px;transition:.18s}
+  .btn:hover{background:var(--accent);border-color:var(--accent)}
+  .btn-sm{padding:9px 14px;font-size:8.5px;flex:0 0 auto}
+  .btn-ghost{background:transparent;color:var(--accent2);border-color:var(--line)}
+  .btn-ghost:hover{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+
+  .hero{padding:132px 0 60px}
+  .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:48px;align-items:center}
+  .kicker{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  h1{margin-top:16px;font-size:clamp(36px,4.8vw,58px);line-height:1.05}
+  h1 em{font-style:italic;color:var(--accent)}
+  .hero p{margin:18px 0 0;font-size:15.5px;line-height:1.7;color:var(--ink2);max-width:46ch}
+  .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+  .art{position:relative;border-radius:20px;overflow:hidden;min-height:360px;border:1px solid var(--line);
+    background:linear-gradient(168deg,var(--bg2),var(--bg));
+    background-image:linear-gradient(168deg,var(--bg2),color-mix(in srgb,var(--accent) 12%,var(--bg2)))}
+  .art::before{content:"";position:absolute;width:280px;height:280px;border-radius:50%;left:-50px;top:-70px;
+    border:1px solid var(--line);border-color:color-mix(in srgb,var(--accent) 30%,transparent)}
+  .art::after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-30px;bottom:70px;
+    background:radial-gradient(circle at 35% 30%,#fff,transparent 70%)}
+  .art-note{position:absolute;left:22px;top:22px;font-family:var(--mono);font-size:8px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--accent)}
+  .art-quote{position:absolute;left:22px;right:22px;top:46%;transform:translateY(-50%);font-family:var(--serif);
+    font-size:23px;line-height:1.28;color:var(--accent2);max-width:24ch}
+  .art-fact{position:absolute;left:22px;right:22px;bottom:20px;background:rgba(255,255,255,.86);border-radius:12px;
+    padding:12px 14px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);
+    box-shadow:0 12px 26px -20px rgba(21,20,15,.5)}
+  .concept{position:absolute;right:16px;top:16px;background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:99px;
+    padding:5px 10px;font-family:var(--mono);font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+  .sec{padding:58px 0;border-top:1px solid var(--line)}
+  .sec-head{margin-bottom:26px;max-width:62ch}
+  h2{font-size:clamp(25px,3vw,36px);line-height:1.12;margin-top:10px}
+  .sec-head p{margin:10px 0 0;font-size:13px;line-height:1.65;color:var(--muted)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .item{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;transition:.2s}
+  .item:hover{border-color:var(--accent);box-shadow:0 16px 30px -26px rgba(21,20,15,.5)}
+  .item .n{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--accent)}
+  .item h3{font-size:18px;margin-top:8px;line-height:1.28}
+  .item p{margin:8px 0 0;font-size:12px;line-height:1.62;color:var(--muted)}
+
+  .visit{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .row{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .row b{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .row span{font-family:var(--mono);font-size:10.5px;color:var(--ink2);text-align:right}
+  .blocks{margin-top:18px}
+  .block{margin-top:14px}
+  .block b{display:block;font-family:var(--mono);font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .block span{display:block;margin-top:5px;font-size:12.5px;line-height:1.65;color:var(--ink2)}
+  .contact{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;align-self:start}
+  .contact h3{font-size:19px}
+  .cline{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .cline:last-of-type{border-bottom:0}
+  .cline b{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .cline a{font-size:12px;color:var(--accent2);border-bottom:1px solid var(--line);border-bottom-color:color-mix(in srgb,var(--accent) 50%,transparent);
+    text-underline-offset:2px;word-break:break-all}
+  .contact .btn{margin-top:16px;width:100%;justify-content:center}
+
+  footer{background:var(--ink);color:#EEE9DF;padding:44px 0 26px;margin-top:14px}
+  .foot{display:grid;grid-template-columns:1.4fr .6fr;gap:26px}
+  .foot strong{font-family:var(--serif);font-weight:400;font-size:19px}
+  .foot p{margin:12px 0 0;font-size:10.5px;line-height:1.7;color:#B6AE9E;max-width:52ch}
+  .foot .credit{margin-top:14px;font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;color:#D8D0C0}
+  .foot .credit a{border-bottom:1px solid rgba(216,208,192,.5)}
+  .foot-bottom{margin-top:24px;padding-top:14px;border-top:1px solid rgba(238,233,223,.16);display:flex;
+    justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:8px;letter-spacing:.1em;
+    text-transform:uppercase;color:#9A9282}
+  .foot .concept-note{font-size:10px;line-height:1.6;color:#9A9282;max-width:60ch}
+
+  @media (max-width:960px){
+    .nav{display:none}
+    .hero{padding-top:112px}
+    .hero-grid,.visit,.grid{grid-template-columns:1fr;gap:26px}
+    .foot{grid-template-columns:1fr}
+    .topbar-in{flex-wrap:wrap;gap:10px}
+    .langs{order:3;width:100%;margin-left:0}
+    .btn-sm{margin-left:auto}
+    .art{min-height:320px}
+  }
+  @media (max-width:600px){
+    .wrap,.topbar-in{padding-left:18px;padding-right:18px}
+    .art-quote{font-size:20px}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="#top"><strong>Bubble Tank</strong><i data-i18n="brand_sub">제주 서귀포 스쿠버다이빙</i></a>
+    <nav class="nav">
+      <a href="#offer" data-i18n="nav1">프로그램</a>
+      <a href="#visit" data-i18n="nav2">요금·시간</a>
+      <a href="mailto:bubbletank@naver.com" data-i18n="nav3">문의</a>
+    </nav>
+    <div class="langs" role="group" data-i18n-aria="lang_aria" aria-label="Language">
+      <button type="button" class="lang" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" class="lang is-on" data-lang="ko" aria-pressed="true">KO</button>
+      <button type="button" class="lang" data-lang="ja" aria-pressed="false">JA</button>
+      <button type="button" class="lang" data-lang="zh" aria-pressed="false">ZH</button>
+      <button type="button" class="lang" data-lang="es" aria-pressed="false">ES</button>
+      <button type="button" class="lang" data-lang="vi" aria-pressed="false">VI</button>
+    </div>
+    <a class="btn btn-sm" href="#visit" data-i18n="nav_cta">날짜 문의</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="kicker" data-i18n="hero_kick">제주 서귀포</div>
+        <h1 data-i18n="hero_title">문섬과 범섬까지, <em>보트로.</em></h1>
+        <p data-i18n="hero_lede">서귀포 여객선터미널 인근의 다이빙 센터입니다. 강사 1:1 체험다이빙, 이틀 코스인 PADI 자격 과정, 제주 연산호 포인트로 나가는 보트 펀다이빙까지.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#offer" data-i18n="cta1">프로그램 보기</a>
+          <a class="btn btn-ghost" href="#visit" data-i18n="cta2">요금과 시간</a>
+        </div>
+      </div>
+      <div class="art" aria-hidden="true">
+        <div class="concept" data-i18n="concept_badge">Concept preview · Atelier Web</div>
+        <div class="art-note" data-i18n="art_note">연산호, 보트로 10분</div>
+        <div class="art-quote" data-i18n="art_quote">“수영을 못해도 괜찮습니다. 강사가 옆에 있습니다.”</div>
+        <div class="art-fact" data-i18n="art_fact">보트 10분 · 다이빙 30분 · 총 2~2.5시간</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="offer">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow" data-i18n="sec1_kick">01 — 프로그램</div>
+        <h2 data-i18n="sec1_title">물에 들어가는 네 가지 방법.</h2>
+        <p data-i18n="sec1_lede">아래 요금은 센터가 공개한 기준이며, 별도 표기가 없으면 장비와 강사 비용이 포함됩니다. 여행 날짜를 알려주시면 일정에 맞춰 드립니다.</p>
+      </div>
+      <div class="grid">
+        <article class="item"><div class="n">i1</div><h3 data-i18n="i1_n">보트 체험다이빙</h3><p data-i18n="i1_d">2인 이상 1인 10만 원, 단독 13만 원. 강사 1:1, 장비 전체, 수중 사진 포함, 약 2시간 30분.</p></article>
+        <article class="item"><div class="n">i2</div><h3 data-i18n="i2_n">PADI 오픈워터</h3><p data-i18n="i2_d">1인 50만 원, 2인 이상 1인 45만 원. 이틀, 해양실습 4회, 교재·자격증 발급비·중식 포함.</p></article>
+        <article class="item"><div class="n">i3</div><h3 data-i18n="i3_n">펀다이빙 · 보트 2회</h3><p data-i18n="i3_d">간식 포함 12만 원. 문섬·범섬·섶섬. 장비 렌탈은 풀셋 1일 3만 원 별도.</p></article>
+        <article class="item"><div class="n">i4</div><h3 data-i18n="i4_n">나이트다이빙</h3><p data-i18n="i4_d">비치 7만 원, 보트 8만 원(4인 이상 출발). 라이트는 준비하시거나 현장에서 대여하세요.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="visit">
+    <div class="wrap visit">
+      <div>
+        <div class="eyebrow" data-i18n="sec2_kick">02 — 요금과 시간</div>
+        <h2 data-i18n="sec2_title">서귀포 해안가의 두 지점.</h2>
+        <div style="margin-top:18px">
+          <div class="row"><b data-i18n="h1_l">평일</b><span data-i18n="h1_v">09:00 – 18:00</span></div>
+          <div class="row"><b data-i18n="h2_l">주말</b><span data-i18n="h2_v">08:00 – 17:00</span></div>
+          <div class="row"><b data-i18n="h3_l">비행기 탑승</b><span data-i18n="h3_v">다이빙 당일 불가</span></div>
+        </div>
+        <div class="blocks">
+          <div class="block"><b data-i18n="lbl_address">Address</b><span data-i18n="addr">제주특별자치도 서귀포시 칠십리로 100 (서귀포 여객선터미널 인근). 2호점: 칠십리로 479, 더블루제주호텔 뒤편.</span></div>
+          <div class="block"><b data-i18n="lbl_getting">Getting here</b><span data-i18n="transit">서귀포 버스터미널에서 차로 5분. 1호점 공용주차장 10대 무료.</span></div>
+        </div>
+      </div>
+      <div class="contact">
+        <h3 data-i18n="contact_title" style="font-size:16px">Talk to us directly</h3>
+        <div style="margin-top:8px">
+          <div class="cline"><b data-i18n="lbl_email">Email</b><a href="mailto:bubbletank@naver.com">bubbletank@naver.com</a></div>
+          <div class="cline"><b data-i18n="lbl_phone">Phone</b><a href="tel:+821065758945">010-6575-8945</a></div>
+
+        </div>
+        <a class="btn" href="mailto:bubbletank@naver.com" data-i18n="cta_email">Write an email</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <strong>Bubble Tank</strong>
+        <p data-i18n="foot_tagline">제주 서귀포의 PADI 다이빙 센터 — 체험다이빙, 오픈워터 과정, 문섬·범섬 보트 펀다이빙.</p>
+        <p class="concept-note" data-i18n="concept_note">이 페이지는 Atelier Web이 제안용으로 만든 시안이며 Bubble Tank의 공식 홈페이지가 아닙니다.</p>
+        <div class="credit">Concept preview prepared by Atelier Web (<a href="https://atelierweb-studio.github.io/" target="_blank" rel="noopener">atelierweb-studio.github.io</a>)</div>
+      </div>
+      <div>
+        <p style="font-family:var(--mono);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:#8E8677;margin:0" data-i18n="lbl_hours">Hours</p>
+        <p style="margin-top:8px;font-family:var(--mono);font-size:10px;line-height:1.9;color:#CBC3B3">Weekdays 09:00–18:00 · Weekends 08:00–17:00</p>
+        <p style="margin-top:10px;font-family:var(--mono);font-size:9px;color:#8E8677" data-i18n="foot_lang">EN · KO · JA · ZH · ES · VI</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Bubble Tank · Jeju · Seogwipo</span>
+      <span>© 2026 Atelier Web · concept</span>
+    </div>
+  </div>
+</footer>
+
+<noscript><div style="position:fixed;left:0;right:0;bottom:0;z-index:80;background:#15140F;color:#EEE9DF;font-family:monospace;font-size:9px;padding:9px 14px;text-align:center">JavaScript is off. Open this page in Safari or Chrome for the six-language switch.</div></noscript>
+
+<script>
+window.I18N = {"en":{"lang_aria":"Language","lbl_hours":"Hours","lbl_address":"Address","lbl_getting":"Getting here","lbl_email":"Email","lbl_phone":"Phone","lbl_messenger":"Message","concept_badge":"Concept preview · Atelier Web","concept_note":"This page is an unsolicited concept preview prepared by Atelier Web. It is not the official website of Bubble Tank.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Talk to us directly","cta_email":"Write an email","brand_sub":"PADI dive centre · Seogwipo, Jeju","nav1":"Programs","nav2":"Rates & hours","nav3":"Contact","nav_cta":"Ask about a date","hero_kick":"Seogwipo · Jeju Island","hero_title":"Munseom and Beomseom, <em>from the boat.</em>","hero_lede":"A dive centre on the Seogwipo waterfront, five minutes from the bus terminal. Try dives with an instructor one to one, PADI courses over two days, and boat dives out to Jeju's soft-coral sites.","cta1":"See programs","cta2":"Rates and hours","art_note":"Soft coral, ten minutes out","art_quote":"“You do not need to swim well. The instructor stays beside you.”","art_fact":"10 min by boat · 30 min in the water · 2–2.5 hours total","sec1_kick":"01 — Programs","sec1_title":"Four ways into the water.","sec1_lede":"The prices below are the centre's published rates; equipment and instructors are included unless noted. Tell us your travel dates and we will fit the course around them.","i1_n":"Boat try dive","i1_d":"₩100,000 per person for two or more (₩130,000 alone). Instructor 1:1, all gear, underwater photos, about 2.5 hours.","i2_n":"PADI Open Water","i2_d":"₩500,000 for one, ₩450,000 each for two. Two days, four ocean dives, textbook, certification fee and lunch included.","i3_n":"Fun dive, two boat dives","i3_d":"₩120,000 with snacks. Munseom, Beomseom and Seopseom; full equipment rental ₩30,000 extra.","i4_n":"Night dive","i4_d":"₩70,000 from the beach, ₩80,000 by boat (four divers minimum). Bring a dive light or rent one.","sec2_kick":"02 — Rates and hours","sec2_title":"Two shops, both on the Seogwipo coast.","h1_l":"Weekdays","h1_v":"09:00 – 18:00","h2_l":"Weekends","h2_v":"08:00 – 17:00","h3_l":"Before flying","h3_v":"No diving that day","addr":"100 Chilsimni-ro, Seogwipo-si, Jeju — near the Seogwipo ferry terminal. Second shop: 479 Chilsimni-ro, behind The Blue Jeju Hotel.","transit":"5 minutes by car from Seogwipo bus terminal; free parking for ten cars at the first shop.","foot_tagline":"PADI dive centre in Seogwipo, Jeju — try dives, open water courses and boat dives to Munseom and Beomseom."},"ko":{"lang_aria":"언어 선택","lbl_hours":"영업시간","lbl_address":"주소","lbl_getting":"오시는 길","lbl_email":"이메일","lbl_phone":"전화","lbl_messenger":"메신저","concept_badge":"시안 미리보기 · Atelier Web","concept_note":"이 페이지는 Atelier Web이 제안용으로 만든 시안이며 Bubble Tank의 공식 홈페이지가 아닙니다.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"바로 연락하기","cta_email":"이메일 보내기","brand_sub":"제주 서귀포 스쿠버다이빙","nav1":"프로그램","nav2":"요금·시간","nav3":"문의","nav_cta":"날짜 문의","hero_kick":"제주 서귀포","hero_title":"문섬과 범섬까지, <em>보트로.</em>","hero_lede":"서귀포 여객선터미널 인근의 다이빙 센터입니다. 강사 1:1 체험다이빙, 이틀 코스인 PADI 자격 과정, 제주 연산호 포인트로 나가는 보트 펀다이빙까지.","cta1":"프로그램 보기","cta2":"요금과 시간","art_note":"연산호, 보트로 10분","art_quote":"“수영을 못해도 괜찮습니다. 강사가 옆에 있습니다.”","art_fact":"보트 10분 · 다이빙 30분 · 총 2~2.5시간","sec1_kick":"01 — 프로그램","sec1_title":"물에 들어가는 네 가지 방법.","sec1_lede":"아래 요금은 센터가 공개한 기준이며, 별도 표기가 없으면 장비와 강사 비용이 포함됩니다. 여행 날짜를 알려주시면 일정에 맞춰 드립니다.","i1_n":"보트 체험다이빙","i1_d":"2인 이상 1인 10만 원, 단독 13만 원. 강사 1:1, 장비 전체, 수중 사진 포함, 약 2시간 30분.","i2_n":"PADI 오픈워터","i2_d":"1인 50만 원, 2인 이상 1인 45만 원. 이틀, 해양실습 4회, 교재·자격증 발급비·중식 포함.","i3_n":"펀다이빙 · 보트 2회","i3_d":"간식 포함 12만 원. 문섬·범섬·섶섬. 장비 렌탈은 풀셋 1일 3만 원 별도.","i4_n":"나이트다이빙","i4_d":"비치 7만 원, 보트 8만 원(4인 이상 출발). 라이트는 준비하시거나 현장에서 대여하세요.","sec2_kick":"02 — 요금과 시간","sec2_title":"서귀포 해안가의 두 지점.","h1_l":"평일","h1_v":"09:00 – 18:00","h2_l":"주말","h2_v":"08:00 – 17:00","h3_l":"비행기 탑승","h3_v":"다이빙 당일 불가","addr":"제주특별자치도 서귀포시 칠십리로 100 (서귀포 여객선터미널 인근). 2호점: 칠십리로 479, 더블루제주호텔 뒤편.","transit":"서귀포 버스터미널에서 차로 5분. 1호점 공용주차장 10대 무료.","foot_tagline":"제주 서귀포의 PADI 다이빙 센터 — 체험다이빙, 오픈워터 과정, 문섬·범섬 보트 펀다이빙."},"ja":{"lang_aria":"言語","lbl_hours":"営業時間","lbl_address":"住所","lbl_getting":"アクセス","lbl_email":"メール","lbl_phone":"電話","lbl_messenger":"メッセージ","concept_badge":"コンセプトプレビュー · Atelier Web","concept_note":"このページは Atelier Web が提案用に制作したコンセプトで、Bubble Tank の公式サイトではありません。","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"直接のご連絡","cta_email":"メールを書く","brand_sub":"済州 西帰浦 スキューバダイビング","nav1":"プログラム","nav2":"料金・時間","nav3":"お問い合わせ","nav_cta":"日程相談","hero_kick":"済州 西帰浦（ソグィポ）","hero_title":"蚊島（ムンソム）と帆島（ボムソム）へ、<em>ボートで。</em>","hero_lede":"西帰浦の旅客船ターミナル近くのダイビングセンターです。インストラクター1対1の体験ダイビング、2日間のPADI講習、済州のソフトコーラルポイントへのボートファンダイビングをご用意しています。","cta1":"プログラムを見る","cta2":"料金と時間","art_note":"ソフトコーラルまでボートで10分","art_quote":"「泳ぎが苦手でも大丈夫。インストラクターが隣にいます。」","art_fact":"ボート10分 · 水中30分 · 全体2〜2.5時間","sec1_kick":"01 — プログラム","sec1_title":"海に入る4つの方法。","sec1_lede":"以下の料金はセンターが公開している基準で、記載がない限り器材とインストラクター料を含みます。旅行日程をお知らせいただければ合わせて組ませていただきます。","i1_n":"ボート体験ダイビング","i1_d":"2名以上お一人10万ウォン、単独13万ウォン。1対1、器材一式、水中写真付き、約2時間30分。","i2_n":"PADIオープンウォーター","i2_d":"1名50万ウォン、2名以上お一人45万ウォン。2日間、海洋実習4回、教材・認定料・昼食込み。","i3_n":"ファンダイビング・ボート2本","i3_d":"軽食付き12万ウォン。蚊島・帆島・燮島。器材レンタルはフルセット1日3万ウォン別。","i4_n":"ナイトダイビング","i4_d":"ビーチ7万ウォン、ボート8万ウォン（4名以上出航）。ライトはご用意いただくか現地でレンタルを。","sec2_kick":"02 — 料金と時間","sec2_title":"西帰浦の海岸沿い、2つの店舗。","h1_l":"平日","h1_v":"09:00 – 18:00","h2_l":"週末","h2_v":"08:00 – 17:00","h3_l":"飛行機搭乗","h3_v":"ダイビング当日は不可","addr":"済州特別自治道 西帰浦市 チルシムニ路 100（西帰浦旅客船ターミナル近く）。2号店：チルシムニ路 479、ザ・ブルージェジュホテル裏。","transit":"西帰浦バスターミナルから車で5分。1号店の共用駐車場10台無料。","foot_tagline":"済州・西帰浦のPADIダイビングセンター。体験ダイビング、オープンウォーター講習、蚊島・帆島へのボートファンダイビング。"},"zh":{"lang_aria":"语言","lbl_hours":"营业时间","lbl_address":"地址","lbl_getting":"交通","lbl_email":"邮箱","lbl_phone":"电话","lbl_messenger":"消息","concept_badge":"方案预览 · Atelier Web","concept_note":"本页面是 Atelier Web 制作的概念方案，并非 Bubble Tank 的官方网站。","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"直接联系","cta_email":"写邮件","brand_sub":"济州西归浦潜水中心","nav1":"课程","nav2":"价格与时间","nav3":"联系","nav_cta":"咨询日期","hero_kick":"济州 西归浦","hero_title":"蚊岛与帆岛，<em>坐船去。</em>","hero_lede":"位于西归浦客运码头附近的潜水中心。教练一对一带体验潜，两天完成 PADI 课程，也可乘船前往济州的软珊瑚潜点。","cta1":"查看课程","cta2":"价格与时间","art_note":"软珊瑚，坐船 10 分钟","art_quote":"“不会游泳也没关系，教练就在旁边。”","art_fact":"船程 10 分钟 · 水下 30 分钟 · 全程 2–2.5 小时","sec1_kick":"01 — 课程","sec1_title":"下海的四种方式。","sec1_lede":"以下为潜水中心公开的价格，除特别说明外均含装备与教练费用。把旅行日期告诉我们，可以按你的行程安排课程。","i1_n":"船潜体验","i1_d":"两人以上每人 10 万韩元，单人 13 万韩元。教练一对一、全套装备、水下照片，约 2.5 小时。","i2_n":"PADI 开放水域","i2_d":"单人 50 万韩元，两人以上每人 45 万韩元。两天、四次海上实习，含教材、证书费与午餐。","i3_n":"休闲潜 · 船潜两次","i3_d":"含小食 12 万韩元。蚊岛、帆岛、燮岛；全套装备租赁每天 3 万韩元另计。","i4_n":"夜潜","i4_d":"岸潜 7 万韩元，船潜 8 万韩元（四人以上出发）。自备或现场租借潜水灯。","sec2_kick":"02 — 价格与时间","sec2_title":"西归浦海岸的两处门店。","h1_l":"平日","h1_v":"09:00 – 18:00","h2_l":"周末","h2_v":"08:00 – 17:00","h3_l":"乘机","h3_v":"潜水当天不可","addr":"济州特别自治道西归浦市七十里路 100（西归浦客运码头附近）。二号店：七十里路 479，The Blue Jeju 酒店后方。","transit":"距西归浦巴士客运站车程 5 分钟。一号店有 10 个免费车位。","foot_tagline":"济州西归浦的 PADI 潜水中心——体验潜、开放水域课程，以及前往蚊岛与帆岛的船潜。"},"es":{"lang_aria":"Idioma","lbl_hours":"Horario","lbl_address":"Dirección","lbl_getting":"Cómo llegar","lbl_email":"Correo","lbl_phone":"Teléfono","lbl_messenger":"Mensaje","concept_badge":"Vista de concepto · Atelier Web","concept_note":"Esta página es una propuesta de concepto preparada por Atelier Web. No es el sitio oficial de Bubble Tank.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Contacto directo","cta_email":"Escribir un correo","brand_sub":"Centro de buceo PADI · Seogwipo, Jeju","nav1":"Programas","nav2":"Precios y horario","nav3":"Contacto","nav_cta":"Consultar fecha","hero_kick":"Seogwipo · isla de Jeju","hero_title":"Munseom y Beomseom, <em>desde el barco.</em>","hero_lede":"Un centro de buceo en la costa de Seogwipo, a cinco minutos de la terminal de autobuses. Bautismos con instructor uno a uno, cursos PADI de dos días y salidas en barco a los fondos de coral blando de Jeju.","cta1":"Ver programas","cta2":"Precios y horario","art_note":"Coral blando, diez minutos en barco","art_quote":"«No hace falta nadar bien: el instructor va a tu lado.»","art_fact":"10 min en barco · 30 min en el agua · 2–2,5 horas","sec1_kick":"01 — Programas","sec1_title":"Cuatro formas de entrar al agua.","sec1_lede":"Los precios son las tarifas publicadas del centro; incluyen equipo e instructor salvo que se indique lo contrario. Dinos tus fechas de viaje y ajustamos el curso.","i1_n":"Bautismo en barco","i1_d":"₩100.000 por persona desde dos (₩130.000 solo). Instructor 1:1, equipo completo, fotos subacuáticas, unas 2,5 horas.","i2_n":"PADI Open Water","i2_d":"₩500.000 una persona, ₩450.000 cada una desde dos. Dos días, cuatro inmersiones, manual, tasas y almuerzo incluidos.","i3_n":"Inmersión de ocio, dos en barco","i3_d":"₩120.000 con aperitivo. Munseom, Beomseom y Seopseom; alquiler de equipo completo ₩30.000 aparte.","i4_n":"Inmersión nocturna","i4_d":"₩70.000 desde la playa, ₩80.000 en barco (mínimo cuatro buzos). Lleva o alquila linterna.","sec2_kick":"02 — Precios y horario","sec2_title":"Dos locales, ambos en la costa de Seogwipo.","h1_l":"Entre semana","h1_v":"09:00 – 18:00","h2_l":"Fin de semana","h2_v":"08:00 – 17:00","h3_l":"Antes de volar","h3_v":"No bucear ese día","addr":"100 Chilsimni-ro, Seogwipo-si, Jeju — junto a la terminal de ferris. Segundo local: 479 Chilsimni-ro, detrás del hotel The Blue Jeju.","transit":"5 minutos en coche desde la terminal de autobuses de Seogwipo; diez plazas gratuitas en el primer local.","foot_tagline":"Centro de buceo PADI en Seogwipo, Jeju: bautismos, cursos open water y salidas en barco a Munseom y Beomseom."},"vi":{"lang_aria":"Ngôn ngữ","lbl_hours":"Giờ mở cửa","lbl_address":"Địa chỉ","lbl_getting":"Đường đi","lbl_email":"Email","lbl_phone":"Điện thoại","lbl_messenger":"Tin nhắn","concept_badge":"Bản xem trước ý tưởng · Atelier Web","concept_note":"Trang này là bản phác thảo ý tưởng do Atelier Web thực hiện, không phải website chính thức của Bubble Tank.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Liên hệ trực tiếp","cta_email":"Gửi email","brand_sub":"Trung tâm lặn PADI · Seogwipo, Jeju","nav1":"Chương trình","nav2":"Giá & giờ","nav3":"Liên hệ","nav_cta":"Hỏi ngày","hero_kick":"Seogwipo · đảo Jeju","hero_title":"Munseom và Beomseom, <em>bằng thuyền.</em>","hero_lede":"Trung tâm lặn ven biển Seogwipo, cách bến xe 5 phút. Lặn thử 1:1 với giáo viên, khóa PADI hai ngày, và lặn thuyền ra các điểm san hô mềm của Jeju.","cta1":"Xem chương trình","cta2":"Giá và giờ","art_note":"San hô mềm, 10 phút thuyền","art_quote":"“Không cần bơi giỏi — giáo viên luôn ở bên bạn.”","art_fact":"10 phút thuyền · 30 phút dưới nước · 2–2,5 giờ","sec1_kick":"01 — Chương trình","sec1_title":"Bốn cách xuống nước.","sec1_lede":"Giá dưới đây là mức trung tâm công bố, đã gồm thiết bị và giáo viên trừ khi có ghi chú. Cho chúng tôi ngày đi, chúng tôi xếp khóa theo lịch của bạn.","i1_n":"Lặn thử bằng thuyền","i1_d":"100.000₩/người khi đi từ 2 người (130.000₩ nếu đi một mình). Giáo viên 1:1, trọn bộ thiết bị, ảnh dưới nước, khoảng 2,5 giờ.","i2_n":"PADI Open Water","i2_d":"500.000₩ một người, 450.000₩/người khi đi từ hai. Hai ngày, bốn buổi thực hành biển, gồm giáo trình, lệ phí chứng chỉ và bữa trưa.","i3_n":"Lặn vui · 2 lượt thuyền","i3_d":"120.000₩ kèm đồ ăn nhẹ. Munseom, Beomseom, Seopseom; thuê trọn bộ thiết bị 30.000₩/ngày.","i4_n":"Lặn đêm","i4_d":"70.000₩ từ bờ, 80.000₩ bằng thuyền (tối thiểu 4 người). Mang theo hoặc thuê đèn lặn.","sec2_kick":"02 — Giá và giờ","sec2_title":"Hai cửa hàng, cùng ven biển Seogwipo.","h1_l":"Ngày trong tuần","h1_v":"09:00 – 18:00","h2_l":"Cuối tuần","h2_v":"08:00 – 17:00","h3_l":"Trước khi bay","h3_v":"Không lặn trong ngày","addr":"100 Chilsimni-ro, Seogwipo-si, Jeju — gần bến phà Seogwipo. Cửa hàng 2: 479 Chilsimni-ro, sau khách sạn The Blue Jeju.","transit":"5 phút xe từ bến xe Seogwipo; cửa hàng 1 có 10 chỗ đỗ miễn phí.","foot_tagline":"Trung tâm lặn PADI ở Seogwipo, Jeju — lặn thử, khóa open water và lặn thuyền tới Munseom, Beomseom."}};
+</script>
+<script>
+(function(){
+  var dict = window.I18N || {}, LANGS = ['en','ko','ja','zh','es','vi'], current = 'ko';
+  function t(k){
+    var pack = dict[current] || dict.en || {};
+    if (pack[k] !== undefined) return pack[k];
+    return (dict.en && dict.en[k] !== undefined) ? dict.en[k] : '';
+  }
+  function apply(lang){
+    if (LANGS.indexOf(lang) < 0) lang = 'en';
+    current = lang;
+    document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-Hans' : lang);
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n'));
+      if (v !== '') el.innerHTML = v;
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n-aria'));
+      if (v !== '') el.setAttribute('aria-label', v);
+    });
+    document.querySelectorAll('.lang').forEach(function(b){
+      var on = b.getAttribute('data-lang') === lang;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    try { localStorage.setItem('aw_concept_lang', lang); } catch(e) {}
+  }
+  document.querySelectorAll('.lang').forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.getAttribute('data-lang')); });
+  });
+  var saved = null;
+  try { saved = localStorage.getItem('aw_concept_lang'); } catch(e) {}
+  if (LANGS.indexOf(saved) < 0) saved = 'ko';
+  apply(saved);
+})();
+</script>
+</body>
+</html>

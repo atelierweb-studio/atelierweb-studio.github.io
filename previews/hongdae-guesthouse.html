@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hongdae Guesthouse — 서울 홍대 게스트하우스 (개념 시안)</title>
+<meta name="description" content="Concept preview for Hongdae Guesthouse in Seoul, with a six-language switch.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#2B2117">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230F0E0B'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='13' fill='%23F5F1E8' text-anchor='middle'%3EH%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#F7F5EF; --bg2:#EFEBE1; --card:#FFFFFF; --ink:#15140F; --ink2:#43403A;
+    --muted:#787264; --line:rgba(21,20,15,.14); --accent:#8C5A2B; --accent2:#2E4038;
+    --tint:rgba(140,90,43,.08);
+    --serif:"New York",ui-serif,"Iowan Old Style","Palatino Linotype",Georgia,"Noto Serif KR",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Pretendard",Roboto,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --r:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  h1,h2,h3{margin:0;font-family:var(--serif);font-weight:400;letter-spacing:-.01em}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+  .eyebrow{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+  .topbar{position:fixed;inset:0 0 auto;z-index:50;background:var(--bg);background:color-mix(in srgb,var(--bg) 93%,transparent);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .topbar-in{max-width:1140px;margin:0 auto;padding:11px 28px;display:flex;align-items:center;gap:22px}
+  .brand{display:flex;flex-direction:column;line-height:1}
+  .brand strong{font-family:var(--serif);font-weight:400;font-size:20px;letter-spacing:.01em}
+  .brand i{font-style:normal;font-family:var(--mono);font-size:7.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .nav{display:flex;gap:18px}
+  .nav a{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);
+    padding-bottom:3px;border-bottom:1px solid transparent}
+  .nav a:hover{color:var(--accent);border-color:var(--accent)}
+  .langs{display:flex;gap:5px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+  .langs::-webkit-scrollbar{display:none}
+  .lang{font-family:var(--mono);font-size:9.5px;border:1px solid var(--line);border-radius:99px;padding:6px 8px;
+    white-space:nowrap;color:var(--ink2);transition:.16s}
+  .lang:hover{border-color:var(--accent);color:var(--accent)}
+  .lang.is-on{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent2);color:#fff;border:1px solid var(--accent2);
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;padding:12px 18px;border-radius:99px;transition:.18s}
+  .btn:hover{background:var(--accent);border-color:var(--accent)}
+  .btn-sm{padding:9px 14px;font-size:8.5px;flex:0 0 auto}
+  .btn-ghost{background:transparent;color:var(--accent2);border-color:var(--line)}
+  .btn-ghost:hover{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+
+  .hero{padding:132px 0 60px}
+  .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:48px;align-items:center}
+  .kicker{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  h1{margin-top:16px;font-size:clamp(36px,4.8vw,58px);line-height:1.05}
+  h1 em{font-style:italic;color:var(--accent)}
+  .hero p{margin:18px 0 0;font-size:15.5px;line-height:1.7;color:var(--ink2);max-width:46ch}
+  .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+  .art{position:relative;border-radius:20px;overflow:hidden;min-height:360px;border:1px solid var(--line);
+    background:linear-gradient(168deg,var(--bg2),var(--bg));
+    background-image:linear-gradient(168deg,var(--bg2),color-mix(in srgb,var(--accent) 12%,var(--bg2)))}
+  .art::before{content:"";position:absolute;width:280px;height:280px;border-radius:50%;left:-50px;top:-70px;
+    border:1px solid var(--line);border-color:color-mix(in srgb,var(--accent) 30%,transparent)}
+  .art::after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-30px;bottom:70px;
+    background:radial-gradient(circle at 35% 30%,#fff,transparent 70%)}
+  .art-note{position:absolute;left:22px;top:22px;font-family:var(--mono);font-size:8px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--accent)}
+  .art-quote{position:absolute;left:22px;right:22px;top:46%;transform:translateY(-50%);font-family:var(--serif);
+    font-size:23px;line-height:1.28;color:var(--accent2);max-width:24ch}
+  .art-fact{position:absolute;left:22px;right:22px;bottom:20px;background:rgba(255,255,255,.86);border-radius:12px;
+    padding:12px 14px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);
+    box-shadow:0 12px 26px -20px rgba(21,20,15,.5)}
+  .concept{position:absolute;right:16px;top:16px;background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:99px;
+    padding:5px 10px;font-family:var(--mono);font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+  .sec{padding:58px 0;border-top:1px solid var(--line)}
+  .sec-head{margin-bottom:26px;max-width:62ch}
+  h2{font-size:clamp(25px,3vw,36px);line-height:1.12;margin-top:10px}
+  .sec-head p{margin:10px 0 0;font-size:13px;line-height:1.65;color:var(--muted)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .item{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;transition:.2s}
+  .item:hover{border-color:var(--accent);box-shadow:0 16px 30px -26px rgba(21,20,15,.5)}
+  .item .n{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--accent)}
+  .item h3{font-size:18px;margin-top:8px;line-height:1.28}
+  .item p{margin:8px 0 0;font-size:12px;line-height:1.62;color:var(--muted)}
+
+  .visit{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .row{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .row b{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .row span{font-family:var(--mono);font-size:10.5px;color:var(--ink2);text-align:right}
+  .blocks{margin-top:18px}
+  .block{margin-top:14px}
+  .block b{display:block;font-family:var(--mono);font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .block span{display:block;margin-top:5px;font-size:12.5px;line-height:1.65;color:var(--ink2)}
+  .contact{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;align-self:start}
+  .contact h3{font-size:19px}
+  .cline{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .cline:last-of-type{border-bottom:0}
+  .cline b{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .cline a{font-size:12px;color:var(--accent2);border-bottom:1px solid var(--line);border-bottom-color:color-mix(in srgb,var(--accent) 50%,transparent);
+    text-underline-offset:2px;word-break:break-all}
+  .contact .btn{margin-top:16px;width:100%;justify-content:center}
+
+  footer{background:var(--ink);color:#EEE9DF;padding:44px 0 26px;margin-top:14px}
+  .foot{display:grid;grid-template-columns:1.4fr .6fr;gap:26px}
+  .foot strong{font-family:var(--serif);font-weight:400;font-size:19px}
+  .foot p{margin:12px 0 0;font-size:10.5px;line-height:1.7;color:#B6AE9E;max-width:52ch}
+  .foot .credit{margin-top:14px;font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;color:#D8D0C0}
+  .foot .credit a{border-bottom:1px solid rgba(216,208,192,.5)}
+  .foot-bottom{margin-top:24px;padding-top:14px;border-top:1px solid rgba(238,233,223,.16);display:flex;
+    justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:8px;letter-spacing:.1em;
+    text-transform:uppercase;color:#9A9282}
+  .foot .concept-note{font-size:10px;line-height:1.6;color:#9A9282;max-width:60ch}
+
+  @media (max-width:960px){
+    .nav{display:none}
+    .hero{padding-top:112px}
+    .hero-grid,.visit,.grid{grid-template-columns:1fr;gap:26px}
+    .foot{grid-template-columns:1fr}
+    .topbar-in{flex-wrap:wrap;gap:10px}
+    .langs{order:3;width:100%;margin-left:0}
+    .btn-sm{margin-left:auto}
+    .art{min-height:320px}
+  }
+  @media (max-width:600px){
+    .wrap,.topbar-in{padding-left:18px;padding-right:18px}
+    .art-quote{font-size:20px}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="#top"><strong>Hongdae Guesthouse</strong><i data-i18n="brand_sub">Guesthouse · Hongdae, Seoul</i></a>
+    <nav class="nav">
+      <a href="#offer" data-i18n="nav1">The room</a>
+      <a href="#visit" data-i18n="nav2">Getting here</a>
+      <a href="mailto:hongdaeguesthouse@gmail.com" data-i18n="nav3">Contact</a>
+    </nav>
+    <div class="langs" role="group" data-i18n-aria="lang_aria" aria-label="Language">
+      <button type="button" class="lang is-on" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" class="lang" data-lang="ko" aria-pressed="false">KO</button>
+      <button type="button" class="lang" data-lang="ja" aria-pressed="false">JA</button>
+      <button type="button" class="lang" data-lang="zh" aria-pressed="false">ZH</button>
+      <button type="button" class="lang" data-lang="es" aria-pressed="false">ES</button>
+      <button type="button" class="lang" data-lang="vi" aria-pressed="false">VI</button>
+    </div>
+    <a class="btn btn-sm" href="#visit" data-i18n="nav_cta">Ask about dates</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="kicker" data-i18n="hero_kick">Hongdae · Mapo-gu, Seoul · Since 2007</div>
+        <h1 data-i18n="hero_title">Six beds, <em>one quiet floor.</em></h1>
+        <p data-i18n="hero_lede">A small guesthouse in the middle of Hongdae, connected to Hongik University Station by lift and to the airport limousine at the door. One six-bed dormitory with its own bathroom.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#offer" data-i18n="cta1">See the room</a>
+          <a class="btn btn-ghost" href="#visit" data-i18n="cta2">Getting here</a>
+        </div>
+      </div>
+      <div class="art" aria-hidden="true">
+        <div class="concept" data-i18n="concept_badge">Concept preview · Atelier Web</div>
+        <div class="art-note" data-i18n="art_note">Six beds, one bathroom</div>
+        <div class="art-quote" data-i18n="art_quote">“The airport bus stops at the door; the subway comes up by lift.”</div>
+        <div class="art-fact" data-i18n="art_fact">6 single beds · private bathroom · lift from the station</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="offer">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow" data-i18n="sec1_kick">01 — The room</div>
+        <h2 data-i18n="sec1_title">One room, kept simple.</h2>
+        <p data-i18n="sec1_lede">Six single beds in a dormitory-style room with a private bathroom, fresh linen and furniture kept in good order. Rates are per bed, per night — write with your dates and we will confirm.</p>
+      </div>
+      <div class="grid">
+        <article class="item"><div class="n">i1</div><h3 data-i18n="i1_n">Six-bed dormitory</h3><p data-i18n="i1_d">Six single beds with individual bedding and reading lights. A group can book the whole room.</p></article>
+        <article class="item"><div class="n">i2</div><h3 data-i18n="i2_n">Private bathroom</h3><p data-i18n="i2_d">Inside the room, with hot water around the clock and towels provided.</p></article>
+        <article class="item"><div class="n">i3</div><h3 data-i18n="i3_n">Lift from the platform</h3><p data-i18n="i3_d">The building is connected to Hongik University Station by lift — no stairs with a suitcase.</p></article>
+        <article class="item"><div class="n">i4</div><h3 data-i18n="i4_n">Airport limousine at the door</h3><p data-i18n="i4_d">The Incheon Airport limousine stops in front of the building; the guesthouse is visible from the stop.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="visit">
+    <div class="wrap visit">
+      <div>
+        <div class="eyebrow" data-i18n="sec2_kick">02 — Getting here</div>
+        <h2 data-i18n="sec2_title">Two minutes from the exit, and how to find us.</h2>
+        <div style="margin-top:18px">
+          <div class="row"><b data-i18n="h1_l">Reception</b><span data-i18n="h1_v">09:00 – 24:00 daily</span></div>
+          <div class="row"><b data-i18n="h2_l">Nearest station</b><span data-i18n="h2_v">Hongik Univ. · Line 2</span></div>
+          <div class="row"><b data-i18n="h3_l">Airport bus</b><span data-i18n="h3_v">Stops at the building</span></div>
+        </div>
+        <div class="blocks">
+          <div class="block"><b data-i18n="lbl_address">Address</b><span data-i18n="addr">159-6 Donggyo-dong, Mapo-gu, Seoul (157 Yanghwa-ro)</span></div>
+          <div class="block"><b data-i18n="lbl_getting">Getting here</b><span data-i18n="transit">Lift access from Hongik University Station; the airport limousine stops at the door. Hongdae's main street and clubs are a few minutes' walk.</span></div>
+        </div>
+      </div>
+      <div class="contact">
+        <h3 data-i18n="contact_title" style="font-size:16px">Talk to us directly</h3>
+        <div style="margin-top:8px">
+          <div class="cline"><b data-i18n="lbl_email">Email</b><a href="mailto:hongdaeguesthouse@gmail.com">hongdaeguesthouse@gmail.com</a></div>
+          <div class="cline"><b data-i18n="lbl_phone">Phone</b><a href="tel:+8223360003">02-336-0003</a></div>
+
+        </div>
+        <a class="btn" href="mailto:hongdaeguesthouse@gmail.com" data-i18n="cta_email">Write an email</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <strong>Hongdae Guesthouse</strong>
+        <p data-i18n="foot_tagline">A six-bed guesthouse in Hongdae, Seoul — connected to Hongik University Station by lift, with the airport limousine at the door.</p>
+        <p class="concept-note" data-i18n="concept_note">This page is an unsolicited concept preview prepared by Atelier Web. It is not the official website of Hongdae Guesthouse.</p>
+        <div class="credit">Concept preview prepared by Atelier Web (<a href="https://atelierweb-studio.github.io/" target="_blank" rel="noopener">atelierweb-studio.github.io</a>)</div>
+      </div>
+      <div>
+        <p style="font-family:var(--mono);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:#8E8677;margin:0" data-i18n="lbl_hours">Hours</p>
+        <p style="margin-top:8px;font-family:var(--mono);font-size:10px;line-height:1.9;color:#CBC3B3">Reception 09:00 – 24:00 · daily</p>
+        <p style="margin-top:10px;font-family:var(--mono);font-size:9px;color:#8E8677" data-i18n="foot_lang">EN · KO · JA · ZH · ES · VI</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Hongdae Guesthouse · Seoul · Hongdae</span>
+      <span>© 2026 Atelier Web · concept</span>
+    </div>
+  </div>
+</footer>
+
+<noscript><div style="position:fixed;left:0;right:0;bottom:0;z-index:80;background:#15140F;color:#EEE9DF;font-family:monospace;font-size:9px;padding:9px 14px;text-align:center">JavaScript is off. Open this page in Safari or Chrome for the six-language switch.</div></noscript>
+
+<script>
+window.I18N = {"en":{"lang_aria":"Language","lbl_hours":"Hours","lbl_address":"Address","lbl_getting":"Getting here","lbl_email":"Email","lbl_phone":"Phone","lbl_messenger":"Message","concept_badge":"Concept preview · Atelier Web","concept_note":"This page is an unsolicited concept preview prepared by Atelier Web. It is not the official website of Hongdae Guesthouse.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Talk to us directly","cta_email":"Write an email","brand_sub":"Guesthouse · Hongdae, Seoul","nav1":"The room","nav2":"Getting here","nav3":"Contact","nav_cta":"Ask about dates","hero_kick":"Hongdae · Mapo-gu, Seoul · Since 2007","hero_title":"Six beds, <em>one quiet floor.</em>","hero_lede":"A small guesthouse in the middle of Hongdae, connected to Hongik University Station by lift and to the airport limousine at the door. One six-bed dormitory with its own bathroom.","cta1":"See the room","cta2":"Getting here","art_note":"Six beds, one bathroom","art_quote":"“The airport bus stops at the door; the subway comes up by lift.”","art_fact":"6 single beds · private bathroom · lift from the station","sec1_kick":"01 — The room","sec1_title":"One room, kept simple.","sec1_lede":"Six single beds in a dormitory-style room with a private bathroom, fresh linen and furniture kept in good order. Rates are per bed, per night — write with your dates and we will confirm.","i1_n":"Six-bed dormitory","i1_d":"Six single beds with individual bedding and reading lights. A group can book the whole room.","i2_n":"Private bathroom","i2_d":"Inside the room, with hot water around the clock and towels provided.","i3_n":"Lift from the platform","i3_d":"The building is connected to Hongik University Station by lift — no stairs with a suitcase.","i4_n":"Airport limousine at the door","i4_d":"The Incheon Airport limousine stops in front of the building; the guesthouse is visible from the stop.","sec2_kick":"02 — Getting here","sec2_title":"Two minutes from the exit, and how to find us.","h1_l":"Reception","h1_v":"09:00 – 24:00 daily","h2_l":"Nearest station","h2_v":"Hongik Univ. · Line 2","h3_l":"Airport bus","h3_v":"Stops at the building","addr":"159-6 Donggyo-dong, Mapo-gu, Seoul (157 Yanghwa-ro)","transit":"Lift access from Hongik University Station; the airport limousine stops at the door. Hongdae's main street and clubs are a few minutes' walk.","foot_tagline":"A six-bed guesthouse in Hongdae, Seoul — connected to Hongik University Station by lift, with the airport limousine at the door."},"ko":{"lang_aria":"언어 선택","lbl_hours":"영업시간","lbl_address":"주소","lbl_getting":"오시는 길","lbl_email":"이메일","lbl_phone":"전화","lbl_messenger":"메신저","concept_badge":"시안 미리보기 · Atelier Web","concept_note":"이 페이지는 Atelier Web이 제안용으로 만든 시안이며 Hongdae Guesthouse의 공식 홈페이지가 아닙니다.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"바로 연락하기","cta_email":"이메일 보내기","brand_sub":"서울 홍대 게스트하우스","nav1":"객실","nav2":"오시는 길","nav3":"문의","nav_cta":"날짜 문의","hero_kick":"서울 마포 홍대 · 2007년부터","hero_title":"침대 여섯 개, <em>조용한 한 층.</em>","hero_lede":"홍대 한가운데의 작은 게스트하우스입니다. 홍대입구역과 엘리베이터로 바로 이어지고, 공항 리무진이 건물 앞에 섭니다. 개인 욕실을 갖춘 6인 도미토리 한 실.","cta1":"객실 보기","cta2":"오시는 길","art_note":"침대 여섯 개, 욕실 하나","art_quote":"“공항버스는 문 앞에, 지하철은 엘리베이터로.”","art_fact":"1인 침대 6개 · 개인 욕실 · 역에서 엘리베이터 직결","sec1_kick":"01 — 객실","sec1_title":"한 실, 단순하게.","sec1_lede":"개인 욕실을 갖춘 6인 도미토리 한 실입니다. 침구는 매번 새로 준비하고 가구도 잘 관리해 왔습니다. 요금은 1인 1박 기준이며, 날짜를 알려주시면 확정해 드립니다.","i1_n":"6인 도미토리","i1_d":"1인 침대 6개, 개인 침구와 독서등. 일행이면 방 전체를 예약할 수 있습니다.","i2_n":"개인 욕실","i2_d":"객실 안에 있으며 온수는 하루 종일, 수건도 제공합니다.","i3_n":"역에서 엘리베이터로","i3_d":"건물이 홍대입구역과 엘리베이터로 연결됩니다. 캐리어를 들고 계단을 오르지 않아도 됩니다.","i4_n":"문 앞 공항 리무진","i4_d":"인천공항 리무진이 건물 앞에 서고, 정류장에서 게스트하우스가 보입니다.","sec2_kick":"02 — 오시는 길","sec2_title":"출구에서 2분, 찾아오는 방법.","h1_l":"프런트","h1_v":"매일 09:00 – 24:00","h2_l":"가까운 역","h2_v":"홍대입구역 · 2호선","h3_l":"공항버스","h3_v":"건물 앞 정차","addr":"서울특별시 마포구 동교동 159-6 (양화로 157)","transit":"홍대입구역에서 엘리베이터로 바로 연결되고, 공항 리무진이 문 앞에 섭니다. 홍대 주요 거리와 클럽가는 도보 몇 분 거리입니다.","foot_tagline":"서울 홍대의 6인 게스트하우스 — 홍대입구역과 엘리베이터로 연결되고 공항 리무진이 문 앞에 섭니다."},"ja":{"lang_aria":"言語","lbl_hours":"営業時間","lbl_address":"住所","lbl_getting":"アクセス","lbl_email":"メール","lbl_phone":"電話","lbl_messenger":"メッセージ","concept_badge":"コンセプトプレビュー · Atelier Web","concept_note":"このページは Atelier Web が提案用に制作したコンセプトで、Hongdae Guesthouse の公式サイトではありません。","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"直接のご連絡","cta_email":"メールを書く","brand_sub":"ソウル 弘大（ホンデ）ゲストハウス","nav1":"客室","nav2":"アクセス","nav3":"お問い合わせ","nav_cta":"日程相談","hero_kick":"ソウル 麻浦（マポ）弘大 · 2007年から","hero_title":"ベッド6台、<em>静かなワンフロア。</em>","hero_lede":"弘大の中心にある小さなゲストハウス。弘大入口駅とはエレベーターで直結し、空港リムジンは建物の前に停まります。専用バスルーム付きの6人ドミトリーが一部屋。","cta1":"客室を見る","cta2":"アクセス","art_note":"ベッド6台、バスルーム1つ","art_quote":"「空港バスは玄関先に、地下鉄はエレベーターで。」","art_fact":"シングルベッド6台 · 専用バスルーム · 駅からエレベーター直結","sec1_kick":"01 — 客室","sec1_title":"一部屋を、シンプルに。","sec1_lede":"専用バスルーム付きの6人ドミトリー一部屋です。リネンは毎回新しく用意し、家具も手入れを続けてきました。料金は1名1泊単位で、日程をお知らせいただければ確定します。","i1_n":"6人ドミトリー","i1_d":"シングルベッド6台、各自の寝具と読書灯。グループなら部屋ごと予約できます。","i2_n":"専用バスルーム","i2_d":"客室内にあり、お湯は終日、タオルも用意しています。","i3_n":"駅からエレベーター","i3_d":"建物は弘大入口駅とエレベーターでつながっています。スーツケースで階段を上る必要はありません。","i4_n":"玄関前の空港リムジン","i4_d":"仁川空港リムジンが建物の前に停まり、バス停からゲストハウスが見えます。","sec2_kick":"02 — アクセス","sec2_title":"出口から2分、たどり着き方。","h1_l":"フロント","h1_v":"毎日 09:00 – 24:00","h2_l":"最寄り駅","h2_v":"弘大入口駅 · 2号線","h3_l":"空港バス","h3_v":"建物前に停車","addr":"ソウル特別市 麻浦区 東橋洞 159-6（楊花路 157）","transit":"弘大入口駅からエレベーターで直結、空港リムジンは玄関前に停まります。弘大のメインストリートやクラブ街まで徒歩数分です。","foot_tagline":"ソウル弘大の6人ゲストハウス。弘大入口駅とエレベーターで直結し、空港リムジンが玄関前に停まります。"},"zh":{"lang_aria":"语言","lbl_hours":"营业时间","lbl_address":"地址","lbl_getting":"交通","lbl_email":"邮箱","lbl_phone":"电话","lbl_messenger":"消息","concept_badge":"方案预览 · Atelier Web","concept_note":"本页面是 Atelier Web 制作的概念方案，并非 Hongdae Guesthouse 的官方网站。","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"直接联系","cta_email":"写邮件","brand_sub":"首尔弘大青年旅舍","nav1":"房型","nav2":"交通","nav3":"联系","nav_cta":"询问日期","hero_kick":"首尔麻浦弘大 · 2007 年起","hero_title":"六张床，<em>安静的一层。</em>","hero_lede":"位于弘大正中的小旅舍。与弘大入口站以电梯直连，机场大巴就停在门前。一间带独立卫浴的六人多人房。","cta1":"查看房间","cta2":"交通方式","art_note":"六张床，一间卫浴","art_quote":"“机场大巴停在门口，地铁坐电梯上来。”","art_fact":"6 张单人床 · 独立卫浴 · 与车站电梯直连","sec1_kick":"01 — 房间","sec1_title":"一间房，简单就好。","sec1_lede":"一间带独立卫浴的六人房。床品每次新换，家具也一直维护良好。房价按每人每晚计算，告诉我们日期即可确认。","i1_n":"六人多人房","i1_d":"六张单人床，各自床品与阅读灯。同行可以整间预订。","i2_n":"独立卫浴","i2_d":"位于房间内，全天供应热水，提供毛巾。","i3_n":"从站台坐电梯","i3_d":"大楼与弘大入口站以电梯相连，拖着行李箱不必爬楼梯。","i4_n":"门口的机场大巴","i4_d":"仁川机场大巴停在楼前，从站台就能看到旅舍。","sec2_kick":"02 — 交通","sec2_title":"出口两分钟，怎么找到我们。","h1_l":"前台","h1_v":"每天 09:00 – 24:00","h2_l":"最近车站","h2_v":"弘大入口站 · 2 号线","h3_l":"机场巴士","h3_v":"楼前停靠","addr":"首尔特别市麻浦区东桥洞 159-6（杨花路 157）","transit":"从弘大入口站坐电梯直连，机场大巴停在门口。弘大主街与酒吧街步行几分钟即到。","foot_tagline":"首尔弘大的六人旅舍——与弘大入口站电梯直连，机场大巴停在门口。"},"es":{"lang_aria":"Idioma","lbl_hours":"Horario","lbl_address":"Dirección","lbl_getting":"Cómo llegar","lbl_email":"Correo","lbl_phone":"Teléfono","lbl_messenger":"Mensaje","concept_badge":"Vista de concepto · Atelier Web","concept_note":"Esta página es una propuesta de concepto preparada por Atelier Web. No es el sitio oficial de Hongdae Guesthouse.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Contacto directo","cta_email":"Escribir un correo","brand_sub":"Guesthouse · Hongdae, Seúl","nav1":"La habitación","nav2":"Cómo llegar","nav3":"Contacto","nav_cta":"Consultar fechas","hero_kick":"Hongdae · Mapo-gu, Seúl · desde 2007","hero_title":"Seis camas, <em>una planta tranquila.</em>","hero_lede":"Un guesthouse pequeño en pleno Hongdae, conectado con la estación de Hongik University por ascensor y con el autobús del aeropuerto en la puerta. Un dormitorio de seis camas con baño propio.","cta1":"Ver la habitación","cta2":"Cómo llegar","art_note":"Seis camas, un baño","art_quote":"«El bus del aeropuerto para en la puerta; el metro sube en ascensor.»","art_fact":"6 camas individuales · baño privado · ascensor desde la estación","sec1_kick":"01 — La habitación","sec1_title":"Una habitación, sin complicaciones.","sec1_lede":"Seis camas individuales en una habitación tipo dormitorio con baño privado, ropa de cama nueva y mobiliario bien cuidado. La tarifa es por cama y noche: escríbenos con tus fechas y lo confirmamos.","i1_n":"Dormitorio de seis camas","i1_d":"Seis camas individuales con ropa de cama y luz de lectura. Un grupo puede reservar la habitación entera.","i2_n":"Baño privado","i2_d":"Dentro de la habitación, con agua caliente todo el día y toallas incluidas.","i3_n":"Ascensor desde el andén","i3_d":"El edificio está conectado con la estación de Hongik University por ascensor: sin escaleras con la maleta.","i4_n":"Autobús del aeropuerto en la puerta","i4_d":"El bus de Incheon para delante del edificio; el guesthouse se ve desde la parada.","sec2_kick":"02 — Cómo llegar","sec2_title":"A dos minutos de la salida, y cómo encontrarnos.","h1_l":"Recepción","h1_v":"09:00 – 24:00 todos los días","h2_l":"Estación","h2_v":"Hongik Univ. · línea 2","h3_l":"Bus del aeropuerto","h3_v":"Para en el edificio","addr":"159-6 Donggyo-dong, Mapo-gu, Seúl (157 Yanghwa-ro)","transit":"Acceso en ascensor desde la estación de Hongik University; el bus del aeropuerto para en la puerta. La calle principal y los clubs de Hongdae quedan a pocos minutos a pie.","foot_tagline":"Un guesthouse de seis camas en Hongdae, Seúl: ascensor directo desde la estación y autobús del aeropuerto en la puerta."},"vi":{"lang_aria":"Ngôn ngữ","lbl_hours":"Giờ mở cửa","lbl_address":"Địa chỉ","lbl_getting":"Đường đi","lbl_email":"Email","lbl_phone":"Điện thoại","lbl_messenger":"Tin nhắn","concept_badge":"Bản xem trước ý tưởng · Atelier Web","concept_note":"Trang này là bản phác thảo ý tưởng do Atelier Web thực hiện, không phải website chính thức của Hongdae Guesthouse.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Liên hệ trực tiếp","cta_email":"Gửi email","brand_sub":"Nhà nghỉ · Hongdae, Seoul","nav1":"Phòng","nav2":"Đường đi","nav3":"Liên hệ","nav_cta":"Hỏi ngày ở","hero_kick":"Hongdae · Mapo-gu, Seoul · từ 2007","hero_title":"Sáu chiếc giường, <em>một tầng yên tĩnh.</em>","hero_lede":"Một nhà nghỉ nhỏ giữa Hongdae, nối thẳng với ga Hongik University bằng thang máy và xe buýt sân bay đỗ ngay trước cửa. Một phòng tập thể sáu giường có phòng tắm riêng.","cta1":"Xem phòng","cta2":"Đường đi","art_note":"Sáu giường, một phòng tắm","art_quote":"“Xe sân bay đỗ trước cửa, tàu điện lên bằng thang máy.”","art_fact":"6 giường đơn · phòng tắm riêng · thang máy từ ga","sec1_kick":"01 — Phòng","sec1_title":"Một phòng, giữ đơn giản.","sec1_lede":"Sáu giường đơn trong phòng kiểu tập thể có phòng tắm riêng, ga trải giường mới mỗi lần và nội thất được giữ tốt. Giá tính theo giường mỗi đêm — gửi ngày ở, chúng tôi xác nhận.","i1_n":"Phòng tập thể sáu giường","i1_d":"Sáu giường đơn, mỗi người có chăn gối và đèn đọc sách. Nhóm đông có thể thuê cả phòng.","i2_n":"Phòng tắm riêng","i2_d":"Nằm trong phòng, nước nóng cả ngày, có khăn tắm.","i3_n":"Thang máy từ sân ga","i3_d":"Toà nhà nối với ga Hongik University bằng thang máy — không phải khiêng vali lên cầu thang.","i4_n":"Xe buýt sân bay trước cửa","i4_d":"Xe buýt sân bay Incheon đỗ trước toà nhà; từ bến có thể nhìn thấy nhà nghỉ.","sec2_kick":"02 — Đường đi","sec2_title":"Hai phút từ cửa ra, và cách tìm chúng tôi.","h1_l":"Lễ tân","h1_v":"09:00 – 24:00 hằng ngày","h2_l":"Ga gần nhất","h2_v":"Hongik Univ. · tuyến 2","h3_l":"Xe sân bay","h3_v":"Đỗ trước toà nhà","addr":"159-6 Donggyo-dong, Mapo-gu, Seoul (157 Yanghwa-ro)","transit":"Đi thang máy từ ga Hongik University; xe buýt sân bay đỗ ngay cửa. Phố chính và khu câu lạc bộ Hongdae cách vài phút đi bộ.","foot_tagline":"Nhà nghỉ sáu giường ở Hongdae, Seoul — nối thẳng ga Hongik University bằng thang máy, xe sân bay đỗ trước cửa."}};
+</script>
+<script>
+(function(){
+  var dict = window.I18N || {}, LANGS = ['en','ko','ja','zh','es','vi'], current = 'en';
+  function t(k){
+    var pack = dict[current] || dict.en || {};
+    if (pack[k] !== undefined) return pack[k];
+    return (dict.en && dict.en[k] !== undefined) ? dict.en[k] : '';
+  }
+  function apply(lang){
+    if (LANGS.indexOf(lang) < 0) lang = 'en';
+    current = lang;
+    document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-Hans' : lang);
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n'));
+      if (v !== '') el.innerHTML = v;
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n-aria'));
+      if (v !== '') el.setAttribute('aria-label', v);
+    });
+    document.querySelectorAll('.lang').forEach(function(b){
+      var on = b.getAttribute('data-lang') === lang;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    try { localStorage.setItem('aw_concept_lang', lang); } catch(e) {}
+  }
+  document.querySelectorAll('.lang').forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.getAttribute('data-lang')); });
+  });
+  var saved = null;
+  try { saved = localStorage.getItem('aw_concept_lang'); } catch(e) {}
+  if (LANGS.indexOf(saved) < 0) saved = 'en';
+  apply(saved);
+})();
+</script>
+</body>
+</html>
