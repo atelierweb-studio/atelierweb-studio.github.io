@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="meta_title">Apex Advisory — Local execution, global standards</title>
+<meta name="description" content="A B2B consulting and local-services agency demo with six-language switching.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230B1220'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='13' fill='%23D8A24C' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --night:#0B1220; --panel:#101B2D; --panel-2:#0E1727; --fog:#E9EEF5; --slate:#98A8BC; --amber:#D8A24C;
+    --line:rgba(233,238,245,.13); --line-2:rgba(233,238,245,.07);
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Pretendard",Roboto,Arial,sans-serif;
+    --serif:"New York",ui-serif,Georgia,"Noto Serif KR",serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--night);color:var(--fog);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.02em}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+  .mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:.16em}
+  .eyebrow{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber)}
+  .topbar{position:fixed;inset:0 0 auto;z-index:50;background:rgba(11,18,32,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .topbar-in{max-width:1180px;margin:0 auto;padding:12px 32px;display:flex;align-items:center;gap:26px}
+  .brand{display:flex;flex-direction:column;line-height:1}
+  .brand strong{font-family:var(--mono);font-weight:600;font-size:13px;letter-spacing:.26em;text-transform:uppercase}
+  .brand i{font-style:normal;font-family:var(--mono);font-size:7.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--slate);margin-top:6px}
+  .nav{display:flex;gap:22px}
+  .nav a{font-family:var(--mono);font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--slate);padding-bottom:3px;border-bottom:1px solid transparent}
+  .nav a:hover{color:var(--fog);border-color:var(--amber)}
+  .langs{display:flex;gap:5px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+  .langs::-webkit-scrollbar{display:none}
+  .lang{font-family:var(--mono);font-size:9.5px;border:1px solid var(--line);border-radius:2px;padding:6px 8px;white-space:nowrap;color:var(--slate);transition:.16s}
+  .lang:hover{border-color:var(--amber);color:var(--fog)}
+  .lang.is-on{background:var(--amber);border-color:var(--amber);color:#0B1220}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--amber);color:#0B1220;border:1px solid var(--amber);
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;padding:12px 18px;border-radius:2px;transition:.18s}
+  .btn:hover{background:#F0BC6B;border-color:#F0BC6B}
+  .btn-sm{padding:9px 14px;font-size:8.5px}
+  .btn-ghost{background:transparent;color:var(--fog);border-color:rgba(233,238,245,.3)}
+  .btn-ghost:hover{background:rgba(233,238,245,.08);border-color:var(--fog);color:var(--fog)}
+
+  .hero{position:relative;padding:150px 0 70px;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:linear-gradient(var(--line-2) 1px,transparent 1px),linear-gradient(90deg,var(--line-2) 1px,transparent 1px);
+    background-size:64px 64px;-webkit-mask-image:radial-gradient(70% 70% at 50% 30%,#000,transparent);mask-image:radial-gradient(70% 70% at 50% 30%,#000,transparent)}
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.08fr .92fr;gap:54px;align-items:center}
+  .kicker{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--slate);
+    display:flex;align-items:center;gap:10px}
+  .kicker::before{content:"";width:26px;height:1px;background:var(--amber)}
+  h1{margin-top:18px;font-size:clamp(38px,5vw,62px);line-height:1.03}
+  h1 em{font-style:normal;color:var(--amber)}
+  .hero p{margin:20px 0 0;font-size:15.5px;line-height:1.7;color:var(--slate);max-width:46ch}
+  .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+  .micro{margin-top:22px;font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(152,168,188,.8)}
+  .panel{position:relative;background:linear-gradient(165deg,var(--panel),var(--panel-2));border:1px solid var(--line);border-radius:6px;padding:22px}
+  .panel-top{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--slate)}
+  .panel-top .dot{width:6px;height:6px;border-radius:50%;background:var(--amber);display:inline-block;margin-right:6px}
+  .metrics-mini{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);margin-top:16px;border:1px solid var(--line)}
+  .metrics-mini div{background:var(--panel);padding:16px 14px}
+  .metrics-mini b{display:block;font-size:30px;font-weight:600;letter-spacing:-.03em;line-height:1}
+  .metrics-mini b small{font-size:13px;color:var(--amber);letter-spacing:0;margin-left:2px}
+  .metrics-mini span{display:block;margin-top:7px;font-family:var(--mono);font-size:7.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--slate)}
+  .panel-foot{margin-top:14px;display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:var(--mono);font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(152,168,188,.75)}
+  .spark{display:flex;align-items:flex-end;gap:3px;height:22px}
+  .spark i{display:block;width:4px;background:rgba(216,162,76,.55)}
+  .spark i:nth-child(5){background:var(--amber)}
+
+  .sec{padding:66px 0;border-bottom:1px solid var(--line)}
+  .sec-head{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end;margin-bottom:30px}
+  h2{font-size:clamp(26px,3.2vw,40px);line-height:1.1;margin-top:12px}
+  .sec-head p{margin:0;font-size:13px;line-height:1.7;color:var(--slate)}
+  .band{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--panel-2)}
+  .band div{padding:22px 20px;border-right:1px solid var(--line)}
+  .band div:last-child{border-right:0}
+  .band b{display:block;font-size:34px;font-weight:600;letter-spacing:-.03em;line-height:1}
+  .band b small{font-size:15px;color:var(--amber);letter-spacing:0}
+  .band span{display:block;margin-top:8px;font-family:var(--mono);font-size:7.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--slate)}
+  .band-note{margin-top:10px;font-family:var(--mono);font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(152,168,188,.7)}
+
+  .services{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  .svc{background:var(--night);padding:24px;transition:.2s;position:relative}
+  .svc:hover{background:var(--panel)}
+  .svc .n{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--amber)}
+  .svc h3{font-size:20px;margin-top:10px;line-height:1.25}
+  .svc p{margin:9px 0 0;font-size:12px;line-height:1.65;color:var(--slate);max-width:40ch}
+  .svc ul{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+  .svc li{font-size:11px;color:rgba(233,238,245,.8);padding-left:12px;position:relative}
+  .svc li::before{content:"";position:absolute;left:0;top:6px;width:4px;height:4px;background:var(--amber)}
+  .svc .arrow{position:absolute;right:20px;bottom:18px;font-family:var(--mono);font-size:12px;color:var(--amber);opacity:.7}
+
+  .approach{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .ap{border-top:1px solid var(--amber);padding-top:16px}
+  .ap .n{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--amber)}
+  .ap h3{font-size:17px;margin-top:10px}
+  .ap p{margin:8px 0 0;font-size:11.5px;line-height:1.7;color:var(--slate)}
+
+  .contact{display:grid;grid-template-columns:.85fr 1.15fr;gap:46px;align-items:start}
+  .contact-info p{margin:14px 0 0;font-size:13px;line-height:1.7;color:var(--slate);max-width:34ch}
+  .contact-info dl{margin:24px 0 0;padding:0}
+  .contact-info dt{font-family:var(--mono);font-size:7.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--slate);margin-top:14px}
+  .contact-info dd{margin:5px 0 0;font-size:13px;color:var(--fog)}
+  form.consult{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:24px}
+  .f-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+  .field label{font-family:var(--mono);font-size:7.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--slate)}
+  .field input,.field select,.field textarea{font-family:var(--sans);font-size:13px;color:var(--fog);background:rgba(233,238,245,.04);
+    border:1px solid var(--line);border-radius:2px;padding:10px 11px;outline:none;width:100%}
+  .field textarea{min-height:76px;resize:vertical}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--amber)}
+  .field input::placeholder,.field textarea::placeholder{color:rgba(152,168,188,.7)}
+  .form-foot{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .form-note{font-size:10px;line-height:1.5;color:var(--slate);max-width:36ch}
+  .form-ok{margin-top:14px;border:1px solid var(--amber);color:#F3DDB8;background:rgba(216,162,76,.1);padding:10px 12px;border-radius:2px;
+    font-size:11.5px;line-height:1.5}
+  [hidden]{display:none !important}
+
+  footer{background:#08101C;padding:44px 0 26px}
+  .foot{display:grid;grid-template-columns:1.4fr .6fr .6fr;gap:30px}
+  .foot strong{font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase}
+  .foot p{margin:12px 0 0;font-size:10.5px;line-height:1.7;color:var(--slate);max-width:46ch}
+  .foot h4{margin:0 0 10px;font-family:var(--mono);font-size:7.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(152,168,188,.8)}
+  .foot ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px;font-size:11px;color:#C6D2E0}
+  .foot-bottom{margin-top:28px;padding-top:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;
+    gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(152,168,188,.8)}
+
+  noscript div{position:fixed;left:0;right:0;bottom:0;z-index:80;background:var(--amber);color:#0B1220;
+    font-family:var(--mono);font-size:9px;padding:9px 14px;text-align:center}
+
+  @media (max-width:1000px){
+    .nav{display:none}
+    .hero{padding-top:118px}
+    .hero-grid,.sec-head,.contact{grid-template-columns:1fr;gap:32px}
+    .band{grid-template-columns:1fr 1fr}
+    .band div:nth-child(2){border-right:0}
+    .band div:nth-child(1),.band div:nth-child(2){border-bottom:1px solid var(--line)}
+    .services{grid-template-columns:1fr}
+    .approach{grid-template-columns:1fr;gap:18px}
+    .foot{grid-template-columns:1fr}
+    .topbar-in{flex-wrap:wrap;gap:10px}
+    .langs{order:3;width:100%;margin-left:0}
+    .btn-sm{margin-left:auto}
+  }
+  @media (max-width:600px){
+    .f-row{grid-template-columns:1fr}
+    .wrap,.topbar-in{padding-left:18px;padding-right:18px}
+    .metrics-mini{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="#top"><strong>Apex Advisory</strong><i data-i18n="brand_sub">Global consulting · Local execution</i></a>
+    <nav class="nav">
+      <a href="#services" data-i18n="nav_services">Services</a>
+      <a href="#metrics" data-i18n="nav_metrics">Metrics</a>
+      <a href="#approach" data-i18n="nav_approach">Approach</a>
+      <a href="#contact" data-i18n="nav_contact">Consultation</a>
+    </nav>
+    <div class="langs" role="group" data-i18n-aria="lang_aria" aria-label="Language">
+      <button type="button" class="lang is-on" data-lang="en" aria-pressed="true">🇺🇸 EN</button>
+      <button type="button" class="lang" data-lang="ko" aria-pressed="false">🇰🇷 KO</button>
+      <button type="button" class="lang" data-lang="ja" aria-pressed="false">🇯🇵 JA</button>
+      <button type="button" class="lang" data-lang="zh" aria-pressed="false">🇨🇳 ZH</button>
+      <button type="button" class="lang" data-lang="es" aria-pressed="false">🇪🇸 ES</button>
+      <button type="button" class="lang" data-lang="vi" aria-pressed="false">🇻🇳 VI</button>
+    </div>
+    <a class="btn btn-sm" href="#contact" data-i18n="nav_cta">Book a consultation</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="kicker" data-i18n="hero_kick">B2B · Market entry &amp; operations</div>
+        <h1 data-i18n="hero_title">Local execution.<br><em>Global standards.</em></h1>
+        <p data-i18n="hero_lede">We help foreign teams operate in Korea and Korean teams operate abroad — hiring, compliance, vendors and the unglamorous details that decide whether a launch actually lands.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#contact" data-i18n="hero_cta1">Book a consultation</a>
+          <a class="btn btn-ghost" href="#services" data-i18n="hero_cta2">See services</a>
+        </div>
+        <div class="micro" data-i18n="hero_micro">No retainers required · Fixed-scope engagements</div>
+      </div>
+      <div class="panel" aria-hidden="true">
+        <div class="panel-top"><span><span class="dot"></span>ENGAGEMENT SNAPSHOT</span><span>Q4 / 2026</span></div>
+        <div class="metrics-mini">
+          <div><b>18</b><span data-i18n="m1">Markets covered</span></div>
+          <div><b>120<small>+</small></b><span data-i18n="m2">Engagements</span></div>
+          <div><b>11<small>y</small></b><span data-i18n="m3">Team experience</span></div>
+          <div><b>4.9<small>/5</small></b><span data-i18n="m4">Client rating</span></div>
+        </div>
+        <div class="panel-foot"><span data-i18n="panel_note">Illustrative figures</span><span class="spark"><i style="height:30%"></i><i style="height:46%"></i><i style="height:38%"></i><i style="height:62%"></i><i style="height:80%"></i><i style="height:70%"></i><i style="height:100%"></i></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="metrics">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow" data-i18n="band_kick">01 — By the numbers</div>
+          <h2 data-i18n="band_title">A layout for numbers, not a claim.</h2>
+        </div>
+        <p data-i18n="band_lede">This band shows where real figures would sit. Every number on this page is an illustrative placeholder for the demo — replace them with audited results before publishing.</p>
+      </div>
+      <div class="band">
+        <div><b>18</b><span data-i18n="m1">Markets covered</span></div>
+        <div><b>120<small>+</small></b><span data-i18n="m2">Engagements</span></div>
+        <div><b>11<small>y</small></b><span data-i18n="m3">Team experience</span></div>
+        <div><b>4.9<small>/5</small></b><span data-i18n="m4">Client rating</span></div>
+      </div>
+      <p class="band-note" data-i18n="band_note">Sample layout · figures are not verified results</p>
+    </div>
+  </section>
+
+  <section class="sec" id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow" data-i18n="svc_kick">02 — Services</div>
+          <h2 data-i18n="svc_title">Four ways we get involved.</h2>
+        </div>
+        <p data-i18n="svc_lede">Each engagement starts with a two-week diagnostic and a written scope. You can stop after the diagnostic — some clients do.</p>
+      </div>
+      <div class="services">
+        <article class="svc">
+          <div class="n">01</div>
+          <h3 data-i18n="s1_t">Market entry</h3>
+          <p data-i18n="s1_d">From first legal entity to first paying customer, with a local operator beside you.</p>
+          <ul><li data-i18n="s1_b1">Entity, banking and tax setup</li><li data-i18n="s1_b2">Localisation of pricing and contracts</li><li data-i18n="s1_b3">First hires and onboarding</li></ul>
+          <span class="arrow">↗</span>
+        </article>
+        <article class="svc">
+          <div class="n">02</div>
+          <h3 data-i18n="s2_t">Operations &amp; process</h3>
+          <p data-i18n="s2_d">We map how work actually moves, then remove the steps nobody can justify.</p>
+          <ul><li data-i18n="s2_b1">Vendor and cost review</li><li data-i18n="s2_b2">SOPs written for two languages</li><li data-i18n="s2_b3">Service-level reporting</li></ul>
+          <span class="arrow">↗</span>
+        </article>
+        <article class="svc">
+          <div class="n">03</div>
+          <h3 data-i18n="s3_t">Compliance &amp; localisation</h3>
+          <p data-i18n="s3_d">The paperwork side, handled before it becomes a launch blocker.</p>
+          <ul><li data-i18n="s3_b1">Contract and policy review</li><li data-i18n="s3_b2">Labour and visa compliance</li><li data-i18n="s3_b3">Bilingual customer documentation</li></ul>
+          <span class="arrow">↗</span>
+        </article>
+        <article class="svc">
+          <div class="n">04</div>
+          <h3 data-i18n="s4_t">Digital &amp; data</h3>
+          <p data-i18n="s4_d">A working digital front door, in the languages your customers actually read.</p>
+          <ul><li data-i18n="s4_b1">Multilingual site and forms</li><li data-i18n="s4_b2">CRM and lead routing</li><li data-i18n="s4_b3">Monthly performance review</li></ul>
+          <span class="arrow">↗</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="approach">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow" data-i18n="ap_kick">03 — Approach</div>
+          <h2 data-i18n="ap_title">Diagnose, decide, deliver.</h2>
+        </div>
+        <p data-i18n="ap_lede">No 40-page decks. A short diagnosis, one decision meeting, and then the work — with a named person accountable for each line.</p>
+      </div>
+      <div class="approach">
+        <div class="ap"><div class="n">01</div><h3 data-i18n="a1_t">Two-week diagnostic</h3><p data-i18n="a1_d">Interviews, documents and a cost baseline. You receive a one-page finding and a scope with a fixed price.</p></div>
+        <div class="ap"><div class="n">02</div><h3 data-i18n="a2_t">Decision meeting</h3><p data-i18n="a2_d">Ninety minutes with the people who can say yes. We agree what to do, what to skip and who owns each part.</p></div>
+        <div class="ap"><div class="n">03</div><h3 data-i18n="a3_t">Delivery with handover</h3><p data-i18n="a3_d">Weekly written updates, then a handover pack so your team can run it without us.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="contact">
+    <div class="wrap contact">
+      <div class="contact-info">
+        <div class="eyebrow" data-i18n="ct_kick">04 — Consultation</div>
+        <h2 data-i18n="ct_title">Tell us what you're trying to land.</h2>
+        <p data-i18n="ct_lede">Send a short note about the market, the timeline and what is stuck. We reply with a diagnostic outline and a fixed price for it.</p>
+        <dl>
+          <dt data-i18n="ct_email">Email</dt>
+          <dd>hello@example-studio.com</dd>
+          <dt data-i18n="ct_response">Response</dt>
+          <dd data-i18n="ct_response_v">Within 1 business day</dd>
+          <dt data-i18n="ct_langs">Working languages</dt>
+          <dd>EN · KO · JA · ZH · ES · VI</dd>
+        </dl>
+      </div>
+      <form class="consult" id="consult">
+        <div class="f-row">
+          <div class="field"><label for="p-name" data-i18n="form_name">Name</label><input id="p-name" type="text" data-i18n-ph="ph_name" placeholder="Your name"></div>
+          <div class="field"><label for="p-company" data-i18n="form_company">Company</label><input id="p-company" type="text" data-i18n-ph="ph_company" placeholder="Company name"></div>
+        </div>
+        <div class="f-row">
+          <div class="field"><label for="p-email" data-i18n="form_email">Email</label><input id="p-email" type="email" data-i18n-ph="ph_email" placeholder="you@company.com"></div>
+          <div class="field"><label for="p-market" data-i18n="form_market">Market</label>
+            <select id="p-market">
+              <option data-i18n="mk_kr">Korea</option>
+              <option data-i18n="mk_jp">Japan</option>
+              <option data-i18n="mk_cn">China</option>
+              <option data-i18n="mk_sea">Southeast Asia</option>
+              <option data-i18n="mk_eu">Europe</option>
+              <option data-i18n="mk_other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="p-msg" data-i18n="form_msg">What are you trying to land?</label><textarea id="p-msg" data-i18n-ph="ph_msg" placeholder="Market, timeline, what is stuck…"></textarea></div>
+        <div class="form-foot">
+          <button type="submit" class="btn" data-i18n="form_submit">Request a consultation</button>
+          <p class="form-note" data-i18n="form_note">Demo form — nothing is sent. Submitting only shows a confirmation message.</p>
+        </div>
+        <div class="form-ok" id="consultOk" hidden data-i18n="form_success">Thanks — a real request would reach the team here. Nothing left your browser.</div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <strong>Apex Advisory</strong>
+        <p data-i18n="foot_tagline">A demo B2B site built for a web studio portfolio. Metrics, cases and team details are illustrative samples.</p>
+      </div>
+      <div>
+        <h4 data-i18n="foot_nav">Sections</h4>
+        <ul>
+          <li><a href="#services" data-i18n="nav_services">Services</a></li>
+          <li><a href="#metrics" data-i18n="nav_metrics">Metrics</a></li>
+          <li><a href="#approach" data-i18n="nav_approach">Approach</a></li>
+          <li><a href="#contact" data-i18n="nav_contact">Consultation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot_contact">Contact</h4>
+        <ul>
+          <li>hello@example-studio.com</li>
+          <li data-i18n="foot_langs">EN · KO · JA · ZH · ES · VI</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span data-i18n="foot_rights">© 2026 Apex Advisory — demo</span>
+      <span data-i18n="foot_lang">Language: EN · KO · JA · ZH · ES · VI</span>
+    </div>
+  </div>
+</footer>
+
+<noscript><div data-i18n="noscript">JavaScript is off. Open this file in Safari or Chrome for the live language switch.</div></noscript>
+
+<script>window.I18N = {"en":{"meta_title":"Apex Advisory — Local execution, global standards","brand_sub":"Global consulting · Local execution","nav_services":"Services","nav_metrics":"Metrics","nav_approach":"Approach","nav_contact":"Consultation","nav_cta":"Book a consultation","lang_aria":"Language","hero_kick":"B2B · Market entry &amp; operations","hero_title":"Local execution.<br><em>Global standards.</em>","hero_lede":"We help foreign teams operate in Korea and Korean teams operate abroad — hiring, compliance, vendors and the unglamorous details that decide whether a launch actually lands.","hero_cta1":"Book a consultation","hero_cta2":"See services","hero_micro":"No retainers required · Fixed-scope engagements","m1":"Markets covered","m2":"Engagements","m3":"Team experience","m4":"Client rating","panel_note":"Illustrative figures","band_kick":"01 — By the numbers","band_title":"A layout for numbers, not a claim.","band_lede":"This band shows where real figures would sit. Every number on this page is an illustrative placeholder for the demo — replace them with audited results before publishing.","band_note":"Sample layout · figures are not verified results","svc_kick":"02 — Services","svc_title":"Four ways we get involved.","svc_lede":"Each engagement starts with a two-week diagnostic and a written scope. You can stop after the diagnostic — some clients do.","s1_t":"Market entry","s1_d":"From first legal entity to first paying customer, with a local operator beside you.","s1_b1":"Entity, banking and tax setup","s1_b2":"Localisation of pricing and contracts","s1_b3":"First hires and onboarding","s2_t":"Operations &amp; process","s2_d":"We map how work actually moves, then remove the steps nobody can justify.","s2_b1":"Vendor and cost review","s2_b2":"SOPs written for two languages","s2_b3":"Service-level reporting","s3_t":"Compliance &amp; localisation","s3_d":"The paperwork side, handled before it becomes a launch blocker.","s3_b1":"Contract and policy review","s3_b2":"Labour and visa compliance","s3_b3":"Bilingual customer documentation","s4_t":"Digital &amp; data","s4_d":"A working digital front door, in the languages your customers actually read.","s4_b1":"Multilingual site and forms","s4_b2":"CRM and lead routing","s4_b3":"Monthly performance review","ap_kick":"03 — Approach","ap_title":"Diagnose, decide, deliver.","ap_lede":"No 40-page decks. A short diagnosis, one decision meeting, and then the work — with a named person accountable for each line.","a1_t":"Two-week diagnostic","a1_d":"Interviews, documents and a cost baseline. You receive a one-page finding and a scope with a fixed price.","a2_t":"Decision meeting","a2_d":"Ninety minutes with the people who can say yes. We agree what to do, what to skip and who owns each part.","a3_t":"Delivery with handover","a3_d":"Weekly written updates, then a handover pack so your team can run it without us.","ct_kick":"04 — Consultation","ct_title":"Tell us what you're trying to land.","ct_lede":"Send a short note about the market, the timeline and what is stuck. We reply with a diagnostic outline and a fixed price for it.","ct_email":"Email","ct_response":"Response","ct_response_v":"Within 1 business day","ct_langs":"Working languages","form_name":"Name","form_company":"Company","form_email":"Email","form_market":"Market","form_msg":"What are you trying to land?","ph_name":"Your name","ph_company":"Company name","ph_email":"you@company.com","ph_msg":"Market, timeline, what is stuck…","mk_kr":"Korea","mk_jp":"Japan","mk_cn":"China","mk_sea":"Southeast Asia","mk_eu":"Europe","mk_other":"Other","form_submit":"Request a consultation","form_note":"Demo form — nothing is sent. Submitting only shows a confirmation message.","form_success":"Thanks — a real request would reach the team here. Nothing left your browser.","foot_tagline":"A demo B2B site built for a web studio portfolio. Metrics, cases and team details are illustrative samples.","foot_nav":"Sections","foot_contact":"Contact","foot_langs":"EN · KO · JA · ZH · ES · VI","foot_rights":"© 2026 Apex Advisory — demo","foot_lang":"Language: EN · KO · JA · ZH · ES · VI","noscript":"JavaScript is off. Open this file in Safari or Chrome for the live language switch."},"ko":{"meta_title":"Apex Advisory — 현지 실행력, 글로벌 기준","brand_sub":"글로벌 컨설팅 · 현지 실행","nav_services":"서비스","nav_metrics":"지표","nav_approach":"접근 방식","nav_contact":"상담","nav_cta":"상담 예약","lang_aria":"언어 선택","hero_kick":"B2B · 시장 진입 &amp; 운영","hero_title":"현지에서 실행하고,<br><em>글로벌 기준으로.</em>","hero_lede":"해외 팀이 한국에서, 한국 팀이 해외에서 실제로 운영되도록 돕습니다. 채용, 컴플라이언스, 벤더, 그리고 런칭의 성패를 가르는 눈에 띄지 않는 디테일까지.","hero_cta1":"상담 예약","hero_cta2":"서비스 보기","hero_micro":"월 단위 계약 없음 · 범위 고정 프로젝트","m1":"진출 시장","m2":"프로젝트","m3":"팀 경력","m4":"고객 평가","panel_note":"예시 수치","band_kick":"01 — 숫자로 보기","band_title":"주장이 아니라, 숫자를 위한 레이아웃.","band_lede":"이 밴드는 실제 수치가 들어갈 자리를 보여줍니다. 이 페이지의 모든 숫자는 데모용 예시입니다. 공개 전에 검증된 결과로 교체하세요.","band_note":"샘플 레이아웃 · 수치는 검증된 실적이 아닙니다","svc_kick":"02 — 서비스","svc_title":"네 가지 방식으로 함께합니다.","svc_lede":"모든 프로젝트는 2주 진단과 서면 범위 정의로 시작합니다. 진단 후에 멈출 수도 있습니다. 실제로 그렇게 하는 고객도 있습니다.","s1_t":"시장 진입","s1_d":"첫 법인 설립부터 첫 유료 고객까지, 현지 운영 파트너와 함께.","s1_b1":"법인·계좌·세무 설계","s1_b2":"가격과 계약의 현지화","s1_b3":"초기 채용과 온보딩","s2_t":"운영 &amp; 프로세스","s2_d":"일이 실제로 어떻게 흐르는지 그려 보고, 설명되지 않는 단계를 걷어냅니다.","s2_b1":"벤더·비용 점검","s2_b2":"두 언어로 작성한 SOP","s2_b3":"서비스 수준 리포트","s3_t":"컴플라이언스 &amp; 현지화","s3_d":"서류 쪽은 런칭을 막기 전에 처리합니다.","s3_b1":"계약·정책 검토","s3_b2":"노무·비자 컴플라이언스","s3_b3":"이중언어 고객 문서","s4_t":"디지털 &amp; 데이터","s4_d":"고객이 실제로 읽는 언어로 된, 작동하는 디지털 접점.","s4_b1":"다국어 사이트와 폼","s4_b2":"CRM과 리드 라우팅","s4_b3":"월간 성과 리뷰","ap_kick":"03 — 접근 방식","ap_title":"진단하고, 결정하고, 실행합니다.","ap_lede":"40장짜리 제안서는 없습니다. 짧은 진단, 한 번의 의사결정 미팅, 그다음 실행. 각 항목에 책임자를 둡니다.","a1_t":"2주 진단","a1_d":"인터뷰, 문서, 비용 기준선. 한 장짜리 발견 사항과 고정 가격의 범위를 받습니다.","a2_t":"의사결정 미팅","a2_d":"결정할 수 있는 사람들과 90분. 무엇을 하고 무엇을 건너뛸지, 각자 무엇을 맡을지 정합니다.","a3_t":"인수까지 포함한 실행","a3_d":"매주 서면 업데이트, 그리고 우리 없이도 운영할 수 있게 하는 인수 패키지.","ct_kick":"04 — 상담","ct_title":"무엇을 성사시키려는지 알려주세요.","ct_lede":"시장, 일정, 막힌 지점을 짧게 적어 주세요. 진단 개요와 그에 대한 고정 가격을 회신합니다.","ct_email":"이메일","ct_response":"회신","ct_response_v":"영업일 1일 이내","ct_langs":"업무 언어","form_name":"이름","form_company":"회사","form_email":"이메일","form_market":"시장","form_msg":"무엇을 성사시키려 하나요?","ph_name":"성함","ph_company":"회사명","ph_email":"you@company.com","ph_msg":"시장, 일정, 막힌 지점…","mk_kr":"한국","mk_jp":"일본","mk_cn":"중국","mk_sea":"동남아","mk_eu":"유럽","mk_other":"기타","form_submit":"상담 요청","form_note":"데모 폼입니다. 전송되지 않으며, 제출하면 확인 메시지만 표시됩니다.","form_success":"감사합니다. 실제라면 이 시점에 팀에 도착합니다. 브라우저 밖으로 나간 데이터는 없습니다.","foot_tagline":"웹 스튜디오 포트폴리오용 데모 B2B 사이트입니다. 지표, 사례, 팀 정보는 예시입니다.","foot_nav":"섹션","foot_contact":"연락","foot_langs":"EN · KO · JA · ZH · ES · VI","foot_rights":"© 2026 Apex Advisory — 데모","foot_lang":"언어: EN · KO · JA · ZH · ES · VI","noscript":"JavaScript가 꺼져 있습니다. 실시간 언어 전환은 이 파일을 Safari나 Chrome에서 열어 확인하세요."},"ja":{"meta_title":"Apex Advisory — 現地実行、グローバル基準","brand_sub":"グローバルコンサル · 現地実行","nav_services":"サービス","nav_metrics":"指標","nav_approach":"進め方","nav_contact":"相談","nav_cta":"相談を予約","lang_aria":"言語","hero_kick":"B2B · 市場参入＆オペレーション","hero_title":"現地で実行し、<br><em>グローバル基準で。</em>","hero_lede":"海外チームが韓国で、韓国チームが海外で実際に動けるよう支援します。採用、コンプライアンス、取引先、そしてローンチの成否を分ける地味な細部まで。","hero_cta1":"相談を予約","hero_cta2":"サービスを見る","hero_micro":"月額契約なし · 範囲固定のプロジェクト","m1":"対応市場","m2":"プロジェクト","m3":"チーム経験","m4":"顧客評価","panel_note":"参考値","band_kick":"01 — 数字で見る","band_title":"主張ではなく、数字のためのレイアウト。","band_lede":"この帯は実際の数値が入る位置を示しています。このページの数字はすべてデモ用の参考値です。公開前に検証済みの結果へ差し替えてください。","band_note":"サンプルレイアウト · 数値は検証済みの実績ではありません","svc_kick":"02 — サービス","svc_title":"4つの関わり方。","svc_lede":"すべての案件は2週間の診断と書面の範囲定義から始まります。診断後に止めることもできます。実際にそうする顧客もいます。","s1_t":"市場参入","s1_d":"最初の法人設立から最初の有料顧客まで、現地の運営パートナーとともに。","s1_b1":"法人・口座・税務の設計","s1_b2":"価格と契約のローカライズ","s1_b3":"初期採用とオンボーディング","s2_t":"オペレーション＆プロセス","s2_d":"仕事が実際にどう流れるかを描き、説明できない工程を削ります。","s2_b1":"取引先とコストの見直し","s2_b2":"2言語で書くSOP","s2_b3":"サービスレベル報告","s3_t":"コンプライアンス＆ローカライズ","s3_d":"書類側は、ローンチの妨げになる前に片づけます。","s3_b1":"契約・ポリシーのレビュー","s3_b2":"労務・ビザのコンプライアンス","s3_b3":"二言語の顧客向け書類","s4_t":"デジタル＆データ","s4_d":"顧客が実際に読む言語で、機能するデジタルの入口を。","s4_b1":"多言語サイトとフォーム","s4_b2":"CRMとリード配分","s4_b3":"月次の成果レビュー","ap_kick":"03 — 進め方","ap_title":"診断し、決め、届ける。","ap_lede":"40ページの資料は作りません。短い診断、1回の意思決定会議、その後に実行。各行に責任者を置きます。","a1_t":"2週間の診断","a1_d":"インタビュー、資料、コストの基準線。1枚の所見と固定価格の範囲をお渡しします。","a2_t":"意思決定会議","a2_d":"決められる人たちと90分。何をやり、何を省き、誰が何を担うかを合意します。","a3_t":"引き継ぎまで含めた実行","a3_d":"毎週の書面更新、そして私たちなしで運用できる引き継ぎパッケージ。","ct_kick":"04 — 相談","ct_title":"何を実現したいのか教えてください。","ct_lede":"市場、スケジュール、止まっている点を短くお書きください。診断の概要とその固定価格を返信します。","ct_email":"メール","ct_response":"返信","ct_response_v":"1営業日以内","ct_langs":"対応言語","form_name":"お名前","form_company":"会社","form_email":"メール","form_market":"市場","form_msg":"何を実現したいですか？","ph_name":"お名前","ph_company":"会社名","ph_email":"you@company.com","ph_msg":"市場、スケジュール、止まっている点…","mk_kr":"韓国","mk_jp":"日本","mk_cn":"中国","mk_sea":"東南アジア","mk_eu":"ヨーロッパ","mk_other":"その他","form_submit":"相談を申し込む","form_note":"デモ用フォームです。送信されず、確認メッセージのみ表示されます。","form_success":"ありがとうございます。実際ならここでチームに届きます。ブラウザの外には何も出ていません。","foot_tagline":"ウェブスタジオのポートフォリオ用デモB2Bサイトです。指標、事例、チーム情報はサンプルです。","foot_nav":"セクション","foot_contact":"連絡先","foot_langs":"EN · KO · JA · ZH · ES · VI","foot_rights":"© 2026 Apex Advisory — デモ","foot_lang":"言語: EN · KO · JA · ZH · ES · VI","noscript":"JavaScriptが無効です。言語切替は、このファイルをSafariまたはChromeで開いてご確認ください。"},"zh":{"meta_title":"Apex Advisory — 本地执行，全球标准","brand_sub":"全球咨询 · 本地执行","nav_services":"服务","nav_metrics":"指标","nav_approach":"方法","nav_contact":"咨询","nav_cta":"预约咨询","lang_aria":"语言","hero_kick":"B2B · 市场进入与运营","hero_title":"本地执行，<br><em>全球标准。</em>","hero_lede":"帮助海外团队在韩国落地、韩国团队走向海外——招聘、合规、供应商，以及决定发布成败的那些不起眼的细节。","hero_cta1":"预约咨询","hero_cta2":"查看服务","hero_micro":"无需月费 · 范围固定项目","m1":"覆盖市场","m2":"项目数量","m3":"团队经验","m4":"客户评分","panel_note":"示例数据","band_kick":"01 — 数据一览","band_title":"不为吹嘘，只为安放数字的版式。","band_lede":"这一栏展示真实数据该放的位置。本页所有数字都是演示用占位示例——发布前请替换为经核实的结果。","band_note":"示例版式 · 数字并非已核实业绩","svc_kick":"02 — 服务","svc_title":"四种合作方式。","svc_lede":"每个项目都从两周诊断与书面范围开始。诊断之后可以停下——确实有客户这样做。","s1_t":"市场进入","s1_d":"从设立第一个法人到第一位付费客户，本地运营伙伴全程陪同。","s1_b1":"法人、开户与税务搭建","s1_b2":"定价与合同的本地化","s1_b3":"首批招聘与入职","s2_t":"运营与流程","s2_d":"先把工作实际的流向画出来，再删掉没人能解释的环节。","s2_b1":"供应商与成本复盘","s2_b2":"双语 SOP 撰写","s2_b3":"服务级别报告","s3_t":"合规与本地化","s3_d":"把文件这一侧，在它拖住发布之前处理掉。","s3_b1":"合同与政策审查","s3_b2":"劳动与签证合规","s3_b3":"双语客户文件","s4_t":"数字与数据","s4_d":"用一个真正能用的数字入口，说客户真正在读的语言。","s4_b1":"多语言站点与表单","s4_b2":"CRM 与线索分配","s4_b3":"月度绩效复盘","ap_kick":"03 — 方法","ap_title":"诊断、决策、交付。","ap_lede":"不做 40 页的提案。一次简短诊断、一次决策会议，然后开始执行——每一行都有明确负责人。","a1_t":"两周诊断","a1_d":"访谈、文件与成本基线。你会得到一页发现与一份固定价格的方案范围。","a2_t":"决策会议","a2_d":"与能拍板的人开 90 分钟会。确定做什么、跳过什么、各自负责什么。","a3_t":"交付并交接","a3_d":"每周书面进展，最后交付一套让团队可以脱离我们运作的交接包。","ct_kick":"04 — 咨询","ct_title":"告诉我们你想促成什么。","ct_lede":"简短写下市场、时间表和卡住的地方。我们会回复诊断提纲及相应固定价格。","ct_email":"邮箱","ct_response":"回复","ct_response_v":"1 个工作日内","ct_langs":"工作语言","form_name":"姓名","form_company":"公司","form_email":"邮箱","form_market":"市场","form_msg":"你想促成什么？","ph_name":"您的姓名","ph_company":"公司名称","ph_email":"you@company.com","ph_msg":"市场、时间表、卡住的地方…","mk_kr":"韩国","mk_jp":"日本","mk_cn":"中国","mk_sea":"东南亚","mk_eu":"欧洲","mk_other":"其他","form_submit":"请求咨询","form_note":"演示表单——不会发送。提交只显示确认信息。","form_success":"谢谢——真实情况下这里会送达团队。没有任何数据离开你的浏览器。","foot_tagline":"为网页工作室作品集制作的演示 B2B 网站。指标、案例与团队信息均为示例。","foot_nav":"栏目","foot_contact":"联系","foot_langs":"EN · KO · JA · ZH · ES · VI","foot_rights":"© 2026 Apex Advisory — 演示","foot_lang":"语言：EN · KO · JA · ZH · ES · VI","noscript":"JavaScript 已关闭。请在 Safari 或 Chrome 中打开此文件以使用语言切换。"},"es":{"meta_title":"Apex Advisory — Ejecución local, estándares globales","brand_sub":"Consultoría global · Ejecución local","nav_services":"Servicios","nav_metrics":"Métricas","nav_approach":"Enfoque","nav_contact":"Consulta","nav_cta":"Reservar consulta","lang_aria":"Idioma","hero_kick":"B2B · Entrada al mercado y operaciones","hero_title":"Ejecución local.<br><em>Estándares globales.</em>","hero_lede":"Ayudamos a equipos extranjeros a operar en Corea y a equipos coreanos a operar fuera: contratación, cumplimiento, proveedores y los detalles poco vistosos que deciden si un lanzamiento cuaja.","hero_cta1":"Reservar consulta","hero_cta2":"Ver servicios","hero_micro":"Sin cuotas mensuales · Proyectos de alcance fijo","m1":"Mercados cubiertos","m2":"Proyectos","m3":"Experiencia del equipo","m4":"Valoración de clientes","panel_note":"Cifras ilustrativas","band_kick":"01 — En cifras","band_title":"Un diseño para números, no una afirmación.","band_lede":"Esta banda muestra dónde irían las cifras reales. Todos los números de esta página son ejemplos de relleno: sustitúyelos por resultados auditados antes de publicar.","band_note":"Diseño de muestra · cifras no verificadas","svc_kick":"02 — Servicios","svc_title":"Cuatro formas de intervenir.","svc_lede":"Cada proyecto empieza con un diagnóstico de dos semanas y un alcance escrito. Puedes parar tras el diagnóstico; algunos clientes lo hacen.","s1_t":"Entrada al mercado","s1_d":"Desde la primera entidad legal hasta el primer cliente de pago, con un operador local a tu lado.","s1_b1":"Entidad, banca e impuestos","s1_b2":"Localización de precios y contratos","s1_b3":"Primeras contrataciones e incorporación","s2_t":"Operaciones y procesos","s2_d":"Dibujamos cómo fluye el trabajo y quitamos los pasos que nadie puede justificar.","s2_b1":"Revisión de proveedores y costes","s2_b2":"Procedimientos en dos idiomas","s2_b3":"Informes de nivel de servicio","s3_t":"Cumplimiento y localización","s3_d":"La parte documental, resuelta antes de que bloquee el lanzamiento.","s3_b1":"Revisión de contratos y políticas","s3_b2":"Cumplimiento laboral y de visados","s3_b3":"Documentación bilingüe para clientes","s4_t":"Digital y datos","s4_d":"Una puerta digital que funciona, en los idiomas que tus clientes leen de verdad.","s4_b1":"Sitio y formularios multilingües","s4_b2":"CRM y asignación de leads","s4_b3":"Revisión mensual de resultados","ap_kick":"03 — Enfoque","ap_title":"Diagnosticar, decidir, entregar.","ap_lede":"Sin presentaciones de 40 páginas. Un diagnóstico breve, una reunión de decisión y el trabajo, con una persona responsable por cada línea.","a1_t":"Diagnóstico de dos semanas","a1_d":"Entrevistas, documentos y una base de costes. Recibes un hallazgo de una página y un alcance con precio fijo.","a2_t":"Reunión de decisión","a2_d":"Noventa minutos con quienes pueden decir sí. Acordamos qué hacer, qué omitir y quién es dueño de cada parte.","a3_t":"Entrega con traspaso","a3_d":"Actualizaciones escritas semanales y un paquete de traspaso para que tu equipo lo lleve sin nosotros.","ct_kick":"04 — Consulta","ct_title":"Cuéntanos qué quieres conseguir.","ct_lede":"Escribe una nota breve sobre el mercado, el plazo y qué está atascado. Respondemos con un esquema de diagnóstico y un precio fijo para él.","ct_email":"Correo","ct_response":"Respuesta","ct_response_v":"En 1 día hábil","ct_langs":"Idiomas de trabajo","form_name":"Nombre","form_company":"Empresa","form_email":"Correo","form_market":"Mercado","form_msg":"¿Qué quieres conseguir?","ph_name":"Tu nombre","ph_company":"Nombre de la empresa","ph_email":"tu@empresa.com","ph_msg":"Mercado, plazo, qué está atascado…","mk_kr":"Corea","mk_jp":"Japón","mk_cn":"China","mk_sea":"Sudeste asiático","mk_eu":"Europa","mk_other":"Otro","form_submit":"Solicitar consulta","form_note":"Formulario de demo: no se envía nada. Al enviar solo aparece una confirmación.","form_success":"Gracias: una solicitud real llegaría al equipo aquí. Nada salió de tu navegador.","foot_tagline":"Sitio B2B de demostración para el portafolio de un estudio web. Métricas, casos y equipo son ejemplos ilustrativos.","foot_nav":"Secciones","foot_contact":"Contacto","foot_langs":"EN · KO · JA · ZH · ES · VI","foot_rights":"© 2026 Apex Advisory — demo","foot_lang":"Idioma: EN · KO · JA · ZH · ES · VI","noscript":"JavaScript está desactivado. Abre este archivo en Safari o Chrome para el cambio de idioma en vivo."},"vi":{"meta_title":"Apex Advisory — Thực thi địa phương, chuẩn toàn cầu","brand_sub":"Tư vấn toàn cầu · Thực thi địa phương","nav_services":"Dịch vụ","nav_metrics":"Chỉ số","nav_approach":"Cách làm","nav_contact":"Tư vấn","nav_cta":"Đặt tư vấn","lang_aria":"Ngôn ngữ","hero_kick":"B2B · Gia nhập thị trường &amp; vận hành","hero_title":"Thực thi tại địa phương.<br><em>Chuẩn toàn cầu.</em>","hero_lede":"Chúng tôi giúp đội ngũ nước ngoài vận hành tại Hàn Quốc và đội ngũ Hàn Quốc vận hành ở nước ngoài — tuyển dụng, tuân thủ, nhà cung cấp và những chi tiết kém hào nhoáng quyết định buổi ra mắt có thành công hay không.","hero_cta1":"Đặt tư vấn","hero_cta2":"Xem dịch vụ","hero_micro":"Không phí duy trì · Dự án khoán phạm vi","m1":"Thị trường","m2":"Dự án","m3":"Kinh nghiệm đội ngũ","m4":"Đánh giá khách hàng","panel_note":"Số liệu minh hoạ","band_kick":"01 — Nhìn qua con số","band_title":"Một bố cục cho con số, không phải lời quảng cáo.","band_lede":"Dải này cho thấy vị trí của số liệu thật. Mọi con số trên trang là ví dụ minh hoạ cho bản demo — hãy thay bằng kết quả đã kiểm chứng trước khi công bố.","band_note":"Bố cục mẫu · số liệu chưa được kiểm chứng","svc_kick":"02 — Dịch vụ","svc_title":"Bốn cách chúng tôi tham gia.","svc_lede":"Mỗi dự án bắt đầu bằng hai tuần chẩn đoán và phạm vi bằng văn bản. Bạn có thể dừng sau chẩn đoán — vài khách hàng làm vậy.","s1_t":"Gia nhập thị trường","s1_d":"Từ pháp nhân đầu tiên đến khách hàng trả tiền đầu tiên, cùng một người vận hành địa phương.","s1_b1":"Pháp nhân, ngân hàng và thuế","s1_b2":"Bản địa hoá giá và hợp đồng","s1_b3":"Tuyển dụng và hội nhập đầu tiên","s2_t":"Vận hành &amp; quy trình","s2_d":"Chúng tôi vẽ cách công việc thực sự chảy, rồi bỏ những bước không ai giải thích được.","s2_b1":"Rà soát nhà cung cấp và chi phí","s2_b2":"SOP viết bằng hai ngôn ngữ","s2_b3":"Báo cáo mức dịch vụ","s3_t":"Tuân thủ &amp; bản địa hoá","s3_d":"Phần giấy tờ, xử lý trước khi nó chặn buổi ra mắt.","s3_b1":"Rà soát hợp đồng và chính sách","s3_b2":"Tuân thủ lao động và visa","s3_b3":"Tài liệu song ngữ cho khách","s4_t":"Số hoá &amp; dữ liệu","s4_d":"Một cửa ngõ số hoạt động thật, bằng ngôn ngữ khách hàng thực sự đọc.","s4_b1":"Site và form đa ngôn ngữ","s4_b2":"CRM và phân luồng lead","s4_b3":"Đánh giá hiệu quả hằng tháng","ap_kick":"03 — Cách làm","ap_title":"Chẩn đoán, quyết định, bàn giao.","ap_lede":"Không có bản đề xuất 40 trang. Một chẩn đoán ngắn, một cuộc họp quyết định, rồi làm — mỗi đầu việc có một người chịu trách nhiệm.","a1_t":"Chẩn đoán hai tuần","a1_d":"Phỏng vấn, tài liệu và đường cơ sở chi phí. Bạn nhận một trang phát hiện và phạm vi với giá cố định.","a2_t":"Cuộc họp quyết định","a2_d":"Chín mươi phút với người có quyền nói có. Chốt làm gì, bỏ gì và ai phụ trách phần nào.","a3_t":"Thực thi kèm bàn giao","a3_d":"Cập nhật bằng văn bản hằng tuần, rồi bộ bàn giao để đội bạn tự vận hành.","ct_kick":"04 — Tư vấn","ct_title":"Cho chúng tôi biết bạn muốn đạt điều gì.","ct_lede":"Gửi một ghi chú ngắn về thị trường, thời hạn và chỗ đang tắc. Chúng tôi trả lời bằng đề cương chẩn đoán và giá cố định cho phần đó.","ct_email":"Email","ct_response":"Phản hồi","ct_response_v":"Trong 1 ngày làm việc","ct_langs":"Ngôn ngữ làm việc","form_name":"Họ tên","form_company":"Công ty","form_email":"Email","form_market":"Thị trường","form_msg":"Bạn muốn đạt điều gì?","ph_name":"Tên của bạn","ph_company":"Tên công ty","ph_email":"ban@congty.com","ph_msg":"Thị trường, thời hạn, chỗ đang tắc…","mk_kr":"Hàn Quốc","mk_jp":"Nhật Bản","mk_cn":"Trung Quốc","mk_sea":"Đông Nam Á","mk_eu":"Châu Âu","mk_other":"Khác","form_submit":"Yêu cầu tư vấn","form_note":"Form demo — không gửi đi đâu cả. Nhấn gửi chỉ hiện xác nhận.","form_success":"Cảm ơn — nếu là thật, yêu cầu sẽ đến đội ngũ từ đây. Không dữ liệu nào rời trình duyệt.","foot_tagline":"Website B2B demo cho portfolio của studio web. Chỉ số, case và thông tin đội ngũ là ví dụ minh hoạ.","foot_nav":"Mục","foot_contact":"Liên hệ","foot_langs":"EN · KO · JA · ZH · ES · VI","foot_rights":"© 2026 Apex Advisory — demo","foot_lang":"Ngôn ngữ: EN · KO · JA · ZH · ES · VI","noscript":"JavaScript đang tắt. Mở tệp này bằng Safari hoặc Chrome để dùng chuyển ngôn ngữ."}};</script>
+<script>
+(function(){
+  var dict = window.I18N || {};
+  var LANGS = ['en','ko','ja','zh','es','vi'];
+  var current = 'en';
+
+  function t(k){
+    var pack = dict[current] || dict.en || {};
+    if (pack[k] !== undefined) return pack[k];
+    return (dict.en && dict.en[k] !== undefined) ? dict.en[k] : '';
+  }
+
+  function apply(lang){
+    if (LANGS.indexOf(lang) < 0) lang = 'en';
+    current = lang;
+    document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-Hans' : lang);
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n'));
+      if (v !== '') el.innerHTML = v;
+    });
+    document.querySelectorAll('[data-i18n-ph]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n-ph'));
+      if (v !== '') el.setAttribute('placeholder', v);
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n-aria'));
+      if (v !== '') el.setAttribute('aria-label', v);
+    });
+    document.querySelectorAll('.lang').forEach(function(b){
+      var on = b.getAttribute('data-lang') === lang;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    try { localStorage.setItem('ax_lang', lang); } catch(e) {}
+  }
+
+  document.querySelectorAll('.lang').forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.getAttribute('data-lang')); });
+  });
+
+  var form = document.getElementById('consult');
+  if (form) form.addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('consultOk').hidden = false;
+  });
+
+  var saved = null;
+  try { saved = localStorage.getItem('ax_lang'); } catch(e) {}
+  if (LANGS.indexOf(saved) < 0) saved = 'en';
+  apply(saved);
+})();
+</script>
+</body>
+</html>

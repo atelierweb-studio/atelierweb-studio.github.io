@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="meta_title">Loom &amp; Roast — Specialty coffee &amp; bakery, Seongsu</title>
+<meta name="description" content="Specialty coffee and slow-fermented bakery in Seongsu, Seoul. Six-language site demo.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%232B1D16'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='13' fill='%23F0E2CE' text-anchor='middle'%3ELR%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --cream:#FBF6EE; --cream-2:#F3EBDE; --espresso:#2B1D16; --copper:#B4653B; --olive:#6B6A45;
+    --ink-2:#4A3B31; --muted:#7C6A5C; --line:rgba(43,29,22,.15);
+    --serif:"New York",ui-serif,"Iowan Old Style","Palatino Linotype",Georgia,"Noto Serif KR",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Pretendard",Roboto,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--espresso);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  h1,h2,h3{margin:0;font-family:var(--serif);font-weight:400;letter-spacing:-.015em}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+  .eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--copper)}
+  .topbar{position:fixed;inset:0 0 auto;z-index:50;background:rgba(251,246,238,.93);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .topbar-in{max-width:1160px;margin:0 auto;padding:12px 28px;display:flex;align-items:center;gap:24px}
+  .brand{display:flex;flex-direction:column;line-height:1.05}
+  .brand strong{font-family:var(--serif);font-weight:400;font-size:20px;letter-spacing:.01em}
+  .brand i{font-style:normal;font-family:var(--mono);font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+  .nav{display:flex;gap:20px}
+  .nav a{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding-bottom:3px;border-bottom:1px solid transparent}
+  .nav a:hover{color:var(--copper);border-color:var(--copper)}
+  .langs{display:flex;gap:5px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+  .langs::-webkit-scrollbar{display:none}
+  .lang{font-family:var(--mono);font-size:9.5px;letter-spacing:.03em;border:1px solid var(--line);border-radius:99px;padding:6px 8px;white-space:nowrap;transition:.16s}
+  .lang:hover{border-color:var(--espresso)}
+  .lang.is-on{background:var(--espresso);color:var(--cream);border-color:var(--espresso)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--espresso);color:var(--cream);border:1px solid var(--espresso);
+    font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:12px 18px;border-radius:2px;transition:.18s}
+  .btn:hover{background:var(--copper);border-color:var(--copper)}
+  .btn-sm{padding:9px 13px;font-size:9px}
+  .btn-line{background:transparent;color:var(--espresso)}
+  .btn-line:hover{background:var(--espresso);color:var(--cream)}
+
+  .hero{padding:140px 0 70px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+  .kicker{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+    display:flex;align-items:center;gap:10px}
+  .kicker::before{content:"";width:24px;height:1px;background:var(--copper)}
+  h1{font-size:clamp(42px,5.6vw,68px);line-height:1.0;margin-top:18px}
+  h1 em{font-style:italic;color:var(--copper)}
+  .hero p{margin:20px 0 0;font-size:16px;line-height:1.65;color:var(--ink-2);max-width:44ch}
+  .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .hero-note{margin-top:22px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .photo{position:relative;aspect-ratio:4/4.4;border-radius:4px;overflow:hidden;
+    background:radial-gradient(120% 90% at 72% 12%,#C98A5E 0%,#8E4B31 40%,#3B241B 78%,#241510 100%)}
+  .photo::before{content:"";position:absolute;inset:auto -20% -30% -20%;height:60%;border-radius:50%;
+    background:radial-gradient(circle,rgba(255,226,196,.28),rgba(255,226,196,0) 62%)}
+  .photo::after{content:"";position:absolute;top:26px;right:26px;width:96px;height:96px;border-radius:50%;
+    border:1px solid rgba(251,246,238,.45)}
+  .photo-badge{position:absolute;top:18px;left:18px;font-family:var(--mono);font-size:8px;letter-spacing:.2em;text-transform:uppercase;
+    color:#F6E9D8;border:1px solid rgba(251,246,238,.45);border-radius:99px;padding:5px 10px;background:rgba(43,29,22,.25)}
+  .photo-card{position:absolute;left:18px;right:18px;bottom:18px;background:rgba(251,246,238,.94);border-radius:3px;padding:14px 16px}
+  .photo-card .pc-k{font-family:var(--mono);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--copper)}
+  .photo-card .pc-n{font-family:var(--serif);font-size:19px;margin-top:5px}
+  .photo-card .pc-m{font-size:11px;color:var(--muted);margin-top:4px}
+
+  .sec{padding:66px 0;border-top:1px solid var(--line)}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-bottom:26px}
+  h2{font-size:clamp(28px,3.2vw,40px);line-height:1.08}
+  .sec-head p{margin:10px 0 0;font-size:13.5px;line-height:1.6;color:var(--muted);max-width:44ch}
+  .filters{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 22px}
+  .fbtn{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line);
+    border-radius:99px;padding:7px 13px;color:var(--ink-2);transition:.16s}
+  .fbtn:hover{border-color:var(--espresso)}
+  .fbtn.is-on{background:var(--espresso);color:var(--cream);border-color:var(--espresso)}
+  .menu{display:grid;grid-template-columns:repeat(3,1fr);gap:26px 30px}
+  .mi{padding-top:14px;border-top:1px solid var(--espresso)}
+  .mi[hidden]{display:none}
+  .mi-top{display:flex;align-items:baseline;gap:8px}
+  .mi-top h3{font-size:18px;flex:0 0 auto}
+  .mi-top .dots{flex:1 1 auto;border-bottom:1px dotted var(--line);transform:translateY(-4px)}
+  .mi-top .price{font-family:var(--mono);font-size:11px;letter-spacing:.02em}
+  .mi p{margin:7px 0 0;font-size:12px;line-height:1.6;color:var(--muted)}
+  .mi .tag{display:inline-block;margin-top:8px;font-family:var(--mono);font-size:7.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--copper);border:1px solid rgba(180,101,59,.35);border-radius:99px;padding:3px 7px}
+  .menu-note{margin-top:22px;font-size:11px;color:var(--muted)}
+
+  .story{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+  .story blockquote{margin:0;font-family:var(--serif);font-size:clamp(23px,2.6vw,31px);line-height:1.25}
+  .story blockquote em{font-style:italic;color:var(--copper)}
+  .story p{margin:16px 0 0;font-size:13px;line-height:1.75;color:var(--ink-2)}
+  .statline{border-top:1px solid var(--line)}
+  .statline div{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+  .statline b{font-family:var(--serif);font-weight:400;font-size:22px}
+  .statline span{font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-align:right}
+
+  .visit{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+  .hours{width:100%;border-collapse:collapse;margin-top:14px}
+  .hours th,.hours td{text-align:left;padding:10px 0;border-bottom:1px solid var(--line);font-size:12.5px;font-weight:400}
+  .hours th{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .hours td{text-align:right;font-family:var(--mono);font-size:11px}
+  .addr{margin-top:20px;font-size:12.5px;line-height:1.7;color:var(--ink-2)}
+  .addr b{display:block;font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+  .map{position:relative;min-height:270px;border-radius:4px;overflow:hidden;border:1px solid var(--line);
+    background:
+      linear-gradient(0deg,transparent 0 46%,rgba(43,29,22,.10) 46% 47.4%,transparent 47.4%),
+      linear-gradient(90deg,transparent 0 62%,rgba(43,29,22,.10) 62% 63.2%,transparent 63.2%),
+      repeating-linear-gradient(0deg,rgba(43,29,22,.055) 0 1px,transparent 1px 34px),
+      repeating-linear-gradient(90deg,rgba(43,29,22,.055) 0 1px,transparent 1px 34px),
+      linear-gradient(150deg,#EFE6D7,#E3D6C2)}
+  .map .pin{position:absolute;left:46%;top:42%;width:16px;height:16px;border-radius:50%;background:var(--copper);
+    box-shadow:0 0 0 7px rgba(180,101,59,.18)}
+  .map .pin::after{content:"";position:absolute;left:50%;top:50%;width:5px;height:5px;border-radius:50%;background:var(--cream);transform:translate(-50%,-50%)}
+  .map .maplabel{position:absolute;left:16px;bottom:14px;background:rgba(251,246,238,.94);border-radius:3px;padding:9px 12px;
+    font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+  .visit-cta{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .visit-cta small{font-size:10.5px;color:var(--muted)}
+
+  footer{background:var(--espresso);color:var(--cream);padding:44px 0 26px;margin-top:16px}
+  .foot{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:30px}
+  .foot .brand strong{color:var(--cream)}
+  .foot p{margin:12px 0 0;font-size:11px;line-height:1.7;color:#C9B6A5;max-width:38ch}
+  .foot h4{margin:0 0 10px;font-family:var(--mono);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:#A08D7C}
+  .foot ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px;font-size:11px;color:#DCCBBC}
+  .foot-bottom{margin-top:28px;padding-top:14px;border-top:1px solid rgba(251,246,238,.16);display:flex;justify-content:space-between;
+    gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:#A08D7C}
+
+  .modal{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:22px;background:rgba(43,29,22,.55)}
+  .sheet{background:var(--cream);border-radius:4px;width:100%;max-width:520px;max-height:88vh;overflow:auto;padding:26px;position:relative}
+  .sheet h3{font-size:26px;margin-top:6px}
+  .sheet p{margin:8px 0 0;font-size:12px;line-height:1.6;color:var(--muted)}
+  .sheet-close{position:absolute;top:14px;right:14px;width:30px;height:30px;border:1px solid var(--line);border-radius:50%;font-size:14px;line-height:1}
+  .sheet-close:hover{border-color:var(--espresso)}
+  .f-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .field{display:flex;flex-direction:column;gap:5px;margin-top:12px}
+  .field label{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .field input,.field select,.field textarea{font-family:var(--sans);font-size:13px;background:transparent;border:0;
+    border-bottom:1px solid var(--line);padding:7px 0;outline:none;color:var(--espresso);width:100%;border-radius:0}
+  .field textarea{min-height:64px;resize:vertical}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--espresso)}
+  .sheet .btn{margin-top:16px;width:100%;justify-content:center}
+  .form-note{margin-top:10px;font-size:10px;line-height:1.5;color:var(--muted)}
+  .form-ok{margin-top:12px;border:1px solid var(--olive);color:var(--olive);background:rgba(107,106,69,.08);padding:10px 12px;
+    border-radius:3px;font-size:11.5px;line-height:1.5}
+  [hidden]{display:none !important}
+  noscript div{position:fixed;left:0;right:0;bottom:0;z-index:80;background:var(--espresso);color:var(--cream);
+    font-family:var(--mono);font-size:9px;letter-spacing:.05em;padding:9px 14px;text-align:center}
+
+  @media (max-width:960px){
+    .nav{display:none}
+    .hero{padding-top:112px}
+    .hero-grid,.story,.visit{grid-template-columns:1fr;gap:32px}
+    .menu{grid-template-columns:1fr 1fr}
+    .foot{grid-template-columns:1fr}
+    .topbar-in{flex-wrap:wrap;gap:10px}
+    .langs{order:3;width:100%;margin-left:0}
+    .btn-sm{margin-left:auto}
+  }
+  @media (max-width:600px){
+    .menu{grid-template-columns:1fr}
+    .f-row{grid-template-columns:1fr}
+    .photo{aspect-ratio:4/3.6}
+    .wrap,.topbar-in{padding-left:18px;padding-right:18px}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="#top"><strong>Loom &amp; Roast</strong><i data-i18n="brand_sub">Specialty coffee · Seongsu</i></a>
+    <nav class="nav">
+      <a href="#menu" data-i18n="nav_menu">Menu</a>
+      <a href="#story" data-i18n="nav_story">Story</a>
+      <a href="#visit" data-i18n="nav_visit">Visit</a>
+    </nav>
+    <div class="langs" role="group" data-i18n-aria="lang_aria" aria-label="Language">
+      <button type="button" class="lang is-on" data-lang="en" aria-pressed="true">🇺🇸 EN</button>
+      <button type="button" class="lang" data-lang="ko" aria-pressed="false">🇰🇷 KO</button>
+      <button type="button" class="lang" data-lang="ja" aria-pressed="false">🇯🇵 JA</button>
+      <button type="button" class="lang" data-lang="zh" aria-pressed="false">🇨🇳 ZH</button>
+      <button type="button" class="lang" data-lang="es" aria-pressed="false">🇪🇸 ES</button>
+      <button type="button" class="lang" data-lang="vi" aria-pressed="false">🇻🇳 VI</button>
+    </div>
+    <button type="button" class="btn btn-sm" data-open="book" data-i18n="nav_book">Reserve a table</button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="kicker" data-i18n="hero_kick">Seongsu, Seoul · Open daily</div>
+        <h1 data-i18n="hero_title">Slow roast.<br><em>Loud flavour.</em></h1>
+        <p data-i18n="hero_lede">A small coffee house and bakery on the east side of Seoul. Two roasts a week, bread from a 48-hour ferment, and a table by the window that is almost always free before noon.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#menu" data-i18n="hero_cta1">See the menu</a>
+          <a class="btn btn-line" href="#visit" data-i18n="hero_cta2">Find us</a>
+        </div>
+        <div class="hero-note" data-i18n="hero_hours">Mon–Fri 8:00–20:00 · Sat–Sun 9:00–21:00</div>
+      </div>
+      <div class="photo">
+        <span class="photo-badge" data-i18n="photo_badge">Single origin</span>
+        <div class="photo-card">
+          <div class="pc-k" data-i18n="photo_label">Today's pour</div>
+          <div class="pc-n">Ethiopia · Guji</div>
+          <div class="pc-m" data-i18n="photo_meta">Peach, jasmine, long finish · ₩7,000</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="menu">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow" data-i18n="menu_kick">01 — The menu</div>
+          <h2 data-i18n="menu_title">A short list, done properly.</h2>
+          <p data-i18n="menu_lede">Eight things we make every day. Beans rotate with the season; the croissants do not last.</p>
+        </div>
+      </div>
+      <div class="filters" role="group" data-i18n-aria="filter_aria" aria-label="Menu filters">
+        <button type="button" class="fbtn is-on" data-f="all" data-i18n="filter_all">All</button>
+        <button type="button" class="fbtn" data-f="espresso" data-i18n="filter_espresso">Espresso</button>
+        <button type="button" class="fbtn" data-f="filter" data-i18n="filter_filter">Filter</button>
+        <button type="button" class="fbtn" data-f="bakery" data-i18n="filter_bakery">Bakery</button>
+        <button type="button" class="fbtn" data-f="seasonal" data-i18n="filter_seasonal">Seasonal</button>
+      </div>
+      <div class="menu">
+        <article class="mi" data-cat="espresso">
+          <div class="mi-top"><h3 data-i18n="i1_n">Flat White</h3><span class="dots"></span><span class="price">₩5,800</span></div>
+          <p data-i18n="i1_d">Double ristretto, silky milk, no foam games.</p>
+          <span class="tag" data-i18n="i1_t">Signature</span>
+        </article>
+        <article class="mi" data-cat="filter">
+          <div class="mi-top"><h3 data-i18n="i2_n">Ethiopia Guji V60</h3><span class="dots"></span><span class="price">₩7,000</span></div>
+          <p data-i18n="i2_d">Peach, jasmine, a long finish. Brewed by hand, one cup at a time.</p>
+          <span class="tag" data-i18n="i2_t">Single origin</span>
+        </article>
+        <article class="mi" data-cat="bakery">
+          <div class="mi-top"><h3 data-i18n="i3_n">Brown Butter Croissant</h3><span class="dots"></span><span class="price">₩5,200</span></div>
+          <p data-i18n="i3_d">48-hour lamination, baked twice a day.</p>
+          <span class="tag" data-i18n="i3_t">Baked 8:00 &amp; 14:00</span>
+        </article>
+        <article class="mi" data-cat="espresso">
+          <div class="mi-top"><h3 data-i18n="i4_n">Cortado</h3><span class="dots"></span><span class="price">₩5,200</span></div>
+          <p data-i18n="i4_d">Equal parts espresso and warm milk. Small on purpose.</p>
+          <span class="tag" data-i18n="i4_t">House pour</span>
+        </article>
+        <article class="mi" data-cat="seasonal">
+          <div class="mi-top"><h3 data-i18n="i5_n">Cold Brew Tonic</h3><span class="dots"></span><span class="price">₩6,800</span></div>
+          <p data-i18n="i5_d">Eighteen-hour steep, tonic, a slice of yuzu.</p>
+          <span class="tag" data-i18n="i5_t">Seasonal</span>
+        </article>
+        <article class="mi" data-cat="bakery">
+          <div class="mi-top"><h3 data-i18n="i6_n">Miso Caramel Scone</h3><span class="dots"></span><span class="price">₩5,600</span></div>
+          <p data-i18n="i6_d">Salty, soft, and gone by noon.</p>
+          <span class="tag" data-i18n="i6_t">Vegan option</span>
+        </article>
+        <article class="mi" data-cat="filter">
+          <div class="mi-top"><h3 data-i18n="i7_n">Hojicha Latte</h3><span class="dots"></span><span class="price">₩6,200</span></div>
+          <p data-i18n="i7_d">Roasted green tea, oat milk, barely sweet.</p>
+          <span class="tag" data-i18n="i7_t">Oat milk</span>
+        </article>
+        <article class="mi" data-cat="seasonal">
+          <div class="mi-top"><h3 data-i18n="i8_n">Strawberry Shrub</h3><span class="dots"></span><span class="price">₩6,500</span></div>
+          <p data-i18n="i8_d">House shrub, sparkling water, basil. No caffeine.</p>
+          <span class="tag" data-i18n="i8_t">Caffeine-free</span>
+        </article>
+      </div>
+      <p class="menu-note" data-i18n="menu_note">Prices include tax. Oat, soy and lactose-free milk available for every drink.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="story">
+    <div class="wrap story">
+      <div>
+        <div class="eyebrow" data-i18n="story_kick">02 — Our story</div>
+        <blockquote data-i18n="story_q">We roast in small batches, <em>twice a week</em>, and sell what we can drink before it fades.</blockquote>
+        <p data-i18n="story_p1">Loom &amp; Roast started in 2019 with one drum roaster, a second-hand oven and a stubborn idea: a neighbourhood café should be able to tell you exactly where its beans came from and who picked them.</p>
+        <p data-i18n="story_p2">Today we work with four importers, roast on Tuesdays and Fridays, and bake every morning before the doors open. The room is small, the music is low, and the wifi is deliberately average.</p>
+      </div>
+      <div class="statline">
+        <div><b>2019</b><span data-i18n="s1">Since</span></div>
+        <div><b>12</b><span data-i18n="s2">Single origins a year</span></div>
+        <div><b>2×</b><span data-i18n="s3">Roasts every week</span></div>
+        <div><b>24</b><span data-i18n="s4">Seats, no reservations after 6pm</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="visit">
+    <div class="wrap visit">
+      <div>
+        <div class="eyebrow" data-i18n="visit_kick">03 — Visit</div>
+        <h2 data-i18n="visit_title">Come sit by the window.</h2>
+        <table class="hours">
+          <tr><th data-i18n="day1">Monday – Friday</th><td>08:00 – 20:00</td></tr>
+          <tr><th data-i18n="day2">Saturday</th><td>09:00 – 21:00</td></tr>
+          <tr><th data-i18n="day3">Sunday</th><td>09:00 – 21:00</td></tr>
+          <tr><th data-i18n="day4">Public holidays</th><td>10:00 – 18:00</td></tr>
+        </table>
+        <div class="addr">
+          <b data-i18n="addr_label">Address</b>
+          <span data-i18n="addr">14 Willow Lane, Seongsu-dong, Seoul</span><br>
+          <span data-i18n="transit">5 minutes from Seongsu Station, Exit 3</span>
+        </div>
+        <div class="visit-cta">
+          <button type="button" class="btn" data-open="book" data-i18n="book_cta">Group &amp; table inquiry</button>
+          <small data-i18n="book_hint">Groups of 6 or more, please write ahead.</small>
+        </div>
+      </div>
+      <div class="map" aria-hidden="true">
+        <span class="pin"></span>
+        <span class="maplabel">Loom &amp; Roast · Seongsu</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="brand"><strong>Loom &amp; Roast</strong><i data-i18n="brand_sub">Specialty coffee · Seongsu</i></div>
+        <p data-i18n="foot_tagline">A demo café site built for a web studio portfolio. Menu, hours and address are sample content.</p>
+      </div>
+      <div>
+        <h4 data-i18n="foot_hours">Hours</h4>
+        <ul>
+          <li data-i18n="foot_h1">Mon–Fri · 08:00 – 20:00</li>
+          <li data-i18n="foot_h2">Sat–Sun · 09:00 – 21:00</li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot_find">Find us</h4>
+        <ul>
+          <li data-i18n="addr">14 Willow Lane, Seongsu-dong, Seoul</li>
+          <li><a href="#menu" data-i18n="nav_menu">Menu</a></li>
+          <li><a href="#visit" data-i18n="nav_visit">Visit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span data-i18n="foot_rights">© 2026 Loom &amp; Roast — demo</span>
+      <span data-i18n="foot_lang">Language: EN · KO · JA · ZH · ES · VI</span>
+    </div>
+  </div>
+</footer>
+
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="sheet">
+    <button type="button" class="sheet-close" id="mClose" data-i18n-aria="modal_close" aria-label="Close">✕</button>
+    <div class="eyebrow" data-i18n="modal_kick">Table &amp; group inquiry</div>
+    <h3 id="mTitle" data-i18n="modal_title">Save a table</h3>
+    <p data-i18n="modal_lede">Tell us when you're coming and how many. We reply by email within one day.</p>
+    <form id="bookForm">
+      <div class="f-row">
+        <div class="field"><label for="b-name" data-i18n="form_name">Name</label><input id="b-name" type="text" data-i18n-ph="ph_name" placeholder="Your name"></div>
+        <div class="field"><label for="b-contact" data-i18n="form_contact">Email or phone</label><input id="b-contact" type="text" data-i18n-ph="ph_contact" placeholder="you@mail.com"></div>
+      </div>
+      <div class="f-row">
+        <div class="field"><label for="b-date" data-i18n="form_date">Date</label><input id="b-date" type="date"></div>
+        <div class="field"><label for="b-party" data-i18n="form_party">Party size</label>
+          <select id="b-party">
+            <option data-i18n="p12">1–2 people</option>
+            <option data-i18n="p34">3–4 people</option>
+            <option data-i18n="p58">5–8 people</option>
+            <option data-i18n="p9">9 or more</option>
+          </select>
+        </div>
+      </div>
+      <div class="field"><label for="b-msg" data-i18n="form_msg">Anything we should know?</label><textarea id="b-msg" data-i18n-ph="ph_msg" placeholder="Allergies, stroller, quiet corner…"></textarea></div>
+      <button type="submit" class="btn" data-i18n="form_submit">Send inquiry</button>
+      <p class="form-note" data-i18n="form_note">Demo form — nothing is sent. Submitting shows a confirmation only.</p>
+      <div class="form-ok" id="bookOk" hidden data-i18n="form_success">Thank you — a real café would reply to this within a day.</div>
+    </form>
+  </div>
+</div>
+
+<noscript><div data-i18n="noscript">JavaScript is off. Open this file in Safari or Chrome for the live language switch and filters.</div></noscript>
+
+<script>window.I18N = {"en":{"meta_title":"Loom &amp; Roast — Specialty coffee &amp; bakery, Seongsu","brand_sub":"Specialty coffee · Seongsu","nav_menu":"Menu","nav_story":"Story","nav_visit":"Visit","nav_book":"Reserve a table","lang_aria":"Language","hero_kick":"Seongsu, Seoul · Open daily","hero_title":"Slow roast.<br><em>Loud flavour.</em>","hero_lede":"A small coffee house and bakery on the east side of Seoul. Two roasts a week, bread from a 48-hour ferment, and a table by the window that is almost always free before noon.","hero_cta1":"See the menu","hero_cta2":"Find us","hero_hours":"Mon–Fri 8:00–20:00 · Sat–Sun 9:00–21:00","photo_badge":"Single origin","photo_label":"Today's pour","photo_meta":"Peach, jasmine, long finish · ₩7,000","menu_kick":"01 — The menu","menu_title":"A short list, done properly.","menu_lede":"Eight things we make every day. Beans rotate with the season; the croissants do not last.","filter_aria":"Menu filters","filter_all":"All","filter_espresso":"Espresso","filter_filter":"Filter","filter_bakery":"Bakery","filter_seasonal":"Seasonal","i1_n":"Flat White","i1_d":"Double ristretto, silky milk, no foam games.","i1_t":"Signature","i2_n":"Ethiopia Guji V60","i2_d":"Peach, jasmine, a long finish. Brewed by hand, one cup at a time.","i2_t":"Single origin","i3_n":"Brown Butter Croissant","i3_d":"48-hour lamination, baked twice a day.","i3_t":"Baked 8:00 &amp; 14:00","i4_n":"Cortado","i4_d":"Equal parts espresso and warm milk. Small on purpose.","i4_t":"House pour","i5_n":"Cold Brew Tonic","i5_d":"Eighteen-hour steep, tonic, a slice of yuzu.","i5_t":"Seasonal","i6_n":"Miso Caramel Scone","i6_d":"Salty, soft, and gone by noon.","i6_t":"Vegan option","i7_n":"Hojicha Latte","i7_d":"Roasted green tea, oat milk, barely sweet.","i7_t":"Oat milk","i8_n":"Strawberry Shrub","i8_d":"House shrub, sparkling water, basil. No caffeine.","i8_t":"Caffeine-free","menu_note":"Prices include tax. Oat, soy and lactose-free milk available for every drink.","story_kick":"02 — Our story","story_q":"We roast in small batches, <em>twice a week</em>, and sell what we can drink before it fades.","story_p1":"Loom &amp; Roast started in 2019 with one drum roaster, a second-hand oven and a stubborn idea: a neighbourhood café should be able to tell you exactly where its beans came from and who picked them.","story_p2":"Today we work with four importers, roast on Tuesdays and Fridays, and bake every morning before the doors open. The room is small, the music is low, and the wifi is deliberately average.","s1":"Since","s2":"Single origins a year","s3":"Roasts every week","s4":"Seats, no reservations after 6pm","visit_kick":"03 — Visit","visit_title":"Come sit by the window.","day1":"Monday – Friday","day2":"Saturday","day3":"Sunday","day4":"Public holidays","addr_label":"Address","addr":"14 Willow Lane, Seongsu-dong, Seoul","transit":"5 minutes from Seongsu Station, Exit 3","book_cta":"Group &amp; table inquiry","book_hint":"Groups of 6 or more, please write ahead.","foot_tagline":"A demo café site built for a web studio portfolio. Menu, hours and address are sample content.","foot_hours":"Hours","foot_h1":"Mon–Fri · 08:00 – 20:00","foot_h2":"Sat–Sun · 09:00 – 21:00","foot_find":"Find us","foot_rights":"© 2026 Loom &amp; Roast — demo","foot_lang":"Language: EN · KO · JA · ZH · ES · VI","modal_kick":"Table &amp; group inquiry","modal_title":"Save a table","modal_lede":"Tell us when you're coming and how many. We reply by email within one day.","modal_close":"Close","form_name":"Name","form_contact":"Email or phone","form_date":"Date","form_party":"Party size","form_msg":"Anything we should know?","ph_name":"Your name","ph_contact":"you@mail.com","ph_msg":"Allergies, stroller, quiet corner…","p12":"1–2 people","p34":"3–4 people","p58":"5–8 people","p9":"9 or more","form_submit":"Send inquiry","form_note":"Demo form — nothing is sent. Submitting shows a confirmation only.","form_success":"Thank you — a real café would reply to this within a day.","noscript":"JavaScript is off. Open this file in Safari or Chrome for the live language switch and filters."},"ko":{"meta_title":"Loom &amp; Roast — 스페셜티 커피 &amp; 베이커리, 성수","brand_sub":"스페셜티 커피 · 성수","nav_menu":"메뉴","nav_story":"이야기","nav_visit":"오시는 길","nav_book":"테이블 예약","lang_aria":"언어 선택","hero_kick":"서울 성수 · 매일 영업","hero_title":"천천히 볶고,<br><em>강하게 남기는.</em>","hero_lede":"서울 동쪽의 작은 커피하우스이자 베이커리입니다. 일주일에 두 번 로스팅하고, 48시간 발효한 반죽으로 빵을 굽습니다. 창가 자리는 정오 전이면 거의 늘 비어 있습니다.","hero_cta1":"메뉴 보기","hero_cta2":"오시는 길","hero_hours":"월–금 8:00–20:00 · 토–일 9:00–21:00","photo_badge":"싱글 오리진","photo_label":"오늘의 커피","photo_meta":"복숭아, 자스민, 긴 여운 · ₩7,000","menu_kick":"01 — 메뉴","menu_title":"짧은 목록, 제대로.","menu_lede":"매일 만드는 여덟 가지. 원두는 계절 따라 바뀌고, 크루아상은 금세 사라집니다.","filter_aria":"메뉴 필터","filter_all":"전체","filter_espresso":"에스프레소","filter_filter":"필터","filter_bakery":"베이커리","filter_seasonal":"시즌","i1_n":"플랫 화이트","i1_d":"더블 리스트레토에 고소한 우유. 거품 장난은 없습니다.","i1_t":"시그니처","i2_n":"에티오피아 구지 V60","i2_d":"복숭아, 자스민, 긴 여운. 한 잔씩 손으로 내립니다.","i2_t":"싱글 오리진","i3_n":"브라운 버터 크루아상","i3_d":"48시간 적층, 하루 두 번 굽습니다.","i3_t":"8시 &amp; 14시 구움","i4_n":"코르타도","i4_d":"에스프레소와 따뜻한 우유를 같은 비율로. 일부러 작게.","i4_t":"하우스 커피","i5_n":"콜드브루 토닉","i5_d":"18시간 침출, 토닉, 유자 한 조각.","i5_t":"시즌","i6_n":"미소 캐러멜 스콘","i6_d":"짭짤하고 부드럽고, 정오면 없습니다.","i6_t":"비건 선택 가능","i7_n":"호지차 라떼","i7_d":"볶은 녹차, 오트 밀크, 아주 약한 단맛.","i7_t":"오트 밀크","i8_n":"딸기 슈럽","i8_d":"직접 담근 슈럽, 탄산수, 바질. 카페인 없음.","i8_t":"카페인 프리","menu_note":"가격은 부가세 포함입니다. 모든 음료에 오트·콩·락토프리 밀크를 선택할 수 있습니다.","story_kick":"02 — 우리 이야기","story_q":"작은 배치로, <em>일주일에 두 번</em> 볶고, 향이 죽기 전에 마실 수 있는 만큼만 팝니다.","story_p1":"Loom &amp; Roast는 2019년, 드럼 로스터 한 대와 중고 오븐, 그리고 고집스러운 생각 하나로 시작했습니다. 동네 카페라면 원두가 어디서 왔고 누가 땄는지 정확히 말할 수 있어야 한다는 것.","story_p2":"지금은 수입사 네 곳과 일하고, 화요일과 금요일에 볶고, 문을 열기 전 매일 아침 빵을 굽습니다. 공간은 작고, 음악은 낮고, 와이파이는 일부러 평범합니다.","s1":"시작한 해","s2":"연간 싱글 오리진","s3":"주당 로스팅","s4":"석, 6시 이후 예약 없음","visit_kick":"03 — 오시는 길","visit_title":"창가에 앉아 가세요.","day1":"월요일 – 금요일","day2":"토요일","day3":"일요일","day4":"공휴일","addr_label":"주소","addr":"서울 성수동 윌로우 레인 14","transit":"성수역 3번 출구에서 도보 5분","book_cta":"단체 &amp; 테이블 문의","book_hint":"6인 이상은 미리 문의해 주세요.","foot_tagline":"웹 스튜디오 포트폴리오용 데모 카페 사이트입니다. 메뉴, 영업시간, 주소는 예시입니다.","foot_hours":"영업시간","foot_h1":"월–금 · 08:00 – 20:00","foot_h2":"토–일 · 09:00 – 21:00","foot_find":"위치","foot_rights":"© 2026 Loom &amp; Roast — 데모","foot_lang":"언어: EN · KO · JA · ZH · ES · VI","modal_kick":"테이블 &amp; 단체 문의","modal_title":"자리 잡아 두기","modal_lede":"언제 몇 명 오시는지 알려주세요. 하루 안에 이메일로 답드립니다.","modal_close":"닫기","form_name":"이름","form_contact":"이메일 또는 전화","form_date":"날짜","form_party":"인원","form_msg":"미리 알려주실 것이 있나요?","ph_name":"성함","ph_contact":"you@mail.com","ph_msg":"알레르기, 유모차, 조용한 자리…","p12":"1–2명","p34":"3–4명","p58":"5–8명","p9":"9명 이상","form_submit":"문의 보내기","form_note":"데모 폼입니다. 전송되지 않으며, 제출하면 확인 메시지만 표시됩니다.","form_success":"감사합니다. 실제 매장이라면 하루 안에 답장이 갈 문의입니다.","noscript":"JavaScript가 꺼져 있습니다. 실시간 언어 전환과 메뉴 필터는 이 파일을 Safari나 Chrome에서 열어 확인하세요."},"ja":{"meta_title":"Loom &amp; Roast — スペシャルティコーヒー＆ベーカリー、聖水","brand_sub":"スペシャルティコーヒー · 聖水","nav_menu":"メニュー","nav_story":"ストーリー","nav_visit":"アクセス","nav_book":"席を予約","lang_aria":"言語","hero_kick":"ソウル・聖水（ソンス） · 毎日営業","hero_title":"ゆっくり焙煎、<br><em>はっきり残る味。</em>","hero_lede":"ソウル東側の小さなコーヒーハウス兼ベーカリー。週に2回焙煎し、48時間発酵させた生地でパンを焼きます。窓際の席は正午前ならほぼ空いています。","hero_cta1":"メニューを見る","hero_cta2":"アクセス","hero_hours":"月〜金 8:00–20:00 · 土〜日 9:00–21:00","photo_badge":"シングルオリジン","photo_label":"本日の一杯","photo_meta":"桃、ジャスミン、長い余韻 · ₩7,000","menu_kick":"01 — メニュー","menu_title":"短いリストを、丁寧に。","menu_lede":"毎日つくる8品。豆は季節で替わり、クロワッサンはすぐなくなります。","filter_aria":"メニューの絞り込み","filter_all":"すべて","filter_espresso":"エスプレッソ","filter_filter":"フィルター","filter_bakery":"ベーカリー","filter_seasonal":"季節","i1_n":"フラットホワイト","i1_d":"ダブルリストレットにきめ細かいミルク。泡の遊びはなし。","i1_t":"看板","i2_n":"エチオピア・グジ V60","i2_d":"桃、ジャスミン、長い余韻。一杯ずつ手で淹れます。","i2_t":"シングルオリジン","i3_n":"ブラウンバタークロワッサン","i3_d":"48時間の折り込み、1日2回焼き上げ。","i3_t":"8時＆14時焼き","i4_n":"コルタード","i4_d":"エスプレッソと温かいミルクを同量で。わざと小さいサイズ。","i4_t":"ハウス","i5_n":"コールドブリュートニック","i5_d":"18時間抽出、トニック、柚子をひと切れ。","i5_t":"季節","i6_n":"味噌キャラメルスコーン","i6_d":"塩気があって柔らかく、正午には売り切れ。","i6_t":"ヴィーガン対応","i7_n":"ほうじ茶ラテ","i7_d":"焙煎した緑茶、オーツミルク、ほんのり甘く。","i7_t":"オーツミルク","i8_n":"ストロベリーシュラブ","i8_d":"自家製シュラブ、炭酸水、バジル。カフェインなし。","i8_t":"カフェインなし","menu_note":"価格は税込です。全ドリンクでオーツ・豆乳・乳糖フリーミルクをお選びいただけます。","story_kick":"02 — ストーリー","story_q":"小さなバッチで<em>週に2回</em>焙煎し、香りが落ちる前に飲める分だけ売ります。","story_p1":"Loom &amp; Roast は2019年、ドラム式焙煎機1台と中古のオーブン、そして頑固な一つの考えから始まりました。街のカフェなら、豆がどこから来て誰が摘んだのかを正確に話せるべきだ、という考えです。","story_p2":"今は4つの輸入業者と組み、火曜と金曜に焙煎し、開店前の毎朝パンを焼きます。店内は狭く、音楽は小さく、Wi-Fiはわざと普通です。","s1":"創業","s2":"年間シングルオリジン","s3":"週の焙煎回数","s4":"席数、18時以降は予約なし","visit_kick":"03 — アクセス","visit_title":"窓際の席へどうぞ。","day1":"月曜〜金曜","day2":"土曜","day3":"日曜","day4":"祝日","addr_label":"住所","addr":"ソウル特別市 聖水洞 ウィロー・レーン 14","transit":"聖水（ソンス）駅3番出口から徒歩5分","book_cta":"団体＆席の問い合わせ","book_hint":"6名以上は事前にご連絡ください。","foot_tagline":"ウェブスタジオのポートフォリオ用デモカフェサイトです。メニュー、営業時間、住所はサンプルです。","foot_hours":"営業時間","foot_h1":"月〜金 · 08:00 – 20:00","foot_h2":"土〜日 · 09:00 – 21:00","foot_find":"所在地","foot_rights":"© 2026 Loom &amp; Roast — デモ","foot_lang":"言語: EN · KO · JA · ZH · ES · VI","modal_kick":"席＆団体の問い合わせ","modal_title":"席をおさえる","modal_lede":"ご来店日と人数をお知らせください。1日以内にメールで返信します。","modal_close":"閉じる","form_name":"お名前","form_contact":"メールまたは電話","form_date":"日付","form_party":"人数","form_msg":"事前に伝えておきたいことは？","ph_name":"お名前","ph_contact":"you@mail.com","ph_msg":"アレルギー、ベビーカー、静かな席…","p12":"1〜2名","p34":"3〜4名","p58":"5〜8名","p9":"9名以上","form_submit":"送信する","form_note":"デモ用フォームです。送信されず、確認メッセージのみ表示されます。","form_success":"ありがとうございます。実際の店舗なら1日以内に返信が届く内容です。","noscript":"JavaScriptが無効です。言語切替とメニューの絞り込みは、このファイルをSafariまたはChromeで開いてご確認ください。"},"zh":{"meta_title":"Loom &amp; Roast — 精品咖啡与烘焙，圣水","brand_sub":"精品咖啡 · 圣水","nav_menu":"菜单","nav_story":"故事","nav_visit":"到店","nav_book":"订位","lang_aria":"语言","hero_kick":"首尔圣水 · 每天营业","hero_title":"慢慢烘焙，<br><em>风味响亮。</em>","hero_lede":"首尔东边的一间小咖啡馆兼烘焙坊。每周烘焙两次，面包用 48 小时发酵的面团，窗边座位在中午前几乎总是空着。","hero_cta1":"看看菜单","hero_cta2":"找到我们","hero_hours":"周一至周五 8:00–20:00 · 周六日 9:00–21:00","photo_badge":"单一产地","photo_label":"今日手冲","photo_meta":"桃子、茉莉、悠长余韵 · ₩7,000","menu_kick":"01 — 菜单","menu_title":"短清单，认真做。","menu_lede":"每天做的八样。豆子随季节更换，可颂从来留不到下午。","filter_aria":"菜单筛选","filter_all":"全部","filter_espresso":"浓缩","filter_filter":"手冲","filter_bakery":"烘焙","filter_seasonal":"季节","i1_n":"澳白","i1_d":"双份特浓配丝滑牛奶，不玩奶泡花样。","i1_t":"招牌","i2_n":"埃塞俄比亚 古吉 V60","i2_d":"桃子、茉莉、悠长余韵。一杯一杯手冲。","i2_t":"单一产地","i3_n":"焦黄油可颂","i3_d":"48 小时折叠，每天出炉两次。","i3_t":"8 点与 14 点出炉","i4_n":"可塔朵","i4_d":"浓缩与温牛奶等量。故意做小杯。","i4_t":"店内特调","i5_n":"冷萃汤力","i5_d":"十八小时冷萃、汤力水、一片柚子。","i5_t":"季节","i6_n":"味噌焦糖司康","i6_d":"微咸、松软，中午就没了。","i6_t":"可选纯素","i7_n":"焙茶拿铁","i7_d":"焙炒绿茶、燕麦奶，甜度很低。","i7_t":"燕麦奶","i8_n":"草莓灌木饮","i8_d":"自制果醋、气泡水、罗勒。无咖啡因。","i8_t":"无咖啡因","menu_note":"价格含税。所有饮品均可换燕麦奶、豆奶或无乳糖牛奶。","story_kick":"02 — 我们的故事","story_q":"小批量烘焙，<em>每周两次</em>，只卖在风味消散前能喝完的量。","story_p1":"Loom &amp; Roast 始于 2019 年，一台滚筒烘焙机、一台二手烤箱，和一个固执的念头：街角咖啡馆应该能准确说出豆子来自哪里、由谁采摘。","story_p2":"现在我们与四家进口商合作，周二和周五烘焙，每天开门前烤面包。空间不大，音乐很轻，Wi-Fi 故意很普通。","s1":"创立","s2":"每年单一产地","s3":"每周烘焙","s4":"个座位，18 点后不接受预订","visit_kick":"03 — 到店","visit_title":"来坐窗边吧。","day1":"周一 – 周五","day2":"周六","day3":"周日","day4":"法定假日","addr_label":"地址","addr":"首尔 圣水洞 Willow Lane 14","transit":"圣水站 3 号出口步行 5 分钟","book_cta":"团体与订位咨询","book_hint":"6 人以上请提前联系。","foot_tagline":"为网页工作室作品集制作的演示咖啡馆网站。菜单、营业时间与地址均为示例。","foot_hours":"营业时间","foot_h1":"周一至周五 · 08:00 – 20:00","foot_h2":"周六日 · 09:00 – 21:00","foot_find":"位置","foot_rights":"© 2026 Loom &amp; Roast — 演示","foot_lang":"语言：EN · KO · JA · ZH · ES · VI","modal_kick":"订位与团体咨询","modal_title":"留个位子","modal_lede":"告诉我们哪天来、几个人。我们会在一天内邮件回复。","modal_close":"关闭","form_name":"姓名","form_contact":"邮箱或电话","form_date":"日期","form_party":"人数","form_msg":"有什么需要提前知道的？","ph_name":"您的姓名","ph_contact":"you@mail.com","ph_msg":"过敏、婴儿车、安静角落…","p12":"1–2 人","p34":"3–4 人","p58":"5–8 人","p9":"9 人以上","form_submit":"发送咨询","form_note":"演示表单——不会发送。提交只显示确认信息。","form_success":"谢谢——真实店铺会在这之后一天内回复。","noscript":"JavaScript 已关闭。请在 Safari 或 Chrome 中打开此文件以使用语言切换与菜单筛选。"},"es":{"meta_title":"Loom &amp; Roast — Café de especialidad y panadería, Seongsu","brand_sub":"Café de especialidad · Seongsu","nav_menu":"Menú","nav_story":"Historia","nav_visit":"Visita","nav_book":"Reservar mesa","lang_aria":"Idioma","hero_kick":"Seongsu, Seúl · Abierto todos los días","hero_title":"Tueste lento.<br><em>Sabor que se nota.</em>","hero_lede":"Una pequeña cafetería y panadería en el este de Seúl. Dos tuestes por semana, pan de una fermentación de 48 horas y una mesa junto a la ventana que casi siempre está libre antes del mediodía.","hero_cta1":"Ver el menú","hero_cta2":"Cómo llegar","hero_hours":"Lun–Vie 8:00–20:00 · Sáb–Dom 9:00–21:00","photo_badge":"Origen único","photo_label":"El café de hoy","photo_meta":"Melocotón, jazmín, final largo · ₩7,000","menu_kick":"01 — El menú","menu_title":"Una lista corta, bien hecha.","menu_lede":"Ocho cosas que hacemos cada día. Los granos cambian con la temporada; los croissants no duran.","filter_aria":"Filtros del menú","filter_all":"Todo","filter_espresso":"Espresso","filter_filter":"Filtro","filter_bakery":"Panadería","filter_seasonal":"Temporada","i1_n":"Flat White","i1_d":"Doble ristretto, leche sedosa, sin juegos de espuma.","i1_t":"De la casa","i2_n":"Etiopía Guji V60","i2_d":"Melocotón, jazmín, final largo. Preparado a mano, taza a taza.","i2_t":"Origen único","i3_n":"Croissant de mantequilla avellana","i3_d":"Laminado de 48 horas, horneado dos veces al día.","i3_t":"Horneado 8:00 y 14:00","i4_n":"Cortado","i4_d":"Espresso y leche tibia a partes iguales. Pequeño a propósito.","i4_t":"De la casa","i5_n":"Cold brew con tónica","i5_d":"Dieciocho horas de extracción, tónica, una rodaja de yuzu.","i5_t":"Temporada","i6_n":"Scone de caramelo de miso","i6_d":"Salado, tierno y desaparece antes del mediodía.","i6_t":"Opción vegana","i7_n":"Latte de hojicha","i7_d":"Té verde tostado, leche de avena, apenas dulce.","i7_t":"Leche de avena","i8_n":"Shrub de fresa","i8_d":"Shrub de la casa, agua con gas, albahaca. Sin cafeína.","i8_t":"Sin cafeína","menu_note":"Precios con impuestos incluidos. Leche de avena, soja y sin lactosa en cualquier bebida.","story_kick":"02 — Nuestra historia","story_q":"Tostamos en lotes pequeños, <em>dos veces por semana</em>, y vendemos lo que podemos beber antes de que se apague.","story_p1":"Loom &amp; Roast empezó en 2019 con un tostador de tambor, un horno de segunda mano y una idea terca: un café de barrio debería poder decirte exactamente de dónde vienen sus granos y quién los recogió.","story_p2":"Hoy trabajamos con cuatro importadores, tostamos los martes y viernes, y horneamos cada mañana antes de abrir. La sala es pequeña, la música baja y el wifi es deliberadamente normal.","s1":"Desde","s2":"Orígenes únicos al año","s3":"Tuestes por semana","s4":"Asientos, sin reservas después de las 18:00","visit_kick":"03 — Visita","visit_title":"Siéntate junto a la ventana.","day1":"Lunes – Viernes","day2":"Sábado","day3":"Domingo","day4":"Festivos","addr_label":"Dirección","addr":"14 Willow Lane, Seongsu-dong, Seúl","transit":"A 5 minutos de la estación Seongsu, salida 3","book_cta":"Consulta de mesa y grupo","book_hint":"Para grupos de 6 o más, escríbenos antes.","foot_tagline":"Sitio de café de demostración creado para el portafolio de un estudio web. Menú, horarios y dirección son ejemplos.","foot_hours":"Horario","foot_h1":"Lun–Vie · 08:00 – 20:00","foot_h2":"Sáb–Dom · 09:00 – 21:00","foot_find":"Encuéntranos","foot_rights":"© 2026 Loom &amp; Roast — demo","foot_lang":"Idioma: EN · KO · JA · ZH · ES · VI","modal_kick":"Consulta de mesa y grupo","modal_title":"Guardar una mesa","modal_lede":"Dinos cuándo vienes y cuántos sois. Respondemos por correo en un día.","modal_close":"Cerrar","form_name":"Nombre","form_contact":"Correo o teléfono","form_date":"Fecha","form_party":"Número de personas","form_msg":"¿Algo que debamos saber?","ph_name":"Tu nombre","ph_contact":"tu@correo.com","ph_msg":"Alergias, carrito, rincón tranquilo…","p12":"1–2 personas","p34":"3–4 personas","p58":"5–8 personas","p9":"9 o más","form_submit":"Enviar consulta","form_note":"Formulario de demo: no se envía nada. Al enviar solo aparece una confirmación.","form_success":"Gracias: un café real respondería a esto en un día.","noscript":"JavaScript está desactivado. Abre este archivo en Safari o Chrome para el cambio de idioma y los filtros."},"vi":{"meta_title":"Loom &amp; Roast — Cà phê specialty &amp; bánh, Seongsu","brand_sub":"Cà phê specialty · Seongsu","nav_menu":"Thực đơn","nav_story":"Câu chuyện","nav_visit":"Ghé thăm","nav_book":"Đặt bàn","lang_aria":"Ngôn ngữ","hero_kick":"Seongsu, Seoul · Mở hằng ngày","hero_title":"Rang chậm.<br><em>Vị đậm sâu.</em>","hero_lede":"Một quán cà phê và tiệm bánh nhỏ ở phía đông Seoul. Rang hai lần mỗi tuần, bánh từ bột ủ 48 giờ, và chiếc bàn cạnh cửa sổ gần như luôn trống trước buổi trưa.","hero_cta1":"Xem thực đơn","hero_cta2":"Đường đến","hero_hours":"Thứ 2–6 8:00–20:00 · Thứ 7–CN 9:00–21:00","photo_badge":"Một vùng trồng","photo_label":"Ly hôm nay","photo_meta":"Đào, hoa nhài, hậu vị dài · ₩7,000","menu_kick":"01 — Thực đơn","menu_title":"Danh sách ngắn, làm cho kỹ.","menu_lede":"Tám món làm mỗi ngày. Hạt đổi theo mùa; bánh croissant thì không giữ được lâu.","filter_aria":"Bộ lọc thực đơn","filter_all":"Tất cả","filter_espresso":"Espresso","filter_filter":"Pour over","filter_bakery":"Bánh","filter_seasonal":"Theo mùa","i1_n":"Flat White","i1_d":"Ristretto đôi, sữa mịn, không diễn trò bọt.","i1_t":"Đặc trưng","i2_n":"Ethiopia Guji V60","i2_d":"Đào, hoa nhài, hậu vị dài. Pha tay từng ly một.","i2_t":"Một vùng trồng","i3_n":"Croissant bơ nâu","i3_d":"Cán bột 48 giờ, nướng hai lần mỗi ngày.","i3_t":"Nướng 8:00 &amp; 14:00","i4_n":"Cortado","i4_d":"Espresso và sữa ấm lượng bằng nhau. Cố ý làm nhỏ.","i4_t":"Công thức quán","i5_n":"Cold brew tonic","i5_d":"Ủ mười tám giờ, tonic, một lát yuzu.","i5_t":"Theo mùa","i6_n":"Scone caramel miso","i6_d":"Mặn nhẹ, mềm, hết trước buổi trưa.","i6_t":"Có lựa chọn thuần chay","i7_n":"Latte hojicha","i7_d":"Trà xanh rang, sữa yến mạch, rất ít ngọt.","i7_t":"Sữa yến mạch","i8_n":"Shrub dâu","i8_d":"Shrub tự làm, soda, húng quế. Không caffeine.","i8_t":"Không caffeine","menu_note":"Giá đã gồm thuế. Có thể chọn sữa yến mạch, sữa đậu nành hoặc không lactose cho mọi món.","story_kick":"02 — Câu chuyện","story_q":"Chúng tôi rang từng mẻ nhỏ, <em>hai lần mỗi tuần</em>, và chỉ bán lượng có thể uống trước khi hương phai.","story_p1":"Loom &amp; Roast bắt đầu năm 2019 với một máy rang trống, một lò nướng cũ và một ý niệm cố chấp: quán cà phê trong khu phố phải nói được chính xác hạt đến từ đâu và ai đã hái.","story_p2":"Hiện chúng tôi làm việc với bốn nhà nhập khẩu, rang vào thứ Ba và thứ Sáu, nướng bánh mỗi sáng trước giờ mở cửa. Không gian nhỏ, nhạc nhỏ, wifi cố tình ở mức thường.","s1":"Từ năm","s2":"Vùng trồng mỗi năm","s3":"Lần rang mỗi tuần","s4":"Chỗ ngồi, sau 18h không nhận đặt","visit_kick":"03 — Ghé thăm","visit_title":"Mời bạn ngồi cạnh cửa sổ.","day1":"Thứ 2 – Thứ 6","day2":"Thứ 7","day3":"Chủ nhật","day4":"Ngày lễ","addr_label":"Địa chỉ","addr":"14 Willow Lane, Seongsu-dong, Seoul","transit":"Cách ga Seongsu 5 phút đi bộ, cửa ra số 3","book_cta":"Hỏi bàn &amp; nhóm","book_hint":"Nhóm từ 6 người, vui lòng liên hệ trước.","foot_tagline":"Website quán cà phê demo cho portfolio của studio web. Thực đơn, giờ mở cửa và địa chỉ là nội dung mẫu.","foot_hours":"Giờ mở cửa","foot_h1":"Thứ 2–6 · 08:00 – 20:00","foot_h2":"Thứ 7–CN · 09:00 – 21:00","foot_find":"Tìm chúng tôi","foot_rights":"© 2026 Loom &amp; Roast — demo","foot_lang":"Ngôn ngữ: EN · KO · JA · ZH · ES · VI","modal_kick":"Hỏi bàn &amp; nhóm","modal_title":"Giữ một bàn","modal_lede":"Cho chúng tôi biết bạn đến khi nào và mấy người. Chúng tôi trả lời email trong một ngày.","modal_close":"Đóng","form_name":"Họ tên","form_contact":"Email hoặc điện thoại","form_date":"Ngày","form_party":"Số người","form_msg":"Có gì cần biết trước không?","ph_name":"Tên của bạn","ph_contact":"ban@mail.com","ph_msg":"Dị ứng, xe đẩy, góc yên tĩnh…","p12":"1–2 người","p34":"3–4 người","p58":"5–8 người","p9":"9 người trở lên","form_submit":"Gửi liên hệ","form_note":"Form demo — không gửi đi đâu cả. Nhấn gửi chỉ hiện xác nhận.","form_success":"Cảm ơn — một quán thật sẽ phản hồi trong vòng một ngày.","noscript":"JavaScript đang tắt. Mở tệp này bằng Safari hoặc Chrome để dùng chuyển ngôn ngữ và bộ lọc."}};</script>
+<script>
+(function(){
+  var dict = window.I18N || {};
+  var LANGS = ['en','ko','ja','zh','es','vi'];
+  var current = 'en';
+
+  function t(k){
+    var pack = dict[current] || dict.en || {};
+    if (pack[k] !== undefined) return pack[k];
+    return (dict.en && dict.en[k] !== undefined) ? dict.en[k] : '';
+  }
+
+  function apply(lang){
+    if (LANGS.indexOf(lang) < 0) lang = 'en';
+    current = lang;
+    document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-Hans' : lang);
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n'));
+      if (v !== '') el.innerHTML = v;
+    });
+    document.querySelectorAll('[data-i18n-ph]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n-ph'));
+      if (v !== '') el.setAttribute('placeholder', v);
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n-aria'));
+      if (v !== '') el.setAttribute('aria-label', v);
+    });
+    document.querySelectorAll('.lang').forEach(function(b){
+      var on = b.getAttribute('data-lang') === lang;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    try { localStorage.setItem('lr_lang', lang); } catch(e) {}
+  }
+
+  document.querySelectorAll('.lang').forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.getAttribute('data-lang')); });
+  });
+
+  document.querySelectorAll('.fbtn').forEach(function(b){
+    b.addEventListener('click', function(){
+      document.querySelectorAll('.fbtn').forEach(function(x){ x.classList.remove('is-on'); });
+      b.classList.add('is-on');
+      var f = b.getAttribute('data-f');
+      document.querySelectorAll('.mi').forEach(function(item){
+        item.hidden = !(f === 'all' || item.getAttribute('data-cat') === f);
+      });
+    });
+  });
+
+  var modal = document.getElementById('modal');
+  function openModal(){ modal.hidden = false; document.body.style.overflow = 'hidden'; }
+  function closeModal(){ modal.hidden = true; document.body.style.overflow = ''; }
+  document.querySelectorAll('[data-open]').forEach(function(b){ b.addEventListener('click', openModal); });
+  document.getElementById('mClose').addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e){ if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !modal.hidden) closeModal(); });
+  document.getElementById('bookForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('bookOk').hidden = false;
+  });
+
+  var saved = null;
+  try { saved = localStorage.getItem('lr_lang'); } catch(e) {}
+  if (LANGS.indexOf(saved) < 0) saved = 'en';
+  apply(saved);
+})();
+</script>
+</body>
+</html>

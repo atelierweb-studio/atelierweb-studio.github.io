@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="meta_title">Lumière Dental &amp; Care — Calm dentistry in six languages</title>
+<meta name="description" content="A dental and wellness clinic demo for international and local patients, with six-language switching.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2314261F'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='14' fill='%23F7F9F7' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bone:#F7F9F7; --mint:#E8F0EA; --ink:#14261F; --ink-2:#3B4F46; --sage:#5E8474; --sage-deep:#3F6154;
+    --gold:#B99A63; --muted:#77877E; --line:rgba(20,38,31,.13);
+    --serif:"New York",ui-serif,"Iowan Old Style","Palatino Linotype",Georgia,"Noto Serif KR",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Pretendard",Roboto,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bone);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  h1,h2,h3{margin:0;font-family:var(--serif);font-weight:400;letter-spacing:-.01em}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 30px}
+  .eyebrow{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--sage)}
+  .topbar{position:fixed;inset:0 0 auto;z-index:50;background:rgba(247,249,247,.93);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .topbar-in{max-width:1160px;margin:0 auto;padding:12px 30px;display:flex;align-items:center;gap:24px}
+  .brand{display:flex;flex-direction:column;line-height:1}
+  .brand strong{font-family:var(--serif);font-weight:400;font-size:21px;letter-spacing:.01em}
+  .brand i{font-style:normal;font-family:var(--mono);font-size:7.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .nav{display:flex;gap:20px}
+  .nav a{font-family:var(--mono);font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;padding-bottom:3px;border-bottom:1px solid transparent;color:var(--ink-2)}
+  .nav a:hover{color:var(--sage-deep);border-color:var(--sage)}
+  .langs{display:flex;gap:5px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+  .langs::-webkit-scrollbar{display:none}
+  .lang{font-family:var(--mono);font-size:9.5px;border:1px solid var(--line);border-radius:99px;padding:6px 8px;white-space:nowrap;color:var(--ink-2);transition:.16s}
+  .lang:hover{border-color:var(--sage)}
+  .lang.is-on{background:var(--sage-deep);color:#fff;border-color:var(--sage-deep)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--sage-deep);color:#fff;border:1px solid var(--sage-deep);
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;padding:12px 18px;border-radius:999px;transition:.18s}
+  .btn:hover{background:var(--ink);border-color:var(--ink)}
+  .btn-sm{padding:9px 14px;font-size:8.5px}
+  .btn-ghost{background:transparent;color:var(--sage-deep);border-color:var(--sage)}
+  .btn-ghost:hover{background:var(--sage-deep);color:#fff}
+
+  .hero{padding:140px 0 64px;position:relative}
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:52px;align-items:center}
+  .kicker{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  h1{margin-top:16px;font-size:clamp(38px,5vw,60px);line-height:1.04}
+  h1 em{font-style:italic;color:var(--sage-deep)}
+  .hero p{margin:18px 0 0;font-size:15.5px;line-height:1.7;color:var(--ink-2);max-width:46ch}
+  .badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+  .badge{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;color:var(--sage-deep);
+    background:var(--mint);border:1px solid rgba(94,132,116,.25);border-radius:99px;padding:6px 11px}
+  .badge::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--sage)}
+  .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .care{position:relative;border-radius:18px;overflow:hidden;min-height:380px;background:linear-gradient(165deg,#EDF4EE,#DDEAE1);
+    border:1px solid rgba(94,132,116,.18)}
+  .care::before{content:"";position:absolute;width:300px;height:300px;border-radius:50%;left:-40px;top:-60px;
+    border:1px solid rgba(94,132,116,.28)}
+  .care::after{content:"";position:absolute;width:190px;height:190px;border-radius:50%;right:-20px;bottom:60px;
+    background:radial-gradient(circle at 35% 30%,#fff,rgba(255,255,255,0) 70%)}
+  .care-note{position:absolute;left:22px;top:22px;font-family:var(--mono);font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--sage-deep)}
+  .care-quote{position:absolute;left:22px;right:22px;top:44%;transform:translateY(-50%);font-family:var(--serif);font-size:24px;line-height:1.25;color:var(--sage-deep);max-width:22ch}
+  .next{position:absolute;left:22px;right:22px;bottom:20px;background:rgba(255,255,255,.9);border-radius:12px;padding:13px 15px;
+    display:flex;align-items:center;gap:12px;box-shadow:0 12px 26px -18px rgba(20,38,31,.5)}
+  .next .cal{width:36px;height:36px;border-radius:9px;background:var(--sage-deep);color:#fff;display:grid;place-items:center;
+    font-family:var(--mono);font-size:8px;line-height:1.1;text-align:center;flex:0 0 auto}
+  .next em{font-style:normal;display:block;font-family:var(--mono);font-size:7.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .next b{display:block;font-family:var(--sans);font-weight:600;font-size:12.5px;margin-top:3px;color:var(--ink)}
+  .next span{font-size:10px;color:var(--muted)}
+
+  .sec{padding:64px 0;border-top:1px solid var(--line)}
+  .sec-head{margin-bottom:28px;display:flex;justify-content:space-between;align-items:flex-end;gap:26px;flex-wrap:wrap}
+  h2{font-size:clamp(26px,3.1vw,38px);line-height:1.1;margin-top:10px}
+  .sec-head p{margin:9px 0 0;font-size:13px;line-height:1.65;color:var(--muted);max-width:46ch}
+  .treat{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .tr{background:#fff;border:1px solid rgba(94,132,116,.18);border-radius:14px;padding:20px;transition:.2s}
+  .tr:hover{border-color:var(--sage);box-shadow:0 16px 30px -26px rgba(20,38,31,.55)}
+  .tr .n{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--gold)}
+  .tr h3{font-size:18px;margin-top:9px;line-height:1.25}
+  .tr p{margin:8px 0 0;font-size:11.5px;line-height:1.6;color:var(--muted)}
+  .tr .from{margin-top:12px;padding-top:10px;border-top:1px solid var(--line);font-family:var(--mono);font-size:8.5px;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--sage-deep)}
+
+  .team{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .doc{background:linear-gradient(170deg,#fff,#F1F6F2);border:1px solid rgba(94,132,116,.18);border-radius:14px;padding:22px}
+  .avatar{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:18px;
+    color:var(--sage-deep);background:radial-gradient(circle at 32% 28%,#fff,#DCEAE0);border:1px solid rgba(94,132,116,.3)}
+  .doc h3{font-size:18px;margin-top:14px}
+  .doc .role{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);margin-top:6px}
+  .doc p{margin:10px 0 0;font-size:11.5px;line-height:1.6;color:var(--muted)}
+  .doc .langs-spoken{margin-top:12px;font-family:var(--mono);font-size:8px;letter-spacing:.1em;color:var(--ink-2);text-transform:uppercase}
+
+  .visit{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+  .hours{width:100%;border-collapse:collapse;margin-top:6px}
+  .hours th,.hours td{text-align:left;padding:9px 0;border-bottom:1px solid var(--line);font-size:12px;font-weight:400}
+  .hours th{font-family:var(--mono);font-size:8.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+  .hours td{text-align:right;font-family:var(--mono);font-size:10.5px;color:var(--ink-2)}
+  .addr{margin-top:18px;font-size:12px;line-height:1.7;color:var(--ink-2)}
+  .addr b{display:block;font-family:var(--mono);font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+  .steps{list-style:none;margin:0;padding:0}
+  .steps li{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+  .steps .sn{font-family:var(--serif);font-size:19px;color:var(--sage);line-height:1;flex:0 0 auto;width:26px}
+  .steps b{display:block;font-size:12.5px;font-weight:600}
+  .steps span{display:block;margin-top:4px;font-size:11.5px;line-height:1.6;color:var(--muted)}
+  .book-row{margin-top:20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .book-row small{font-size:10.5px;color:var(--muted)}
+
+  footer{background:var(--ink);color:#E9F1EB;padding:44px 0 26px;margin-top:14px}
+  .foot{display:grid;grid-template-columns:1.3fr .7fr .7fr;gap:28px}
+  .foot strong{font-family:var(--serif);font-weight:400;font-size:19px}
+  .foot p{margin:12px 0 0;font-size:10.5px;line-height:1.7;color:#A9BDB1;max-width:44ch}
+  .foot h4{margin:0 0 10px;font-family:var(--mono);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:#8AA396}
+  .foot ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px;font-size:11px;color:#CBDAD1}
+  .foot-bottom{margin-top:26px;padding-top:14px;border-top:1px solid rgba(233,241,235,.16);display:flex;justify-content:space-between;
+    gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:#8AA396}
+
+  .modal{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:22px;background:rgba(20,38,31,.5)}
+  .sheet{background:var(--bone);border-radius:16px;width:100%;max-width:540px;max-height:88vh;overflow:auto;padding:26px;position:relative}
+  .sheet h3{font-size:25px;margin-top:6px}
+  .sheet > p{margin:8px 0 0;font-size:12px;line-height:1.6;color:var(--muted)}
+  .sheet-close{position:absolute;top:14px;right:14px;width:30px;height:30px;border:1px solid var(--line);border-radius:50%;font-size:14px;line-height:1}
+  .sheet-close:hover{border-color:var(--sage)}
+  .f-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .field{display:flex;flex-direction:column;gap:5px;margin-top:12px}
+  .field label{font-family:var(--mono);font-size:8px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+  .field input,.field select,.field textarea{font-family:var(--sans);font-size:13px;background:#fff;border:1px solid var(--line);
+    border-radius:8px;padding:9px 10px;outline:none;color:var(--ink);width:100%}
+  .field textarea{min-height:62px;resize:vertical}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--sage)}
+  .sheet .btn{margin-top:16px;width:100%;justify-content:center}
+  .form-note{margin-top:10px;font-size:10px;line-height:1.5;color:var(--muted)}
+  .form-ok{margin-top:12px;border:1px solid var(--sage);color:var(--sage-deep);background:var(--mint);padding:10px 12px;border-radius:8px;
+    font-size:11.5px;line-height:1.5}
+  [hidden]{display:none !important}
+  noscript div{position:fixed;left:0;right:0;bottom:0;z-index:80;background:var(--ink);color:#E9F1EB;
+    font-family:var(--mono);font-size:9px;padding:9px 14px;text-align:center}
+
+  @media (max-width:980px){
+    .nav{display:none}
+    .hero{padding-top:110px}
+    .hero-grid,.visit{grid-template-columns:1fr;gap:30px}
+    .treat{grid-template-columns:1fr 1fr}
+    .team{grid-template-columns:1fr}
+    .foot{grid-template-columns:1fr}
+    .topbar-in{flex-wrap:wrap;gap:10px}
+    .langs{order:3;width:100%;margin-left:0}
+    .btn-sm{margin-left:auto}
+    .care{min-height:330px}
+  }
+  @media (max-width:600px){
+    .treat{grid-template-columns:1fr}
+    .f-row{grid-template-columns:1fr}
+    .wrap,.topbar-in{padding-left:18px;padding-right:18px}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="#top"><strong>Lumière</strong><i data-i18n="brand_sub">Dental &amp; Care</i></a>
+    <nav class="nav">
+      <a href="#treat" data-i18n="nav_treat">Treatments</a>
+      <a href="#team" data-i18n="nav_team">Team</a>
+      <a href="#visit" data-i18n="nav_visit">Hours &amp; visit</a>
+    </nav>
+    <div class="langs" role="group" data-i18n-aria="lang_aria" aria-label="Language">
+      <button type="button" class="lang is-on" data-lang="en" aria-pressed="true">🇺🇸 EN</button>
+      <button type="button" class="lang" data-lang="ko" aria-pressed="false">🇰🇷 KO</button>
+      <button type="button" class="lang" data-lang="ja" aria-pressed="false">🇯🇵 JA</button>
+      <button type="button" class="lang" data-lang="zh" aria-pressed="false">🇨🇳 ZH</button>
+      <button type="button" class="lang" data-lang="es" aria-pressed="false">🇪🇸 ES</button>
+      <button type="button" class="lang" data-lang="vi" aria-pressed="false">🇻🇳 VI</button>
+    </div>
+    <button type="button" class="btn btn-sm" data-open="book" data-i18n="nav_book">Book a visit</button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="kicker" data-i18n="hero_kick">Dental &amp; wellness · Seoul</div>
+        <h1 data-i18n="hero_title">Calm dentistry, <em>in your language.</em></h1>
+        <p data-i18n="hero_lede">A small clinic for families and international patients. Clear explanations before treatment, written estimates before you decide, and a team that can talk you through it in six languages.</p>
+        <div class="badges">
+          <span class="badge" data-i18n="badge1">Six languages spoken</span>
+          <span class="badge" data-i18n="badge2">Same-day emergency</span>
+          <span class="badge" data-i18n="badge3">Insurance receipts</span>
+        </div>
+        <div class="hero-cta">
+          <button type="button" class="btn" data-open="book" data-i18n="hero_cta1">Book a visit</button>
+          <a class="btn btn-ghost" href="#treat" data-i18n="hero_cta2">See treatments</a>
+        </div>
+      </div>
+      <div class="care" aria-hidden="true">
+        <div class="care-note" data-i18n="care_note">A quieter kind of clinic</div>
+        <div class="care-quote" data-i18n="care_quote">“Nothing happens until you understand why.”</div>
+        <div class="next">
+          <div class="cal">TUE<br>10:30</div>
+          <div><em data-i18n="next_label">Next available</em><b data-i18n="next_when">Tomorrow · 10:30</b><span data-i18n="next_who">Dr. Hana Seo · check-up</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="treat">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow" data-i18n="treat_kick">01 — Treatments</div>
+          <h2 data-i18n="treat_title">Six things we do, and nothing we don't.</h2>
+          <p data-i18n="treat_lede">Every treatment starts with a diagnosis and a written estimate. Prices below are sample starting points.</p>
+        </div>
+      </div>
+      <div class="treat">
+        <article class="tr"><div class="n">01</div><h3 data-i18n="t1_n">Check-up &amp; cleaning</h3><p data-i18n="t1_d">Full examination, digital X-rays where needed, and a careful clean. 40 minutes.</p><div class="from" data-i18n="t1_f">From ₩60,000</div></article>
+        <article class="tr"><div class="n">02</div><h3 data-i18n="t2_n">Whitening</h3><p data-i18n="t2_d">In-clinic whitening with a shade check before and after. Two visits.</p><div class="from" data-i18n="t2_f">From ₩290,000</div></article>
+        <article class="tr"><div class="n">03</div><h3 data-i18n="t3_n">Implants</h3><p data-i18n="t3_d">Guided placement, staged over three visits, with a written plan first.</p><div class="from" data-i18n="t3_f">From ₩1,100,000</div></article>
+        <article class="tr"><div class="n">04</div><h3 data-i18n="t4_n">Clear aligners</h3><p data-i18n="t4_d">Scan, plan and a full set of trays. Monthly review, in person or by photo.</p><div class="from" data-i18n="t4_f">From ₩3,200,000</div></article>
+        <article class="tr"><div class="n">05</div><h3 data-i18n="t5_n">Children's dentistry</h3><p data-i18n="t5_d">Short, patient visits for ages 3 to 12. A parent stays in the room.</p><div class="from" data-i18n="t5_f">From ₩45,000</div></article>
+        <article class="tr"><div class="n">06</div><h3 data-i18n="t6_n">Emergency care</h3><p data-i18n="t6_d">Pain, chips and lost fillings. Call before 10:00 for a same-day slot.</p><div class="from" data-i18n="t6_f">From ₩80,000</div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="team">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow" data-i18n="team_kick">02 — The team</div>
+          <h2 data-i18n="team_title">People who explain first.</h2>
+          <p data-i18n="team_lede">Sample profiles for this demo. In a live site, each card carries a real photo, licence number and speciality.</p>
+        </div>
+      </div>
+      <div class="team">
+        <article class="doc">
+          <div class="avatar">HS</div>
+          <h3 data-i18n="d1_n">Dr. Hana Seo</h3>
+          <div class="role" data-i18n="d1_r">General dentistry · Founder</div>
+          <p data-i18n="d1_d">Restorative work and preventive care. Explains every option, including doing nothing for now.</p>
+          <div class="langs-spoken" data-i18n="d1_l">EN · KO · JA</div>
+        </article>
+        <article class="doc">
+          <div class="avatar">MP</div>
+          <h3 data-i18n="d2_n">Dr. Minjun Park</h3>
+          <div class="role" data-i18n="d2_r">Implantology</div>
+          <p data-i18n="d2_d">Guided surgery and bone grafting. Treats international patients with an interpreter present.</p>
+          <div class="langs-spoken" data-i18n="d2_l">EN · KO</div>
+        </article>
+        <article class="doc">
+          <div class="avatar">ER</div>
+          <h3 data-i18n="d3_n">Dr. Elena Rossi</h3>
+          <div class="role" data-i18n="d3_r">Orthodontics · Children</div>
+          <p data-i18n="d3_d">Aligners for adults and early treatment for children. Gentle with nervous first visits.</p>
+          <div class="langs-spoken" data-i18n="d3_l">EN · ES · KO</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="visit">
+    <div class="wrap visit">
+      <div>
+        <div class="eyebrow" data-i18n="visit_kick">03 — Hours &amp; visit</div>
+        <h2 data-i18n="visit_title">Open six days, quiet on Sundays.</h2>
+        <table class="hours">
+          <tr><th data-i18n="day1">Monday – Thursday</th><td>09:30 – 19:00</td></tr>
+          <tr><th data-i18n="day2">Friday</th><td>09:30 – 17:00</td></tr>
+          <tr><th data-i18n="day3">Saturday</th><td>09:30 – 14:00</td></tr>
+          <tr><th data-i18n="day4">Sunday</th><td data-i18n="closed">Closed</td></tr>
+        </table>
+        <div class="addr">
+          <b data-i18n="addr_label">Address</b>
+          <span data-i18n="addr">2F, 27 Garden-ro, Gangnam-gu, Seoul</span><br>
+          <span data-i18n="transit">3 minutes from Sinnonhyeon Station, Exit 5 · elevator access</span>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow" data-i18n="first_kick">Your first visit</div>
+        <ul class="steps">
+          <li><span class="sn">1</span><div><b data-i18n="st1_t">20-minute consultation</b><span data-i18n="st1_d">We look, we listen, and we tell you what we see in plain language.</span></div></li>
+          <li><span class="sn">2</span><div><b data-i18n="st2_t">A written plan and price</b><span data-i18n="st2_d">Options with costs, in your language, before anything begins.</span></div></li>
+          <li><span class="sn">3</span><div><b data-i18n="st3_t">Treatment on your schedule</b><span data-i18n="st3_d">Book the next step only when you are ready.</span></div></li>
+        </ul>
+        <div class="book-row">
+          <button type="button" class="btn" data-open="book" data-i18n="book_cta">Request an appointment</button>
+          <small data-i18n="book_hint">We confirm by email or message within one business day.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <strong>Lumière Dental &amp; Care</strong>
+        <p data-i18n="foot_tagline">A demo clinic site built for a web studio portfolio. Doctors, prices and hours are samples, not medical advice.</p>
+      </div>
+      <div>
+        <h4 data-i18n="foot_hours">Hours</h4>
+        <ul>
+          <li data-i18n="foot_h1">Mon–Thu · 09:30 – 19:00</li>
+          <li data-i18n="foot_h2">Fri · 09:30 – 17:00</li>
+          <li data-i18n="foot_h3">Sat · 09:30 – 14:00</li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot_more">More</h4>
+        <ul>
+          <li><a href="#treat" data-i18n="nav_treat">Treatments</a></li>
+          <li><a href="#team" data-i18n="nav_team">Team</a></li>
+          <li><a href="#visit" data-i18n="nav_visit">Hours &amp; visit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span data-i18n="foot_rights">© 2026 Lumière Dental &amp; Care — demo</span>
+      <span data-i18n="foot_lang">Language: EN · KO · JA · ZH · ES · VI</span>
+    </div>
+  </div>
+</footer>
+
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="sheet">
+    <button type="button" class="sheet-close" id="mClose" data-i18n-aria="modal_close" aria-label="Close">✕</button>
+    <div class="eyebrow" data-i18n="modal_kick">Appointment request</div>
+    <h3 id="mTitle" data-i18n="modal_title">Request a visit</h3>
+    <p data-i18n="modal_lede">Choose a treatment and a preferred time. The clinic confirms by email or message.</p>
+    <form id="bookForm">
+      <div class="f-row">
+        <div class="field"><label for="c-name" data-i18n="form_name">Name</label><input id="c-name" type="text" data-i18n-ph="ph_name" placeholder="Your name"></div>
+        <div class="field"><label for="c-contact" data-i18n="form_contact">Email or phone</label><input id="c-contact" type="text" data-i18n-ph="ph_contact" placeholder="you@mail.com"></div>
+      </div>
+      <div class="field"><label for="c-treat" data-i18n="form_treat">Treatment</label>
+        <select id="c-treat">
+          <option data-i18n="opt_check">Check-up &amp; cleaning</option>
+          <option data-i18n="opt_white">Whitening</option>
+          <option data-i18n="opt_implant">Implant consultation</option>
+          <option data-i18n="opt_align">Clear aligners</option>
+          <option data-i18n="opt_child">Children's dentistry</option>
+          <option data-i18n="opt_emerg">Emergency</option>
+        </select>
+      </div>
+      <div class="f-row">
+        <div class="field"><label for="c-date" data-i18n="form_date">Preferred date</label><input id="c-date" type="date"></div>
+        <div class="field"><label for="c-time" data-i18n="form_time">Preferred time</label>
+          <select id="c-time">
+            <option data-i18n="tm_am">Morning (09:30–12:00)</option>
+            <option data-i18n="tm_pm">Afternoon (13:00–17:00)</option>
+            <option data-i18n="tm_eve">Evening (17:00–19:00)</option>
+          </select>
+        </div>
+      </div>
+      <div class="field"><label for="c-msg" data-i18n="form_msg">Anything we should know?</label><textarea id="c-msg" data-i18n-ph="ph_msg" placeholder="Pain, insurance, interpreter needed…"></textarea></div>
+      <button type="submit" class="btn" data-i18n="form_submit">Send request</button>
+      <p class="form-note" data-i18n="form_note">Demo form — nothing is sent and no medical record is created.</p>
+      <div class="form-ok" id="bookOk" hidden data-i18n="form_success">Thank you — a real clinic would confirm this request within one business day.</div>
+    </form>
+  </div>
+</div>
+
+<noscript><div data-i18n="noscript">JavaScript is off. Open this file in Safari or Chrome for the live language switch and booking form.</div></noscript>
+
+<script>window.I18N = {"en":{"meta_title":"Lumière Dental &amp; Care — Calm dentistry in six languages","brand_sub":"Dental &amp; Care","nav_treat":"Treatments","nav_team":"Team","nav_visit":"Hours &amp; visit","nav_book":"Book a visit","lang_aria":"Language","hero_kick":"Dental &amp; wellness · Seoul","hero_title":"Calm dentistry, <em>in your language.</em>","hero_lede":"A small clinic for families and international patients. Clear explanations before treatment, written estimates before you decide, and a team that can talk you through it in six languages.","badge1":"Six languages spoken","badge2":"Same-day emergency","badge3":"Insurance receipts","hero_cta1":"Book a visit","hero_cta2":"See treatments","care_note":"A quieter kind of clinic","care_quote":"“Nothing happens until you understand why.”","next_label":"Next available","next_when":"Tomorrow · 10:30","next_who":"Dr. Hana Seo · check-up","treat_kick":"01 — Treatments","treat_title":"Six things we do, and nothing we don't.","treat_lede":"Every treatment starts with a diagnosis and a written estimate. Prices below are sample starting points.","t1_n":"Check-up &amp; cleaning","t1_d":"Full examination, digital X-rays where needed, and a careful clean. 40 minutes.","t1_f":"From ₩60,000","t2_n":"Whitening","t2_d":"In-clinic whitening with a shade check before and after. Two visits.","t2_f":"From ₩290,000","t3_n":"Implants","t3_d":"Guided placement, staged over three visits, with a written plan first.","t3_f":"From ₩1,100,000","t4_n":"Clear aligners","t4_d":"Scan, plan and a full set of trays. Monthly review, in person or by photo.","t4_f":"From ₩3,200,000","t5_n":"Children's dentistry","t5_d":"Short, patient visits for ages 3 to 12. A parent stays in the room.","t5_f":"From ₩45,000","t6_n":"Emergency care","t6_d":"Pain, chips and lost fillings. Call before 10:00 for a same-day slot.","t6_f":"From ₩80,000","team_kick":"02 — The team","team_title":"People who explain first.","team_lede":"Sample profiles for this demo. In a live site, each card carries a real photo, licence number and speciality.","d1_n":"Dr. Hana Seo","d1_r":"General dentistry · Founder","d1_d":"Restorative work and preventive care. Explains every option, including doing nothing for now.","d1_l":"EN · KO · JA","d2_n":"Dr. Minjun Park","d2_r":"Implantology","d2_d":"Guided surgery and bone grafting. Treats international patients with an interpreter present.","d2_l":"EN · KO","d3_n":"Dr. Elena Rossi","d3_r":"Orthodontics · Children","d3_d":"Aligners for adults and early treatment for children. Gentle with nervous first visits.","d3_l":"EN · ES · KO","visit_kick":"03 — Hours &amp; visit","visit_title":"Open six days, quiet on Sundays.","day1":"Monday – Thursday","day2":"Friday","day3":"Saturday","day4":"Sunday","closed":"Closed","addr_label":"Address","addr":"2F, 27 Garden-ro, Gangnam-gu, Seoul","transit":"3 minutes from Sinnonhyeon Station, Exit 5 · elevator access","first_kick":"Your first visit","st1_t":"20-minute consultation","st1_d":"We look, we listen, and we tell you what we see in plain language.","st2_t":"A written plan and price","st2_d":"Options with costs, in your language, before anything begins.","st3_t":"Treatment on your schedule","st3_d":"Book the next step only when you are ready.","book_cta":"Request an appointment","book_hint":"We confirm by email or message within one business day.","foot_tagline":"A demo clinic site built for a web studio portfolio. Doctors, prices and hours are samples, not medical advice.","foot_hours":"Hours","foot_h1":"Mon–Thu · 09:30 – 19:00","foot_h2":"Fri · 09:30 – 17:00","foot_h3":"Sat · 09:30 – 14:00","foot_more":"More","foot_rights":"© 2026 Lumière Dental &amp; Care — demo","foot_lang":"Language: EN · KO · JA · ZH · ES · VI","modal_kick":"Appointment request","modal_title":"Request a visit","modal_lede":"Choose a treatment and a preferred time. The clinic confirms by email or message.","modal_close":"Close","form_name":"Name","form_contact":"Email or phone","form_treat":"Treatment","form_date":"Preferred date","form_time":"Preferred time","form_msg":"Anything we should know?","ph_name":"Your name","ph_contact":"you@mail.com","ph_msg":"Pain, insurance, interpreter needed…","opt_check":"Check-up &amp; cleaning","opt_white":"Whitening","opt_implant":"Implant consultation","opt_align":"Clear aligners","opt_child":"Children's dentistry","opt_emerg":"Emergency","tm_am":"Morning (09:30–12:00)","tm_pm":"Afternoon (13:00–17:00)","tm_eve":"Evening (17:00–19:00)","form_submit":"Send request","form_note":"Demo form — nothing is sent and no medical record is created.","form_success":"Thank you — a real clinic would confirm this request within one business day.","noscript":"JavaScript is off. Open this file in Safari or Chrome for the live language switch and booking form."},"ko":{"meta_title":"Lumière Dental &amp; Care — 6개국어로 안내하는 차분한 치과","brand_sub":"치과 &amp; 케어","nav_treat":"진료 과목","nav_team":"의료진","nav_visit":"진료 시간·오시는 길","nav_book":"예약하기","lang_aria":"언어 선택","hero_kick":"치과 &amp; 웰니스 · 서울","hero_title":"차분한 치과, <em>당신의 언어로.</em>","hero_lede":"가족과 외국인 환자를 위한 작은 클리닉입니다. 치료 전 충분한 설명, 결정 전 서면 견적, 그리고 여섯 언어로 안내할 수 있는 팀.","badge1":"6개국어 상담","badge2":"당일 응급 진료","badge3":"보험 서류 발급","hero_cta1":"예약하기","hero_cta2":"진료 과목 보기","care_note":"조용한 진료실","care_quote":"“이해하지 못한 치료는 시작하지 않습니다.”","next_label":"다음 예약 가능","next_when":"내일 · 10:30","next_who":"서하나 원장 · 정기 검진","treat_kick":"01 — 진료 과목","treat_title":"하는 여섯 가지, 하지 않는 것은 하지 않습니다.","treat_lede":"모든 진료는 진단과 서면 견적에서 시작합니다. 아래 금액은 예시 시작가입니다.","t1_n":"검진 &amp; 스케일링","t1_d":"구강 검진, 필요 시 디지털 X-ray, 꼼꼼한 스케일링. 40분.","t1_f":"6만 원부터","t2_n":"미백","t2_d":"진료실 미백, 전후 색조 확인 포함. 2회 방문.","t2_f":"29만 원부터","t3_n":"임플란트","t3_d":"가이드 식립, 3회에 걸친 단계 치료, 사전 서면 계획.","t3_f":"110만 원부터","t4_n":"투명 교정","t4_d":"스캔·계획·전체 트레이 제작. 월 1회 대면 또는 사진 점검.","t4_f":"320만 원부터","t5_n":"소아 치과","t5_d":"3~12세, 짧고 차분한 진료. 보호자가 함께 있습니다.","t5_f":"4만 5천 원부터","t6_n":"응급 진료","t6_d":"통증, 깨진 치아, 빠진 충전. 오전 10시 전 연락 시 당일 진료.","t6_f":"8만 원부터","team_kick":"02 — 의료진","team_title":"먼저 설명하는 사람들.","team_lede":"이 데모용 예시 프로필입니다. 실제 사이트에는 사진, 면허 번호, 전문 분야가 들어갑니다.","d1_n":"서하나 원장","d1_r":"일반 치과 · 대표원장","d1_d":"보철과 예방 진료. 지금은 아무것도 하지 않는 선택지까지 모두 설명합니다.","d1_l":"영어 · 한국어 · 일본어","d2_n":"박민준 원장","d2_r":"임플란트","d2_d":"가이드 수술과 골이식. 외국인 환자는 통역과 함께 진료합니다.","d2_l":"영어 · 한국어","d3_n":"엘레나 로시 원장","d3_r":"교정 · 소아","d3_d":"성인 투명 교정과 소아 조기 치료. 긴장한 첫 방문에 익숙합니다.","d3_l":"영어 · 스페인어 · 한국어","visit_kick":"03 — 진료 시간·오시는 길","visit_title":"주 6일 진료, 일요일은 쉽니다.","day1":"월요일 – 목요일","day2":"금요일","day3":"토요일","day4":"일요일","closed":"휴진","addr_label":"주소","addr":"서울 강남구 가든로 27, 2층","transit":"신논현역 5번 출구에서 도보 3분 · 엘리베이터 있음","first_kick":"첫 방문 안내","st1_t":"20분 상담","st1_d":"보고, 듣고, 보이는 것을 쉬운 말로 설명합니다.","st2_t":"서면 계획과 금액","st2_d":"치료를 시작하기 전에 비용이 포함된 선택지를 당신의 언어로.","st3_t":"원하는 일정에 치료","st3_d":"준비되었을 때 다음 단계를 예약하세요.","book_cta":"예약 신청","book_hint":"영업일 하루 안에 이메일이나 메시지로 확정해 드립니다.","foot_tagline":"웹 스튜디오 포트폴리오용 데모 클리닉 사이트입니다. 의료진, 가격, 시간은 예시이며 의학적 조언이 아닙니다.","foot_hours":"진료 시간","foot_h1":"월–목 · 09:30 – 19:00","foot_h2":"금 · 09:30 – 17:00","foot_h3":"토 · 09:30 – 14:00","foot_more":"더 보기","foot_rights":"© 2026 Lumière Dental &amp; Care — 데모","foot_lang":"언어: EN · KO · JA · ZH · ES · VI","modal_kick":"예약 신청","modal_title":"방문 예약하기","modal_lede":"진료 과목과 원하는 시간을 골라 주세요. 클리닉에서 이메일이나 메시지로 확정합니다.","modal_close":"닫기","form_name":"이름","form_contact":"이메일 또는 전화","form_treat":"진료 과목","form_date":"희망 날짜","form_time":"희망 시간","form_msg":"미리 알려주실 것이 있나요?","ph_name":"성함","ph_contact":"you@mail.com","ph_msg":"통증, 보험, 통역 필요 여부…","opt_check":"검진 &amp; 스케일링","opt_white":"미백","opt_implant":"임플란트 상담","opt_align":"투명 교정","opt_child":"소아 치과","opt_emerg":"응급","tm_am":"오전 (09:30–12:00)","tm_pm":"오후 (13:00–17:00)","tm_eve":"저녁 (17:00–19:00)","form_submit":"신청 보내기","form_note":"데모 폼입니다. 전송되지 않고 진료 기록도 생성되지 않습니다.","form_success":"감사합니다. 실제 클리닉이라면 영업일 하루 안에 확정해 드릴 신청입니다.","noscript":"JavaScript가 꺼져 있습니다. 실시간 언어 전환과 예약 폼은 이 파일을 Safari나 Chrome에서 열어 확인하세요."},"ja":{"meta_title":"Lumière Dental &amp; Care — 6言語で案内する静かな歯科","brand_sub":"デンタル＆ケア","nav_treat":"診療内容","nav_team":"医師紹介","nav_visit":"診療時間・アクセス","nav_book":"予約する","lang_aria":"言語","hero_kick":"歯科＆ウェルネス · ソウル","hero_title":"静かな歯科を、<em>あなたの言語で。</em>","hero_lede":"ご家族と海外からの患者さんのための小さなクリニック。治療前の丁寧な説明、決める前の書面見積もり、そして6言語でご案内できるチームです。","badge1":"6言語で対応","badge2":"当日の急患対応","badge3":"保険書類の発行","hero_cta1":"予約する","hero_cta2":"診療内容を見る","care_note":"静かな診療室","care_quote":"「理由が分かるまで、治療は始めません。」","next_label":"次に空いている枠","next_when":"明日 · 10:30","next_who":"ソ・ハナ院長 · 定期検診","treat_kick":"01 — 診療内容","treat_title":"やる6つと、やらないこと。","treat_lede":"すべての治療は診断と書面見積もりから始まります。以下の金額はサンプルの開始価格です。","t1_n":"検診＆クリーニング","t1_d":"口腔検査、必要に応じてデジタルX線、丁寧なクリーニング。40分。","t1_f":"₩60,000〜","t2_n":"ホワイトニング","t2_d":"院内ホワイトニング、前後の色調確認つき。2回通院。","t2_f":"₩290,000〜","t3_n":"インプラント","t3_d":"ガイド下の埋入、3回に分けた段階治療、事前の書面計画。","t3_f":"₩1,100,000〜","t4_n":"マウスピース矯正","t4_d":"スキャン・計画・全トレー製作。月1回の対面または写真確認。","t4_f":"₩3,200,000〜","t5_n":"小児歯科","t5_d":"3〜12歳、短くて落ち着いた診療。保護者の同席可。","t5_f":"₩45,000〜","t6_n":"急患対応","t6_d":"痛み、欠け、取れた詰め物。10時前のご連絡で当日枠をご案内。","t6_f":"₩80,000〜","team_kick":"02 — 医師紹介","team_title":"まず説明する人たち。","team_lede":"このデモ用のサンプルプロフィールです。実際のサイトには写真、免許番号、専門分野が入ります。","d1_n":"ソ・ハナ院長","d1_r":"一般歯科 · 代表","d1_d":"補綴と予防診療。今は何もしない選択肢まで含めて説明します。","d1_l":"英語 · 韓国語 · 日本語","d2_n":"パク・ミンジュン院長","d2_r":"インプラント","d2_d":"ガイド下手術と骨造成。海外患者には通訳とともに診療します。","d2_l":"英語 · 韓国語","d3_n":"エレナ・ロッシ院長","d3_r":"矯正 · 小児","d3_d":"成人のマウスピース矯正と小児の早期治療。緊張した初診にも慣れています。","d3_l":"英語 · スペイン語 · 韓国語","visit_kick":"03 — 診療時間・アクセス","visit_title":"週6日診療、日曜は休診。","day1":"月曜 – 木曜","day2":"金曜","day3":"土曜","day4":"日曜","closed":"休診","addr_label":"住所","addr":"ソウル市 江南区 ガーデン路 27, 2階","transit":"新論峴（シンノンヒョン）駅5番出口から徒歩3分 · エレベーターあり","first_kick":"初診のご案内","st1_t":"20分のカウンセリング","st1_d":"見て、聞いて、見えたことを分かりやすい言葉で伝えます。","st2_t":"書面の計画と費用","st2_d":"治療を始める前に、費用を含む選択肢をあなたの言語で。","st3_t":"ご都合に合わせて治療","st3_d":"準備ができたときに次のステップをご予約ください。","book_cta":"予約を申し込む","book_hint":"1営業日以内にメールまたはメッセージで確定します。","foot_tagline":"ウェブスタジオのポートフォリオ用デモクリニックサイトです。医師、価格、時間はサンプルで、医学的助言ではありません。","foot_hours":"診療時間","foot_h1":"月–木 · 09:30 – 19:00","foot_h2":"金 · 09:30 – 17:00","foot_h3":"土 · 09:30 – 14:00","foot_more":"その他","foot_rights":"© 2026 Lumière Dental &amp; Care — デモ","foot_lang":"言語: EN · KO · JA · ZH · ES · VI","modal_kick":"予約申込","modal_title":"ご来院を予約","modal_lede":"診療内容と希望時間をお選びください。クリニックからメールまたはメッセージで確定します。","modal_close":"閉じる","form_name":"お名前","form_contact":"メールまたは電話","form_treat":"診療内容","form_date":"希望日","form_time":"希望時間","form_msg":"事前に伝えておきたいことは？","ph_name":"お名前","ph_contact":"you@mail.com","ph_msg":"痛み、保険、通訳の必要性…","opt_check":"検診＆クリーニング","opt_white":"ホワイトニング","opt_implant":"インプラント相談","opt_align":"マウスピース矯正","opt_child":"小児歯科","opt_emerg":"急患","tm_am":"午前 (09:30–12:00)","tm_pm":"午後 (13:00–17:00)","tm_eve":"夕方 (17:00–19:00)","form_submit":"申し込む","form_note":"デモ用フォームです。送信されず、診療記録も作成されません。","form_success":"ありがとうございます。実際のクリニックなら1営業日以内に確定する申込です。","noscript":"JavaScriptが無効です。言語切替と予約フォームは、このファイルをSafariまたはChromeで開いてご確認ください。"},"zh":{"meta_title":"Lumière Dental &amp; Care — 六种语言沟通的安静齿科","brand_sub":"齿科与护理","nav_treat":"诊疗项目","nav_team":"医生团队","nav_visit":"门诊时间与地址","nav_book":"预约","lang_aria":"语言","hero_kick":"齿科与健康 · 首尔","hero_title":"安静的齿科，<em>用你的语言。</em>","hero_lede":"为家庭与国际患者准备的小型诊所。治疗前充分说明，决定前提供书面报价，团队可用六种语言沟通。","badge1":"提供六语服务","badge2":"当日急诊","badge3":"开具保险单据","hero_cta1":"预约到诊","hero_cta2":"查看项目","care_note":"更安静的诊室","care_quote":"“没弄明白原因之前，不会开始治疗。”","next_label":"最近可约","next_when":"明天 · 10:30","next_who":"徐荷娜 院长 · 常规检查","treat_kick":"01 — 诊疗项目","treat_title":"做六件事，不做多余的事。","treat_lede":"所有治疗都从诊断与书面报价开始。以下价格为示例起步价。","t1_n":"检查与洁牙","t1_d":"全面检查、必要时数码 X 光、细致洁牙。40 分钟。","t1_f":"₩60,000 起","t2_n":"美白","t2_d":"院内美白，前后对比色阶。两次到诊。","t2_f":"₩290,000 起","t3_n":"种植牙","t3_d":"导板植入，分三次完成，先给书面方案。","t3_f":"₩1,100,000 起","t4_n":"隐形矫正","t4_d":"扫描、方案与全套牙套。每月复查，可到诊或照片。","t4_f":"₩3,200,000 起","t5_n":"儿童齿科","t5_d":"3 至 12 岁，短而耐心的诊疗，家长全程在旁。","t5_f":"₩45,000 起","t6_n":"急诊","t6_d":"疼痛、崩缺、补物脱落。10 点前联系可安排当日。","t6_f":"₩80,000 起","team_kick":"02 — 医生团队","team_title":"先解释的人。","team_lede":"本演示的示例简介。正式站点中，每张卡片会放真实照片、执照编号与专长。","d1_n":"徐荷娜 院长","d1_r":"全科 · 创办人","d1_d":"修复与预防治疗。连“暂时什么都不做”也会一并说明。","d1_l":"英语 · 韩语 · 日语","d2_n":"朴敏俊 院长","d2_r":"种植专科","d2_d":"导板手术与植骨。接诊国际患者时安排口译。","d2_l":"英语 · 韩语","d3_n":"Elena Rossi 院长","d3_r":"正畸 · 儿童","d3_d":"成人隐形矫正与儿童早期治疗。擅长安抚紧张的初诊。","d3_l":"英语 · 西班牙语 · 韩语","visit_kick":"03 — 门诊时间与地址","visit_title":"每周六天门诊，周日休息。","day1":"周一 – 周四","day2":"周五","day3":"周六","day4":"周日","closed":"休诊","addr_label":"地址","addr":"首尔 江南区 Garden-ro 27, 2 层","transit":"新论岘站 5 号出口步行 3 分钟 · 有电梯","first_kick":"首次到诊","st1_t":"20 分钟咨询","st1_d":"看、听，然后用平实的语言告诉你我们看到的。","st2_t":"书面方案与价格","st2_d":"在任何治疗开始前，用你的语言给出含费用的选项。","st3_t":"按你的节奏治疗","st3_d":"准备好的时候再预约下一步。","book_cta":"申请预约","book_hint":"我们会在一个工作日内以邮件或消息确认。","foot_tagline":"为网页工作室作品集制作的演示诊所网站。医生、价格与时间为示例，不构成医疗建议。","foot_hours":"门诊时间","foot_h1":"周一至周四 · 09:30 – 19:00","foot_h2":"周五 · 09:30 – 17:00","foot_h3":"周六 · 09:30 – 14:00","foot_more":"更多","foot_rights":"© 2026 Lumière Dental &amp; Care — 演示","foot_lang":"语言：EN · KO · JA · ZH · ES · VI","modal_kick":"预约申请","modal_title":"预约到诊","modal_lede":"选择项目与希望时间，诊所会以邮件或消息确认。","modal_close":"关闭","form_name":"姓名","form_contact":"邮箱或电话","form_treat":"诊疗项目","form_date":"希望日期","form_time":"希望时间","form_msg":"有什么需要提前知道的？","ph_name":"您的姓名","ph_contact":"you@mail.com","ph_msg":"疼痛、保险、是否需要口译…","opt_check":"检查与洁牙","opt_white":"美白","opt_implant":"种植咨询","opt_align":"隐形矫正","opt_child":"儿童齿科","opt_emerg":"急诊","tm_am":"上午 (09:30–12:00)","tm_pm":"下午 (13:00–17:00)","tm_eve":"傍晚 (17:00–19:00)","form_submit":"发送申请","form_note":"演示表单——不会发送，也不会生成病历。","form_success":"谢谢——真实诊所会在这之后一个工作日内确认。","noscript":"JavaScript 已关闭。请在 Safari 或 Chrome 中打开此文件以使用语言切换与预约表单。"},"es":{"meta_title":"Lumière Dental &amp; Care — Odontología serena en seis idiomas","brand_sub":"Dental y cuidado","nav_treat":"Tratamientos","nav_team":"Equipo","nav_visit":"Horario y visita","nav_book":"Pedir cita","lang_aria":"Idioma","hero_kick":"Odontología y bienestar · Seúl","hero_title":"Odontología serena, <em>en tu idioma.</em>","hero_lede":"Una clínica pequeña para familias y pacientes internacionales. Explicaciones claras antes del tratamiento, presupuestos por escrito antes de decidir y un equipo que puede acompañarte en seis idiomas.","badge1":"Seis idiomas","badge2":"Urgencias el mismo día","badge3":"Recibos para el seguro","hero_cta1":"Pedir cita","hero_cta2":"Ver tratamientos","care_note":"Una clínica más tranquila","care_quote":"«Nada empieza hasta que entiendes por qué.»","next_label":"Próxima disponibilidad","next_when":"Mañana · 10:30","next_who":"Dra. Hana Seo · revisión","treat_kick":"01 — Tratamientos","treat_title":"Seis cosas que hacemos, y nada que no.","treat_lede":"Todo tratamiento empieza con un diagnóstico y un presupuesto escrito. Los precios son puntos de partida de ejemplo.","t1_n":"Revisión y limpieza","t1_d":"Examen completo, radiografías digitales si hacen falta y una limpieza cuidadosa. 40 minutos.","t1_f":"Desde ₩60,000","t2_n":"Blanqueamiento","t2_d":"Blanqueamiento en clínica con control de tono antes y después. Dos visitas.","t2_f":"Desde ₩290,000","t3_n":"Implantes","t3_d":"Colocación guiada, en tres visitas, con un plan escrito primero.","t3_f":"Desde ₩1,100,000","t4_n":"Alineadores transparentes","t4_d":"Escaneo, plan y juego completo de férulas. Revisión mensual, en persona o por foto.","t4_f":"Desde ₩3,200,000","t5_n":"Odontología infantil","t5_d":"Visitas cortas y pacientes de 3 a 12 años. Un progenitor permanece en la sala.","t5_f":"Desde ₩45,000","t6_n":"Urgencias","t6_d":"Dolor, fracturas y empastes caídos. Llama antes de las 10:00 para hueco el mismo día.","t6_f":"Desde ₩80,000","team_kick":"02 — El equipo","team_title":"Personas que explican primero.","team_lede":"Perfiles de ejemplo para esta demo. En un sitio real, cada tarjeta lleva foto, número de licencia y especialidad.","d1_n":"Dra. Hana Seo","d1_r":"Odontología general · Fundadora","d1_d":"Restauración y prevención. Explica todas las opciones, incluida la de no hacer nada por ahora.","d1_l":"EN · KO · JA","d2_n":"Dr. Minjun Park","d2_r":"Implantología","d2_d":"Cirugía guiada e injertos. Atiende a pacientes internacionales con intérprete.","d2_l":"EN · KO","d3_n":"Dra. Elena Rossi","d3_r":"Ortodoncia · Niños","d3_d":"Alineadores para adultos y tratamiento temprano infantil. Con paciencia en primeras visitas nerviosas.","d3_l":"EN · ES · KO","visit_kick":"03 — Horario y visita","visit_title":"Seis días abiertos, domingos en calma.","day1":"Lunes – Jueves","day2":"Viernes","day3":"Sábado","day4":"Domingo","closed":"Cerrado","addr_label":"Dirección","addr":"2.º piso, 27 Garden-ro, Gangnam-gu, Seúl","transit":"A 3 minutos de la estación Sinnonhyeon, salida 5 · con ascensor","first_kick":"Tu primera visita","st1_t":"Consulta de 20 minutos","st1_d":"Miramos, escuchamos y te contamos lo que vemos en lenguaje claro.","st2_t":"Plan y precio por escrito","st2_d":"Opciones con costes, en tu idioma, antes de empezar nada.","st3_t":"Tratamiento a tu ritmo","st3_d":"Reserva el siguiente paso solo cuando estés listo.","book_cta":"Solicitar una cita","book_hint":"Confirmamos por correo o mensaje en un día hábil.","foot_tagline":"Sitio de clínica de demostración para el portafolio de un estudio web. Médicos, precios y horarios son ejemplos, no consejo médico.","foot_hours":"Horario","foot_h1":"Lun–Jue · 09:30 – 19:00","foot_h2":"Vie · 09:30 – 17:00","foot_h3":"Sáb · 09:30 – 14:00","foot_more":"Más","foot_rights":"© 2026 Lumière Dental &amp; Care — demo","foot_lang":"Idioma: EN · KO · JA · ZH · ES · VI","modal_kick":"Solicitud de cita","modal_title":"Pedir una visita","modal_lede":"Elige tratamiento y hora preferida. La clínica confirma por correo o mensaje.","modal_close":"Cerrar","form_name":"Nombre","form_contact":"Correo o teléfono","form_treat":"Tratamiento","form_date":"Fecha preferida","form_time":"Hora preferida","form_msg":"¿Algo que debamos saber?","ph_name":"Tu nombre","ph_contact":"tu@correo.com","ph_msg":"Dolor, seguro, intérprete…","opt_check":"Revisión y limpieza","opt_white":"Blanqueamiento","opt_implant":"Consulta de implante","opt_align":"Alineadores","opt_child":"Odontología infantil","opt_emerg":"Urgencia","tm_am":"Mañana (09:30–12:00)","tm_pm":"Tarde (13:00–17:00)","tm_eve":"Final del día (17:00–19:00)","form_submit":"Enviar solicitud","form_note":"Formulario de demo: no se envía nada ni se crea historial médico.","form_success":"Gracias: una clínica real confirmaría esta solicitud en un día hábil.","noscript":"JavaScript está desactivado. Abre este archivo en Safari o Chrome para el cambio de idioma y el formulario de cita."},"vi":{"meta_title":"Lumière Dental &amp; Care — Nha khoa nhẹ nhàng, sáu ngôn ngữ","brand_sub":"Nha khoa &amp; chăm sóc","nav_treat":"Điều trị","nav_team":"Bác sĩ","nav_visit":"Giờ &amp; địa chỉ","nav_book":"Đặt lịch","lang_aria":"Ngôn ngữ","hero_kick":"Nha khoa &amp; chăm sóc · Seoul","hero_title":"Nha khoa nhẹ nhàng, <em>bằng ngôn ngữ của bạn.</em>","hero_lede":"Một phòng khám nhỏ cho gia đình và bệnh nhân quốc tế. Giải thích rõ trước khi điều trị, báo giá bằng văn bản trước khi bạn quyết định, và đội ngũ nói được sáu ngôn ngữ.","badge1":"Nói sáu ngôn ngữ","badge2":"Cấp cứu trong ngày","badge3":"Hoá đơn bảo hiểm","hero_cta1":"Đặt lịch khám","hero_cta2":"Xem điều trị","care_note":"Một phòng khám yên hơn","care_quote":"“Không điều trị gì cho đến khi bạn hiểu vì sao.”","next_label":"Lịch trống gần nhất","next_when":"Mai · 10:30","next_who":"BS. Hana Seo · khám định kỳ","treat_kick":"01 — Điều trị","treat_title":"Sáu việc chúng tôi làm, và không làm gì thừa.","treat_lede":"Mọi điều trị bắt đầu bằng chẩn đoán và báo giá bằng văn bản. Giá dưới đây là mức khởi điểm minh hoạ.","t1_n":"Khám &amp; cạo vôi","t1_d":"Khám toàn bộ, chụp X-quang kỹ thuật số khi cần, cạo vôi kỹ. 40 phút.","t1_f":"Từ ₩60,000","t2_n":"Tẩy trắng","t2_d":"Tẩy trắng tại phòng khám, kiểm tra tông màu trước và sau. Hai lần hẹn.","t2_f":"Từ ₩290,000","t3_n":"Implant","t3_d":"Đặt trụ có hướng dẫn, chia ba lần, có kế hoạch bằng văn bản trước.","t3_f":"Từ ₩1,100,000","t4_n":"Niềng trong suốt","t4_d":"Quét, lên kế hoạch và trọn bộ khay. Kiểm tra hằng tháng, trực tiếp hoặc qua ảnh.","t4_f":"Từ ₩3,200,000","t5_n":"Nha khoa trẻ em","t5_d":"Buổi khám ngắn, kiên nhẫn cho bé 3–12 tuổi. Phụ huynh ở cùng trong phòng.","t5_f":"Từ ₩45,000","t6_n":"Cấp cứu","t6_d":"Đau, mẻ răng, mất miếng trám. Gọi trước 10:00 để có chỗ trong ngày.","t6_f":"Từ ₩80,000","team_kick":"02 — Bác sĩ","team_title":"Những người giải thích trước.","team_lede":"Hồ sơ minh hoạ cho bản demo. Trên site thật, mỗi thẻ có ảnh, số giấy phép và chuyên khoa.","d1_n":"BS. Hana Seo","d1_r":"Nha khoa tổng quát · Sáng lập","d1_d":"Phục hồi và dự phòng. Giải thích mọi lựa chọn, kể cả chưa làm gì lúc này.","d1_l":"EN · KO · JA","d2_n":"BS. Minjun Park","d2_r":"Implant","d2_d":"Phẫu thuật có hướng dẫn và ghép xương. Khám bệnh nhân quốc tế cùng phiên dịch.","d2_l":"EN · KO","d3_n":"BS. Elena Rossi","d3_r":"Chỉnh nha · Trẻ em","d3_d":"Niềng trong suốt cho người lớn và điều trị sớm cho trẻ. Nhẹ nhàng với buổi đầu căng thẳng.","d3_l":"EN · ES · KO","visit_kick":"03 — Giờ &amp; địa chỉ","visit_title":"Mở sáu ngày, Chủ nhật yên tĩnh.","day1":"Thứ 2 – Thứ 5","day2":"Thứ 6","day3":"Thứ 7","day4":"Chủ nhật","closed":"Nghỉ","addr_label":"Địa chỉ","addr":"Tầng 2, 27 Garden-ro, Gangnam-gu, Seoul","transit":"Cách ga Sinnonhyeon 3 phút, cửa ra số 5 · có thang máy","first_kick":"Buổi đầu tiên","st1_t":"Tư vấn 20 phút","st1_d":"Chúng tôi xem, nghe, và nói những gì thấy bằng lời dễ hiểu.","st2_t":"Kế hoạch và giá bằng văn bản","st2_d":"Các lựa chọn kèm chi phí, bằng ngôn ngữ của bạn, trước khi bắt đầu.","st3_t":"Điều trị theo nhịp của bạn","st3_d":"Chỉ đặt bước tiếp theo khi bạn đã sẵn sàng.","book_cta":"Yêu cầu đặt lịch","book_hint":"Chúng tôi xác nhận qua email hoặc tin nhắn trong một ngày làm việc.","foot_tagline":"Website phòng khám demo cho portfolio của studio web. Bác sĩ, giá và giờ là mẫu, không phải lời khuyên y khoa.","foot_hours":"Giờ mở cửa","foot_h1":"Thứ 2–5 · 09:30 – 19:00","foot_h2":"Thứ 6 · 09:30 – 17:00","foot_h3":"Thứ 7 · 09:30 – 14:00","foot_more":"Thêm","foot_rights":"© 2026 Lumière Dental &amp; Care — demo","foot_lang":"Ngôn ngữ: EN · KO · JA · ZH · ES · VI","modal_kick":"Yêu cầu đặt lịch","modal_title":"Đặt một buổi khám","modal_lede":"Chọn dịch vụ và thời gian mong muốn. Phòng khám xác nhận qua email hoặc tin nhắn.","modal_close":"Đóng","form_name":"Họ tên","form_contact":"Email hoặc điện thoại","form_treat":"Điều trị","form_date":"Ngày mong muốn","form_time":"Giờ mong muốn","form_msg":"Có gì cần biết trước không?","ph_name":"Tên của bạn","ph_contact":"ban@mail.com","ph_msg":"Đau, bảo hiểm, cần phiên dịch…","opt_check":"Khám &amp; cạo vôi","opt_white":"Tẩy trắng","opt_implant":"Tư vấn implant","opt_align":"Niềng trong suốt","opt_child":"Nha khoa trẻ em","opt_emerg":"Cấp cứu","tm_am":"Buổi sáng (09:30–12:00)","tm_pm":"Buổi chiều (13:00–17:00)","tm_eve":"Cuối ngày (17:00–19:00)","form_submit":"Gửi yêu cầu","form_note":"Form demo — không gửi đi đâu và không tạo hồ sơ bệnh án.","form_success":"Cảm ơn — một phòng khám thật sẽ xác nhận yêu cầu này trong một ngày làm việc.","noscript":"JavaScript đang tắt. Mở tệp này bằng Safari hoặc Chrome để dùng chuyển ngôn ngữ và form đặt lịch."}};</script>
+<script>
+(function(){
+  var dict = window.I18N || {};
+  var LANGS = ['en','ko','ja','zh','es','vi'];
+  var current = 'en';
+
+  function t(k){
+    var pack = dict[current] || dict.en || {};
+    if (pack[k] !== undefined) return pack[k];
+    return (dict.en && dict.en[k] !== undefined) ? dict.en[k] : '';
+  }
+
+  function apply(lang){
+    if (LANGS.indexOf(lang) < 0) lang = 'en';
+    current = lang;
+    document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-Hans' : lang);
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n'));
+      if (v !== '') el.innerHTML = v;
+    });
+    document.querySelectorAll('[data-i18n-ph]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n-ph'));
+      if (v !== '') el.setAttribute('placeholder', v);
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n-aria'));
+      if (v !== '') el.setAttribute('aria-label', v);
+    });
+    document.querySelectorAll('.lang').forEach(function(b){
+      var on = b.getAttribute('data-lang') === lang;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    try { localStorage.setItem('lm_lang', lang); } catch(e) {}
+  }
+
+  document.querySelectorAll('.lang').forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.getAttribute('data-lang')); });
+  });
+
+  var modal = document.getElementById('modal');
+  function openModal(){ modal.hidden = false; document.body.style.overflow = 'hidden'; }
+  function closeModal(){ modal.hidden = true; document.body.style.overflow = ''; }
+  document.querySelectorAll('[data-open]').forEach(function(b){ b.addEventListener('click', openModal); });
+  document.getElementById('mClose').addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e){ if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !modal.hidden) closeModal(); });
+  document.getElementById('bookForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('bookOk').hidden = false;
+  });
+
+  var saved = null;
+  try { saved = localStorage.getItem('lm_lang'); } catch(e) {}
+  if (LANGS.indexOf(saved) < 0) saved = 'en';
+  apply(saved);
+})();
+</script>
+</body>
+</html>
