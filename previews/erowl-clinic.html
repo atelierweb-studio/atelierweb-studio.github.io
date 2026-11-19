@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko" data-lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이로울한의원 — 홍대입구역 한의원 (개념 시안)</title>
+<meta name="description" content="Concept preview for Erowl Korean Medicine Clinic near Hongik University Station, Seoul, with a six-language switch.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#2E4A46">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230F0E0B'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='13' fill='%23F5F1E8' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#F7F5EF; --bg2:#EFEBE1; --card:#FFFFFF; --ink:#15140F; --ink2:#43403A;
+    --muted:#787264; --line:rgba(21,20,15,.14); --accent:#8C5A2B; --accent2:#2E4038;
+    --tint:rgba(140,90,43,.08);
+    --serif:"New York",ui-serif,"Iowan Old Style","Palatino Linotype",Georgia,"Noto Serif KR",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Pretendard",Roboto,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --r:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  h1,h2,h3{margin:0;font-family:var(--serif);font-weight:400;letter-spacing:-.01em}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+  .eyebrow{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+  .topbar{position:fixed;inset:0 0 auto;z-index:50;background:var(--bg);background:color-mix(in srgb,var(--bg) 93%,transparent);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .topbar-in{max-width:1140px;margin:0 auto;padding:11px 28px;display:flex;align-items:center;gap:22px}
+  .brand{display:flex;flex-direction:column;line-height:1}
+  .brand strong{font-family:var(--serif);font-weight:400;font-size:20px;letter-spacing:.01em}
+  .brand i{font-style:normal;font-family:var(--mono);font-size:7.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .nav{display:flex;gap:18px}
+  .nav a{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);
+    padding-bottom:3px;border-bottom:1px solid transparent}
+  .nav a:hover{color:var(--accent);border-color:var(--accent)}
+  .langs{display:flex;gap:5px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+  .langs::-webkit-scrollbar{display:none}
+  .lang{font-family:var(--mono);font-size:9.5px;border:1px solid var(--line);border-radius:99px;padding:6px 8px;
+    white-space:nowrap;color:var(--ink2);transition:.16s}
+  .lang:hover{border-color:var(--accent);color:var(--accent)}
+  .lang.is-on{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent2);color:#fff;border:1px solid var(--accent2);
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;padding:12px 18px;border-radius:99px;transition:.18s}
+  .btn:hover{background:var(--accent);border-color:var(--accent)}
+  .btn-sm{padding:9px 14px;font-size:8.5px;flex:0 0 auto}
+  .btn-ghost{background:transparent;color:var(--accent2);border-color:var(--line)}
+  .btn-ghost:hover{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+
+  .hero{padding:132px 0 60px}
+  .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:48px;align-items:center}
+  .kicker{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  h1{margin-top:16px;font-size:clamp(36px,4.8vw,58px);line-height:1.05}
+  h1 em{font-style:italic;color:var(--accent)}
+  .hero p{margin:18px 0 0;font-size:15.5px;line-height:1.7;color:var(--ink2);max-width:46ch}
+  .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+  .art{position:relative;border-radius:20px;overflow:hidden;min-height:360px;border:1px solid var(--line);
+    background:linear-gradient(168deg,var(--bg2),var(--bg));
+    background-image:linear-gradient(168deg,var(--bg2),color-mix(in srgb,var(--accent) 12%,var(--bg2)))}
+  .art::before{content:"";position:absolute;width:280px;height:280px;border-radius:50%;left:-50px;top:-70px;
+    border:1px solid var(--line);border-color:color-mix(in srgb,var(--accent) 30%,transparent)}
+  .art::after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-30px;bottom:70px;
+    background:radial-gradient(circle at 35% 30%,#fff,transparent 70%)}
+  .art-note{position:absolute;left:22px;top:22px;font-family:var(--mono);font-size:8px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--accent)}
+  .art-quote{position:absolute;left:22px;right:22px;top:46%;transform:translateY(-50%);font-family:var(--serif);
+    font-size:23px;line-height:1.28;color:var(--accent2);max-width:24ch}
+  .art-fact{position:absolute;left:22px;right:22px;bottom:20px;background:rgba(255,255,255,.86);border-radius:12px;
+    padding:12px 14px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);
+    box-shadow:0 12px 26px -20px rgba(21,20,15,.5)}
+  .concept{position:absolute;right:16px;top:16px;background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:99px;
+    padding:5px 10px;font-family:var(--mono);font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+  .sec{padding:58px 0;border-top:1px solid var(--line)}
+  .sec-head{margin-bottom:26px;max-width:62ch}
+  h2{font-size:clamp(25px,3vw,36px);line-height:1.12;margin-top:10px}
+  .sec-head p{margin:10px 0 0;font-size:13px;line-height:1.65;color:var(--muted)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .item{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;transition:.2s}
+  .item:hover{border-color:var(--accent);box-shadow:0 16px 30px -26px rgba(21,20,15,.5)}
+  .item .n{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--accent)}
+  .item h3{font-size:18px;margin-top:8px;line-height:1.28}
+  .item p{margin:8px 0 0;font-size:12px;line-height:1.62;color:var(--muted)}
+
+  .visit{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .row{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .row b{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .row span{font-family:var(--mono);font-size:10.5px;color:var(--ink2);text-align:right}
+  .blocks{margin-top:18px}
+  .block{margin-top:14px}
+  .block b{display:block;font-family:var(--mono);font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .block span{display:block;margin-top:5px;font-size:12.5px;line-height:1.65;color:var(--ink2)}
+  .contact{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;align-self:start}
+  .contact h3{font-size:19px}
+  .cline{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .cline:last-of-type{border-bottom:0}
+  .cline b{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .cline a{font-size:12px;color:var(--accent2);border-bottom:1px solid var(--line);border-bottom-color:color-mix(in srgb,var(--accent) 50%,transparent);
+    text-underline-offset:2px;word-break:break-all}
+  .contact .btn{margin-top:16px;width:100%;justify-content:center}
+
+  footer{background:var(--ink);color:#EEE9DF;padding:44px 0 26px;margin-top:14px}
+  .foot{display:grid;grid-template-columns:1.4fr .6fr;gap:26px}
+  .foot strong{font-family:var(--serif);font-weight:400;font-size:19px}
+  .foot p{margin:12px 0 0;font-size:10.5px;line-height:1.7;color:#B6AE9E;max-width:52ch}
+  .foot .credit{margin-top:14px;font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;color:#D8D0C0}
+  .foot .credit a{border-bottom:1px solid rgba(216,208,192,.5)}
+  .foot-bottom{margin-top:24px;padding-top:14px;border-top:1px solid rgba(238,233,223,.16);display:flex;
+    justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:8px;letter-spacing:.1em;
+    text-transform:uppercase;color:#9A9282}
+  .foot .concept-note{font-size:10px;line-height:1.6;color:#9A9282;max-width:60ch}
+
+  @media (max-width:960px){
+    .nav{display:none}
+    .hero{padding-top:112px}
+    .hero-grid,.visit,.grid{grid-template-columns:1fr;gap:26px}
+    .foot{grid-template-columns:1fr}
+    .topbar-in{flex-wrap:wrap;gap:10px}
+    .langs{order:3;width:100%;margin-left:0}
+    .btn-sm{margin-left:auto}
+    .art{min-height:320px}
+  }
+  @media (max-width:600px){
+    .wrap,.topbar-in{padding-left:18px;padding-right:18px}
+    .art-quote{font-size:20px}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="#top"><strong>이로울한의원</strong><i data-i18n="brand_sub">서울 홍대 한의원</i></a>
+    <nav class="nav">
+      <a href="#offer" data-i18n="nav1">진료</a>
+      <a href="#visit" data-i18n="nav2">진료시간·오시는 길</a>
+      <a href="mailto:erowl.clinic@gmail.com" data-i18n="nav3">문의</a>
+    </nav>
+    <div class="langs" role="group" data-i18n-aria="lang_aria" aria-label="Language">
+      <button type="button" class="lang" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" class="lang is-on" data-lang="ko" aria-pressed="true">KO</button>
+      <button type="button" class="lang" data-lang="ja" aria-pressed="false">JA</button>
+      <button type="button" class="lang" data-lang="zh" aria-pressed="false">ZH</button>
+      <button type="button" class="lang" data-lang="es" aria-pressed="false">ES</button>
+      <button type="button" class="lang" data-lang="vi" aria-pressed="false">VI</button>
+    </div>
+    <a class="btn btn-sm" href="#visit" data-i18n="nav_cta">예약 문의</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="kicker" data-i18n="hero_kick">홍대입구역 · 서울</div>
+        <h1 data-i18n="hero_title">일곱 가지 진료, <em>한 사람씩.</em></h1>
+        <p data-i18n="hero_lede">홍대입구역 1번 출구에서 서교타워 4층에 있는 한의원입니다. 다이어트, 통증, 교통사고 후유증, 체형교정, 약침, 공진단·경옥고, 사상체질까지 일곱 진료과목을 운영하며, 모든 진료는 1인 치료실에서 봅니다.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#offer" data-i18n="cta1">진료과목 보기</a>
+          <a class="btn btn-ghost" href="#visit" data-i18n="cta2">진료시간과 오시는 길</a>
+        </div>
+      </div>
+      <div class="art" aria-hidden="true">
+        <div class="concept" data-i18n="concept_badge">Concept preview · Atelier Web</div>
+        <div class="art-note" data-i18n="art_note">한 사람, 한 공간</div>
+        <div class="art-quote" data-i18n="art_quote">“같은 증상도, 사람마다 다릅니다.”</div>
+        <div class="art-fact" data-i18n="art_fact">평일 10:00–20:00 · 토·공휴일 10:00–14:00</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="offer">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow" data-i18n="sec1_kick">01 — 진료</div>
+        <h2 data-i18n="sec1_title">이로울한의원이 보는 것.</h2>
+        <p data-i18n="sec1_lede">진료는 맥진과 문진, 필요할 때 HRV 검사로 시작합니다. 같은 이름의 증상이라도 원인과 회복 단계가 다르기 때문에 치료를 사람에 맞춰 고릅니다. 침과 약침, 봉약침, 도침, 장침, 부항, 추나, 한약 처방을 모두 원내에서 하며, 외국인 환자는 이메일로 먼저 연락 주시면 통역과 시간을 함께 맞춰 드립니다.</p>
+      </div>
+      <div class="grid">
+        <article class="item"><div class="n">i1</div><h3 data-i18n="i1_n">다이어트 클리닉</h3><p data-i18n="i1_d">체중이 늘게 된 과정과 생활 패턴을 먼저 살핍니다. 직업과 식사 시간, 수면, 다른 질환을 함께 보고 계획을 세운 뒤 매달 평가하며 처방을 조정합니다. 캡슐과 탕약, 약침 중 필요한 방법을 씁니다.</p></article>
+        <article class="item"><div class="n">i2</div><h3 data-i18n="i2_n">통증케어</h3><p data-i18n="i2_d">오래된 통증을 다룹니다. 통증의 원인과 생활습관, 회복 단계를 살핀 뒤 침·약침·봉약침·도침·장침·추나·한약 가운데 필요한 것을 고릅니다.</p></article>
+        <article class="item"><div class="n">i3</div><h3 data-i18n="i3_n">교통사고 후유증</h3><p data-i18n="i3_d">검사에서 이상이 없어도 통증과 저림, 두통, 불면이 남을 수 있습니다. 접수할 때 교통사고 진료임을 알려주시면 보험사 확인 뒤 침구와 약침, 추나, 부항, 물리치료, 한약으로 진료합니다.</p></article>
+        <article class="item"><div class="n">i4</div><h3 data-i18n="i4_n">체형교정 · 거북목</h3><p data-i18n="i4_d">머리와 목, 어깨의 정렬을 살펴 자세에서 오는 불균형을 봅니다. 추나 등 한방 치료와 함께 집에서 할 수 있는 자세 관리를 안내합니다. 공진단과 경옥고, 사상체질 맞춤 탕약도 상담 후 처방합니다.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="visit">
+    <div class="wrap visit">
+      <div>
+        <div class="eyebrow" data-i18n="sec2_kick">02 — 진료시간과 오시는 길</div>
+        <h2 data-i18n="sec2_title">평일은 저녁까지, 토요일은 점심 전까지.</h2>
+        <div style="margin-top:18px">
+          <div class="row"><b data-i18n="h1_l">평일</b><span data-i18n="h1_v">10:00 – 20:00</span></div>
+          <div class="row"><b data-i18n="h2_l">토·공휴일</b><span data-i18n="h2_v">10:00 – 14:00</span></div>
+          <div class="row"><b data-i18n="h3_l">점심시간(평일)</b><span data-i18n="h3_v">13:00 – 14:00</span></div>
+        </div>
+        <div class="blocks">
+          <div class="block"><b data-i18n="lbl_address">Address</b><span data-i18n="addr">서울 마포구 양화로 133, 서교타워 4층 — 홍대입구역 1번 출구</span></div>
+          <div class="block"><b data-i18n="lbl_getting">Getting here</b><span data-i18n="transit">홍대입구역 1번 출구에서 양화로 대로변 서교타워 4층입니다. 건물 주차타워와 지하주차장을 이용하실 수 있고 주차를 지원합니다. 일요일은 휴진입니다.</span></div>
+        </div>
+      </div>
+      <div class="contact">
+        <h3 data-i18n="contact_title" style="font-size:16px">Talk to us directly</h3>
+        <div style="margin-top:8px">
+          <div class="cline"><b data-i18n="lbl_email">Email</b><a href="mailto:erowl.clinic@gmail.com">erowl.clinic@gmail.com</a></div>
+          <div class="cline"><b data-i18n="lbl_phone">Phone</b><a href="tel:+8223364475">02-336-4475</a></div>
+
+        </div>
+        <a class="btn" href="mailto:erowl.clinic@gmail.com" data-i18n="cta_email">Write an email</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <strong>이로울한의원</strong>
+        <p data-i18n="foot_tagline">서울 홍대입구역 한의원 — 일곱 진료과목, 1인 치료실, 평일 야간진료.</p>
+        <p class="concept-note" data-i18n="concept_note">이 페이지는 Atelier Web이 제안용으로 만든 시안이며 이로울한의원의 공식 홈페이지가 아닙니다.</p>
+        <div class="credit">Concept preview prepared by Atelier Web (<a href="https://atelierweb-studio.github.io/" target="_blank" rel="noopener">atelierweb-studio.github.io</a>)</div>
+      </div>
+      <div>
+        <p style="font-family:var(--mono);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:#8E8677;margin:0" data-i18n="lbl_hours">Hours</p>
+        <p style="margin-top:8px;font-family:var(--mono);font-size:10px;line-height:1.9;color:#CBC3B3">평일 10:00–20:00 · 토·공휴일 10:00–14:00 · 일요일 휴진</p>
+        <p style="margin-top:10px;font-family:var(--mono);font-size:9px;color:#8E8677" data-i18n="foot_lang">EN · KO · JA · ZH · ES · VI</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>이로울한의원 · Seoul · Hongdae</span>
+      <span>© 2026 Atelier Web · concept</span>
+    </div>
+  </div>
+</footer>
+
+<noscript><div style="position:fixed;left:0;right:0;bottom:0;z-index:80;background:#15140F;color:#EEE9DF;font-family:monospace;font-size:9px;padding:9px 14px;text-align:center">JavaScript is off. Open this page in Safari or Chrome for the six-language switch.</div></noscript>
+
+<script>
+window.I18N = {"en":{"lang_aria":"Language","lbl_hours":"Hours","lbl_address":"Address","lbl_getting":"Getting here","lbl_email":"Email","lbl_phone":"Phone","lbl_messenger":"Message","concept_badge":"Concept preview · Atelier Web","concept_note":"This page is an unsolicited concept preview prepared by Atelier Web. It is not the official website of 이로울한의원.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Talk to us directly","cta_email":"Write an email","brand_sub":"Korean medicine clinic · Hongdae, Seoul","nav1":"Treatment","nav2":"Hours & arrival","nav3":"Contact","nav_cta":"Book a visit","hero_kick":"Hongik University Station · Seoul","hero_title":"Seven kinds of treatment, <em>one room at a time.</em>","hero_lede":"A Korean medicine clinic on the fourth floor of Seogyo Tower, a minute from exit 1 of Hongik University Station. Seven clinics — weight, pain, traffic-accident after-effects, posture, pharmacopuncture, tonic prescriptions and constitutional medicine — with every patient seen in a private single room.","cta1":"See the clinics","cta2":"Hours and arrival","art_note":"One patient, one room","art_quote":"“The same symptom is not the same person.”","art_fact":"Weekdays 10:00–20:00 · Sat & holidays 10:00–14:00","sec1_kick":"01 — Treatment","sec1_title":"What the clinic treats.","sec1_lede":"Each visit starts with pulse, interview and, where useful, an HRV reading, so the treatment is chosen for the person rather than the label. Acupuncture, pharmacopuncture, bee-venom and thread-embedding acupuncture, cupping, chuna manual therapy and herbal prescriptions are all done in-house; foreign patients are asked to write first so an interpreter and a time can be arranged.","i1_n":"Weight clinic","i1_d":"The clinic looks at how the weight came on — work, meal times, sleep, other conditions — then sets a plan reviewed each month, with capsules, decoctions or pharmacopuncture as needed.","i2_n":"Pain care","i2_d":"For pain that has lasted: acupuncture, pharmacopuncture, bee-venom or thread-embedding acupuncture, chuna and herbal medicine, chosen after examining the cause and the stage of recovery.","i3_n":"After a traffic accident","i3_d":"Pain, numbness, headaches and poor sleep can remain even when scans are clear. Tell the desk at check-in that it is a traffic-accident visit; treatment is arranged after the insurer confirms cover.","i4_n":"Posture and neck","i4_d":"A forward-head correction clinic: the alignment of head, neck and shoulders is assessed, treated with chuna and related care, and followed with posture habits to keep at home. Tonic prescriptions (gongjin-dan, gyeongok-go) and constitutional herbal medicine are also prescribed after consultation.","sec2_kick":"02 — Hours and arrival","sec2_title":"Open late on weekdays, half-day on Saturday.","h1_l":"Weekdays","h1_v":"10:00 – 20:00","h2_l":"Sat & holidays","h2_v":"10:00 – 14:00","h3_l":"Lunch (weekdays)","h3_v":"13:00 – 14:00","addr":"4th floor, Seogyo Tower, 133 Yanghwa-ro, Mapo-gu, Seoul — exit 1 of Hongik University Station","transit":"Hongik University Station, exit 1; the tower is on Yanghwa-ro, a minute from the exit. Parking is available in the building's tower and underground car park, and the clinic assists with the fee. Closed on Sundays.","foot_tagline":"Korean medicine clinic by Hongik University Station, Seoul — seven clinics, private single treatment rooms, evening hours on weekdays."},"ko":{"lang_aria":"언어 선택","lbl_hours":"영업시간","lbl_address":"주소","lbl_getting":"오시는 길","lbl_email":"이메일","lbl_phone":"전화","lbl_messenger":"메신저","concept_badge":"시안 미리보기 · Atelier Web","concept_note":"이 페이지는 Atelier Web이 제안용으로 만든 시안이며 이로울한의원의 공식 홈페이지가 아닙니다.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"바로 연락하기","cta_email":"이메일 보내기","brand_sub":"서울 홍대 한의원","nav1":"진료","nav2":"진료시간·오시는 길","nav3":"문의","nav_cta":"예약 문의","hero_kick":"홍대입구역 · 서울","hero_title":"일곱 가지 진료, <em>한 사람씩.</em>","hero_lede":"홍대입구역 1번 출구에서 서교타워 4층에 있는 한의원입니다. 다이어트, 통증, 교통사고 후유증, 체형교정, 약침, 공진단·경옥고, 사상체질까지 일곱 진료과목을 운영하며, 모든 진료는 1인 치료실에서 봅니다.","cta1":"진료과목 보기","cta2":"진료시간과 오시는 길","art_note":"한 사람, 한 공간","art_quote":"“같은 증상도, 사람마다 다릅니다.”","art_fact":"평일 10:00–20:00 · 토·공휴일 10:00–14:00","sec1_kick":"01 — 진료","sec1_title":"이로울한의원이 보는 것.","sec1_lede":"진료는 맥진과 문진, 필요할 때 HRV 검사로 시작합니다. 같은 이름의 증상이라도 원인과 회복 단계가 다르기 때문에 치료를 사람에 맞춰 고릅니다. 침과 약침, 봉약침, 도침, 장침, 부항, 추나, 한약 처방을 모두 원내에서 하며, 외국인 환자는 이메일로 먼저 연락 주시면 통역과 시간을 함께 맞춰 드립니다.","i1_n":"다이어트 클리닉","i1_d":"체중이 늘게 된 과정과 생활 패턴을 먼저 살핍니다. 직업과 식사 시간, 수면, 다른 질환을 함께 보고 계획을 세운 뒤 매달 평가하며 처방을 조정합니다. 캡슐과 탕약, 약침 중 필요한 방법을 씁니다.","i2_n":"통증케어","i2_d":"오래된 통증을 다룹니다. 통증의 원인과 생활습관, 회복 단계를 살핀 뒤 침·약침·봉약침·도침·장침·추나·한약 가운데 필요한 것을 고릅니다.","i3_n":"교통사고 후유증","i3_d":"검사에서 이상이 없어도 통증과 저림, 두통, 불면이 남을 수 있습니다. 접수할 때 교통사고 진료임을 알려주시면 보험사 확인 뒤 침구와 약침, 추나, 부항, 물리치료, 한약으로 진료합니다.","i4_n":"체형교정 · 거북목","i4_d":"머리와 목, 어깨의 정렬을 살펴 자세에서 오는 불균형을 봅니다. 추나 등 한방 치료와 함께 집에서 할 수 있는 자세 관리를 안내합니다. 공진단과 경옥고, 사상체질 맞춤 탕약도 상담 후 처방합니다.","sec2_kick":"02 — 진료시간과 오시는 길","sec2_title":"평일은 저녁까지, 토요일은 점심 전까지.","h1_l":"평일","h1_v":"10:00 – 20:00","h2_l":"토·공휴일","h2_v":"10:00 – 14:00","h3_l":"점심시간(평일)","h3_v":"13:00 – 14:00","addr":"서울 마포구 양화로 133, 서교타워 4층 — 홍대입구역 1번 출구","transit":"홍대입구역 1번 출구에서 양화로 대로변 서교타워 4층입니다. 건물 주차타워와 지하주차장을 이용하실 수 있고 주차를 지원합니다. 일요일은 휴진입니다.","foot_tagline":"서울 홍대입구역 한의원 — 일곱 진료과목, 1인 치료실, 평일 야간진료."},"ja":{"lang_aria":"言語","lbl_hours":"営業時間","lbl_address":"住所","lbl_getting":"アクセス","lbl_email":"メール","lbl_phone":"電話","lbl_messenger":"メッセージ","concept_badge":"コンセプトプレビュー · Atelier Web","concept_note":"このページは Atelier Web が提案用に制作したコンセプトで、이로울한의원 の公式サイトではありません。","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"直接のご連絡","cta_email":"メールを書く","brand_sub":"ソウル 弘大（ホンデ）韓医院","nav1":"診療","nav2":"診療時間・アクセス","nav3":"お問い合わせ","nav_cta":"予約相談","hero_kick":"弘大入口（ホンデイック）駅 · ソウル","hero_title":"七つの診療、<em>一人ずつ。</em>","hero_lede":"弘大入口駅1番出口からすぐ、ソギョタワー4階の韓医院です。ダイエット、痛み、交通事故の後遺症、姿勢矯正、薬鍼、公珍丹・キョンオクコ、四象体質の七つの診療科を運営し、診療はすべて個室で行います。","cta1":"診療科を見る","cta2":"診療時間とアクセス","art_note":"一人に、ひとつの空間","art_quote":"「同じ症状でも、人によって違います。」","art_fact":"平日 10:00–20:00 · 土・祝 10:00–14:00","sec1_kick":"01 — 診療","sec1_title":"この韓医院が見ているもの。","sec1_lede":"診療は脈診と問診、必要に応じてHRV検査から始まります。同じ名前の症状でも原因と回復段階が違うため、治療は人に合わせて選びます。鍼と薬鍼、蜂薬鍼、刀鍼、長鍼、吸い玉、推拿、漢方処方はすべて院内で行い、外国人の方は先にメールをいただければ通訳と時間を一緒に整えます。","i1_n":"ダイエット外来","i1_d":"体重が増えた経緯と生活パターンを先に確認します。仕事や食事の時間、睡眠、他の疾患をふまえて計画を立て、毎月評価して処方を調整します。カプセル、煎じ薬、薬鍼から必要な方法を用います。","i2_n":"痛みのケア","i2_d":"長引く痛みを扱います。原因と生活習慣、回復段階をみたうえで、鍼・薬鍼・蜂薬鍼・刀鍼・長鍼・推拿・漢方の中から必要なものを選びます。","i3_n":"交通事故の後遺症","i3_d":"検査で異常がなくても、痛みやしびれ、頭痛、不眠が残ることがあります。受付で交通事故の診療であることをお伝えください。保険会社の確認後に鍼灸、薬鍼、推拿、吸い玉、物理療法、漢方で診療します。","i4_n":"姿勢矯正・ストレートネック","i4_d":"頭・首・肩の並びをみて、姿勢からくる不均衡を診ます。推拿などの韓方治療とあわせて、自宅でできる姿勢管理もお伝えします。公珍丹やキョンオクコ、四象体質のオーダーメイド煎じ薬も相談のうえ処方します。","sec2_kick":"02 — 診療時間とアクセス","sec2_title":"平日は夜まで、土曜は昼まで。","h1_l":"平日","h1_v":"10:00 – 20:00","h2_l":"土・祝","h2_v":"10:00 – 14:00","h3_l":"昼休み（平日）","h3_v":"13:00 – 14:00","addr":"ソウル市麻浦区楊花路133、ソギョタワー4階 — 弘大入口駅1番出口","transit":"弘大入口駅1番出口から楊花路沿いのソギョタワー4階です。建物の駐車タワーと地下駐車場が使え、駐車料金を補助します。日曜は休診です。","foot_tagline":"ソウル弘大入口駅の韓医院 — 七つの診療科、個室診療、平日夜間診療。"},"zh":{"lang_aria":"语言","lbl_hours":"营业时间","lbl_address":"地址","lbl_getting":"交通","lbl_email":"邮箱","lbl_phone":"电话","lbl_messenger":"消息","concept_badge":"方案预览 · Atelier Web","concept_note":"本页面是 Atelier Web 制作的概念方案，并非 이로울한의원 的官方网站。","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"直接联系","cta_email":"写邮件","brand_sub":"首尔弘大韩医院","nav1":"诊疗","nav2":"时间·交通","nav3":"联系","nav_cta":"预约咨询","hero_kick":"弘大入口站 · 首尔","hero_title":"七类诊疗，<em>一位一位来。</em>","hero_lede":"位于弘大入口站 1 号出口旁 서교타워 四楼的韩医院。设有减肥、疼痛、交通事故后遗症、体态矫正、药针、公珍丹·琼玉膏、四象体质七类诊疗，所有诊疗都在单人治疗室进行。","cta1":"查看诊疗项目","cta2":"时间与交通","art_note":"一个人，一间房","art_quote":"“同样的症状，也不是同一个人。”","art_fact":"平日 10:00–20:00 · 周六·公休 10:00–14:00","sec1_kick":"01 — 诊疗","sec1_title":"这家医院在看什么。","sec1_lede":"诊疗从脉诊与问诊开始，必要时做 HRV 检测。同名症状的成因与恢复阶段各不相同，治疗因此按人来选：针灸、药针、蜂药针、刀针、长针、拔罐、推拿与中药处方均在院内进行。外国患者请先发邮件，以便安排翻译与时间。","i1_n":"减肥门诊","i1_d":"先了解体重增加的过程与生活规律：职业、用餐时间、睡眠与其他疾病，再制定计划，每月评估并调整处方。按需要采用胶囊、汤药或药针。","i2_n":"疼痛管理","i2_d":"面向长期疼痛。评估成因、生活习惯与恢复阶段后，在针灸、药针、蜂药针、刀针、长针、推拿与中药中选择所需的治疗。","i3_n":"交通事故后遗症","i3_d":"即使检查无明显异常，疼痛、麻木、头痛与失眠也可能持续。挂号时请说明是交通事故诊疗，待保险公司确认后以针灸、药针、推拿、拔罐、物理治疗与中药施治。","i4_n":"体态矫正 · 头前倾","i4_d":"观察头、颈、肩的排列，判断姿势带来的不平衡，以推拿等韩方治疗配合居家姿势管理。公珍丹、琼玉膏与四象体质定制汤药也在咨询后处方。","sec2_kick":"02 — 时间与交通","sec2_title":"平日到晚上，周六到午后。","h1_l":"平日","h1_v":"10:00 – 20:00","h2_l":"周六·公休","h2_v":"10:00 – 14:00","h3_l":"午休（平日）","h3_v":"13:00 – 14:00","addr":"首尔麻浦区杨花路 133，Seogyo Tower（서교타워）4 楼 —— 弘大入口站 1 号出口","transit":"弘大入口站 1 号出口，杨花路旁的 Seogyo Tower 4 楼。可使用楼内停车塔与地下停车场，停车费有补助。周日休诊。","foot_tagline":"首尔弘大入口站的韩医院——七类诊疗、单人治疗室、平日夜间门诊。"},"es":{"lang_aria":"Idioma","lbl_hours":"Horario","lbl_address":"Dirección","lbl_getting":"Cómo llegar","lbl_email":"Correo","lbl_phone":"Teléfono","lbl_messenger":"Mensaje","concept_badge":"Vista de concepto · Atelier Web","concept_note":"Esta página es una propuesta de concepto preparada por Atelier Web. No es el sitio oficial de 이로울한의원.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Contacto directo","cta_email":"Escribir un correo","brand_sub":"Clínica de medicina coreana · Hongdae, Seúl","nav1":"Tratamientos","nav2":"Horario y llegada","nav3":"Contacto","nav_cta":"Pedir cita","hero_kick":"Estación Hongik University · Seúl","hero_title":"Siete tratamientos, <em>una persona a la vez.</em>","hero_lede":"Una clínica de medicina coreana en la cuarta planta de Seogyo Tower, a un minuto de la salida 1 de la estación Hongik University. Siete áreas — peso, dolor, secuelas de accidentes de tráfico, postura, farmacopuntura, tónicos y medicina constitucional — y cada paciente pasa en una sala privada.","cta1":"Ver los tratamientos","cta2":"Horario y llegada","art_note":"Un paciente, una sala","art_quote":"«El mismo síntoma no es la misma persona.»","art_fact":"Laborables 10:00–20:00 · sáb y festivos 10:00–14:00","sec1_kick":"01 — Tratamientos","sec1_title":"Qué trata la clínica.","sec1_lede":"Cada visita empieza con pulso, entrevista y, si sirve, una lectura de HRV, para elegir el tratamiento según la persona y no según la etiqueta. Acupuntura, farmacopuntura, veneno de abeja, hilos, ventosas, chuna y fórmulas herbales se hacen en la clínica; a los pacientes extranjeros se les pide escribir antes para organizar intérprete y hora.","i1_n":"Clínica de peso","i1_d":"Se revisa cómo llegó el peso — trabajo, horarios de comida, sueño, otras condiciones — y se fija un plan que se evalúa cada mes, con cápsulas, decocciones o farmacopuntura según el caso.","i2_n":"Cuidado del dolor","i2_d":"Para dolor que se ha prolongado: acupuntura, farmacopuntura, veneno de abeja, hilos, chuna y hierbas, elegidos tras examinar la causa y la fase de recuperación.","i3_n":"Tras un accidente de tráfico","i3_d":"El dolor, el hormigueo, el dolor de cabeza y el mal sueño pueden quedar aunque las pruebas salgan limpias. Indica en recepción que es una visita por accidente de tráfico; el tratamiento se organiza tras confirmar la cobertura con el seguro.","i4_n":"Postura y cuello","i4_d":"Clínica de corrección de la cabeza adelantada: se evalúa la alineación de cabeza, cuello y hombros, se trata con chuna y cuidados asociados, y se dan hábitos de postura para casa. También se prescriben tónicos (gongjin-dan, gyeongok-go) y medicina constitucional tras consulta.","sec2_kick":"02 — Horario y llegada","sec2_title":"Hasta tarde entre semana, media jornada el sábado.","h1_l":"Laborables","h1_v":"10:00 – 20:00","h2_l":"Sábados y festivos","h2_v":"10:00 – 14:00","h3_l":"Comida (laborables)","h3_v":"13:00 – 14:00","addr":"4.ª planta, Seogyo Tower, 133 Yanghwa-ro, Mapo-gu, Seúl — salida 1 de la estación Hongik University","transit":"Estación Hongik University, salida 1; la torre está en Yanghwa-ro, a un minuto. Hay aparcamiento en la torre y en el sótano del edificio, y la clínica ayuda con la tarifa. Cerrado los domingos.","foot_tagline":"Clínica de medicina coreana junto a la estación Hongik University, Seúl: siete áreas, salas privadas y horario de tarde entre semana."},"vi":{"lang_aria":"Ngôn ngữ","lbl_hours":"Giờ mở cửa","lbl_address":"Địa chỉ","lbl_getting":"Đường đi","lbl_email":"Email","lbl_phone":"Điện thoại","lbl_messenger":"Tin nhắn","concept_badge":"Bản xem trước ý tưởng · Atelier Web","concept_note":"Trang này là bản phác thảo ý tưởng do Atelier Web thực hiện, không phải website chính thức của 이로울한의원.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Liên hệ trực tiếp","cta_email":"Gửi email","brand_sub":"Phòng khám y học cổ truyền · Hongdae, Seoul","nav1":"Điều trị","nav2":"Giờ & lối đi","nav3":"Liên hệ","nav_cta":"Đặt hẹn","hero_kick":"Ga Hongik University · Seoul","hero_title":"Bảy nhóm điều trị, <em>mỗi lần một người.</em>","hero_lede":"Phòng khám y học cổ truyền ở tầng bốn toà Seogyo Tower, cách cửa số 1 ga Hongik University một phút. Bảy nhóm — giảm cân, đau, di chứng tai nạn giao thông, tư thế, châm thuốc, thuốc bổ và thể chất — và mỗi bệnh nhân được khám trong phòng riêng.","cta1":"Xem các nhóm điều trị","cta2":"Giờ và lối đi","art_note":"Một người, một phòng","art_quote":"“Cùng một triệu chứng không phải cùng một con người.”","art_fact":"Ngày thường 10:00–20:00 · Thứ Bảy & lễ 10:00–14:00","sec1_kick":"01 — Điều trị","sec1_title":"Phòng khám điều trị những gì.","sec1_lede":"Mỗi lần khám bắt đầu bằng bắt mạch, hỏi bệnh và đo HRV khi cần, để chọn cách điều trị theo người chứ không theo tên bệnh. Châm cứu, châm thuốc, châm nọc ong, châm chỉ, giác hơi, nắn xương và thuốc thang đều làm tại chỗ; bệnh nhân nước ngoài nên viết thư trước để sắp phiên dịch và giờ hẹn.","i1_n":"Phòng giảm cân","i1_d":"Xem cân nặng đã tăng thế nào — công việc, giờ ăn, giấc ngủ, bệnh khác — rồi lập kế hoạch đánh giá mỗi tháng, dùng viên nang, thuốc thang hoặc châm thuốc tùy trường hợp.","i2_n":"Chăm sóc cơn đau","i2_d":"Với cơn đau kéo dài: châm cứu, châm thuốc, châm nọc ong, châm chỉ, nắn xương và thuốc thang, chọn sau khi xem nguyên nhân và giai đoạn hồi phục.","i3_n":"Sau tai nạn giao thông","i3_d":"Đau, tê, đau đầu và mất ngủ có thể còn lại dù kết quả chụp chiếu bình thường. Khi tiếp nhận, cho biết đây là khám do tai nạn giao thông; điều trị được sắp sau khi hãng bảo hiểm xác nhận.","i4_n":"Tư thế và cổ","i4_d":"Chuyên xử lý đầu đưa về trước: đánh giá trục đầu, cổ, vai, điều trị bằng nắn xương và các phương pháp kèm theo, rồi hướng dẫn thói quen tư thế tại nhà. Thuốc bổ (gongjin-dan, gyeongok-go) và thuốc theo thể chất cũng được kê sau khi tư vấn.","sec2_kick":"02 — Giờ và lối đi","sec2_title":"Ngày thường đến tối, thứ Bảy đến trưa.","h1_l":"Ngày thường","h1_v":"10:00 – 20:00","h2_l":"Thứ Bảy & lễ","h2_v":"10:00 – 14:00","h3_l":"Nghỉ trưa (ngày thường)","h3_v":"13:00 – 14:00","addr":"Tầng 4, Seogyo Tower, 133 Yanghwa-ro, Mapo-gu, Seoul — cửa số 1 ga Hongik University","transit":"Ga Hongik University, cửa số 1; toà nhà nằm trên đường Yanghwa-ro, cách cửa một phút. Có bãi đỗ xe trong toà và tầng hầm, phòng khám hỗ trợ phí gửi xe. Chủ nhật nghỉ.","foot_tagline":"Phòng khám y học cổ truyền cạnh ga Hongik University, Seoul — bảy nhóm điều trị, phòng riêng, khám tối ngày thường."}};
+</script>
+<script>
+(function(){
+  var dict = window.I18N || {}, LANGS = ['en','ko','ja','zh','es','vi'], current = 'ko';
+  function t(k){
+    var pack = dict[current] || dict.en || {};
+    if (pack[k] !== undefined) return pack[k];
+    return (dict.en && dict.en[k] !== undefined) ? dict.en[k] : '';
+  }
+  function apply(lang){
+    if (LANGS.indexOf(lang) < 0) lang = 'en';
+    current = lang;
+    document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-Hans' : lang);
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n'));
+      if (v !== '') el.innerHTML = v;
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n-aria'));
+      if (v !== '') el.setAttribute('aria-label', v);
+    });
+    document.querySelectorAll('.lang').forEach(function(b){
+      var on = b.getAttribute('data-lang') === lang;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    try { localStorage.setItem('aw_concept_lang', lang); } catch(e) {}
+  }
+  document.querySelectorAll('.lang').forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.getAttribute('data-lang')); });
+  });
+  var saved = null;
+  try { saved = localStorage.getItem('aw_concept_lang'); } catch(e) {}
+  if (LANGS.indexOf(saved) < 0) saved = 'ko';
+  apply(saved);
+})();
+</script>
+</body>
+</html>

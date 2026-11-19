@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko" data-lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>서문한옥게스트하우스 — 대구 서문시장 한옥 숙소 (개념 시안)</title>
+<meta name="description" content="Concept preview for Seomun Hanok Guesthouse, a hanok stay beside Seomun Market in Daegu, with a six-language switch.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#7A4A2E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230F0E0B'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='13' fill='%23F5F1E8' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#F7F5EF; --bg2:#EFEBE1; --card:#FFFFFF; --ink:#15140F; --ink2:#43403A;
+    --muted:#787264; --line:rgba(21,20,15,.14); --accent:#8C5A2B; --accent2:#2E4038;
+    --tint:rgba(140,90,43,.08);
+    --serif:"New York",ui-serif,"Iowan Old Style","Palatino Linotype",Georgia,"Noto Serif KR",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Pretendard",Roboto,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --r:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  h1,h2,h3{margin:0;font-family:var(--serif);font-weight:400;letter-spacing:-.01em}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+  .eyebrow{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+  .topbar{position:fixed;inset:0 0 auto;z-index:50;background:var(--bg);background:color-mix(in srgb,var(--bg) 93%,transparent);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .topbar-in{max-width:1140px;margin:0 auto;padding:11px 28px;display:flex;align-items:center;gap:22px}
+  .brand{display:flex;flex-direction:column;line-height:1}
+  .brand strong{font-family:var(--serif);font-weight:400;font-size:20px;letter-spacing:.01em}
+  .brand i{font-style:normal;font-family:var(--mono);font-size:7.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .nav{display:flex;gap:18px}
+  .nav a{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);
+    padding-bottom:3px;border-bottom:1px solid transparent}
+  .nav a:hover{color:var(--accent);border-color:var(--accent)}
+  .langs{display:flex;gap:5px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+  .langs::-webkit-scrollbar{display:none}
+  .lang{font-family:var(--mono);font-size:9.5px;border:1px solid var(--line);border-radius:99px;padding:6px 8px;
+    white-space:nowrap;color:var(--ink2);transition:.16s}
+  .lang:hover{border-color:var(--accent);color:var(--accent)}
+  .lang.is-on{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent2);color:#fff;border:1px solid var(--accent2);
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;padding:12px 18px;border-radius:99px;transition:.18s}
+  .btn:hover{background:var(--accent);border-color:var(--accent)}
+  .btn-sm{padding:9px 14px;font-size:8.5px;flex:0 0 auto}
+  .btn-ghost{background:transparent;color:var(--accent2);border-color:var(--line)}
+  .btn-ghost:hover{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+
+  .hero{padding:132px 0 60px}
+  .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:48px;align-items:center}
+  .kicker{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  h1{margin-top:16px;font-size:clamp(36px,4.8vw,58px);line-height:1.05}
+  h1 em{font-style:italic;color:var(--accent)}
+  .hero p{margin:18px 0 0;font-size:15.5px;line-height:1.7;color:var(--ink2);max-width:46ch}
+  .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+  .art{position:relative;border-radius:20px;overflow:hidden;min-height:360px;border:1px solid var(--line);
+    background:linear-gradient(168deg,var(--bg2),var(--bg));
+    background-image:linear-gradient(168deg,var(--bg2),color-mix(in srgb,var(--accent) 12%,var(--bg2)))}
+  .art::before{content:"";position:absolute;width:280px;height:280px;border-radius:50%;left:-50px;top:-70px;
+    border:1px solid var(--line);border-color:color-mix(in srgb,var(--accent) 30%,transparent)}
+  .art::after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-30px;bottom:70px;
+    background:radial-gradient(circle at 35% 30%,#fff,transparent 70%)}
+  .art-note{position:absolute;left:22px;top:22px;font-family:var(--mono);font-size:8px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--accent)}
+  .art-quote{position:absolute;left:22px;right:22px;top:46%;transform:translateY(-50%);font-family:var(--serif);
+    font-size:23px;line-height:1.28;color:var(--accent2);max-width:24ch}
+  .art-fact{position:absolute;left:22px;right:22px;bottom:20px;background:rgba(255,255,255,.86);border-radius:12px;
+    padding:12px 14px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);
+    box-shadow:0 12px 26px -20px rgba(21,20,15,.5)}
+  .concept{position:absolute;right:16px;top:16px;background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:99px;
+    padding:5px 10px;font-family:var(--mono);font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+  .sec{padding:58px 0;border-top:1px solid var(--line)}
+  .sec-head{margin-bottom:26px;max-width:62ch}
+  h2{font-size:clamp(25px,3vw,36px);line-height:1.12;margin-top:10px}
+  .sec-head p{margin:10px 0 0;font-size:13px;line-height:1.65;color:var(--muted)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .item{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;transition:.2s}
+  .item:hover{border-color:var(--accent);box-shadow:0 16px 30px -26px rgba(21,20,15,.5)}
+  .item .n{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--accent)}
+  .item h3{font-size:18px;margin-top:8px;line-height:1.28}
+  .item p{margin:8px 0 0;font-size:12px;line-height:1.62;color:var(--muted)}
+
+  .visit{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .row{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .row b{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .row span{font-family:var(--mono);font-size:10.5px;color:var(--ink2);text-align:right}
+  .blocks{margin-top:18px}
+  .block{margin-top:14px}
+  .block b{display:block;font-family:var(--mono);font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .block span{display:block;margin-top:5px;font-size:12.5px;line-height:1.65;color:var(--ink2)}
+  .contact{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;align-self:start}
+  .contact h3{font-size:19px}
+  .cline{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .cline:last-of-type{border-bottom:0}
+  .cline b{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .cline a{font-size:12px;color:var(--accent2);border-bottom:1px solid var(--line);border-bottom-color:color-mix(in srgb,var(--accent) 50%,transparent);
+    text-underline-offset:2px;word-break:break-all}
+  .contact .btn{margin-top:16px;width:100%;justify-content:center}
+
+  footer{background:var(--ink);color:#EEE9DF;padding:44px 0 26px;margin-top:14px}
+  .foot{display:grid;grid-template-columns:1.4fr .6fr;gap:26px}
+  .foot strong{font-family:var(--serif);font-weight:400;font-size:19px}
+  .foot p{margin:12px 0 0;font-size:10.5px;line-height:1.7;color:#B6AE9E;max-width:52ch}
+  .foot .credit{margin-top:14px;font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;color:#D8D0C0}
+  .foot .credit a{border-bottom:1px solid rgba(216,208,192,.5)}
+  .foot-bottom{margin-top:24px;padding-top:14px;border-top:1px solid rgba(238,233,223,.16);display:flex;
+    justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:8px;letter-spacing:.1em;
+    text-transform:uppercase;color:#9A9282}
+  .foot .concept-note{font-size:10px;line-height:1.6;color:#9A9282;max-width:60ch}
+
+  @media (max-width:960px){
+    .nav{display:none}
+    .hero{padding-top:112px}
+    .hero-grid,.visit,.grid{grid-template-columns:1fr;gap:26px}
+    .foot{grid-template-columns:1fr}
+    .topbar-in{flex-wrap:wrap;gap:10px}
+    .langs{order:3;width:100%;margin-left:0}
+    .btn-sm{margin-left:auto}
+    .art{min-height:320px}
+  }
+  @media (max-width:600px){
+    .wrap,.topbar-in{padding-left:18px;padding-right:18px}
+    .art-quote{font-size:20px}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="#top"><strong>Seomun Hanok</strong><i data-i18n="brand_sub">대구 한옥 게스트하우스</i></a>
+    <nav class="nav">
+      <a href="#offer" data-i18n="nav1">객실</a>
+      <a href="#visit" data-i18n="nav2">체크인·오시는 길</a>
+      <a href="mailto:dmg4245800@gmail.com" data-i18n="nav3">문의</a>
+    </nav>
+    <div class="langs" role="group" data-i18n-aria="lang_aria" aria-label="Language">
+      <button type="button" class="lang" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" class="lang is-on" data-lang="ko" aria-pressed="true">KO</button>
+      <button type="button" class="lang" data-lang="ja" aria-pressed="false">JA</button>
+      <button type="button" class="lang" data-lang="zh" aria-pressed="false">ZH</button>
+      <button type="button" class="lang" data-lang="es" aria-pressed="false">ES</button>
+      <button type="button" class="lang" data-lang="vi" aria-pressed="false">VI</button>
+    </div>
+    <a class="btn btn-sm" href="#visit" data-i18n="nav_cta">예약 문의</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="kicker" data-i18n="hero_kick">대구 · 서문시장 옆</div>
+        <h1 data-i18n="hero_title">시장 골목 안의 한옥, <em>70년.</em></h1>
+        <p data-i18n="hero_lede">서문시장에서 걸어서 5분, 한옥 마당을 둘러 여섯 개의 방이 있습니다. 온돌방에 방마다 전용 욕실, 아침 조식, 한복과 전통놀이 체험까지. 체크인은 오후 세 시부터, 체크아웃은 열한 시입니다.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#offer" data-i18n="cta1">객실 보기</a>
+          <a class="btn btn-ghost" href="#visit" data-i18n="cta2">체크인과 오시는 길</a>
+        </div>
+      </div>
+      <div class="art" aria-hidden="true">
+        <div class="concept" data-i18n="concept_badge">Concept preview · Atelier Web</div>
+        <div class="art-note" data-i18n="art_note">온돌방, 옆에는 시장</div>
+        <div class="art-quote" data-i18n="art_quote">“따뜻한 온돌에서 자고, 시장에서 아침을 맞이합니다.”</div>
+        <div class="art-fact" data-i18n="art_fact">객실 6개 · 2인~8인 · 45,000원부터</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="offer">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow" data-i18n="sec1_kick">01 — 객실</div>
+        <h2 data-i18n="sec1_title">여섯 개의 방, 날짜에 따라 달라지는 요금.</h2>
+        <p data-i18n="sec1_lede">모든 방에 전용 욕실과 에어컨, 냉장고, 커피포트가 있고 온돌로 되어 있습니다. 평일 요금은 월요일부터 목요일까지이며, 금요일·토요일·휴일 전날은 더 높습니다. 일요일과 공휴일에는 휴일 요금이 적용됩니다.</p>
+      </div>
+      <div class="grid">
+        <article class="item"><div class="n">i1</div><h3 data-i18n="i1_n">2인실 — 청운 · 묘운 · 설화</h3><p data-i18n="i1_d">2인용 온돌방 세 개. 평일 45,000원, 금요일·토요일·휴일 전날 60,000원. 인원 추가는 되지 않습니다.</p></article>
+        <article class="item"><div class="n">i2</div><h3 data-i18n="i2_n">4인실 — 이류</h3><p data-i18n="i2_d">평일 65,000원, 주말 80,000원. 온돌방에 전용 욕실과 냉장고, 커피포트가 있습니다.</p></article>
+        <article class="item"><div class="n">i3</div><h3 data-i18n="i3_n">6인실·6~8인실 — 은성 · 백란</h3><p data-i18n="i3_d">은성은 6인 기준 평일 100,000원부터, 백란은 6~8인 기준 평일 110,000원부터. 가족이나 여럿이 함께 오는 여행에 맞습니다.</p></article>
+        <article class="item"><div class="n">i4</div><h3 data-i18n="i4_n">조식과 체험</h3><p data-i18n="i4_d">09:00–09:30에 토스트와 시리얼을 드립니다. 한복과 전통놀이 도구를 갖춰 두었으니 카운터에 말씀해 주세요.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="visit">
+    <div class="wrap visit">
+      <div>
+        <div class="eyebrow" data-i18n="sec2_kick">02 — 체크인과 오시는 길</div>
+        <h2 data-i18n="sec2_title">언제 도착하면 되고, 어떻게 걸어오면 되는지.</h2>
+        <div style="margin-top:18px">
+          <div class="row"><b data-i18n="h1_l">체크인</b><span data-i18n="h1_v">15:00 이후</span></div>
+          <div class="row"><b data-i18n="h2_l">체크아웃</b><span data-i18n="h2_v">11:00</span></div>
+          <div class="row"><b data-i18n="h3_l">조식</b><span data-i18n="h3_v">09:00 – 09:30</span></div>
+        </div>
+        <div class="blocks">
+          <div class="block"><b data-i18n="lbl_address">Address</b><span data-i18n="addr">대구광역시 중구 큰장로24길 26</span></div>
+          <div class="block"><b data-i18n="lbl_getting">Getting here</b><span data-i18n="transit">3호선 서문시장역, 2·3호선 환승역인 청라언덕역에서 도보 약 5분입니다. 서문시장과 서문야시장이 바로 옆입니다. 밤에는 상주 직원이 없으니 20시 전까지 053-424-5800으로 연락하시거나 1층 카페에 말씀해 주세요.</span></div>
+        </div>
+      </div>
+      <div class="contact">
+        <h3 data-i18n="contact_title" style="font-size:16px">Talk to us directly</h3>
+        <div style="margin-top:8px">
+          <div class="cline"><b data-i18n="lbl_email">Email</b><a href="mailto:dmg4245800@gmail.com">dmg4245800@gmail.com</a></div>
+          <div class="cline"><b data-i18n="lbl_phone">Phone</b><a href="tel:+82534245800">053-424-5800</a></div>
+
+        </div>
+        <a class="btn" href="mailto:dmg4245800@gmail.com" data-i18n="cta_email">Write an email</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <strong>Seomun Hanok</strong>
+        <p data-i18n="foot_tagline">대구 서문시장 옆 한옥 게스트하우스 — 2인부터 8인까지 온돌방, 조식과 한복 체험, 지하철에서 도보 5분.</p>
+        <p class="concept-note" data-i18n="concept_note">이 페이지는 Atelier Web이 제안용으로 만든 시안이며 Seomun Hanok의 공식 홈페이지가 아닙니다.</p>
+        <div class="credit">Concept preview prepared by Atelier Web (<a href="https://atelierweb-studio.github.io/" target="_blank" rel="noopener">atelierweb-studio.github.io</a>)</div>
+      </div>
+      <div>
+        <p style="font-family:var(--mono);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:#8E8677;margin:0" data-i18n="lbl_hours">Hours</p>
+        <p style="margin-top:8px;font-family:var(--mono);font-size:10px;line-height:1.9;color:#CBC3B3">체크인 15:00 · 체크아웃 11:00 · 조식 09:00–09:30</p>
+        <p style="margin-top:10px;font-family:var(--mono);font-size:9px;color:#8E8677" data-i18n="foot_lang">EN · KO · JA · ZH · ES · VI</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Seomun Hanok · Daegu · Seomun Market</span>
+      <span>© 2026 Atelier Web · concept</span>
+    </div>
+  </div>
+</footer>
+
+<noscript><div style="position:fixed;left:0;right:0;bottom:0;z-index:80;background:#15140F;color:#EEE9DF;font-family:monospace;font-size:9px;padding:9px 14px;text-align:center">JavaScript is off. Open this page in Safari or Chrome for the six-language switch.</div></noscript>
+
+<script>
+window.I18N = {"en":{"lang_aria":"Language","lbl_hours":"Hours","lbl_address":"Address","lbl_getting":"Getting here","lbl_email":"Email","lbl_phone":"Phone","lbl_messenger":"Message","concept_badge":"Concept preview · Atelier Web","concept_note":"This page is an unsolicited concept preview prepared by Atelier Web. It is not the official website of Seomun Hanok.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Talk to us directly","cta_email":"Write an email","brand_sub":"Hanok guesthouse · Daegu","nav1":"Rooms","nav2":"Check-in & directions","nav3":"Contact","nav_cta":"Ask for a night","hero_kick":"Daegu · beside Seomun Market","hero_title":"A hanok in the market alley, <em>seventy years old.</em>","hero_lede":"Six rooms around a hanok courtyard a five-minute walk from Seomun Market — ondol floors, a private bathroom in every room, breakfast in the morning, and hanbok and traditional games to try. Check-in from three, check-out at eleven.","cta1":"See the rooms","cta2":"Check-in and directions","art_note":"Ondol rooms, a market next door","art_quote":"“Sleep on a heated floor, wake up to the market.”","art_fact":"Six rooms · 2 to 8 guests · from ₩45,000","sec1_kick":"01 — Rooms","sec1_title":"Six rooms, priced by the night and the season.","sec1_lede":"Every room has its own bathroom, air conditioning, fridge and kettle, and is laid out on an ondol floor. Weekday rates are for Monday to Thursday; Friday, Saturday and the night before a holiday are priced higher, and the holiday rate applies on Sundays and public holidays.","i1_n":"Two-person rooms — Cheongun, Myoun, Seolhwa","i1_d":"Three ondol rooms for two, from ₩45,000 on a weekday and ₩60,000 on Friday, Saturday or the night before a holiday. Extra guests cannot be added.","i2_n":"Four-person room — Iryu","i2_d":"₩65,000 on a weekday, ₩80,000 at the weekend. Ondol floor with its own bathroom, fridge and kettle.","i3_n":"Six- and eight-person rooms — Eunseong, Baekran","i3_d":"Eunseong sleeps six from ₩100,000 a weekday; Baekran sleeps six to eight from ₩110,000. Built for families and small groups travelling together.","i4_n":"Breakfast and things to try","i4_d":"Toast and cereal are served between 09:00 and 09:30. Hanbok to wear and traditional games to play are kept at the house; ask at the counter.","sec2_kick":"02 — Check-in and directions","sec2_title":"When to arrive, and how to walk in.","h1_l":"Check-in","h1_v":"from 15:00","h2_l":"Check-out","h2_v":"11:00","h3_l":"Breakfast","h3_v":"09:00 – 09:30","addr":"26 Keunjang-ro 24-gil, Jung-gu, Daegu","transit":"About five minutes on foot from Seomun Market Station (Line 3) and Cheongna Hill Station (Lines 2 and 3). Seomun Market and its night market are next door. No staff stay overnight — until 20:00 you can call 053-424-5800 or speak to the café on the first floor.","foot_tagline":"Hanok guesthouse beside Seomun Market in Daegu — ondol rooms for two to eight, breakfast and hanbok, five minutes from the subway."},"ko":{"lang_aria":"언어 선택","lbl_hours":"영업시간","lbl_address":"주소","lbl_getting":"오시는 길","lbl_email":"이메일","lbl_phone":"전화","lbl_messenger":"메신저","concept_badge":"시안 미리보기 · Atelier Web","concept_note":"이 페이지는 Atelier Web이 제안용으로 만든 시안이며 Seomun Hanok의 공식 홈페이지가 아닙니다.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"바로 연락하기","cta_email":"이메일 보내기","brand_sub":"대구 한옥 게스트하우스","nav1":"객실","nav2":"체크인·오시는 길","nav3":"문의","nav_cta":"예약 문의","hero_kick":"대구 · 서문시장 옆","hero_title":"시장 골목 안의 한옥, <em>70년.</em>","hero_lede":"서문시장에서 걸어서 5분, 한옥 마당을 둘러 여섯 개의 방이 있습니다. 온돌방에 방마다 전용 욕실, 아침 조식, 한복과 전통놀이 체험까지. 체크인은 오후 세 시부터, 체크아웃은 열한 시입니다.","cta1":"객실 보기","cta2":"체크인과 오시는 길","art_note":"온돌방, 옆에는 시장","art_quote":"“따뜻한 온돌에서 자고, 시장에서 아침을 맞이합니다.”","art_fact":"객실 6개 · 2인~8인 · 45,000원부터","sec1_kick":"01 — 객실","sec1_title":"여섯 개의 방, 날짜에 따라 달라지는 요금.","sec1_lede":"모든 방에 전용 욕실과 에어컨, 냉장고, 커피포트가 있고 온돌로 되어 있습니다. 평일 요금은 월요일부터 목요일까지이며, 금요일·토요일·휴일 전날은 더 높습니다. 일요일과 공휴일에는 휴일 요금이 적용됩니다.","i1_n":"2인실 — 청운 · 묘운 · 설화","i1_d":"2인용 온돌방 세 개. 평일 45,000원, 금요일·토요일·휴일 전날 60,000원. 인원 추가는 되지 않습니다.","i2_n":"4인실 — 이류","i2_d":"평일 65,000원, 주말 80,000원. 온돌방에 전용 욕실과 냉장고, 커피포트가 있습니다.","i3_n":"6인실·6~8인실 — 은성 · 백란","i3_d":"은성은 6인 기준 평일 100,000원부터, 백란은 6~8인 기준 평일 110,000원부터. 가족이나 여럿이 함께 오는 여행에 맞습니다.","i4_n":"조식과 체험","i4_d":"09:00–09:30에 토스트와 시리얼을 드립니다. 한복과 전통놀이 도구를 갖춰 두었으니 카운터에 말씀해 주세요.","sec2_kick":"02 — 체크인과 오시는 길","sec2_title":"언제 도착하면 되고, 어떻게 걸어오면 되는지.","h1_l":"체크인","h1_v":"15:00 이후","h2_l":"체크아웃","h2_v":"11:00","h3_l":"조식","h3_v":"09:00 – 09:30","addr":"대구광역시 중구 큰장로24길 26","transit":"3호선 서문시장역, 2·3호선 환승역인 청라언덕역에서 도보 약 5분입니다. 서문시장과 서문야시장이 바로 옆입니다. 밤에는 상주 직원이 없으니 20시 전까지 053-424-5800으로 연락하시거나 1층 카페에 말씀해 주세요.","foot_tagline":"대구 서문시장 옆 한옥 게스트하우스 — 2인부터 8인까지 온돌방, 조식과 한복 체험, 지하철에서 도보 5분."},"ja":{"lang_aria":"言語","lbl_hours":"営業時間","lbl_address":"住所","lbl_getting":"アクセス","lbl_email":"メール","lbl_phone":"電話","lbl_messenger":"メッセージ","concept_badge":"コンセプトプレビュー · Atelier Web","concept_note":"このページは Atelier Web が提案用に制作したコンセプトで、Seomun Hanok の公式サイトではありません。","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"直接のご連絡","cta_email":"メールを書く","brand_sub":"大邱（テグ）韓屋ゲストハウス","nav1":"客室","nav2":"チェックイン・アクセス","nav3":"お問い合わせ","nav_cta":"宿泊のご相談","hero_kick":"大邱 · 西門市場（ソムンシジャン）の隣","hero_title":"市場の路地にある韓屋、<em>70年。</em>","hero_lede":"西門市場から徒歩5分、韓屋の中庭を囲む6室の宿です。オンドルの床、各室専用バスルーム、朝食、韓服と伝統遊びの体験も。チェックインは15時から、チェックアウトは11時です。","cta1":"客室を見る","cta2":"チェックインとアクセス","art_note":"オンドルの部屋、隣に市場","art_quote":"「温かいオンドルで眠り、市場とともに朝を迎える。」","art_fact":"全6室 · 2〜8名 · 45,000ウォンから","sec1_kick":"01 — 客室","sec1_title":"6つの部屋、日付で変わる料金。","sec1_lede":"すべての部屋に専用バスルーム、エアコン、冷蔵庫、ポットがあり、オンドルの床です。平日料金は月曜から木曜まで。金曜・土曜・祝前日は高くなり、日曜と祝日は休日料金が適用されます。","i1_n":"2名室 — 清雲（チョンウン）・妙雲（ミョウン）・雪花（ソルファ）","i1_d":"2名用オンドル室が3室。平日45,000ウォン、金曜・土曜・祝前日は60,000ウォン。人数の追加はできません。","i2_n":"4名室 — 二流（イリュ）","i2_d":"平日65,000ウォン、週末80,000ウォン。オンドル室で専用バスルーム、冷蔵庫、ポット付き。","i3_n":"6名室・6〜8名室 — 銀星（ウンソン）・白蘭（ペンナン）","i3_d":"銀星は6名で平日100,000ウォンから、白蘭は6〜8名で平日110,000ウォンから。家族やグループ旅行に向いています。","i4_n":"朝食と体験","i4_d":"9:00〜9:30にトーストとシリアルを提供します。韓服と伝統遊びの道具も用意していますので、カウンターにお声がけください。","sec2_kick":"02 — チェックインとアクセス","sec2_title":"到着の時間と、歩き方。","h1_l":"チェックイン","h1_v":"15:00以降","h2_l":"チェックアウト","h2_v":"11:00","h3_l":"朝食","h3_v":"09:00 – 09:30","addr":"大邱広域市 中区 クンジャンロ24キル 26","transit":"3号線西門市場（ソムンシジャン）駅、2・3号線乗換のチョンナオンドク（青羅丘）駅から徒歩約5分。西門市場と西門夜市がすぐ隣です。夜間は常駐スタッフがいないため、20時までは 053-424-5800 へお電話いただくか1階のカフェへお声がけください。","foot_tagline":"大邱・西門市場の隣の韓屋ゲストハウス — 2名から8名までのオンドル室、朝食と韓服体験、地下鉄から徒歩5分。"},"zh":{"lang_aria":"语言","lbl_hours":"营业时间","lbl_address":"地址","lbl_getting":"交通","lbl_email":"邮箱","lbl_phone":"电话","lbl_messenger":"消息","concept_badge":"方案预览 · Atelier Web","concept_note":"本页面是 Atelier Web 制作的概念方案，并非 Seomun Hanok 的官方网站。","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"直接联系","cta_email":"写邮件","brand_sub":"大邱韩屋民宿","nav1":"客房","nav2":"入住·交通","nav3":"联系","nav_cta":"询问住宿","hero_kick":"大邱 · 西门市场旁","hero_title":"市场小巷里的韩屋，<em>七十年。</em>","hero_lede":"距西门市场步行五分钟，围绕韩屋庭院共有六间客房：温突地暖、每间独立卫浴、早晨提供早餐，还可试穿韩服、玩传统游戏。下午三点起可入住，上午十一点前退房。","cta1":"查看客房","cta2":"入住与交通","art_note":"温突房，隔壁是市场","art_quote":"“睡在温热的地板上，在市场的声音里醒来。”","art_fact":"六间客房 · 2–8 人 · 45,000 韩元起","sec1_kick":"01 — 客房","sec1_title":"六间房，按日期与季节定价。","sec1_lede":"每间房都有独立卫浴、空调、冰箱与电热水壶，铺温突地暖。平日价适用于周一至周四；周五、周六与假日前一天更高，周日与公休日按假日价计算。","i1_n":"双人房——青云 · 妙云 · 雪花","i1_d":"三间双人温突房，平日 45,000 韩元，周五、周六与假日前一天 60,000 韩元。不可加人。","i2_n":"四人房——二流","i2_d":"平日 65,000 韩元，周末 80,000 韩元。温突房，含独立卫浴、冰箱与电热水壶。","i3_n":"六人房与六至八人房——银星 · 白兰","i3_d":"银星为六人房，平日 100,000 韩元起；白兰为六至八人房，平日 110,000 韩元起。适合家庭与小团体同行。","i4_n":"早餐与体验","i4_d":"09:00–09:30 供应吐司与麦片。备有韩服与传统游戏用具，请向柜台询问。","sec2_kick":"02 — 入住与交通","sec2_title":"几点到，怎么走进去。","h1_l":"入住","h1_v":"15:00 起","h2_l":"退房","h2_v":"11:00","h3_l":"早餐","h3_v":"09:00 – 09:30","addr":"大邱广域市中区 큰장로24길 26（Keunjang-ro 24-gil 26）","transit":"距地铁 3 号线西门市场站、2、3 号线换乘站青罗丘站步行约五分钟。西门市场与西门夜市就在旁边。夜间无常驻员工，20 点前请致电 053-424-5800 或找一楼咖啡厅。","foot_tagline":"大邱西门市场旁的韩屋民宿——2 至 8 人温突房，含早餐与韩服体验，地铁步行五分钟。"},"es":{"lang_aria":"Idioma","lbl_hours":"Horario","lbl_address":"Dirección","lbl_getting":"Cómo llegar","lbl_email":"Correo","lbl_phone":"Teléfono","lbl_messenger":"Mensaje","concept_badge":"Vista de concepto · Atelier Web","concept_note":"Esta página es una propuesta de concepto preparada por Atelier Web. No es el sitio oficial de Seomun Hanok.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Contacto directo","cta_email":"Escribir un correo","brand_sub":"Casa de huéspedes hanok · Daegu","nav1":"Habitaciones","nav2":"Llegada y cómo llegar","nav3":"Contacto","nav_cta":"Consultar noches","hero_kick":"Daegu · junto al mercado de Seomun","hero_title":"Un hanok en el callejón del mercado, <em>setenta años.</em>","hero_lede":"Seis habitaciones alrededor de un patio hanok a cinco minutos a pie del mercado de Seomun: suelo ondol, baño privado en cada una, desayuno por la mañana y hanbok y juegos tradicionales para probar. Entrada desde las tres, salida a las once.","cta1":"Ver las habitaciones","cta2":"Llegada y dirección","art_note":"Habitaciones ondol, mercado al lado","art_quote":"«Dormir en un suelo cálido y despertar con el mercado.»","art_fact":"Seis habitaciones · de 2 a 8 personas · desde ₩45.000","sec1_kick":"01 — Habitaciones","sec1_title":"Seis habitaciones, con precio según el día.","sec1_lede":"Todas tienen baño privado, aire acondicionado, nevera y hervidor, con suelo ondol. La tarifa de semana vale de lunes a jueves; viernes, sábado y la víspera de festivo cuestan más, y el domingo y los festivos se aplica la tarifa de festivo.","i1_n":"Dobles — Cheongun, Myoun, Seolhwa","i1_d":"Tres habitaciones ondol para dos, desde ₩45.000 en semana y ₩60.000 los viernes, sábados y vísperas de festivo. No se admiten personas adicionales.","i2_n":"Cuádruple — Iryu","i2_d":"₩65.000 en semana, ₩80.000 el fin de semana. Suelo ondol con baño privado, nevera y hervidor.","i3_n":"De seis y de seis a ocho — Eunseong, Baekran","i3_d":"Eunseong, para seis, desde ₩100.000 en semana; Baekran, para seis a ocho, desde ₩110.000. Pensadas para familias y grupos pequeños.","i4_n":"Desayuno y actividades","i4_d":"Se sirve tostada y cereales de 09:00 a 09:30. Hay hanbok para vestir y juegos tradicionales; pregunta en la recepción.","sec2_kick":"02 — Llegada y dirección","sec2_title":"A qué hora llegar y cómo entrar.","h1_l":"Entrada","h1_v":"desde 15:00","h2_l":"Salida","h2_v":"11:00","h3_l":"Desayuno","h3_v":"09:00 – 09:30","addr":"26 Keunjang-ro 24-gil, Jung-gu, Daegu","transit":"Unos cinco minutos a pie desde la estación Seomun Market (línea 3) y Cheongna Hill (líneas 2 y 3). El mercado de Seomun y su mercado nocturno están al lado. No hay personal por la noche: hasta las 20:00 puedes llamar al 053-424-5800 o hablar con la cafetería de la planta baja.","foot_tagline":"Casa hanok junto al mercado de Seomun, Daegu: habitaciones ondol para dos a ocho, desayuno y hanbok, a cinco minutos del metro."},"vi":{"lang_aria":"Ngôn ngữ","lbl_hours":"Giờ mở cửa","lbl_address":"Địa chỉ","lbl_getting":"Đường đi","lbl_email":"Email","lbl_phone":"Điện thoại","lbl_messenger":"Tin nhắn","concept_badge":"Bản xem trước ý tưởng · Atelier Web","concept_note":"Trang này là bản phác thảo ý tưởng do Atelier Web thực hiện, không phải website chính thức của Seomun Hanok.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Liên hệ trực tiếp","cta_email":"Gửi email","brand_sub":"Nhà nghỉ hanok · Daegu","nav1":"Phòng","nav2":"Nhận phòng & lối đi","nav3":"Liên hệ","nav_cta":"Hỏi phòng","hero_kick":"Daegu · cạnh chợ Seomun","hero_title":"Ngôi hanok trong hẻm chợ, <em>bảy mươi năm.</em>","hero_lede":"Sáu phòng quanh sân hanok, cách chợ Seomun năm phút đi bộ — sàn sưởi ondol, mỗi phòng có phòng tắm riêng, buổi sáng có bữa sáng, có hanbok và trò chơi truyền thống để thử. Nhận phòng từ ba giờ, trả phòng lúc mười một giờ.","cta1":"Xem phòng","cta2":"Nhận phòng và đường đi","art_note":"Phòng sàn ondol, chợ ngay bên","art_quote":"“Ngủ trên sàn ấm, thức dậy cùng phiên chợ.”","art_fact":"Sáu phòng · 2 đến 8 khách · từ 45.000₩","sec1_kick":"01 — Phòng","sec1_title":"Sáu phòng, giá đổi theo ngày.","sec1_lede":"Mọi phòng đều có phòng tắm riêng, điều hoà, tủ lạnh và ấm điện, sàn ondol. Giá ngày thường áp dụng thứ Hai đến thứ Năm; thứ Sáu, thứ Bảy và đêm trước ngày lễ cao hơn, Chủ nhật và ngày lễ tính giá ngày lễ.","i1_n":"Phòng đôi — Cheongun, Myoun, Seolhwa","i1_d":"Ba phòng ondol cho hai khách, từ 45.000₩ ngày thường và 60.000₩ thứ Sáu, thứ Bảy, đêm trước lễ. Không nhận thêm người.","i2_n":"Phòng bốn — Iryu","i2_d":"65.000₩ ngày thường, 80.000₩ cuối tuần. Sàn ondol, có phòng tắm riêng, tủ lạnh và ấm điện.","i3_n":"Phòng sáu và sáu đến tám — Eunseong, Baekran","i3_d":"Eunseong sáu khách từ 100.000₩ ngày thường; Baekran sáu đến tám khách từ 110.000₩. Dành cho gia đình và nhóm nhỏ đi cùng nhau.","i4_n":"Bữa sáng và trải nghiệm","i4_d":"Bánh mì nướng và ngũ cốc từ 09:00 đến 09:30. Có hanbok để mặc và dụng cụ trò chơi truyền thống; hỏi ở quầy.","sec2_kick":"02 — Nhận phòng và lối đi","sec2_title":"Mấy giờ đến, và đi bộ vào thế nào.","h1_l":"Nhận phòng","h1_v":"từ 15:00","h2_l":"Trả phòng","h2_v":"11:00","h3_l":"Bữa sáng","h3_v":"09:00 – 09:30","addr":"26 Keunjang-ro 24-gil, Jung-gu, Daegu","transit":"Đi bộ khoảng năm phút từ ga Seomun Market (tuyến 3) và ga Cheongna Hill (tuyến 2 và 3). Chợ Seomun và chợ đêm ở ngay bên. Ban đêm không có nhân viên trực: trước 20:00 hãy gọi 053-424-5800 hoặc nói với quán cà phê tầng một.","foot_tagline":"Nhà nghỉ hanok cạnh chợ Seomun, Daegu — phòng ondol 2 đến 8 khách, bữa sáng và hanbok, cách tàu điện 5 phút đi bộ."}};
+</script>
+<script>
+(function(){
+  var dict = window.I18N || {}, LANGS = ['en','ko','ja','zh','es','vi'], current = 'ko';
+  function t(k){
+    var pack = dict[current] || dict.en || {};
+    if (pack[k] !== undefined) return pack[k];
+    return (dict.en && dict.en[k] !== undefined) ? dict.en[k] : '';
+  }
+  function apply(lang){
+    if (LANGS.indexOf(lang) < 0) lang = 'en';
+    current = lang;
+    document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-Hans' : lang);
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n'));
+      if (v !== '') el.innerHTML = v;
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n-aria'));
+      if (v !== '') el.setAttribute('aria-label', v);
+    });
+    document.querySelectorAll('.lang').forEach(function(b){
+      var on = b.getAttribute('data-lang') === lang;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    try { localStorage.setItem('aw_concept_lang', lang); } catch(e) {}
+  }
+  document.querySelectorAll('.lang').forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.getAttribute('data-lang')); });
+  });
+  var saved = null;
+  try { saved = localStorage.getItem('aw_concept_lang'); } catch(e) {}
+  if (LANGS.indexOf(saved) < 0) saved = 'ko';
+  apply(saved);
+})();
+</script>
+</body>
+</html>

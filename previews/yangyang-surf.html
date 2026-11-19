@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko" data-lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>양양서핑학교 — 강원 양양 서핑 강습 (개념 시안)</title>
+<meta name="description" content="Concept preview for Yangyang Surfing School, a surf school in Yangyang, Gangwon, with a six-language switch.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1F4A5C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230F0E0B'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='13' fill='%23F5F1E8' text-anchor='middle'%3EY%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#F7F5EF; --bg2:#EFEBE1; --card:#FFFFFF; --ink:#15140F; --ink2:#43403A;
+    --muted:#787264; --line:rgba(21,20,15,.14); --accent:#8C5A2B; --accent2:#2E4038;
+    --tint:rgba(140,90,43,.08);
+    --serif:"New York",ui-serif,"Iowan Old Style","Palatino Linotype",Georgia,"Noto Serif KR",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Pretendard",Roboto,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --r:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  h1,h2,h3{margin:0;font-family:var(--serif);font-weight:400;letter-spacing:-.01em}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+  .eyebrow{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+  .topbar{position:fixed;inset:0 0 auto;z-index:50;background:var(--bg);background:color-mix(in srgb,var(--bg) 93%,transparent);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .topbar-in{max-width:1140px;margin:0 auto;padding:11px 28px;display:flex;align-items:center;gap:22px}
+  .brand{display:flex;flex-direction:column;line-height:1}
+  .brand strong{font-family:var(--serif);font-weight:400;font-size:20px;letter-spacing:.01em}
+  .brand i{font-style:normal;font-family:var(--mono);font-size:7.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .nav{display:flex;gap:18px}
+  .nav a{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);
+    padding-bottom:3px;border-bottom:1px solid transparent}
+  .nav a:hover{color:var(--accent);border-color:var(--accent)}
+  .langs{display:flex;gap:5px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+  .langs::-webkit-scrollbar{display:none}
+  .lang{font-family:var(--mono);font-size:9.5px;border:1px solid var(--line);border-radius:99px;padding:6px 8px;
+    white-space:nowrap;color:var(--ink2);transition:.16s}
+  .lang:hover{border-color:var(--accent);color:var(--accent)}
+  .lang.is-on{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent2);color:#fff;border:1px solid var(--accent2);
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;padding:12px 18px;border-radius:99px;transition:.18s}
+  .btn:hover{background:var(--accent);border-color:var(--accent)}
+  .btn-sm{padding:9px 14px;font-size:8.5px;flex:0 0 auto}
+  .btn-ghost{background:transparent;color:var(--accent2);border-color:var(--line)}
+  .btn-ghost:hover{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+
+  .hero{padding:132px 0 60px}
+  .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:48px;align-items:center}
+  .kicker{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  h1{margin-top:16px;font-size:clamp(36px,4.8vw,58px);line-height:1.05}
+  h1 em{font-style:italic;color:var(--accent)}
+  .hero p{margin:18px 0 0;font-size:15.5px;line-height:1.7;color:var(--ink2);max-width:46ch}
+  .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+  .art{position:relative;border-radius:20px;overflow:hidden;min-height:360px;border:1px solid var(--line);
+    background:linear-gradient(168deg,var(--bg2),var(--bg));
+    background-image:linear-gradient(168deg,var(--bg2),color-mix(in srgb,var(--accent) 12%,var(--bg2)))}
+  .art::before{content:"";position:absolute;width:280px;height:280px;border-radius:50%;left:-50px;top:-70px;
+    border:1px solid var(--line);border-color:color-mix(in srgb,var(--accent) 30%,transparent)}
+  .art::after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-30px;bottom:70px;
+    background:radial-gradient(circle at 35% 30%,#fff,transparent 70%)}
+  .art-note{position:absolute;left:22px;top:22px;font-family:var(--mono);font-size:8px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--accent)}
+  .art-quote{position:absolute;left:22px;right:22px;top:46%;transform:translateY(-50%);font-family:var(--serif);
+    font-size:23px;line-height:1.28;color:var(--accent2);max-width:24ch}
+  .art-fact{position:absolute;left:22px;right:22px;bottom:20px;background:rgba(255,255,255,.86);border-radius:12px;
+    padding:12px 14px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);
+    box-shadow:0 12px 26px -20px rgba(21,20,15,.5)}
+  .concept{position:absolute;right:16px;top:16px;background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:99px;
+    padding:5px 10px;font-family:var(--mono);font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+  .sec{padding:58px 0;border-top:1px solid var(--line)}
+  .sec-head{margin-bottom:26px;max-width:62ch}
+  h2{font-size:clamp(25px,3vw,36px);line-height:1.12;margin-top:10px}
+  .sec-head p{margin:10px 0 0;font-size:13px;line-height:1.65;color:var(--muted)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .item{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;transition:.2s}
+  .item:hover{border-color:var(--accent);box-shadow:0 16px 30px -26px rgba(21,20,15,.5)}
+  .item .n{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--accent)}
+  .item h3{font-size:18px;margin-top:8px;line-height:1.28}
+  .item p{margin:8px 0 0;font-size:12px;line-height:1.62;color:var(--muted)}
+
+  .visit{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .row{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .row b{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .row span{font-family:var(--mono);font-size:10.5px;color:var(--ink2);text-align:right}
+  .blocks{margin-top:18px}
+  .block{margin-top:14px}
+  .block b{display:block;font-family:var(--mono);font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .block span{display:block;margin-top:5px;font-size:12.5px;line-height:1.65;color:var(--ink2)}
+  .contact{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;align-self:start}
+  .contact h3{font-size:19px}
+  .cline{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .cline:last-of-type{border-bottom:0}
+  .cline b{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .cline a{font-size:12px;color:var(--accent2);border-bottom:1px solid var(--line);border-bottom-color:color-mix(in srgb,var(--accent) 50%,transparent);
+    text-underline-offset:2px;word-break:break-all}
+  .contact .btn{margin-top:16px;width:100%;justify-content:center}
+
+  footer{background:var(--ink);color:#EEE9DF;padding:44px 0 26px;margin-top:14px}
+  .foot{display:grid;grid-template-columns:1.4fr .6fr;gap:26px}
+  .foot strong{font-family:var(--serif);font-weight:400;font-size:19px}
+  .foot p{margin:12px 0 0;font-size:10.5px;line-height:1.7;color:#B6AE9E;max-width:52ch}
+  .foot .credit{margin-top:14px;font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;color:#D8D0C0}
+  .foot .credit a{border-bottom:1px solid rgba(216,208,192,.5)}
+  .foot-bottom{margin-top:24px;padding-top:14px;border-top:1px solid rgba(238,233,223,.16);display:flex;
+    justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:8px;letter-spacing:.1em;
+    text-transform:uppercase;color:#9A9282}
+  .foot .concept-note{font-size:10px;line-height:1.6;color:#9A9282;max-width:60ch}
+
+  @media (max-width:960px){
+    .nav{display:none}
+    .hero{padding-top:112px}
+    .hero-grid,.visit,.grid{grid-template-columns:1fr;gap:26px}
+    .foot{grid-template-columns:1fr}
+    .topbar-in{flex-wrap:wrap;gap:10px}
+    .langs{order:3;width:100%;margin-left:0}
+    .btn-sm{margin-left:auto}
+    .art{min-height:320px}
+  }
+  @media (max-width:600px){
+    .wrap,.topbar-in{padding-left:18px;padding-right:18px}
+    .art-quote{font-size:20px}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="#top"><strong>양양서핑학교</strong><i data-i18n="brand_sub">강원 양양 서핑 강습</i></a>
+    <nav class="nav">
+      <a href="#offer" data-i18n="nav1">강습</a>
+      <a href="#visit" data-i18n="nav2">시간·요금</a>
+      <a href="mailto:rubystyle4@naver.com" data-i18n="nav3">문의</a>
+    </nav>
+    <div class="langs" role="group" data-i18n-aria="lang_aria" aria-label="Language">
+      <button type="button" class="lang" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" class="lang is-on" data-lang="ko" aria-pressed="true">KO</button>
+      <button type="button" class="lang" data-lang="ja" aria-pressed="false">JA</button>
+      <button type="button" class="lang" data-lang="zh" aria-pressed="false">ZH</button>
+      <button type="button" class="lang" data-lang="es" aria-pressed="false">ES</button>
+      <button type="button" class="lang" data-lang="vi" aria-pressed="false">VI</button>
+    </div>
+    <a class="btn btn-sm" href="#visit" data-i18n="nav_cta">강습 문의</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="kicker" data-i18n="hero_kick">강원 양양 해변</div>
+        <h1 data-i18n="hero_title">첫 파도에 서는 일, <em>옆에 사람과 함께.</em></h1>
+        <p data-i18n="hero_lede">교육청 대안학교로 지정된 서핑 교육 기관입니다. 양양군 서핑강사 인증과 국제서핑협회(ISA) 자격을 갖춘 강사가 가르칩니다. 강습은 열 시, 한 시, 세 시 반에 시작하고, 입문강습은 보드와 웻슈트, 샤워까지 포함한 두 시간입니다.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#offer" data-i18n="cta1">강습 보기</a>
+          <a class="btn btn-ghost" href="#visit" data-i18n="cta2">시간과 요금</a>
+        </div>
+      </div>
+      <div class="art" aria-hidden="true">
+        <div class="concept" data-i18n="concept_badge">Concept preview · Atelier Web</div>
+        <div class="art-note" data-i18n="art_note">두 시간, 보드와 웻슈트 포함</div>
+        <div class="art-quote" data-i18n="art_quote">“모래 위 이론 20분, 그리고 바다에서 70분.”</div>
+        <div class="art-fact" data-i18n="art_fact">입문강습 2시간 · 80,000원 · 하루 세 번</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="offer">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow" data-i18n="sec1_kick">01 — 강습</div>
+        <h2 data-i18n="sec1_title">첫 강습, 그리고 그 위에 쌓는 과정.</h2>
+        <p data-i18n="sec1_lede">자체 집필한 서핑 교과서의 이론을 바탕으로 짠 커리큘럼입니다. 십만 명이 넘는 교육생을 거치며 다듬어졌습니다. 모든 강사가 양양군 강사 인증과 인명구조 자격을 갖추고 있으며, 14세 미만 어린이는 보호자와 함께 와야 합니다.</p>
+      </div>
+      <div class="grid">
+        <article class="item"><div class="n">i1</div><h3 data-i18n="i1_n">입문강습 2시간</h3><p data-i18n="i1_d">80,000원. 이론과 안전수칙 20분, 준비운동과 해변 실습 20분, 바다에서 70분, 마무리와 수료증까지. 서프보드와 웻슈트, 강습, 샤워가 모두 포함됩니다.</p></article>
+        <article class="item"><div class="n">i2</div><h3 data-i18n="i2_n">초급 3회차 · 5회차</h3><p data-i18n="i2_d">3회차 210,000원, 5회차 300,000원. 회차마다 두 시간씩, 첫 강습에서 배운 것 위에 패들아웃과 파도 고르기, 방향 전환을 더해 갑니다.</p></article>
+        <article class="item"><div class="n">i3</div><h3 data-i18n="i3_n">초급 10회차</h3><p data-i18n="i3_d">550,000원. 테이크오프에서 트림과 턴까지 열 번에 걸쳐 익힙니다. 열 회차 뒤에는 봄·가을·겨울 학기 레벨업 프로그램으로 이어집니다.</p></article>
+        <article class="item"><div class="n">i4</div><h3 data-i18n="i4_n">서프레스큐 자격과정</h3><p data-i18n="i4_d">이론과 실기 16시간, 300,000원. 필기와 실기 시험에 합격하면 자격증과 인증서를 받습니다. 장비 대여는 10:00–18:00, 보드 25,000원·웻슈트 25,000원·샤워 4,000원입니다.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="visit">
+    <div class="wrap visit">
+      <div>
+        <div class="eyebrow" data-i18n="sec2_kick">02 — 시간과 요금</div>
+        <h2 data-i18n="sec2_title">하루 세 번의 강습 시간.</h2>
+        <div style="margin-top:18px">
+          <div class="row"><b data-i18n="h1_l">입문강습</b><span data-i18n="h1_v">10:00 · 13:00 · 15:30</span></div>
+          <div class="row"><b data-i18n="h2_l">장비 대여</b><span data-i18n="h2_v">10:00 – 18:00</span></div>
+          <div class="row"><b data-i18n="h3_l">회차 강습</b><span data-i18n="h3_v">예약 시 협의</span></div>
+        </div>
+        <div class="blocks">
+          <div class="block"><b data-i18n="lbl_address">Address</b><span data-i18n="addr">강원특별자치도 양양군 양양읍 일출로 159-12 1층 (양양비치콘도 별관)</span></div>
+          <div class="block"><b data-i18n="lbl_getting">Getting here</b><span data-i18n="transit">양양읍 일출로, 양양비치콘도 별관 1층입니다. 지도 앱에서 '양양서핑학교'로 검색하시면 되고, 강습이 진행되는 해변과 주차 위치는 예약할 때 함께 안내받으실 수 있습니다.</span></div>
+        </div>
+      </div>
+      <div class="contact">
+        <h3 data-i18n="contact_title" style="font-size:16px">Talk to us directly</h3>
+        <div style="margin-top:8px">
+          <div class="cline"><b data-i18n="lbl_email">Email</b><a href="mailto:rubystyle4@naver.com">rubystyle4@naver.com</a></div>
+          <div class="cline"><b data-i18n="lbl_phone">Phone</b><a href="tel:+821057881824">010-5788-1824</a></div>
+
+        </div>
+        <a class="btn" href="mailto:rubystyle4@naver.com" data-i18n="cta_email">Write an email</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <strong>양양서핑학교</strong>
+        <p data-i18n="foot_tagline">강원 양양의 서핑학교 — 하루 세 번 입문강습, 3회차에서 10회차까지 이어지는 과정.</p>
+        <p class="concept-note" data-i18n="concept_note">이 페이지는 Atelier Web이 제안용으로 만든 시안이며 양양서핑학교의 공식 홈페이지가 아닙니다.</p>
+        <div class="credit">Concept preview prepared by Atelier Web (<a href="https://atelierweb-studio.github.io/" target="_blank" rel="noopener">atelierweb-studio.github.io</a>)</div>
+      </div>
+      <div>
+        <p style="font-family:var(--mono);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:#8E8677;margin:0" data-i18n="lbl_hours">Hours</p>
+        <p style="margin-top:8px;font-family:var(--mono);font-size:10px;line-height:1.9;color:#CBC3B3">입문강습 10:00 · 13:00 · 15:30</p>
+        <p style="margin-top:10px;font-family:var(--mono);font-size:9px;color:#8E8677" data-i18n="foot_lang">EN · KO · JA · ZH · ES · VI</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>양양서핑학교 · Gangwon · Yangyang</span>
+      <span>© 2026 Atelier Web · concept</span>
+    </div>
+  </div>
+</footer>
+
+<noscript><div style="position:fixed;left:0;right:0;bottom:0;z-index:80;background:#15140F;color:#EEE9DF;font-family:monospace;font-size:9px;padding:9px 14px;text-align:center">JavaScript is off. Open this page in Safari or Chrome for the six-language switch.</div></noscript>
+
+<script>
+window.I18N = {"en":{"lang_aria":"Language","lbl_hours":"Hours","lbl_address":"Address","lbl_getting":"Getting here","lbl_email":"Email","lbl_phone":"Phone","lbl_messenger":"Message","concept_badge":"Concept preview · Atelier Web","concept_note":"This page is an unsolicited concept preview prepared by Atelier Web. It is not the official website of 양양서핑학교.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Talk to us directly","cta_email":"Write an email","brand_sub":"Surf school · Yangyang, Gangwon","nav1":"Lessons","nav2":"Times & rates","nav3":"Contact","nav_cta":"Ask about a lesson","hero_kick":"Yangyang · Gangwon coast","hero_title":"Stand up on your first wave, <em>with someone beside you.</em>","hero_lede":"A surf school designated by the provincial education office as an alternative school, run by instructors certified by Yangyang county and by the International Surfing Association. Lessons start at ten, one and half past three; a beginner lesson is two hours with board, wetsuit and shower included.","cta1":"See the lessons","cta2":"Times and rates","art_note":"Two hours, board and wetsuit included","art_quote":"“Theory on the sand for twenty minutes, then seventy minutes in the water.”","art_fact":"Beginner lesson 2 hours · ₩80,000 · three start times","sec1_kick":"01 — Lessons","sec1_title":"A first lesson, then courses that build on it.","sec1_lede":"The curriculum follows the method set out in the school's own surf textbook, built over more than a hundred thousand lessons. Every instructor holds Yangyang county certification and a water-rescue qualification; children under fourteen must come with a parent.","i1_n":"Beginner lesson, 2 hours","i1_d":"₩80,000. Twenty minutes of theory and safety, twenty of warm-up and beach practice, seventy in the water, then a certificate. Board, wetsuit, lesson and shower are all included.","i2_n":"Three and five lessons","i2_d":"₩210,000 for three, ₩300,000 for five. Each session runs the same two hours, adding paddle-out, wave selection and turning to what you learned in the first lesson.","i3_n":"Ten lessons","i3_d":"₩550,000. Ten sessions taking you from take-off to trimming and turning; after ten, the school moves you into its spring, autumn and winter level-up programme.","i4_n":"Surf rescue qualification","i4_d":"A sixteen-hour course in theory and practice, ₩300,000, with a certificate on passing the written and practical tests. Equipment rental runs 10:00–18:00: board ₩25,000, wetsuit ₩25,000, shower ₩4,000.","sec2_kick":"02 — Times and rates","sec2_title":"Three lesson times a day.","h1_l":"Beginner lesson","h1_v":"10:00 · 13:00 · 15:30","h2_l":"Equipment rental","h2_v":"10:00 – 18:00","h3_l":"Course lessons","h3_v":"Time agreed on booking","addr":"159-12 Ilchul-ro, Yangyang-eup, Yangyang-gun, Gangwon — first floor, annex of Yangyang Beach Condo","transit":"In Yangyang-eup on Ilchul-ro, on the ground floor of the Yangyang Beach Condo annex. Search “양양서핑학교” in a map app; the beach where lessons run and parking are confirmed when you book.","foot_tagline":"Surf school in Yangyang, Gangwon — beginner lessons three times a day and courses from three to ten sessions."},"ko":{"lang_aria":"언어 선택","lbl_hours":"영업시간","lbl_address":"주소","lbl_getting":"오시는 길","lbl_email":"이메일","lbl_phone":"전화","lbl_messenger":"메신저","concept_badge":"시안 미리보기 · Atelier Web","concept_note":"이 페이지는 Atelier Web이 제안용으로 만든 시안이며 양양서핑학교의 공식 홈페이지가 아닙니다.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"바로 연락하기","cta_email":"이메일 보내기","brand_sub":"강원 양양 서핑 강습","nav1":"강습","nav2":"시간·요금","nav3":"문의","nav_cta":"강습 문의","hero_kick":"강원 양양 해변","hero_title":"첫 파도에 서는 일, <em>옆에 사람과 함께.</em>","hero_lede":"교육청 대안학교로 지정된 서핑 교육 기관입니다. 양양군 서핑강사 인증과 국제서핑협회(ISA) 자격을 갖춘 강사가 가르칩니다. 강습은 열 시, 한 시, 세 시 반에 시작하고, 입문강습은 보드와 웻슈트, 샤워까지 포함한 두 시간입니다.","cta1":"강습 보기","cta2":"시간과 요금","art_note":"두 시간, 보드와 웻슈트 포함","art_quote":"“모래 위 이론 20분, 그리고 바다에서 70분.”","art_fact":"입문강습 2시간 · 80,000원 · 하루 세 번","sec1_kick":"01 — 강습","sec1_title":"첫 강습, 그리고 그 위에 쌓는 과정.","sec1_lede":"자체 집필한 서핑 교과서의 이론을 바탕으로 짠 커리큘럼입니다. 십만 명이 넘는 교육생을 거치며 다듬어졌습니다. 모든 강사가 양양군 강사 인증과 인명구조 자격을 갖추고 있으며, 14세 미만 어린이는 보호자와 함께 와야 합니다.","i1_n":"입문강습 2시간","i1_d":"80,000원. 이론과 안전수칙 20분, 준비운동과 해변 실습 20분, 바다에서 70분, 마무리와 수료증까지. 서프보드와 웻슈트, 강습, 샤워가 모두 포함됩니다.","i2_n":"초급 3회차 · 5회차","i2_d":"3회차 210,000원, 5회차 300,000원. 회차마다 두 시간씩, 첫 강습에서 배운 것 위에 패들아웃과 파도 고르기, 방향 전환을 더해 갑니다.","i3_n":"초급 10회차","i3_d":"550,000원. 테이크오프에서 트림과 턴까지 열 번에 걸쳐 익힙니다. 열 회차 뒤에는 봄·가을·겨울 학기 레벨업 프로그램으로 이어집니다.","i4_n":"서프레스큐 자격과정","i4_d":"이론과 실기 16시간, 300,000원. 필기와 실기 시험에 합격하면 자격증과 인증서를 받습니다. 장비 대여는 10:00–18:00, 보드 25,000원·웻슈트 25,000원·샤워 4,000원입니다.","sec2_kick":"02 — 시간과 요금","sec2_title":"하루 세 번의 강습 시간.","h1_l":"입문강습","h1_v":"10:00 · 13:00 · 15:30","h2_l":"장비 대여","h2_v":"10:00 – 18:00","h3_l":"회차 강습","h3_v":"예약 시 협의","addr":"강원특별자치도 양양군 양양읍 일출로 159-12 1층 (양양비치콘도 별관)","transit":"양양읍 일출로, 양양비치콘도 별관 1층입니다. 지도 앱에서 '양양서핑학교'로 검색하시면 되고, 강습이 진행되는 해변과 주차 위치는 예약할 때 함께 안내받으실 수 있습니다.","foot_tagline":"강원 양양의 서핑학교 — 하루 세 번 입문강습, 3회차에서 10회차까지 이어지는 과정."},"ja":{"lang_aria":"言語","lbl_hours":"営業時間","lbl_address":"住所","lbl_getting":"アクセス","lbl_email":"メール","lbl_phone":"電話","lbl_messenger":"メッセージ","concept_badge":"コンセプトプレビュー · Atelier Web","concept_note":"このページは Atelier Web が提案用に制作したコンセプトで、양양서핑학교 の公式サイトではありません。","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"直接のご連絡","cta_email":"メールを書く","brand_sub":"江原道 襄陽（ヤンヤン）サーフィン教室","nav1":"レッスン","nav2":"時間・料金","nav3":"お問い合わせ","nav_cta":"レッスン相談","hero_kick":"江原道 襄陽の海","hero_title":"最初の波に立つこと、<em>隣に人がいること。</em>","hero_lede":"教育庁から代替学校に指定されたサーフィン教育機関です。襄陽郡のサーフィン講師認証と国際サーフィン協会（ISA）の資格を持つ講師が教えます。レッスンは10時・13時・15時30分開始、入門レッスンはボード・ウェットスーツ・シャワー込みの2時間です。","cta1":"レッスンを見る","cta2":"時間と料金","art_note":"2時間、ボードとウェットスーツ込み","art_quote":"「砂の上で理論20分、そして海で70分。」","art_fact":"入門レッスン2時間 · 80,000ウォン · 1日3回","sec1_kick":"01 — レッスン","sec1_title":"最初のレッスン、その上に積む課程。","sec1_lede":"自校で執筆したサーフィン教科書の理論をもとに組んだカリキュラムです。10万人を超える受講生を経て磨かれてきました。講師は全員が襄陽郡の講師認証と水難救助の資格を持ち、14歳未満の子どもは保護者同伴が必要です。","i1_n":"入門レッスン 2時間","i1_d":"80,000ウォン。理論と安全規則20分、準備運動とビーチ練習20分、海で70分、最後に修了証。ボード、ウェットスーツ、レッスン、シャワーがすべて含まれます。","i2_n":"初級3回・5回","i2_d":"3回210,000ウォン、5回300,000ウォン。各2時間で、最初のレッスンの上にパドルアウト、波の選び方、方向転換を加えていきます。","i3_n":"初級10回","i3_d":"550,000ウォン。テイクオフからトリム、ターンまで10回で身につけます。10回のあとは春・秋・冬学期のレベルアッププログラムへ進みます。","i4_n":"サーフレスキュー資格課程","i4_d":"理論と実技16時間、300,000ウォン。筆記・実技試験に合格すると資格証と認定書が交付されます。レンタルは10:00–18:00、ボード25,000ウォン・ウェットスーツ25,000ウォン・シャワー4,000ウォン。","sec2_kick":"02 — 時間と料金","sec2_title":"1日3回のレッスン時間。","h1_l":"入門レッスン","h1_v":"10:00 · 13:00 · 15:30","h2_l":"レンタル","h2_v":"10:00 – 18:00","h3_l":"回数レッスン","h3_v":"予約時に相談","addr":"江原特別自治道 襄陽郡 襄陽邑 日出路（イルチュルロ）159-12 1階（襄陽ビーチコンド別館）","transit":"襄陽邑の日出路、襄陽ビーチコンド別館の1階です。地図アプリで「양양서핑학교」を検索してください。レッスンを行うビーチと駐車場所は予約時にご案内します。","foot_tagline":"江原道襄陽のサーフィン教室 — 1日3回の入門レッスンと、3回から10回までの課程。"},"zh":{"lang_aria":"语言","lbl_hours":"营业时间","lbl_address":"地址","lbl_getting":"交通","lbl_email":"邮箱","lbl_phone":"电话","lbl_messenger":"消息","concept_badge":"方案预览 · Atelier Web","concept_note":"本页面是 Atelier Web 制作的概念方案，并非 양양서핑학교 的官方网站。","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"直接联系","cta_email":"写邮件","brand_sub":"江原道襄阳冲浪学校","nav1":"课程","nav2":"时间·费用","nav3":"联系","nav_cta":"课程咨询","hero_kick":"江原道 襄阳海岸","hero_title":"在第一道浪上站起来，<em>身边有人陪着。</em>","hero_lede":"被教育厅指定为替代学校的冲浪教育机构，教练持有襄阳郡冲浪讲师认证与国际冲浪协会（ISA）资格。课程在十点、一点、三点半开始，入门课两小时，含冲浪板、潜水服与淋浴。","cta1":"查看课程","cta2":"时间与费用","art_note":"两小时，含板与潜水服","art_quote":"“沙滩上二十分钟理论，海里七十分钟。”","art_fact":"入门课 2 小时 · 80,000 韩元 · 每日三场","sec1_kick":"01 — 课程","sec1_title":"第一堂课，以及在其上叠加的课程。","sec1_lede":"课程依据学校自编的冲浪教材编排，经过十万余名学员打磨。所有教练均持襄阳郡讲师认证与水上救援资格；14 岁以下儿童须由家长陪同。","i1_n":"入门课 2 小时","i1_d":"80,000 韩元。理论与安全规则 20 分钟、热身与沙滩练习 20 分钟、海中 70 分钟，最后颁发结业证。冲浪板、潜水服、课程与淋浴全部包含。","i2_n":"初级 3 次 · 5 次","i2_d":"3 次 210,000 韩元，5 次 300,000 韩元。每次两小时，在第一堂课之上加入划水出海、选浪与转向。","i3_n":"初级 10 次","i3_d":"550,000 韩元。从起乘到滑行与转向，十次逐步掌握；十次之后进入春、秋、冬学期的进阶课程。","i4_n":"冲浪救援资格课程","i4_d":"理论加实操 16 小时，300,000 韩元，笔试与实操合格后颁发资格证与认证书。器材租借 10:00–18:00，冲浪板 25,000 韩元、潜水服 25,000 韩元、淋浴 4,000 韩元。","sec2_kick":"02 — 时间与费用","sec2_title":"每天三场课程。","h1_l":"入门课","h1_v":"10:00 · 13:00 · 15:30","h2_l":"器材租借","h2_v":"10:00 – 18:00","h3_l":"次数课程","h3_v":"预约时商定","addr":"江原特别自治道襄阳郡襄阳邑日出路 159-12 一楼（襄阳海滩公寓别馆）","transit":"位于襄阳邑日出路、襄阳海滩公寓别馆一楼。在地图应用搜索「양양서핑학교」即可；上课海滩与停车位置会在预约时一并告知。","foot_tagline":"江原道襄阳的冲浪学校——每天三场入门课，以及 3 至 10 次的进阶课程。"},"es":{"lang_aria":"Idioma","lbl_hours":"Horario","lbl_address":"Dirección","lbl_getting":"Cómo llegar","lbl_email":"Correo","lbl_phone":"Teléfono","lbl_messenger":"Mensaje","concept_badge":"Vista de concepto · Atelier Web","concept_note":"Esta página es una propuesta de concepto preparada por Atelier Web. No es el sitio oficial de 양양서핑학교.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Contacto directo","cta_email":"Escribir un correo","brand_sub":"Escuela de surf · Yangyang, Gangwon","nav1":"Clases","nav2":"Horarios y tarifas","nav3":"Contacto","nav_cta":"Consultar una clase","hero_kick":"Yangyang · costa de Gangwon","hero_title":"Ponte de pie en tu primera ola, <em>con alguien al lado.</em>","hero_lede":"Una escuela de surf designada por la consejería de educación como escuela alternativa, con instructores certificados por el condado de Yangyang y por la Asociación Internacional de Surf. Las clases empiezan a las diez, a la una y a las tres y media; la de iniciación dura dos horas con tabla, neopreno y ducha incluidos.","cta1":"Ver las clases","cta2":"Horarios y tarifas","art_note":"Dos horas, tabla y neopreno incluidos","art_quote":"«Veinte minutos de teoría en la arena y setenta en el agua.»","art_fact":"Iniciación 2 horas · ₩80.000 · tres horarios","sec1_kick":"01 — Clases","sec1_title":"Una primera clase y cursos que se apoyan en ella.","sec1_lede":"El programa sigue el método del manual de surf que escribió la propia escuela, afinado con más de cien mil alumnos. Todos los instructores tienen certificación del condado y titulación de rescate acuático; los menores de catorce años deben venir con un adulto.","i1_n":"Clase de iniciación, 2 horas","i1_d":"₩80.000. Veinte minutos de teoría y seguridad, veinte de calentamiento y práctica en la arena, setenta en el agua y un certificado. Tabla, neopreno, clase y ducha incluidos.","i2_n":"Tres y cinco clases","i2_d":"₩210.000 por tres, ₩300.000 por cinco. Cada sesión dura dos horas y suma a lo aprendido el paleo hacia fuera, la elección de olas y el giro.","i3_n":"Diez clases","i3_d":"₩550.000. Diez sesiones desde el take-off hasta el trim y el giro; después la escuela pasa al programa de progresión de primavera, otoño e invierno.","i4_n":"Titulación de rescate en surf","i4_d":"Curso de dieciséis horas de teoría y práctica, ₩300.000, con certificado al aprobar las pruebas escrita y práctica. El alquiler va de 10:00 a 18:00: tabla ₩25.000, neopreno ₩25.000, ducha ₩4.000.","sec2_kick":"02 — Horarios y tarifas","sec2_title":"Tres horarios de clase al día.","h1_l":"Iniciación","h1_v":"10:00 · 13:00 · 15:30","h2_l":"Alquiler","h2_v":"10:00 – 18:00","h3_l":"Cursos","h3_v":"Hora acordada al reservar","addr":"159-12 Ilchul-ro, Yangyang-eup, Yangyang-gun, Gangwon — primera planta, anexo de Yangyang Beach Condo","transit":"En Yangyang-eup, en Ilchul-ro, en la primera planta del anexo de Yangyang Beach Condo. Busca «양양서핑학교» en la app de mapas; la playa donde se da la clase y el aparcamiento se confirman al reservar.","foot_tagline":"Escuela de surf en Yangyang, Gangwon: clases de iniciación tres veces al día y cursos de tres a diez sesiones."},"vi":{"lang_aria":"Ngôn ngữ","lbl_hours":"Giờ mở cửa","lbl_address":"Địa chỉ","lbl_getting":"Đường đi","lbl_email":"Email","lbl_phone":"Điện thoại","lbl_messenger":"Tin nhắn","concept_badge":"Bản xem trước ý tưởng · Atelier Web","concept_note":"Trang này là bản phác thảo ý tưởng do Atelier Web thực hiện, không phải website chính thức của 양양서핑학교.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Liên hệ trực tiếp","cta_email":"Gửi email","brand_sub":"Trường lướt sóng · Yangyang, Gangwon","nav1":"Buổi học","nav2":"Giờ & giá","nav3":"Liên hệ","nav_cta":"Hỏi buổi học","hero_kick":"Yangyang · bờ biển Gangwon","hero_title":"Đứng lên trên con sóng đầu tiên, <em>có người ở bên.</em>","hero_lede":"Trường lướt sóng được sở giáo dục công nhận là trường thay thế, giáo viên có chứng nhận hướng dẫn của huyện Yangyang và của Hiệp hội Lướt sóng Quốc tế. Lớp bắt đầu lúc mười giờ, một giờ và ba giờ rưỡi; lớp nhập môn kéo dài hai tiếng, đã gồm ván, áo lặn và phòng tắm.","cta1":"Xem các lớp","cta2":"Giờ và giá","art_note":"Hai tiếng, gồm ván và áo lặn","art_quote":"“Hai mươi phút lý thuyết trên cát, bảy mươi phút dưới nước.”","art_fact":"Nhập môn 2 giờ · 80.000₩ · ba khung giờ","sec1_kick":"01 — Các lớp","sec1_title":"Buổi đầu tiên, rồi các khóa nối tiếp.","sec1_lede":"Chương trình dựa trên giáo trình lướt sóng do chính trường biên soạn, đã chỉnh qua hơn một trăm nghìn học viên. Mọi giáo viên đều có chứng nhận của huyện Yangyang và chứng chỉ cứu hộ trên nước; trẻ dưới mười bốn tuổi phải đi cùng phụ huynh.","i1_n":"Lớp nhập môn, 2 giờ","i1_d":"80.000₩. Hai mươi phút lý thuyết và an toàn, hai mươi phút khởi động và tập trên bãi, bảy mươi phút dưới nước, kết thúc bằng chứng chỉ. Đã gồm ván, áo lặn, buổi học và phòng tắm.","i2_n":"Ba và năm buổi","i2_d":"Ba buổi 210.000₩, năm buổi 300.000₩. Mỗi buổi hai tiếng, thêm vào nền buổi đầu việc chèo ra ngoài, chọn sóng và chuyển hướng.","i3_n":"Mười buổi","i3_d":"550.000₩. Mười buổi từ lúc bắt sóng đến giữ thăng bằng và rẽ; sau đó trường chuyển sang chương trình nâng cấp theo học kỳ xuân, thu, đông.","i4_n":"Chứng chỉ cứu hộ lướt sóng","i4_d":"Khóa mười sáu giờ lý thuyết và thực hành, 300.000₩, nhận chứng chỉ khi đỗ bài viết và bài thực hành. Thuê thiết bị 10:00–18:00: ván 25.000₩, áo lặn 25.000₩, phòng tắm 4.000₩.","sec2_kick":"02 — Giờ và giá","sec2_title":"Mỗi ngày ba khung giờ học.","h1_l":"Lớp nhập môn","h1_v":"10:00 · 13:00 · 15:30","h2_l":"Thuê thiết bị","h2_v":"10:00 – 18:00","h3_l":"Khóa nhiều buổi","h3_v":"Thống nhất khi đặt","addr":"159-12 Ilchul-ro, Yangyang-eup, Yangyang-gun, Gangwon — tầng một, nhà phụ Yangyang Beach Condo","transit":"Ở Yangyang-eup trên đường Ilchul-ro, tầng một nhà phụ Yangyang Beach Condo. Tìm “양양서핑학교” trên ứng dụng bản đồ; bãi biển dạy học và chỗ đỗ xe sẽ được xác nhận khi đặt lịch.","foot_tagline":"Trường lướt sóng ở Yangyang, Gangwon — lớp nhập môn ba lần mỗi ngày và khóa từ ba đến mười buổi."}};
+</script>
+<script>
+(function(){
+  var dict = window.I18N || {}, LANGS = ['en','ko','ja','zh','es','vi'], current = 'ko';
+  function t(k){
+    var pack = dict[current] || dict.en || {};
+    if (pack[k] !== undefined) return pack[k];
+    return (dict.en && dict.en[k] !== undefined) ? dict.en[k] : '';
+  }
+  function apply(lang){
+    if (LANGS.indexOf(lang) < 0) lang = 'en';
+    current = lang;
+    document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-Hans' : lang);
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n'));
+      if (v !== '') el.innerHTML = v;
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n-aria'));
+      if (v !== '') el.setAttribute('aria-label', v);
+    });
+    document.querySelectorAll('.lang').forEach(function(b){
+      var on = b.getAttribute('data-lang') === lang;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    try { localStorage.setItem('aw_concept_lang', lang); } catch(e) {}
+  }
+  document.querySelectorAll('.lang').forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.getAttribute('data-lang')); });
+  });
+  var saved = null;
+  try { saved = localStorage.getItem('aw_concept_lang'); } catch(e) {}
+  if (LANGS.indexOf(saved) < 0) saved = 'ko';
+  apply(saved);
+})();
+</script>
+</body>
+</html>

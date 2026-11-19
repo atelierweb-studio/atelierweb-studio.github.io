@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko" data-lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>데이서프 — 부산 송정 서핑 강습·보드 렌탈 (개념 시안)</title>
+<meta name="description" content="Concept preview for Daysurf, a surf shop in Songjeong, Busan, with a six-language switch.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#12414F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230F0E0B'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='13' fill='%23F5F1E8' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#F7F5EF; --bg2:#EFEBE1; --card:#FFFFFF; --ink:#15140F; --ink2:#43403A;
+    --muted:#787264; --line:rgba(21,20,15,.14); --accent:#8C5A2B; --accent2:#2E4038;
+    --tint:rgba(140,90,43,.08);
+    --serif:"New York",ui-serif,"Iowan Old Style","Palatino Linotype",Georgia,"Noto Serif KR",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Pretendard",Roboto,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --r:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  h1,h2,h3{margin:0;font-family:var(--serif);font-weight:400;letter-spacing:-.01em}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+  .eyebrow{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+  .topbar{position:fixed;inset:0 0 auto;z-index:50;background:var(--bg);background:color-mix(in srgb,var(--bg) 93%,transparent);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .topbar-in{max-width:1140px;margin:0 auto;padding:11px 28px;display:flex;align-items:center;gap:22px}
+  .brand{display:flex;flex-direction:column;line-height:1}
+  .brand strong{font-family:var(--serif);font-weight:400;font-size:20px;letter-spacing:.01em}
+  .brand i{font-style:normal;font-family:var(--mono);font-size:7.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .nav{display:flex;gap:18px}
+  .nav a{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);
+    padding-bottom:3px;border-bottom:1px solid transparent}
+  .nav a:hover{color:var(--accent);border-color:var(--accent)}
+  .langs{display:flex;gap:5px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+  .langs::-webkit-scrollbar{display:none}
+  .lang{font-family:var(--mono);font-size:9.5px;border:1px solid var(--line);border-radius:99px;padding:6px 8px;
+    white-space:nowrap;color:var(--ink2);transition:.16s}
+  .lang:hover{border-color:var(--accent);color:var(--accent)}
+  .lang.is-on{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent2);color:#fff;border:1px solid var(--accent2);
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;padding:12px 18px;border-radius:99px;transition:.18s}
+  .btn:hover{background:var(--accent);border-color:var(--accent)}
+  .btn-sm{padding:9px 14px;font-size:8.5px;flex:0 0 auto}
+  .btn-ghost{background:transparent;color:var(--accent2);border-color:var(--line)}
+  .btn-ghost:hover{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+
+  .hero{padding:132px 0 60px}
+  .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:48px;align-items:center}
+  .kicker{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  h1{margin-top:16px;font-size:clamp(36px,4.8vw,58px);line-height:1.05}
+  h1 em{font-style:italic;color:var(--accent)}
+  .hero p{margin:18px 0 0;font-size:15.5px;line-height:1.7;color:var(--ink2);max-width:46ch}
+  .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+  .art{position:relative;border-radius:20px;overflow:hidden;min-height:360px;border:1px solid var(--line);
+    background:linear-gradient(168deg,var(--bg2),var(--bg));
+    background-image:linear-gradient(168deg,var(--bg2),color-mix(in srgb,var(--accent) 12%,var(--bg2)))}
+  .art::before{content:"";position:absolute;width:280px;height:280px;border-radius:50%;left:-50px;top:-70px;
+    border:1px solid var(--line);border-color:color-mix(in srgb,var(--accent) 30%,transparent)}
+  .art::after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-30px;bottom:70px;
+    background:radial-gradient(circle at 35% 30%,#fff,transparent 70%)}
+  .art-note{position:absolute;left:22px;top:22px;font-family:var(--mono);font-size:8px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--accent)}
+  .art-quote{position:absolute;left:22px;right:22px;top:46%;transform:translateY(-50%);font-family:var(--serif);
+    font-size:23px;line-height:1.28;color:var(--accent2);max-width:24ch}
+  .art-fact{position:absolute;left:22px;right:22px;bottom:20px;background:rgba(255,255,255,.86);border-radius:12px;
+    padding:12px 14px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);
+    box-shadow:0 12px 26px -20px rgba(21,20,15,.5)}
+  .concept{position:absolute;right:16px;top:16px;background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:99px;
+    padding:5px 10px;font-family:var(--mono);font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+  .sec{padding:58px 0;border-top:1px solid var(--line)}
+  .sec-head{margin-bottom:26px;max-width:62ch}
+  h2{font-size:clamp(25px,3vw,36px);line-height:1.12;margin-top:10px}
+  .sec-head p{margin:10px 0 0;font-size:13px;line-height:1.65;color:var(--muted)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .item{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;transition:.2s}
+  .item:hover{border-color:var(--accent);box-shadow:0 16px 30px -26px rgba(21,20,15,.5)}
+  .item .n{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--accent)}
+  .item h3{font-size:18px;margin-top:8px;line-height:1.28}
+  .item p{margin:8px 0 0;font-size:12px;line-height:1.62;color:var(--muted)}
+
+  .visit{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .row{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .row b{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .row span{font-family:var(--mono);font-size:10.5px;color:var(--ink2);text-align:right}
+  .blocks{margin-top:18px}
+  .block{margin-top:14px}
+  .block b{display:block;font-family:var(--mono);font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .block span{display:block;margin-top:5px;font-size:12.5px;line-height:1.65;color:var(--ink2)}
+  .contact{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;align-self:start}
+  .contact h3{font-size:19px}
+  .cline{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .cline:last-of-type{border-bottom:0}
+  .cline b{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .cline a{font-size:12px;color:var(--accent2);border-bottom:1px solid var(--line);border-bottom-color:color-mix(in srgb,var(--accent) 50%,transparent);
+    text-underline-offset:2px;word-break:break-all}
+  .contact .btn{margin-top:16px;width:100%;justify-content:center}
+
+  footer{background:var(--ink);color:#EEE9DF;padding:44px 0 26px;margin-top:14px}
+  .foot{display:grid;grid-template-columns:1.4fr .6fr;gap:26px}
+  .foot strong{font-family:var(--serif);font-weight:400;font-size:19px}
+  .foot p{margin:12px 0 0;font-size:10.5px;line-height:1.7;color:#B6AE9E;max-width:52ch}
+  .foot .credit{margin-top:14px;font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;color:#D8D0C0}
+  .foot .credit a{border-bottom:1px solid rgba(216,208,192,.5)}
+  .foot-bottom{margin-top:24px;padding-top:14px;border-top:1px solid rgba(238,233,223,.16);display:flex;
+    justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:8px;letter-spacing:.1em;
+    text-transform:uppercase;color:#9A9282}
+  .foot .concept-note{font-size:10px;line-height:1.6;color:#9A9282;max-width:60ch}
+
+  @media (max-width:960px){
+    .nav{display:none}
+    .hero{padding-top:112px}
+    .hero-grid,.visit,.grid{grid-template-columns:1fr;gap:26px}
+    .foot{grid-template-columns:1fr}
+    .topbar-in{flex-wrap:wrap;gap:10px}
+    .langs{order:3;width:100%;margin-left:0}
+    .btn-sm{margin-left:auto}
+    .art{min-height:320px}
+  }
+  @media (max-width:600px){
+    .wrap,.topbar-in{padding-left:18px;padding-right:18px}
+    .art-quote{font-size:20px}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="#top"><strong>데이서프</strong><i data-i18n="brand_sub">부산 송정 서핑숍</i></a>
+    <nav class="nav">
+      <a href="#offer" data-i18n="nav1">강습</a>
+      <a href="#visit" data-i18n="nav2">요금·시간</a>
+      <a href="mailto:daysurf@naver.com" data-i18n="nav3">문의</a>
+    </nav>
+    <div class="langs" role="group" data-i18n-aria="lang_aria" aria-label="Language">
+      <button type="button" class="lang" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" class="lang is-on" data-lang="ko" aria-pressed="true">KO</button>
+      <button type="button" class="lang" data-lang="ja" aria-pressed="false">JA</button>
+      <button type="button" class="lang" data-lang="zh" aria-pressed="false">ZH</button>
+      <button type="button" class="lang" data-lang="es" aria-pressed="false">ES</button>
+      <button type="button" class="lang" data-lang="vi" aria-pressed="false">VI</button>
+    </div>
+    <a class="btn btn-sm" href="#visit" data-i18n="nav_cta">강습 예약</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="kicker" data-i18n="hero_kick">부산 송정해수욕장</div>
+        <h1 data-i18n="hero_title">혼자 파도를 잡고 끝나는 <em>첫 강습.</em></h1>
+        <p data-i18n="hero_lede">2012년부터 송정해수욕장에서 강습해 온 서핑숍입니다. 한 시간 반 교육에 한 시간 반 자유서핑, 모두 세 시간이며 보드와 웻슈트가 포함됩니다. 강습은 열 시와 한 시, 장비 대여는 하루 종일 가능합니다.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#offer" data-i18n="cta1">강습과 요금 보기</a>
+          <a class="btn btn-ghost" href="#visit" data-i18n="cta2">시간과 오시는 길</a>
+        </div>
+      </div>
+      <div class="art" aria-hidden="true">
+        <div class="concept" data-i18n="concept_badge">Concept preview · Atelier Web</div>
+        <div class="art-note" data-i18n="art_note">교육 90분, 서핑 90분</div>
+        <div class="art-quote" data-i18n="art_quote">“강사가 밀어주지 않아도 스스로 파도를 잡을 수 있게.”</div>
+        <div class="art-fact" data-i18n="art_fact">3시간 · 강습+자유서핑 · 보드·웻슈트 포함</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="offer">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow" data-i18n="sec1_kick">01 — 강습</div>
+        <h2 data-i18n="sec1_title">기초부터, 혼자 파도를 잡는 데까지.</h2>
+        <p data-i18n="sec1_lede">국제서핑협회(ISA) 인증 프로그램으로 가르칩니다. 자세와 패들링, 테이크오프, 방향 전환을 필요한 순서대로 익힙니다. 어린이 강습은 초등학생을 기준으로 기술보다 바다와 친해지는 데 먼저 둡니다. 신청 전에 전화로 상담해 주세요.</p>
+      </div>
+      <div class="grid">
+        <article class="item"><div class="n">i1</div><h3 data-i18n="i1_n">1회 입문 강습 3시간</h3><p data-i18n="i1_d">현재 이벤트가 45,000원(정가 65,000원). 강사와 함께 모래 위와 바다에서 90분, 이어서 자유서핑 90분. 보드와 웻슈트, 샤워가 포함됩니다.</p></article>
+        <article class="item"><div class="n">i2</div><h3 data-i18n="i2_n">5회권 · 10회권</h3><p data-i18n="i2_d">5회권 130,000원(정가 195,000원, 유효기간 1개월), 10회권 200,000원(정가 325,000원, 2개월). 회차마다 같은 세 시간으로 진행합니다.</p></article>
+        <article class="item"><div class="n">i3</div><h3 data-i18n="i3_n">단체 강습</h3><p data-i18n="i3_d">4인 175,000원(정가 260,000원), 10인 400,000원(정가 650,000원). 날짜를 알려주시면 그날 가능한 시간을 확인해 드립니다.</p></article>
+        <article class="item"><div class="n">i4</div><h3 data-i18n="i4_n">보드·웻슈트 대여</h3><p data-i18n="i4_d">보드와 웻슈트 3시간 20,000원, 종일 30,000원. 대여는 하루 종일 가능하지만 15시가 지나면 남은 시간이 짧아집니다. 매장에 파우더룸과 샤워실, 타코를 파는 식당이 있습니다.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="visit">
+    <div class="wrap visit">
+      <div>
+        <div class="eyebrow" data-i18n="sec2_kick">02 — 요금과 시간</div>
+        <h2 data-i18n="sec2_title">강습은 두 번, 대여는 종일.</h2>
+        <div style="margin-top:18px">
+          <div class="row"><b data-i18n="h1_l">강습</b><span data-i18n="h1_v">10:00 · 13:00</span></div>
+          <div class="row"><b data-i18n="h2_l">장비 대여</b><span data-i18n="h2_v">종일 (15시 이후 짧아짐)</span></div>
+          <div class="row"><b data-i18n="h3_l">예약</b><span data-i18n="h3_v">전화 · 카카오톡 · 온라인</span></div>
+        </div>
+        <div class="blocks">
+          <div class="block"><b data-i18n="lbl_address">Address</b><span data-i18n="addr">부산광역시 해운대구 송정중앙로8번길 71-7 — 옛 송정역(해변열차) 옆</span></div>
+          <div class="block"><b data-i18n="lbl_getting">Getting here</b><span data-i18n="transit">송정해수욕장 안, 해변열차 옛 송정역 바로 옆입니다. 동해선 송정역에서 해변 쪽으로 내려오시면 됩니다.</span></div>
+        </div>
+      </div>
+      <div class="contact">
+        <h3 data-i18n="contact_title" style="font-size:16px">Talk to us directly</h3>
+        <div style="margin-top:8px">
+          <div class="cline"><b data-i18n="lbl_email">Email</b><a href="mailto:daysurf@naver.com">daysurf@naver.com</a></div>
+          <div class="cline"><b data-i18n="lbl_phone">Phone</b><a href="tel:+821094118886">010-9411-8886</a></div>
+
+        </div>
+        <a class="btn" href="mailto:daysurf@naver.com" data-i18n="cta_email">Write an email</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <strong>데이서프</strong>
+        <p data-i18n="foot_tagline">부산 송정해수욕장의 서핑숍 — 2012년부터 이어온 강습, 보드·웻슈트 대여, 회차당 세 시간.</p>
+        <p class="concept-note" data-i18n="concept_note">이 페이지는 Atelier Web이 제안용으로 만든 시안이며 데이서프의 공식 홈페이지가 아닙니다.</p>
+        <div class="credit">Concept preview prepared by Atelier Web (<a href="https://atelierweb-studio.github.io/" target="_blank" rel="noopener">atelierweb-studio.github.io</a>)</div>
+      </div>
+      <div>
+        <p style="font-family:var(--mono);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:#8E8677;margin:0" data-i18n="lbl_hours">Hours</p>
+        <p style="margin-top:8px;font-family:var(--mono);font-size:10px;line-height:1.9;color:#CBC3B3">강습 10:00 · 13:00 · 장비 대여 상시</p>
+        <p style="margin-top:10px;font-family:var(--mono);font-size:9px;color:#8E8677" data-i18n="foot_lang">EN · KO · JA · ZH · ES · VI</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>데이서프 · Busan · Songjeong</span>
+      <span>© 2026 Atelier Web · concept</span>
+    </div>
+  </div>
+</footer>
+
+<noscript><div style="position:fixed;left:0;right:0;bottom:0;z-index:80;background:#15140F;color:#EEE9DF;font-family:monospace;font-size:9px;padding:9px 14px;text-align:center">JavaScript is off. Open this page in Safari or Chrome for the six-language switch.</div></noscript>
+
+<script>
+window.I18N = {"en":{"lang_aria":"Language","lbl_hours":"Hours","lbl_address":"Address","lbl_getting":"Getting here","lbl_email":"Email","lbl_phone":"Phone","lbl_messenger":"Message","concept_badge":"Concept preview · Atelier Web","concept_note":"This page is an unsolicited concept preview prepared by Atelier Web. It is not the official website of 데이서프.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Talk to us directly","cta_email":"Write an email","brand_sub":"Surf shop · Songjeong, Busan","nav1":"Lessons","nav2":"Rates & times","nav3":"Contact","nav_cta":"Book a lesson","hero_kick":"Songjeong Beach · Busan","hero_title":"A first lesson that ends <em>on a wave you caught yourself.</em>","hero_lede":"A surf shop on Songjeong Beach that has been teaching since 2012. Ninety minutes of instruction followed by ninety minutes of free surfing — three hours in all — with board and wetsuit included. Lessons at ten and one; equipment can be rented any time of day.","cta1":"See lessons and rates","cta2":"Hours and directions","art_note":"Ninety minutes of teaching, ninety of surfing","art_quote":"“Learn to paddle out and catch a wave without the instructor pushing you.”","art_fact":"3 hours · lesson + free surf · board and wetsuit included","sec1_kick":"01 — Lessons","sec1_title":"From the basics to catching waves alone.","sec1_lede":"The shop teaches the International Surfing Association programme: stance, paddling, take-off and turning, in the order you need them. Children's lessons are for primary-school age and start with getting comfortable in the sea rather than technique — call before booking one.","i1_n":"First lesson, 3 hours","i1_d":"₩45,000 during the current event (normally ₩65,000). Ninety minutes with an instructor on the sand and in the water, then ninety minutes of free surfing, with board, wetsuit and shower included.","i2_n":"Five and ten lessons","i2_d":"Five lessons ₩130,000 valid one month (normally ₩195,000); ten lessons ₩200,000 valid two months (normally ₩325,000). Each session runs the same three hours.","i3_n":"Group lessons","i3_d":"Four people ₩175,000 (normally ₩260,000); ten people ₩400,000 (normally ₩650,000). Tell us the date and we will confirm the time that day.","i4_n":"Board and wetsuit rental","i4_d":"Board and wetsuit for three hours ₩20,000, or ₩30,000 for the whole day. Rental is available all day, though after 15:00 the remaining time gets shorter. There is a changing room, showers and a taco counter on site.","sec2_kick":"02 — Rates and times","sec2_title":"Two lesson times, rental all day.","h1_l":"Lessons","h1_v":"10:00 · 13:00","h2_l":"Rental","h2_v":"All day, shorter after 15:00","h3_l":"Booking","h3_v":"Phone, KakaoTalk or online","addr":"71-7 Songjeongjungang-ro 8beon-gil, Haeundae-gu, Busan — beside the old Songjeong station of the beach train","transit":"On Songjeong Beach, next to the old Songjeong station on the beach train line. From Songjeong Station (Donghae Line), walk down toward the beach; the shop is a few minutes from the sand.","foot_tagline":"Surf shop on Songjeong Beach, Busan — lessons since 2012, board and wetsuit rental, three hours a session."},"ko":{"lang_aria":"언어 선택","lbl_hours":"영업시간","lbl_address":"주소","lbl_getting":"오시는 길","lbl_email":"이메일","lbl_phone":"전화","lbl_messenger":"메신저","concept_badge":"시안 미리보기 · Atelier Web","concept_note":"이 페이지는 Atelier Web이 제안용으로 만든 시안이며 데이서프의 공식 홈페이지가 아닙니다.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"바로 연락하기","cta_email":"이메일 보내기","brand_sub":"부산 송정 서핑숍","nav1":"강습","nav2":"요금·시간","nav3":"문의","nav_cta":"강습 예약","hero_kick":"부산 송정해수욕장","hero_title":"혼자 파도를 잡고 끝나는 <em>첫 강습.</em>","hero_lede":"2012년부터 송정해수욕장에서 강습해 온 서핑숍입니다. 한 시간 반 교육에 한 시간 반 자유서핑, 모두 세 시간이며 보드와 웻슈트가 포함됩니다. 강습은 열 시와 한 시, 장비 대여는 하루 종일 가능합니다.","cta1":"강습과 요금 보기","cta2":"시간과 오시는 길","art_note":"교육 90분, 서핑 90분","art_quote":"“강사가 밀어주지 않아도 스스로 파도를 잡을 수 있게.”","art_fact":"3시간 · 강습+자유서핑 · 보드·웻슈트 포함","sec1_kick":"01 — 강습","sec1_title":"기초부터, 혼자 파도를 잡는 데까지.","sec1_lede":"국제서핑협회(ISA) 인증 프로그램으로 가르칩니다. 자세와 패들링, 테이크오프, 방향 전환을 필요한 순서대로 익힙니다. 어린이 강습은 초등학생을 기준으로 기술보다 바다와 친해지는 데 먼저 둡니다. 신청 전에 전화로 상담해 주세요.","i1_n":"1회 입문 강습 3시간","i1_d":"현재 이벤트가 45,000원(정가 65,000원). 강사와 함께 모래 위와 바다에서 90분, 이어서 자유서핑 90분. 보드와 웻슈트, 샤워가 포함됩니다.","i2_n":"5회권 · 10회권","i2_d":"5회권 130,000원(정가 195,000원, 유효기간 1개월), 10회권 200,000원(정가 325,000원, 2개월). 회차마다 같은 세 시간으로 진행합니다.","i3_n":"단체 강습","i3_d":"4인 175,000원(정가 260,000원), 10인 400,000원(정가 650,000원). 날짜를 알려주시면 그날 가능한 시간을 확인해 드립니다.","i4_n":"보드·웻슈트 대여","i4_d":"보드와 웻슈트 3시간 20,000원, 종일 30,000원. 대여는 하루 종일 가능하지만 15시가 지나면 남은 시간이 짧아집니다. 매장에 파우더룸과 샤워실, 타코를 파는 식당이 있습니다.","sec2_kick":"02 — 요금과 시간","sec2_title":"강습은 두 번, 대여는 종일.","h1_l":"강습","h1_v":"10:00 · 13:00","h2_l":"장비 대여","h2_v":"종일 (15시 이후 짧아짐)","h3_l":"예약","h3_v":"전화 · 카카오톡 · 온라인","addr":"부산광역시 해운대구 송정중앙로8번길 71-7 — 옛 송정역(해변열차) 옆","transit":"송정해수욕장 안, 해변열차 옛 송정역 바로 옆입니다. 동해선 송정역에서 해변 쪽으로 내려오시면 됩니다.","foot_tagline":"부산 송정해수욕장의 서핑숍 — 2012년부터 이어온 강습, 보드·웻슈트 대여, 회차당 세 시간."},"ja":{"lang_aria":"言語","lbl_hours":"営業時間","lbl_address":"住所","lbl_getting":"アクセス","lbl_email":"メール","lbl_phone":"電話","lbl_messenger":"メッセージ","concept_badge":"コンセプトプレビュー · Atelier Web","concept_note":"このページは Atelier Web が提案用に制作したコンセプトで、데이서프 の公式サイトではありません。","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"直接のご連絡","cta_email":"メールを書く","brand_sub":"釜山 松亭（ソンジョン）サーフショップ","nav1":"レッスン","nav2":"料金・時間","nav3":"お問い合わせ","nav_cta":"レッスン予約","hero_kick":"釜山 松亭海水浴場","hero_title":"自分の力で波をつかんで終わる、<em>最初のレッスン。</em>","hero_lede":"2012年から松亭海水浴場でレッスンを続けてきたサーフショップです。90分の指導と90分のフリーサーフィン、合わせて3時間で、ボードとウェットスーツ込み。レッスンは10時と13時、レンタルは一日中可能です。","cta1":"レッスンと料金を見る","cta2":"時間とアクセス","art_note":"指導90分、サーフィン90分","art_quote":"「インストラクターに押されなくても、自分で波をつかめるように。」","art_fact":"3時間 · レッスン＋フリー · ボード・ウェットスーツ込み","sec1_kick":"01 — レッスン","sec1_title":"基礎から、一人で波をつかむところまで。","sec1_lede":"国際サーフィン協会（ISA）のプログラムで指導します。姿勢とパドリング、テイクオフ、方向転換を必要な順に学びます。子ども向けは小学生が対象で、技術より海に慣れることを先に置きます。お申し込み前に電話でご相談ください。","i1_n":"初回レッスン 3時間","i1_d":"現在のイベント価格45,000ウォン（通常65,000ウォン）。砂の上と海でインストラクターと90分、続いてフリーサーフィン90分。ボード、ウェットスーツ、シャワー込み。","i2_n":"5回券・10回券","i2_d":"5回券130,000ウォン（通常195,000ウォン、有効期限1か月）、10回券200,000ウォン（通常325,000ウォン、2か月）。各回とも同じ3時間です。","i3_n":"グループレッスン","i3_d":"4名175,000ウォン（通常260,000ウォン）、10名400,000ウォン（通常650,000ウォン）。日付をお知らせいただければ、その日の可能な時間を確認します。","i4_n":"ボード・ウェットスーツのレンタル","i4_d":"ボードとウェットスーツ3時間20,000ウォン、終日30,000ウォン。レンタルは終日可能ですが、15時を過ぎると残り時間は短くなります。店内にパウダールーム、シャワー、タコスの食堂があります。","sec2_kick":"02 — 料金と時間","sec2_title":"レッスンは1日2回、レンタルは終日。","h1_l":"レッスン","h1_v":"10:00 · 13:00","h2_l":"レンタル","h2_v":"終日（15時以降は短縮）","h3_l":"予約","h3_v":"電話・カカオトーク・オンライン","addr":"釜山広域市 海雲台区 松亭中央路8番キル 71-7 — 旧松亭駅（海辺列車）の隣","transit":"松亭海水浴場の中、海辺列車の旧松亭駅のすぐ隣です。東海線松亭駅から海側へ下りてお越しください。","foot_tagline":"釜山・松亭海水浴場のサーフショップ — 2012年からのレッスン、ボードとウェットスーツのレンタル、1回3時間。"},"zh":{"lang_aria":"语言","lbl_hours":"营业时间","lbl_address":"地址","lbl_getting":"交通","lbl_email":"邮箱","lbl_phone":"电话","lbl_messenger":"消息","concept_badge":"方案预览 · Atelier Web","concept_note":"本页面是 Atelier Web 制作的概念方案，并非 데이서프 的官方网站。","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"直接联系","cta_email":"写邮件","brand_sub":"釜山松亭冲浪店","nav1":"课程","nav2":"价格·时间","nav3":"联系","nav_cta":"预约课程","hero_kick":"釜山 松亭海水浴场","hero_title":"以自己的力量抓到浪，<em>结束第一堂课。</em>","hero_lede":"自 2012 年起在松亭海水浴场授课的冲浪店。九十分钟教学加九十分钟自由冲浪，共三小时，含冲浪板与潜水服。课程在十点与一点开始，器材全天可租。","cta1":"查看课程与价格","cta2":"时间与交通","art_note":"教学 90 分钟，冲浪 90 分钟","art_quote":"“不用教练推板，也能自己抓到浪。”","art_fact":"3 小时 · 课程＋自由冲浪 · 含板与潜水服","sec1_kick":"01 — 课程","sec1_title":"从基础，到独自抓浪。","sec1_lede":"按国际冲浪协会（ISA）课程授课：姿势、划水、起乘与转向，按需要的顺序学。儿童课以小学生为对象，先让孩子亲近海，再谈技术——报名前请先电话咨询。","i1_n":"首次课程 3 小时","i1_d":"活动价 45,000 韩元（原价 65,000 韩元）。与教练在沙滩和海里九十分钟，随后自由冲浪九十分钟，含板、潜水服与淋浴。","i2_n":"5 次券 · 10 次券","i2_d":"5 次券 130,000 韩元（原价 195,000 韩元，一个月内有效），10 次券 200,000 韩元（原价 325,000 韩元，两个月）。每次同样三小时。","i3_n":"团体课程","i3_d":"四人 175,000 韩元（原价 260,000 韩元），十人 400,000 韩元（原价 650,000 韩元）。告诉我们日期，我们会确认当天的可用时段。","i4_n":"板与潜水服租借","i4_d":"板加潜水服三小时 20,000 韩元，全天 30,000 韩元。全天可租，但 15 点之后剩余时间会缩短。店内设更衣化妆间、淋浴与塔可餐厅。","sec2_kick":"02 — 价格与时间","sec2_title":"每天两场课程，器材全天租借。","h1_l":"课程","h1_v":"10:00 · 13:00","h2_l":"租借","h2_v":"全天（15 点后缩短）","h3_l":"预约","h3_v":"电话 · KakaoTalk · 线上","addr":"釜山海云台区松亭中央路8号街 71-7 —— 旧松亭站（海边列车）旁","transit":"在松亭海水浴场内，海边列车旧松亭站旁。从东海线松亭站往海边方向下来即到。","foot_tagline":"釜山松亭海水浴场的冲浪店——2012 年起的课程、板与潜水服租借，每次三小时。"},"es":{"lang_aria":"Idioma","lbl_hours":"Horario","lbl_address":"Dirección","lbl_getting":"Cómo llegar","lbl_email":"Correo","lbl_phone":"Teléfono","lbl_messenger":"Mensaje","concept_badge":"Vista de concepto · Atelier Web","concept_note":"Esta página es una propuesta de concepto preparada por Atelier Web. No es el sitio oficial de 데이서프.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Contacto directo","cta_email":"Escribir un correo","brand_sub":"Tienda de surf · Songjeong, Busan","nav1":"Clases","nav2":"Tarifas y horarios","nav3":"Contacto","nav_cta":"Reservar clase","hero_kick":"Playa de Songjeong · Busan","hero_title":"Una primera clase que termina <em>en una ola que cogiste tú.</em>","hero_lede":"Una tienda de surf en la playa de Songjeong que enseña desde 2012. Noventa minutos de clase y noventa de surf libre — tres horas en total — con tabla y neopreno incluidos. Clases a las diez y a la una; el alquiler está abierto todo el día.","cta1":"Ver clases y tarifas","cta2":"Horario y dirección","art_note":"Noventa minutos de clase, noventa de surf","art_quote":"«Aprender a salir remando y coger una ola sin que el instructor te empuje.»","art_fact":"3 horas · clase + surf libre · tabla y neopreno incluidos","sec1_kick":"01 — Clases","sec1_title":"Desde lo básico hasta coger olas solo.","sec1_lede":"Se enseña el programa de la Asociación Internacional de Surf: postura, remada, take-off y giro, en el orden en que hacen falta. Las clases infantiles son de edad de primaria y empiezan por sentirse cómodo en el mar; conviene llamar antes de reservar.","i1_n":"Primera clase, 3 horas","i1_d":"₩45.000 con el precio de la promoción actual (normal ₩65.000). Noventa minutos con el instructor en la arena y el agua, y noventa de surf libre, con tabla, neopreno y ducha incluidos.","i2_n":"Cinco y diez clases","i2_d":"Cinco clases ₩130.000 válidas un mes (normal ₩195.000); diez clases ₩200.000 válidas dos meses (normal ₩325.000). Cada sesión dura las mismas tres horas.","i3_n":"Clases de grupo","i3_d":"Cuatro personas ₩175.000 (normal ₩260.000); diez personas ₩400.000 (normal ₩650.000). Dinos la fecha y confirmamos la hora disponible.","i4_n":"Alquiler de tabla y neopreno","i4_d":"Tabla y neopreno tres horas ₩20.000, o ₩30.000 todo el día. El alquiler está abierto todo el día, aunque después de las 15:00 queda menos tiempo. Hay vestuario, duchas y un puesto de tacos.","sec2_kick":"02 — Tarifas y horarios","sec2_title":"Dos clases al día, alquiler todo el día.","h1_l":"Clases","h1_v":"10:00 · 13:00","h2_l":"Alquiler","h2_v":"Todo el día, menos tras las 15:00","h3_l":"Reserva","h3_v":"Teléfono, KakaoTalk u online","addr":"71-7 Songjeongjungang-ro 8beon-gil, Haeundae-gu, Busan — junto a la antigua estación de Songjeong del tren de playa","transit":"En la playa de Songjeong, junto a la antigua estación de Songjeong del tren de playa. Desde la estación de Songjeong (línea Donghae), baja hacia la playa.","foot_tagline":"Tienda de surf en la playa de Songjeong, Busan: clases desde 2012, alquiler de tabla y neopreno, tres horas por sesión."},"vi":{"lang_aria":"Ngôn ngữ","lbl_hours":"Giờ mở cửa","lbl_address":"Địa chỉ","lbl_getting":"Đường đi","lbl_email":"Email","lbl_phone":"Điện thoại","lbl_messenger":"Tin nhắn","concept_badge":"Bản xem trước ý tưởng · Atelier Web","concept_note":"Trang này là bản phác thảo ý tưởng do Atelier Web thực hiện, không phải website chính thức của 데이서프.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Liên hệ trực tiếp","cta_email":"Gửi email","brand_sub":"Tiệm lướt sóng · Songjeong, Busan","nav1":"Buổi học","nav2":"Giá & giờ","nav3":"Liên hệ","nav_cta":"Đặt buổi học","hero_kick":"Bãi biển Songjeong · Busan","hero_title":"Buổi học đầu tiên kết thúc <em>bằng con sóng bạn tự bắt.</em>","hero_lede":"Tiệm lướt sóng ở bãi Songjeong dạy từ năm 2012. Chín mươi phút hướng dẫn rồi chín mươi phút tự lướt — tổng ba tiếng — đã gồm ván và áo lặn. Lớp lúc mười giờ và một giờ; thuê thiết bị cả ngày.","cta1":"Xem lớp và giá","cta2":"Giờ và đường đi","art_note":"Chín mươi phút dạy, chín mươi phút lướt","art_quote":"“Học cách tự chèo ra và bắt sóng mà không cần giáo viên đẩy.”","art_fact":"3 giờ · học + lướt tự do · gồm ván và áo lặn","sec1_kick":"01 — Buổi học","sec1_title":"Từ cơ bản đến tự bắt sóng.","sec1_lede":"Dạy theo chương trình của Hiệp hội Lướt sóng Quốc tế: tư thế, chèo, bắt sóng và rẽ, theo thứ tự cần thiết. Lớp trẻ em dành cho tuổi tiểu học và bắt đầu bằng việc làm quen với biển hơn là kỹ thuật — nên gọi trước khi đặt.","i1_n":"Buổi đầu, 3 giờ","i1_d":"45.000₩ theo giá hiện hành (giá thường 65.000₩). Chín mươi phút với giáo viên trên cát và dưới nước, rồi chín mươi phút tự lướt, đã gồm ván, áo lặn và phòng tắm.","i2_n":"Năm và mười buổi","i2_d":"Năm buổi 130.000₩ dùng trong một tháng (thường 195.000₩); mười buổi 200.000₩ trong hai tháng (thường 325.000₩). Mỗi buổi vẫn ba tiếng.","i3_n":"Lớp nhóm","i3_d":"Bốn người 175.000₩ (thường 260.000₩); mười người 400.000₩ (thường 650.000₩). Cho biết ngày, tiệm sẽ xác nhận giờ phù hợp.","i4_n":"Thuê ván và áo lặn","i4_d":"Ván và áo lặn ba giờ 20.000₩, cả ngày 30.000₩. Thuê cả ngày, nhưng sau 15:00 thì thời gian còn lại ngắn hơn. Có phòng thay đồ, phòng tắm và quán taco.","sec2_kick":"02 — Giá và giờ","sec2_title":"Hai khung giờ học, thuê cả ngày.","h1_l":"Buổi học","h1_v":"10:00 · 13:00","h2_l":"Thuê thiết bị","h2_v":"Cả ngày, ngắn hơn sau 15:00","h3_l":"Đặt chỗ","h3_v":"Điện thoại, KakaoTalk, online","addr":"71-7 Songjeongjungang-ro 8beon-gil, Haeundae-gu, Busan — cạnh ga Songjeong cũ của tàu ven biển","transit":"Trên bãi biển Songjeong, ngay cạnh ga Songjeong cũ của tuyến tàu ven biển. Từ ga Songjeong (tuyến Donghae) đi xuống phía biển.","foot_tagline":"Tiệm lướt sóng ở bãi Songjeong, Busan — dạy từ 2012, cho thuê ván và áo lặn, mỗi buổi ba tiếng."}};
+</script>
+<script>
+(function(){
+  var dict = window.I18N || {}, LANGS = ['en','ko','ja','zh','es','vi'], current = 'ko';
+  function t(k){
+    var pack = dict[current] || dict.en || {};
+    if (pack[k] !== undefined) return pack[k];
+    return (dict.en && dict.en[k] !== undefined) ? dict.en[k] : '';
+  }
+  function apply(lang){
+    if (LANGS.indexOf(lang) < 0) lang = 'en';
+    current = lang;
+    document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-Hans' : lang);
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n'));
+      if (v !== '') el.innerHTML = v;
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n-aria'));
+      if (v !== '') el.setAttribute('aria-label', v);
+    });
+    document.querySelectorAll('.lang').forEach(function(b){
+      var on = b.getAttribute('data-lang') === lang;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    try { localStorage.setItem('aw_concept_lang', lang); } catch(e) {}
+  }
+  document.querySelectorAll('.lang').forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.getAttribute('data-lang')); });
+  });
+  var saved = null;
+  try { saved = localStorage.getItem('aw_concept_lang'); } catch(e) {}
+  if (LANGS.indexOf(saved) < 0) saved = 'ko';
+  apply(saved);
+})();
+</script>
+</body>
+</html>
