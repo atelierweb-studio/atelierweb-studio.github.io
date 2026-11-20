@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko" data-lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CAMPUSWAY DESIGN — 마이페이지</title>
+<meta name="description" content="CAMPUSWAY DESIGN 주문 내역과 진행 상태 — 결제, 자료 제출, 디자인 작업 상태를 분리해 확인합니다.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23292D32'/%3E%3Crect x='21' y='21' width='7' height='7' fill='%23D2FF5A'/%3E%3Ctext x='12' y='21' font-family='Helvetica,Arial' font-size='11' font-weight='bold' fill='%23F9F8F6' text-anchor='middle'%3ECW%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-title-key="my_kicker">
+
+<div data-cw-header></div>
+
+<main class="wrap">
+  <div class="dash-head">
+    <div>
+      <div class="eyebrow"><b>MY PAGE</b> <span data-i18n="my_kicker">My page</span></div>
+      <h1 data-i18n="my_title">Orders and progress.</h1>
+    </div>
+    <div class="dash-tools">
+      <a class="btn btn-sm" href="services.html" data-i18n="my_new_order">New order</a>
+      <button class="btn btn-sm btn-ghost" type="button" id="clearData" data-i18n="my_clear">Clear test data</button>
+    </div>
+  </div>
+
+  <div class="notice mt-24">
+    <span class="notice-mark">i</span>
+    <p data-i18n="my_static_note">Phase one runs on GitHub Pages static hosting.</p>
+  </div>
+
+  <p class="lede mt-24" data-i18n="my_lede">Every order keeps its payment, materials and production status separately.</p>
+
+  <div id="ordersHost"></div>
+  <div id="sampleHost" class="mt-48"></div>
+</main>
+
+<div data-cw-footer></div>
+<noscript><div class="wrap" style="padding:20px" data-i18n="noscript">JavaScript is off.</div></noscript>
+
+<script src="assets/data/catalog.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/store.js"></script>
+<script src="assets/js/components.js"></script>
+<script>
+(function () {
+  'use strict';
+  var I = window.CWI18N, C = window.CATALOG, S = window.CWStore, U = window.CWComponents;
+
+  function fmtDate(iso) {
+    try {
+      return new Date(iso).toLocaleDateString(I.lang === 'ko' ? 'ko-KR' : (I.lang === 'ja' ? 'ja-JP' : (I.lang === 'zh' ? 'zh-CN' : (I.lang === 'es' ? 'es-ES' : (I.lang === 'vi' ? 'vi-VN' : 'en-GB')))), { year: 'numeric', month: '2-digit', day: '2-digit' });
+    } catch (e) { return iso.slice(0, 10); }
+  }
+
+  function itemsHTML(o) {
+    return o.items.map(function (it) {
+      var p = C.byId(it.productId);
+      var name = p ? I.tv(p.name) : it.productId;
+      var opts = (it.optionSnapshot || []).map(function (sn) {
+        return p ? U.optionLabel(p, sn.opt, sn.val) : sn.val;
+      }).filter(Boolean).join(' · ');
+      return '<div class="oc-item"><b>' + name + ' × ' + it.qty + '</b><span>' + (opts || '—') + '</span>' +
+        '<span>' + I.money(it.total) + ' · ' + I.t('price_vat') + '</span></div>';
+    }).join('');
+  }
+
+  function submissionHTML(o) {
+    if (!o.submission) {
+      return '<div class="submission-block"><h5>' + I.t('my_files') + '</h5>' +
+        '<p class="oc-empty">' + I.t('my_no_files') + '</p>' +
+        '<div class="sub-actions"><a class="btn btn-ghost" href="submit.html?order=' + encodeURIComponent(o.no) + '">' + I.t('my_submit_link') + '</a></div></div>';
+    }
+    var files = (o.submission.files || []).map(function (f) {
+      return '<span class="sub-file">' + (I.t('file_' + f.slot) || f.slot) + ' · ' + f.name + '</span>';
+    }).join('') || '<span class="oc-empty">' + I.t('my_no_files') + '</span>';
+    return '<div class="submission-block"><h5>' + I.t('my_files') + ' · ' + fmtDate(o.submission.at) + '</h5>' +
+      '<div class="submission-list">' + files + '</div></div>';
+  }
+
+  function actionHTML(o) {
+    var acts = [];
+    if (o.workStatus === 'await') acts.push('<a class="btn btn-ghost" href="submit.html?order=' + encodeURIComponent(o.no) + '">' + I.t('my_submit_link') + '</a>');
+    if (o.workStatus === 'draft') {
+      acts.push('<button class="btn btn-ghost" type="button" data-approve="' + o.no + '">' + I.t('my_confirm_draft') + '</button>');
+      acts.push('<button class="btn btn-ghost" type="button" data-revise="' + o.no + '">' + I.t('my_request_rev') + '</button>');
+    }
+    if (o.workStatus === 'build' || o.workStatus === 'review') {
+      acts.push('<button class="btn btn-ghost" type="button" data-revise="' + o.no + '">' + I.t('my_request_rev') + '</button>');
+    }
+    acts.push('<button class="btn btn-ghost" type="button" data-download="' + o.no + '">' + I.t('my_download') + '</button>');
+    return '<div class="sub-actions">' + acts.join('') + '</div>';
+  }
+
+  function orderCard(o) {
+    return '<article class="order-card">' +
+      '<div class="order-card-head">' +
+      '<span class="order-no">' + o.no + '</span>' +
+      '<span class="order-date">' + fmtDate(o.createdAt) + '</span>' +
+      (o.demo ? '<span class="badge badge-line">' + I.t('my_sample') + '</span>' : '') +
+      '<span class="spacer"></span>' +
+      '<span class="badge badge-dark">' + U.workLabel(o.workStatus) + '</span>' +
+      '</div>' +
+      '<div class="order-card-body">' +
+      '<div class="oc-block"><h5>' + I.t('sum_items') + '</h5>' + itemsHTML(o) + '</div>' +
+      '<div class="oc-block oc-money"><h5>' + I.t('ad_col_amount') + '</h5>' +
+      '<div class="oc-line"><span>' + I.t('sum_supply') + '</span><b>' + I.money(o.amount.supply) + '</b></div>' +
+      '<div class="oc-line"><span>' + I.t('sum_vat') + '</span><b>' + I.money(o.amount.vat) + '</b></div>' +
+      '<div class="oc-total"><span>' + I.t('sum_total') + '</span><b>' + I.money(o.amount.total) + '</b></div>' +
+      '</div>' +
+      '<div class="oc-block"><h5>' + I.t('my_work') + '</h5>' +
+      '<div class="status-grid">' +
+      '<div class="status-cell st-paid"><span class="sk">' + I.t('my_paid') + '</span><span class="sv">' + U.payLabel(o.paymentStatus) + '</span></div>' +
+      '<div class="status-cell ' + (o.submissionStatus === 'submitted' ? 'st-paid' : 'st-wait') + '"><span class="sk">' + I.t('my_submission') + '</span><span class="sv">' + U.subLabel(o.submissionStatus) + '</span></div>' +
+      '<div class="status-cell st-work"><span class="sk">' + I.t('my_work') + '</span><span class="sv">' + U.workLabel(o.workStatus) + '</span></div>' +
+      '</div>' +
+      U.steps7(o.workStatus) +
+      '</div>' +
+      '</div>' +
+      submissionHTML(o) +
+      '<div class="submission-block"><h5>' + I.t('my_draft_area') + '</h5>' + actionHTML(o) + '</div>' +
+      '</article>';
+  }
+
+  function render() {
+    var real = S.getOrders();
+    var host = document.getElementById('ordersHost');
+    if (!real.length) {
+      host.innerHTML = '<div class="empty-state mt-32" style="margin-top:28px">' +
+        '<h3>' + I.t('my_empty_t') + '</h3><p>' + I.t('my_empty_p') + '</p>' +
+        '<a class="btn" href="services.html">' + I.t('svc_view_all') + '</a></div>';
+    } else {
+      host.innerHTML = '<h3 class="mono muted mt-32" style="margin-bottom:4px">' + I.t('my_orders') + ' · ' + real.length + '</h3>' + real.map(orderCard).join('');
+    }
+    var sample = S.demoOrder();
+    document.getElementById('sampleHost').innerHTML =
+      '<h3 class="mono muted" style="margin-bottom:4px">' + I.t('my_sample') + '</h3>' + orderCard(sample);
+  }
+
+  function findOrder(no) {
+    if (no === S.demoOrder().no) return S.demoOrder();
+    return S.getOrder(no);
+  }
+
+  document.addEventListener('click', function (e) {
+    var rev = e.target.closest('[data-revise]');
+    if (rev) {
+      var no = rev.getAttribute('data-revise');
+      var o = findOrder(no);
+      var text = window.prompt(I.t('my_rev_prompt'), '');
+      if (text === null) return;
+      if (o && o.demo) { U.toast(I.t('my_sample') + ' — ' + I.t('toast_saved')); return; }
+      S.requestRevision(no, text);
+      U.toast(I.t('my_rev_saved'));
+      render();
+      return;
+    }
+    var ap = e.target.closest('[data-approve]');
+    if (ap) {
+      var no2 = ap.getAttribute('data-approve');
+      var o2 = findOrder(no2);
+      if (o2 && o2.demo) { U.toast(I.t('my_sample') + ' — ' + I.t('toast_saved')); return; }
+      S.approveDraft(no2);
+      U.toast(I.t('my_draft_ok'));
+      render();
+      return;
+    }
+    var dl = e.target.closest('[data-download]');
+    if (dl) {
+      U.openModal('<div class="legal-body"><div class="eyebrow">CAMPUSWAY DESIGN</div><h3 style="font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.03em;margin-bottom:12px">' + I.t('my_download') + '</h3><p>' + I.t('my_static_note') + '</p><p style="margin-top:12px">atelierweb.seoul@gmail.com</p></div>', true);
+      return;
+    }
+    if (e.target.closest('#clearData')) {
+      S.clearAll();
+      U.toast(I.t('toast_saved'));
+      render();
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    U.init({ active: 'services' });
+    render();
+    I.onChange(render);
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko" data-lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CAMPUSWAY DESIGN — 디자인 서비스 상품</title>
+<meta name="description" content="상세페이지, 웹사이트, 웹디자인, SNS, 인쇄, 디자인 패키지 — CAMPUSWAY DESIGN의 전체 디자인 상품 목록.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CAMPUSWAY DESIGN — Design service products">
+<meta property="og:description" content="Every design item in one list. Priced items can be bought online; the rest are quoted after a short brief.">
+<meta property="og:image" content="https://atelierweb-studio.github.io/og-cover.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23292D32'/%3E%3Crect x='21' y='21' width='7' height='7' fill='%23D2FF5A'/%3E%3Ctext x='12' y='21' font-family='Helvetica,Arial' font-size='11' font-weight='bold' fill='%23F9F8F6' text-anchor='middle'%3ECW%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-title-key="svc_page_kicker">
+
+<div data-cw-header></div>
+
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow"><b>PRODUCTS</b> <span data-i18n="svc_page_kicker">Products &amp; services</span></div>
+      <h1 data-i18n="svc_page_title">Design service products.</h1>
+      <p class="lede" data-i18n="svc_page_lede">Every item we sell, in one list.</p>
+      <div class="ph-meta">
+        <div><b id="metaCount">27</b><span data-i18n="prod_count">products</span></div>
+        <div><b>6</b><span data-i18n="ad_categories">Categories</span></div>
+        <div><b>2</b><span data-i18n="badge_buy">Buy online</span></div>
+        <div><b>EN·KO·JA·ZH·ES·VI</b><span data-i18n="lang_label">Language</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="services-layout">
+      <aside class="cat-side">
+        <h4 data-i18n="ad_categories">Categories</h4>
+        <ul id="sideList"></ul>
+        <p class="side-note" data-i18n="svc_side_note">Categories follow the same six groups used in the catalogue.</p>
+      </aside>
+
+      <div>
+        <div class="mobile-cats"><div class="chip-row" id="chipRow"></div></div>
+        <div class="svc-head">
+          <div>
+            <h2><span id="headName" data-i18n="filter_all">All products</span> <span id="headCount"></span></h2>
+            <p id="headDesc" class="mt-8"></p>
+          </div>
+          <div class="svc-sort">
+            <span class="badge badge-lime" data-i18n="badge_buy">Buy online</span>
+            <span class="badge badge-line" data-i18n="badge_quote">Quote request</span>
+          </div>
+        </div>
+        <div class="prod-grid" id="grid"></div>
+        <div class="notice mt-48" style="max-width:760px">
+          <span class="notice-mark">i</span>
+          <p data-i18n="pd_quote_note">This item has no fixed price.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div data-cw-footer></div>
+<noscript><div class="wrap" style="padding:20px" data-i18n="noscript">JavaScript is off.</div></noscript>
+
+<script src="assets/data/catalog.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/store.js"></script>
+<script src="assets/js/components.js"></script>
+<script>
+(function () {
+  'use strict';
+  var I = window.CWI18N, C = window.CATALOG, U = window.CWComponents;
+  var active = 'all';
+
+  function fromHash() {
+    var m = (location.hash || '').match(/cat-([a-z]+)/);
+    if (m && C.cat(m[1])) active = m[1];
+    else if (!m) active = 'all';
+  }
+
+  function renderSide() {
+    var host = document.getElementById('sideList');
+    if (!host) return;
+    var rows = [{ id: 'all', name: { en: I.t('filter_all') }, code: 'ALL' }].concat(C.categories);
+    host.innerHTML = rows.map(function (c) {
+      var n = c.id === 'all' ? C.products.length : C.byCat(c.id).length;
+      return '<li><button type="button" data-cat="' + c.id + '" class="' + (c.id === active ? 'is-on' : '') + '">' +
+        '<span class="cs-code">' + (c.code || 'ALL') + '</span><span>' + I.tv(c.name) + '</span><span class="cs-count">' + n + '</span></button></li>';
+    }).join('');
+
+    var chips = document.getElementById('chipRow');
+    if (chips) chips.innerHTML = rows.map(function (c) {
+      return '<button type="button" class="chip' + (c.id === active ? ' is-on' : '') + '" data-cat="' + c.id + '">' + I.tv(c.name) + '</button>';
+    }).join('');
+  }
+
+  function renderGrid() {
+    var host = document.getElementById('grid');
+    if (!host) return;
+    var list = active === 'all' ? C.products : C.byCat(active);
+    host.innerHTML = list.map(U.productCard).join('');
+
+    var name = document.getElementById('headName');
+    var desc = document.getElementById('headDesc');
+    var count = document.getElementById('headCount');
+    var cat = C.cat(active);
+    name.textContent = active === 'all' ? I.t('filter_all') : I.tv(cat.name);
+    count.textContent = list.length + ' ' + I.t('prod_count');
+    desc.textContent = active === 'all' ? I.t('svc_page_lede') : I.tv(cat.desc);
+    document.getElementById('metaCount').textContent = C.products.length;
+  }
+
+  function render() { renderSide(); renderGrid(); }
+
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-cat]');
+    if (!b) return;
+    active = b.getAttribute('data-cat');
+    if (history.replaceState) history.replaceState(null, '', active === 'all' ? 'services.html' : '#cat-' + active);
+    render();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    fromHash();
+    U.init({ active: 'services' });
+    render();
+    I.onChange(render);
+    window.addEventListener('hashchange', function () { fromHash(); render(); });
+  });
+})();
+</script>
+</body>
+</html>

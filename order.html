@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko" data-lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CAMPUSWAY DESIGN — 장바구니와 테스트 주문</title>
+<meta name="description" content="CAMPUSWAY DESIGN 장바구니 — 옵션과 금액을 확인하고 테스트 주문을 생성합니다.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CAMPUSWAY DESIGN — Cart & test order">
+<meta property="og:image" content="https://atelierweb-studio.github.io/og-cover.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23292D32'/%3E%3Crect x='21' y='21' width='7' height='7' fill='%23D2FF5A'/%3E%3Ctext x='12' y='21' font-family='Helvetica,Arial' font-size='11' font-weight='bold' fill='%23F9F8F6' text-anchor='middle'%3ECW%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-title-key="order_kicker">
+
+<div data-cw-header></div>
+
+<main>
+  <section class="page-hero" style="padding-bottom:34px">
+    <div class="wrap">
+      <div class="eyebrow"><b>CART</b> <span data-i18n="order_kicker">Cart</span></div>
+      <h1 data-i18n="order_title">Cart &amp; test order.</h1>
+      <p class="lede" data-i18n="order_next_note">After the order you will be sent to the materials form with the order number attached.</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="cart-layout">
+      <div>
+        <div class="test-banner">
+          <span class="tb-flag" data-i18n="order_test_flag">TEST MODE</span>
+          <p><b data-i18n="order_test_flag">TEST MODE</b> — <span data-i18n="order_test_text">This first build runs test orders only.</span></p>
+        </div>
+
+        <div id="cartHost"></div>
+
+        <div id="checkoutHost" class="mt-32"></div>
+      </div>
+
+      <aside>
+        <div class="summary" id="summary"></div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<div data-cw-footer></div>
+<noscript><div class="wrap" style="padding:20px" data-i18n="noscript">JavaScript is off.</div></noscript>
+
+<script src="assets/data/catalog.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/store.js"></script>
+<script src="assets/js/components.js"></script>
+<script>
+(function () {
+  'use strict';
+  var I = window.CWI18N, C = window.CATALOG, S = window.CWStore, U = window.CWComponents;
+
+  function cartItemHTML(line, index) {
+    var p = line.product;
+    var opts = line.optionLabels.map(function (l) {
+      return '<i>' + I.tv(l.opt.label) + ' · ' + I.tv(l.val.label) + '</i>';
+    }).join('');
+    return '<div class="cart-item" data-index="' + index + '">' +
+      '<div class="cart-thumb ' + (p.tone || 'th-a') + '"><b>' + p.word.slice(0, 6) + '</b></div>' +
+      '<div class="cart-main">' +
+      '  <h3>' + I.tv(p.name) + '</h3>' +
+      '  <div class="cart-opts">' + opts + '</div>' +
+      '  <div class="cart-item-foot">' +
+      '    <div class="qty"><button type="button" data-cart-qty="-1" data-i="' + index + '" aria-label="minus">−</button>' +
+      '      <input type="number" data-cart-input="' + index + '" value="' + line.qty + '" min="1" max="20">' +
+      '      <button type="button" data-cart-qty="1" data-i="' + index + '" aria-label="plus">+</button></div>' +
+      '    <button type="button" class="cart-remove" data-cart-remove="' + index + '">' + I.t('order_remove') + '</button>' +
+      '  </div>' +
+      '</div>' +
+      '<div class="cart-price"><b>' + I.money(line.total) + '</b><span>' + I.t('price_vat') + '</span></div>' +
+      '</div>';
+  }
+
+  function renderCart() {
+    var host = document.getElementById('cartHost');
+    var lines = S.cartLines();
+    if (!lines.length) {
+      host.innerHTML = '<div class="empty-state">' +
+        '<h3>' + I.t('order_empty_t') + '</h3>' +
+        '<p>' + I.t('order_empty_p') + '</p>' +
+        '<a class="btn" href="services.html">' + I.t('svc_view_all') + '</a>' +
+        '</div>';
+      document.getElementById('checkoutHost').innerHTML = '';
+      return;
+    }
+    host.innerHTML = '<div class="cart-list">' + lines.map(cartItemHTML).join('') + '</div>';
+    renderCheckout(lines);
+  }
+
+  function renderCheckout(lines) {
+    var host = document.getElementById('checkoutHost');
+    if (!lines.length) { host.innerHTML = ''; return; }
+    host.innerHTML = '<div class="form-card">' +
+      '<h3><span class="fc-n">01</span>' + I.t('order_contact_h') + '</h3>' +
+      '<p class="fc-sub">' + I.t('order_next_note') + '</p>' +
+      '<div class="form-grid">' +
+      '<div class="field"><label for="o-name">' + I.t('order_name') + ' <span class="req">*</span></label><input id="o-name" type="text" autocomplete="name"></div>' +
+      '<div class="field"><label for="o-email">' + I.t('order_email') + ' <span class="req">*</span></label><input id="o-email" type="email" autocomplete="email"></div>' +
+      '<div class="field span-2"><label for="o-phone">' + I.t('order_phone') + '</label><input id="o-phone" type="tel" autocomplete="tel"></div>' +
+      '</div>' +
+      '<label class="check mt-16"><input type="checkbox" id="o-consent"><span>' + I.t('order_consent') + ' <a href="#" data-legal="privacy">' + I.t('foot_privacy') + '</a></span></label>' +
+      '<div class="form-actions">' +
+      '<button class="btn btn-accent" type="button" id="placeOrder">' + I.t('order_place') + '</button>' +
+      '<button class="btn btn-ghost" type="button" id="clearCart">' + I.t('my_clear') + '</button>' +
+      '</div>' +
+      '</div>';
+  }
+
+  function renderSummary() {
+    var t = S.cartTotals();
+    var host = document.getElementById('summary');
+    host.innerHTML = '<h3>' + I.t('order_summary') + '</h3>' +
+      '<div class="sum-row"><span>' + I.t('sum_items') + '</span><b>' + t.count + '</b></div>' +
+      '<div class="sum-row"><span>' + I.t('sum_supply') + '</span><b>' + I.money(t.supply) + '</b></div>' +
+      '<div class="sum-row"><span>' + I.t('sum_vat') + '</span><b>' + I.money(t.vat) + '</b></div>' +
+      '<div class="sum-total"><span class="lbl">' + I.t('sum_total') + '</span><span class="val">' + I.money(t.total) + '</span></div>' +
+      '<div class="notice"><span class="notice-mark">i</span><p>' + I.t('order_test_text') + '</p></div>' +
+      (t.count ? '<button class="btn btn-block" type="button" id="goCheckout">' + I.t('order_checkout') + '</button>' : '') +
+      (t.count ? '<p class="tiny muted mt-8 center">' + I.t('pd_price_note') + '</p>' : '');
+  }
+
+  function renderAll() { renderCart(); renderSummary(); U.refreshCart(); }
+
+  document.addEventListener('click', function (e) {
+    var q = e.target.closest('[data-cart-qty]');
+    if (q) {
+      var i = parseInt(q.getAttribute('data-i'), 10);
+      var lines = S.cartLines();
+      S.updateQty(i, (lines[i] ? lines[i].qty : 1) + parseInt(q.getAttribute('data-cart-qty'), 10));
+      renderAll();
+      return;
+    }
+    var rm = e.target.closest('[data-cart-remove]');
+    if (rm) {
+      S.removeAt(parseInt(rm.getAttribute('data-cart-remove'), 10));
+      U.toast(I.t('toast_removed'));
+      renderAll();
+      return;
+    }
+    if (e.target.closest('#clearCart')) {
+      S.clearCart(); renderAll(); return;
+    }
+    if (e.target.closest('#goCheckout')) {
+      var el = document.getElementById('o-name') || document.getElementById('checkoutHost');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      var inp = document.getElementById('o-name');
+      if (inp) inp.focus();
+      return;
+    }
+    if (e.target.closest('#placeOrder')) { placeOrder(); }
+  });
+
+  document.addEventListener('change', function (e) {
+    var inp = e.target.closest('[data-cart-input]');
+    if (inp) {
+      var i = parseInt(inp.getAttribute('data-cart-input'), 10);
+      S.updateQty(i, parseInt(inp.value, 10) || 1);
+      renderAll();
+    }
+  });
+
+  function placeOrder() {
+    var lines = S.cartLines();
+    if (!lines.length) { U.toast(I.t('toast_empty_cart')); return; }
+    var name = (document.getElementById('o-name') || {}).value || '';
+    var email = (document.getElementById('o-email') || {}).value || '';
+    var phone = (document.getElementById('o-phone') || {}).value || '';
+    var consent = document.getElementById('o-consent');
+    name = name.trim(); email = email.trim();
+    if (!name) { U.toast(I.t('err_required')); document.getElementById('o-name').focus(); return; }
+    if (!email || email.indexOf('@') < 1) { U.toast(I.t('err_email')); document.getElementById('o-email').focus(); return; }
+    if (!consent || !consent.checked) { U.toast(I.t('err_consent')); consent.focus(); return; }
+
+    var order = S.createOrder(lines, { name: name, email: email, phone: phone });
+    S.clearCart();
+    window.location.href = 'submit.html?order=' + encodeURIComponent(order.no);
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    U.init({ active: 'services' });
+    renderAll();
+    I.onChange(renderAll);
+  });
+})();
+</script>
+</body>
+</html>

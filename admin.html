@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko" data-lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CAMPUSWAY DESIGN — 관리자 데모</title>
+<meta name="description" content="CAMPUSWAY DESIGN 관리자 데모 콘솔 — 카탈로그 구조, 주문, 결제·자료·작업 상태.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23292D32'/%3E%3Crect x='21' y='21' width='7' height='7' fill='%23D2FF5A'/%3E%3Ctext x='12' y='21' font-family='Helvetica,Arial' font-size='11' font-weight='bold' fill='%23F9F8F6' text-anchor='middle'%3ECW%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-title-key="ad_kicker">
+
+<div data-cw-header></div>
+
+<main class="wrap">
+  <div class="dash-head">
+    <div>
+      <div class="eyebrow"><b>ADMIN</b> <span data-i18n="ad_kicker">Admin</span></div>
+      <h1 data-i18n="ad_title">Catalogue and orders.</h1>
+    </div>
+    <div class="dash-tools" id="lockTools" hidden>
+      <button class="btn btn-sm btn-ghost" type="button" id="lockBtn" data-i18n="ad_logout">Lock console</button>
+    </div>
+  </div>
+
+  <div id="gateHost"></div>
+  <div id="consoleHost" hidden>
+    <div class="notice mt-24"><span class="notice-mark">i</span><p data-i18n="ad_note">Static hosting, phase one.</p></div>
+    <div class="admin-tabs">
+      <button type="button" class="is-on" data-atab="catalog" data-i18n="ad_tab_catalog">Catalogue</button>
+      <button type="button" data-atab="orders" data-i18n="ad_tab_orders">Orders</button>
+      <button type="button" data-atab="structure" data-i18n="ad_tab_structure">Data structure</button>
+    </div>
+    <div class="admin-panel is-on" id="panel-catalog"></div>
+    <div class="admin-panel" id="panel-orders"></div>
+    <div class="admin-panel" id="panel-structure"></div>
+  </div>
+</main>
+
+<div data-cw-footer></div>
+<noscript><div class="wrap" style="padding:20px" data-i18n="noscript">JavaScript is off.</div></noscript>
+
+<script src="assets/data/catalog.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/store.js"></script>
+<script src="assets/js/components.js"></script>
+<script>
+(function () {
+  'use strict';
+  var I = window.CWI18N, C = window.CATALOG, S = window.CWStore, U = window.CWComponents;
+  var PASS = 'campusway'; /* demo gate only — replace with Supabase Auth in phase 2 */
+  var unlocked = false;
+  try { unlocked = sessionStorage.getItem('cw_admin') === '1'; } catch (e) {}
+
+  function gateHTML() {
+    return '<div class="admin-gate">' +
+      '<div class="eyebrow"><b>ADMIN</b></div>' +
+      '<h2>' + I.t('ad_gate_t') + '</h2>' +
+      '<p>' + I.t('ad_gate_p') + '</p>' +
+      '<div class="demo-key">' + I.t('ad_demo_hint') + ': <b>' + PASS + '</b></div>' +
+      '<div class="field mt-16"><label for="ad-pass">' + I.t('ad_pass_label') + '</label><input id="ad-pass" type="password" autocomplete="off"></div>' +
+      '<p class="err" id="adErr" style="display:none;color:#A23B24;font-size:11px;margin-top:6px">' + I.t('ad_wrong') + '</p>' +
+      '<button class="btn btn-block mt-16" type="button" id="adEnter">' + I.t('ad_enter') + '</button>' +
+      '</div>';
+  }
+
+  function renderGate() {
+    document.getElementById('gateHost').innerHTML = gateHTML();
+    document.getElementById('consoleHost').hidden = true;
+    document.getElementById('lockTools').hidden = true;
+  }
+
+  function catalogHTML() {
+    return '<div class="cat-tree">' + C.categories.map(function (c) {
+      var items = C.byCat(c.id);
+      return '<div class="cat-tree-card"><h4><span>' + I.tv(c.name) + '</span><span>' + c.code + ' · ' + items.length + '</span></h4>' +
+        '<ul>' + items.map(function (p) {
+          var price = p.price.mode === 'fixed' ? U.priceText(p) : (p.price.amountFrom ? U.priceText(p) : I.t('price_quote'));
+          return '<li><b>' + I.tv(p.name) + '</b><i>' + price + '</i></li>';
+        }).join('') + '</ul></div>';
+    }).join('') + '</div>' +
+      '<p class="tiny muted mt-16">' + I.t('ad_struct_note') + '</p>';
+  }
+
+  function ordersHTML() {
+    var list = S.getOrders().slice();
+    list.push(S.demoOrder());
+    if (!list.length) return '<p class="muted">' + I.t('ad_no_orders') + '</p>';
+    return '<div class="table-wrap"><table class="data-table"><thead><tr>' +
+      '<th>' + I.t('ad_col_order') + '</th>' +
+      '<th>' + I.t('ad_col_customer') + '</th>' +
+      '<th>' + I.t('ad_col_amount') + '</th>' +
+      '<th>' + I.t('ad_col_payment') + '</th>' +
+      '<th>' + I.t('ad_col_submission') + '</th>' +
+      '<th>' + I.t('ad_col_work') + '</th>' +
+      '</tr></thead><tbody>' +
+      list.map(function (o) {
+        var name = (o.customer && o.customer.name) || (o.demo ? I.t('my_sample') : '');
+        var email = (o.customer && o.customer.email) || '';
+        var files = (o.submission && o.submission.files) ? o.submission.files.length : 0;
+        return '<tr>' +
+          '<td class="num">' + o.no + (o.demo ? '<br><span class="badge badge-line">' + I.t('my_sample') + '</span>' : '') + '</td>' +
+          '<td>' + S.esc(name) + (email ? '<br><span class="tiny muted">' + S.esc(email) + '</span>' : '') + '</td>' +
+          '<td class="num">' + I.money(o.amount.total) + '</td>' +
+          '<td><span class="badge badge-lime">' + U.payLabel(o.paymentStatus) + '</span></td>' +
+          '<td>' + U.subLabel(o.submissionStatus) + (files ? '<br><span class="tiny muted">' + files + ' ' + I.t('ad_files') + '</span>' : '') + '</td>' +
+          '<td><select data-work="' + o.no + '">' + C.workStatuses.map(function (s) {
+            return '<option value="' + s.id + '"' + (s.id === o.workStatus ? ' selected' : '') + '>' + I.tv(s.def) + '</option>';
+          }).join('') + '</select></td>' +
+          '</tr>';
+      }).join('') +
+      '</tbody></table></div>';
+  }
+
+  function structureHTML() {
+    var sampleProduct = {
+      id: 'detail-page', cat: 'detail', order: 1,
+      price: { mode: 'fixed', currency: 'KRW', base: 100000, fromInclVat: 110000 },
+      name: { en: 'Detail Page Production', ko: '상세페이지 제작' },
+      options: [{ id: 'length', values: [{ id: '10000', price: 100000 }, { id: '20000', price: 200000 }] },
+                { id: 'plan', values: [{ id: 'none', price: 0 }, { id: 'included', per10k: 50000 }] },
+                { id: 'source', values: [{ id: 'none', price: 0 }, { id: 'included', price: 50000 }] }],
+      qty: { min: 1, max: 20, def: 1 }, vat: 0.1
+    };
+    var sampleOrder = {
+      no: 'CW-20261120-1042', createdAt: 'ISO date',
+      customer: { name: '', email: '', phone: '' },
+      items: [{ productId: 'detail-page', qty: 1, optionIds: { length: '10000', plan: 'none', source: 'none' }, unitSupply: 100000, supply: 100000, vat: 10000, total: 110000 }],
+      amount: { supply: 100000, vat: 10000, total: 110000 },
+      paymentStatus: 'paid_test', submissionStatus: 'awaiting_materials', workStatus: 'await',
+      submission: null, revisionRequests: [], timeline: []
+    };
+    return '<div class="spec-grid"><div>' +
+      '<h3>' + I.t('ad_products') + '</h3>' +
+      '<pre style="background:var(--ivory-2);border:1px solid var(--charcoal-12);border-radius:4px;padding:16px;overflow:auto;font-size:11px;line-height:1.6;max-height:420px">' + S.esc(JSON.stringify(sampleProduct, null, 2)) + '</pre>' +
+      '</div><div>' +
+      '<h3>' + I.t('ad_tab_orders') + '</h3>' +
+      '<pre style="background:var(--charcoal);color:var(--ivory);border-radius:4px;padding:16px;overflow:auto;font-size:11px;line-height:1.6;max-height:420px">' + S.esc(JSON.stringify(sampleOrder, null, 2)) + '</pre>' +
+      '<p class="tiny muted mt-16">' + I.t('ad_struct_note') + '</p>' +
+      '</div></div>';
+  }
+
+  function renderPanels() {
+    document.getElementById('panel-catalog').innerHTML = catalogHTML();
+    document.getElementById('panel-orders').innerHTML = ordersHTML();
+    document.getElementById('panel-structure').innerHTML = structureHTML();
+  }
+
+  function unlock() {
+    unlocked = true;
+    try { sessionStorage.setItem('cw_admin', '1'); } catch (e) {}
+    document.getElementById('gateHost').innerHTML = '';
+    document.getElementById('consoleHost').hidden = false;
+    document.getElementById('lockTools').hidden = false;
+    renderPanels();
+  }
+
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('#adEnter')) {
+      var v = (document.getElementById('ad-pass') || {}).value || '';
+      if (v.trim() === PASS) unlock();
+      else { document.getElementById('adErr').style.display = 'block'; }
+      return;
+    }
+    if (e.target.closest('#lockBtn')) {
+      unlocked = false;
+      try { sessionStorage.removeItem('cw_admin'); } catch (err) {}
+      renderGate();
+      return;
+    }
+    var tab = e.target.closest('[data-atab]');
+    if (tab) {
+      var id = tab.getAttribute('data-atab');
+      document.querySelectorAll('[data-atab]').forEach(function (b) { b.classList.toggle('is-on', b === tab); });
+      document.querySelectorAll('.admin-panel').forEach(function (p) { p.classList.toggle('is-on', p.id === 'panel-' + id); });
+    }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && document.getElementById('ad-pass') === document.activeElement) {
+      document.getElementById('adEnter').click();
+    }
+  });
+
+  document.addEventListener('change', function (e) {
+    var sel = e.target.closest('[data-work]');
+    if (!sel) return;
+    var no = sel.getAttribute('data-work');
+    if (no === S.demoOrder().no) { U.toast(I.t('my_sample') + ' — ' + I.t('ad_saved')); return; }
+    S.updateOrder(no, { workStatus: sel.value });
+    S.addTimeline(no, 'work', sel.value);
+    U.toast(I.t('ad_saved'));
+    renderPanels();
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    U.init({ active: 'services' });
+    if (unlocked) unlock(); else renderGate();
+    I.onChange(function () {
+      if (unlocked) { renderPanels(); } else { renderGate(); }
+    });
+  });
+})();
+</script>
+</body>
+</html>

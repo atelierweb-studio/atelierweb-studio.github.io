@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ko" data-lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CAMPUSWAY DESIGN — 작업 자료 제출</title>
+<meta name="description" content="CAMPUSWAY DESIGN 주문 후 작업 자료 제출 — 기본 정보, 디자인 요청사항, 파일 업로드.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CAMPUSWAY DESIGN — Project submission">
+<meta property="og:image" content="https://atelierweb-studio.github.io/og-cover.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23292D32'/%3E%3Crect x='21' y='21' width='7' height='7' fill='%23D2FF5A'/%3E%3Ctext x='12' y='21' font-family='Helvetica,Arial' font-size='11' font-weight='bold' fill='%23F9F8F6' text-anchor='middle'%3ECW%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-title-key="sub_kicker">
+
+<div data-cw-header></div>
+
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow"><b>SUBMISSION</b> <span data-i18n="sub_kicker">Project submission</span></div>
+      <h1 data-i18n="sub_title">Send the materials for your order.</h1>
+      <p class="lede" data-i18n="sub_lede">Everything you send is tied to the order number.</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="form-layout">
+      <div id="formHost"></div>
+      <aside>
+        <div class="side-steps">
+          <h4 data-i18n="pd_tab_process">Process</h4>
+          <ol id="sideSteps"></ol>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<div data-cw-footer></div>
+<noscript><div class="wrap" style="padding:20px" data-i18n="noscript">JavaScript is off.</div></noscript>
+
+<script src="assets/data/catalog.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/store.js"></script>
+<script src="assets/js/components.js"></script>
+<script>
+(function () {
+  'use strict';
+  var I = window.CWI18N, C = window.CATALOG, S = window.CWStore, U = window.CWComponents;
+
+  var ALLOWED = ['jpg', 'jpeg', 'png', 'webp', 'gif', 'pdf', 'ai', 'psd', 'zip'];
+  var MAX = 20 * 1024 * 1024;
+  var SLOTS = ['product_img', 'logo', 'copy', 'plan', 'ref', 'etc'];
+  var chosen = {};
+  var lastSuccess = null;
+  var currentOrderNo = new URLSearchParams(location.search).get('order') || '';
+
+  function orders() {
+    var list = S.getOrders().slice();
+    list.push(S.demoOrder()); /* demo row, read only */
+    return list;
+  }
+  function orderLabel(o) {
+    var names = o.items.map(function (it) {
+      var p = C.byId(it.productId);
+      return p ? I.tv(p.name) : it.productId;
+    }).join(', ');
+    return o.no + ' · ' + names + ' · ' + I.money(o.amount.total);
+  }
+  function currentOrder() {
+    var list = orders();
+    for (var i = 0; i < list.length; i++) if (list[i].no === currentOrderNo) return list[i];
+    return null;
+  }
+
+  function orderPickHTML() {
+    var list = orders();
+    if (!list.length) {
+      return '<div class="empty-state"><h3>' + I.t('sub_pick_h') + '</h3><p>' + I.t('sub_pick_empty') + '</p>' +
+        '<a class="btn" href="services.html">' + I.t('sub_pick_go') + '</a></div>';
+    }
+    var opts = list.map(function (o) {
+      return '<option value="' + o.no + '"' + (o.no === currentOrderNo ? ' selected' : '') + '>' + orderLabel(o) + '</option>';
+    }).join('');
+    var o = currentOrder();
+    var mini = o ? '<div class="order-mini">' +
+      '<span>' + I.t('my_paid') + ': <b>' + U.payLabel(o.paymentStatus) + '</b></span>' +
+      '<span>' + I.t('my_submission') + ': <b>' + U.subLabel(o.submissionStatus) + '</b></span>' +
+      '<span>' + I.t('my_work') + ': <b>' + U.workLabel(o.workStatus) + '</b></span>' +
+      '</div>' : '';
+    return '<div class="order-pick"><div class="op-row">' +
+      '<label class="mono" for="orderSelect" style="letter-spacing:.1em">' + I.t('sub_pick_h') + '</label>' +
+      '<select id="orderSelect">' + opts + '</select>' +
+      '</div>' + mini + '</div>';
+  }
+
+  function fileRow(slot) {
+    return '<div class="file-row" data-slot="' + slot + '">' +
+      '<div class="file-info"><b>' + I.t('file_' + slot) + '</b><span>' + I.t('sub_files_sub') + '</span></div>' +
+      '<span class="file-pick btn btn-sm btn-ghost"><span data-pick-label>' + I.t('file_choose') + '</span>' +
+      '<input type="file" data-file="' + slot + '" accept=".jpg,.jpeg,.png,.webp,.gif,.pdf,.ai,.psd,.zip"></span>' +
+      '<div class="file-name" data-file-name="' + slot + '">' + I.t('file_none') + '</div>' +
+      '<div class="file-err" data-file-err="' + slot + '"></div>' +
+      '</div>';
+  }
+
+  function formHTML() {
+    var o = currentOrder();
+    if (!o) return orderPickHTML();
+    var f = (o && o.submission && o.submission.fields) || {};
+    var first = o.items[0] ? C.byId(o.items[0].productId) : null;
+
+    return '<form id="subForm" novalidate>' +
+      orderPickHTML() +
+
+      '<div class="form-card">' +
+      '<h3><span class="fc-n">01</span>' + I.t('sub_basic_h') + '</h3>' +
+      '<p class="fc-sub">' + I.t('sub_basic_sub') + '</p>' +
+      '<div class="form-grid">' +
+      '<div class="field"><label for="s-company">' + I.t('f_company') + ' <span class="req">*</span></label><input id="s-company" type="text" value="' + S.esc(f.company || '') + '"></div>' +
+      '<div class="field"><label for="s-manager">' + I.t('f_manager') + ' <span class="req">*</span></label><input id="s-manager" type="text" value="' + S.esc(f.manager || '') + '"></div>' +
+      '<div class="field"><label for="s-phone">' + I.t('f_phone') + '</label><input id="s-phone" type="tel" value="' + S.esc(f.phone || '') + '"></div>' +
+      '<div class="field"><label for="s-email">' + I.t('f_email') + ' <span class="req">*</span></label><input id="s-email" type="email" value="' + S.esc(f.email || (o.customer && o.customer.email) || '') + '"></div>' +
+      '<div class="field"><label for="s-product">' + I.t('f_product') + '</label><input id="s-product" type="text" value="' + S.esc(first ? I.tv(first.name) : '') + '"></div>' +
+      '<div class="field"><label for="s-link">' + I.t('f_saleslink') + '</label><input id="s-link" type="url" value="' + S.esc(f.salesLink || '') + '" placeholder="https://"></div>' +
+      '</div></div>' +
+
+      '<div class="form-card">' +
+      '<h3><span class="fc-n">02</span>' + I.t('sub_design_h') + '</h3>' +
+      '<p class="fc-sub">' + I.t('sub_design_sub') + '</p>' +
+      '<div class="form-grid">' +
+      '<div class="field span-2"><label for="s-style">' + I.t('f_style') + '</label><input id="s-style" type="text" value="' + S.esc(f.style || '') + '" data-i18n-ph="f_style_ph" placeholder="' + I.t('f_style_ph') + '"></div>' +
+      '<div class="field"><label for="s-color">' + I.t('f_color') + '</label><input id="s-color" type="text" value="' + S.esc(f.color || '') + '" data-i18n-ph="f_color_ph" placeholder="' + I.t('f_color_ph') + '"></div>' +
+      '<div class="field"><label for="s-ref">' + I.t('f_ref') + '</label><input id="s-ref" type="text" value="' + S.esc(f.reference || '') + '" placeholder="https://"></div>' +
+      '<div class="field span-2"><label for="s-feature">' + I.t('f_feature') + '</label><textarea id="s-feature" style="min-height:80px">' + S.esc(f.feature || '') + '</textarea></div>' +
+      '<div class="field span-2"><label for="s-extra">' + I.t('f_extra') + '</label><textarea id="s-extra" style="min-height:80px">' + S.esc(f.extra || '') + '</textarea></div>' +
+      '</div></div>' +
+
+      '<div class="form-card">' +
+      '<h3><span class="fc-n">03</span>' + I.t('sub_files_h') + '</h3>' +
+      '<p class="fc-sub">' + I.t('sub_files_sub') + '</p>' +
+      '<div class="file-list">' + SLOTS.map(fileRow).join('') + '</div>' +
+      '</div>' +
+
+      '<div class="form-card">' +
+      '<h3><span class="fc-n">04</span>' + I.t('sub_privacy_h') + '</h3>' +
+      '<p class="fc-sub" style="color:var(--charcoal-64)">' + I.t('sub_privacy_body') + '</p>' +
+      '<label class="check"><input type="checkbox" id="s-consent"><span>' + I.t('sub_consent') + '</span></label>' +
+      '<div class="form-actions">' +
+      '<button class="btn btn-accent" type="submit">' + I.t('sub_submit') + '</button>' +
+      '<a class="btn btn-ghost" href="mypage.html">' + I.t('nav_mypage') + '</a>' +
+      '</div></div>' +
+      '</form>';
+  }
+
+  function renderSide() {
+    var o = currentOrder();
+    var host = document.getElementById('sideSteps');
+    if (!host) return;
+    var steps = [
+      { t: I.t('step2_t'), on: !o || !!o },
+      { t: I.t('sub_submit'), on: !!(o && o.submissionStatus === 'submitted') },
+      { t: I.t('step4_t'), on: !!(o && ['review', 'build', 'draft', 'revise', 'done'].indexOf(o.workStatus) >= 0) },
+      { t: I.t('step5_t'), on: !!(o && o.workStatus === 'done') }
+    ];
+    host.innerHTML = steps.map(function (s, i) {
+      return '<li class="' + (s.on ? 'is-on' : '') + '"><b>' + String(i + 1).padStart(2, '0') + '</b>' + s.t + '</li>';
+    }).join('');
+  }
+
+  function render() {
+    if (lastSuccess) { showSuccess(lastSuccess.order, lastSuccess.text); renderSide(); return; }
+    document.getElementById('formHost').innerHTML = formHTML();
+    restoreFiles();
+    renderSide();
+    if (!currentOrder() && S.getOrders().length) currentOrderNo = S.getOrders()[0].no;
+  }
+
+  function restoreFiles() {
+    Object.keys(chosen).forEach(function (slot) {
+      var row = document.querySelector('.file-row[data-slot="' + slot + '"]');
+      if (!row) return;
+      var nameEl = row.querySelector('[data-file-name]');
+      var f = chosen[slot];
+      nameEl.textContent = f.name + ' · ' + (f.size > 1024 * 1024 ? (f.size / 1024 / 1024).toFixed(1) + ' MB' : Math.round(f.size / 1024) + ' KB');
+      nameEl.classList.add('is-on', 'ok');
+      row.querySelector('[data-pick-label]').textContent = I.t('file_replace');
+    });
+  }
+
+  /* file validation */
+  document.addEventListener('change', function (e) {
+    var input = e.target.closest('[data-file]');
+    if (!input) return;
+    var slot = input.getAttribute('data-file');
+    var row = input.closest('.file-row');
+    var nameEl = row.querySelector('[data-file-name]');
+    var errEl = row.querySelector('[data-file-err]');
+    var file = input.files && input.files[0];
+    row.classList.remove('has-error');
+    nameEl.classList.remove('is-on', 'ok', 'bad');
+    errEl.classList.remove('is-on');
+    if (!file) { nameEl.textContent = I.t('file_none'); delete chosen[slot]; return; }
+
+    var ext = (file.name.split('.').pop() || '').toLowerCase();
+    var err = '';
+    if (ALLOWED.indexOf(ext) < 0) err = I.t('err_file_type');
+    else if (file.size > MAX) err = I.t('err_file_size');
+
+    if (err) {
+      row.classList.add('has-error');
+      nameEl.textContent = file.name + ' · ' + (Math.round(file.size / 1024) + ' KB');
+      nameEl.classList.add('is-on', 'bad');
+      errEl.textContent = err;
+      errEl.classList.add('is-on');
+      delete chosen[slot];
+      input.value = '';
+      return;
+    }
+    chosen[slot] = { slot: slot, name: file.name, size: file.size, type: file.type || ext };
+    nameEl.textContent = file.name + ' · ' + (file.size > 1024 * 1024 ? (file.size / 1024 / 1024).toFixed(1) + ' MB' : Math.round(file.size / 1024) + ' KB');
+    nameEl.classList.add('is-on', 'ok');
+    row.querySelector('[data-pick-label]').textContent = I.t('file_replace');
+  });
+
+  document.addEventListener('change', function (e) {
+    if (e.target.id === 'orderSelect') {
+      currentOrderNo = e.target.value;
+      chosen = {}; lastSuccess = null;
+      if (history.replaceState) history.replaceState(null, '', 'submit.html?order=' + encodeURIComponent(currentOrderNo));
+      render();
+    }
+  });
+
+  function fields() {
+    var g = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; };
+    return {
+      company: g('s-company'), manager: g('s-manager'), phone: g('s-phone'), email: g('s-email'),
+      product: g('s-product'), salesLink: g('s-link'), style: g('s-style'), color: g('s-color'),
+      reference: g('s-ref'), feature: g('s-feature'), extra: g('s-extra')
+    };
+  }
+
+  function summaryText(order, f, files) {
+    var lines = [];
+    lines.push('[CAMPUSWAY DESIGN] ' + I.t('sub_kicker'));
+    lines.push(I.t('ad_col_order') + ': ' + order.no);
+    lines.push('');
+    lines.push('— ' + I.t('sub_basic_h') + ' —');
+    lines.push(I.t('f_company') + ': ' + f.company);
+    lines.push(I.t('f_manager') + ': ' + f.manager);
+    lines.push(I.t('f_phone') + ': ' + f.phone);
+    lines.push(I.t('f_email') + ': ' + f.email);
+    lines.push(I.t('f_product') + ': ' + f.product);
+    lines.push(I.t('f_saleslink') + ': ' + f.salesLink);
+    lines.push('');
+    lines.push('— ' + I.t('sub_design_h') + ' —');
+    lines.push(I.t('f_style') + ': ' + f.style);
+    lines.push(I.t('f_color') + ': ' + f.color);
+    lines.push(I.t('f_ref') + ': ' + f.reference);
+    lines.push(I.t('f_feature') + ': ' + f.feature);
+    lines.push(I.t('f_extra') + ': ' + f.extra);
+    lines.push('');
+    lines.push('— ' + I.t('sub_files_h') + ' —');
+    if (files.length) files.forEach(function (x) { lines.push(I.t('file_' + x.slot) + ': ' + x.name + ' (' + Math.round(x.size / 1024) + ' KB)'); });
+    else lines.push(I.t('my_no_files'));
+    lines.push('');
+    lines.push(I.t('ad_col_amount') + ': ' + I.money(order.amount.total));
+    lines.push('* ' + I.t('sub_mail_hint'));
+    return lines.join('\n');
+  }
+
+  function showSuccess(order, text) {
+    lastSuccess = { order: order, text: text };
+    var mail = 'mailto:atelierweb.seoul@gmail.com?subject=' + encodeURIComponent('[CAMPUSWAY DESIGN] ' + I.t('sub_kicker') + ' — ' + order.no) + '&body=' + encodeURIComponent(text);
+    document.getElementById('formHost').innerHTML =
+      '<div class="success-panel">' +
+      '<div class="success-mark"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></div>' +
+      '<h2>' + I.t('sub_done_h') + '</h2>' +
+      '<p class="msg" data-success-msg>' + I.t('sub_success_msg') + '</p>' +
+      '<div class="meta-line"><span>' + order.no + '</span><span>' + U.subLabel('submitted') + '</span><span>' + U.workLabel('review') + '</span></div>' +
+      '<div class="acts">' +
+      '<a class="btn btn-accent" href="' + mail + '">' + I.t('sub_mail') + '</a>' +
+      '<button class="btn btn-ghost" type="button" data-copy-summary>' + I.t('sub_copy') + '</button>' +
+      '<a class="btn btn-ghost" href="mypage.html">' + I.t('sub_view_order') + '</a>' +
+      '</div>' +
+      '<p class="tiny muted mt-24" style="max-width:52ch">' + I.t('sub_mail_hint') + '</p>' +
+      '</div>';
+    document.querySelector('[data-copy-summary]').addEventListener('click', function () {
+      if (navigator.clipboard) navigator.clipboard.writeText(text);
+      U.toast(I.t('toast_copied'));
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  document.addEventListener('submit', function (e) {
+    if (e.target.id !== 'subForm') return;
+    e.preventDefault();
+    var order = currentOrder();
+    if (!order) { U.toast(I.t('err_order')); return; }
+    var f = fields();
+    if (!f.company) { U.toast(I.t('err_required')); document.getElementById('s-company').focus(); return; }
+    if (!f.manager) { U.toast(I.t('err_required')); document.getElementById('s-manager').focus(); return; }
+    if (!f.email || f.email.indexOf('@') < 1) { U.toast(I.t('err_email')); document.getElementById('s-email').focus(); return; }
+    var consent = document.getElementById('s-consent');
+    if (!consent.checked) { U.toast(I.t('err_consent')); consent.focus(); return; }
+
+    var files = Object.keys(chosen).map(function (k) { return chosen[k]; });
+    var text = summaryText(order, f, files);
+
+    if (order.demo) {
+      U.toast(I.t('my_sample') + ' — ' + I.t('toast_saved'));
+      showSuccess(order, text);
+      return;
+    }
+    var updated = S.submitMaterials(order.no, { fields: f, files: files, consent: true });
+    if (!updated) { U.toast(I.t('err_order')); return; }
+    showSuccess(updated, text);
+    renderSide();
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    U.init({ active: 'services' });
+    if (!currentOrderNo) {
+      var real = S.getOrders();
+      currentOrderNo = real.length ? real[0].no : (orders().length ? orders()[0].no : '');
+    }
+    render();
+    I.onChange(render);
+  });
+})();
+</script>
+</body>
+</html>
