@@ -1,5 +1,5 @@
 /* ==========================================================================
-   CAMPUSWAY DESIGN — catalog.js
+   Atelier Web — catalog.js
    Single source of truth for categories, products, options and portfolio.
    Add a product here; every page (home / list / detail / order / admin) reuses it.
    ========================================================================== */

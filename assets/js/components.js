@@ -1,5 +1,5 @@
 /* ==========================================================================
-   CAMPUSWAY DESIGN — components.js
+   Atelier Web — components.js
    Shared header · mobile drawer · footer · modal · product card · status UI
    ========================================================================== */
 (function (global) {
@@ -35,9 +35,9 @@
     return '' +
       '<header class="cw-header">' +
       '  <div class="cw-header-in">' +
-      '    <a class="cw-brand" href="index.html" aria-label="CAMPUSWAY DESIGN">' +
-      '      <span class="cw-brand-mark">CW</span>' +
-      '      <span class="cw-brand-txt"><strong>CAMPUSWAY DESIGN</strong><i data-i18n="brand_sub">' + t('brand_sub') + '</i></span>' +
+      '    <a class="cw-brand" href="index.html" aria-label="Atelier Web">' +
+      '      <span class="cw-brand-mark">AW</span>' +
+      '      <span class="cw-brand-txt"><strong>Atelier Web</strong><i data-i18n="brand_sub">' + t('brand_sub') + '</i></span>' +
       '    </a>' +
       '    <nav class="cw-nav" data-i18n-aria="menu_open" aria-label="' + t('menu_open') + '">' + nav + '</nav>' +
       '    <div class="cw-header-tools">' +
@@ -79,7 +79,7 @@
       '  <div class="wrap">' +
       '    <div class="foot-top">' +
       '      <div>' +
-      '        <div class="foot-brand"><span class="cw-brand-mark">CW</span><strong>CAMPUSWAY DESIGN</strong></div>' +
+      '        <div class="foot-brand"><span class="cw-brand-mark">AW</span><strong>Atelier Web</strong></div>' +
       '        <p data-i18n="foot_tagline">' + t('foot_tagline') + '</p>' +
       '      </div>' +
       '      <div>' +
@@ -166,7 +166,7 @@
     var title = kind === 'terms' ? t('legal_terms_title') : t('legal_privacy_title');
     var body = kind === 'terms' ? t('legal_terms_body') : t('legal_privacy_body');
     openModal(
-      '<div class="legal-body"><div class="eyebrow">CAMPUSWAY DESIGN</div><h3 style="font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:-.03em;margin-bottom:14px">' + title + '</h3>' +
+      '<div class="legal-body"><div class="eyebrow">Atelier Web</div><h3 style="font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:-.03em;margin-bottom:14px">' + title + '</h3>' +
       '<div data-legal-body>' + body + '</div></div>', true);
   }
 

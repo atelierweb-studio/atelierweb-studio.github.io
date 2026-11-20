@@ -1,5 +1,5 @@
 /* ==========================================================================
-   CAMPUSWAY DESIGN — store.js
+   Atelier Web — store.js
    Cart · test order · submission · status adapter.
    Phase 1: browser localStorage only (static hosting).
    Phase 2 hooks: replace these functions with Supabase (DB / Storage / Auth)
@@ -156,11 +156,11 @@
     var stamp = d.getFullYear() + pad(d.getMonth() + 1, 2) + pad(d.getDate(), 2);
     for (var attempt = 0; attempt < 40; attempt++) {
       var tail = pad(Math.floor(Math.random() * 9000) + 1000, 4);
-      var no = 'CW-' + stamp + '-' + tail;
+      var no = 'AW-' + stamp + '-' + tail;
       var clash = orders.some(function (o) { return o.no === no; });
       if (!clash) return no;
     }
-    return 'CW-' + stamp + '-' + pad(Date.now() % 10000, 4);
+    return 'AW-' + stamp + '-' + pad(Date.now() % 10000, 4);
   }
 
   function getOrders() {
@@ -283,9 +283,9 @@
     var d = new Date(now - 1000 * 60 * 60 * 26);
     var stamp = d.getFullYear() + pad(d.getMonth() + 1, 2) + pad(d.getDate(), 2);
     return {
-      no: 'CW-' + stamp + '-0000',
+      no: 'AW-' + stamp + '-0000',
       createdAt: new Date(now - 1000 * 60 * 60 * 26).toISOString(),
-      customer: { name: 'CAMPUSWAY sample', email: 'atelierweb.seoul@gmail.com', phone: '' },
+      customer: { name: 'Atelier Web sample', email: 'atelierweb.seoul@gmail.com', phone: '' },
       items: [{
         productId: 'detail-page', nameKey: 'detail-page', qty: 1,
         optionIds: { length: '10000', plan: 'none', source: 'none' },
