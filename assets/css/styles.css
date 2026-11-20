@@ -93,7 +93,7 @@ ul,ol,dl,dd{margin:0;padding:0;list-style:none}
 
 .cw-nav{display:flex;gap:26px;margin-left:18px}
 .cw-nav a{
-  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
   color:var(--charcoal-64);padding:6px 0;position:relative;white-space:nowrap;transition:color .18s var(--ease);
 }
 .cw-nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--charcoal);transition:right .22s var(--ease)}
@@ -261,7 +261,7 @@ ul,ol,dl,dd{margin:0;padding:0;list-style:none}
 .hv-list b{font-family:var(--font-mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
 .hv-list i{height:1px;background:var(--charcoal-12)}
 .hv-float{
-  position:absolute;left:-16px;bottom:22px;background:var(--lime);color:var(--charcoal);
+  position:absolute;left:-18px;bottom:-16px;background:var(--lime);color:var(--charcoal);
   border-radius:4px;padding:10px 13px;display:flex;gap:9px;align-items:center;
   box-shadow:0 12px 26px -14px rgba(41,45,50,.45);
 }
