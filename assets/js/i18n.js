@@ -442,7 +442,10 @@
   function detect() {
     var q = null;
     try { q = new URLSearchParams(location.search).get('lang'); } catch (e) { q = null; }
-    if (q && LANGS.indexOf(q) >= 0) return q;
+    if (q && LANGS.indexOf(q) >= 0) {
+      try { localStorage.setItem('aw_lang', q); } catch (e) {}
+      return q;
+    }
     var stored = null;
     try { stored = localStorage.getItem('aw_lang'); } catch (e) { stored = null; }
     if (stored && LANGS.indexOf(stored) >= 0) return stored;
