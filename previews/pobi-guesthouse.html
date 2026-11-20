@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko" data-lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>게스트하우스 포비 — 부산 해운대 (개념 시안)</title>
+<meta name="description" content="Concept preview for Pobi Guesthouse near Haeundae Beach, Busan, with a six-language switch.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#2B5F6B">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230F0E0B'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='13' fill='%23F5F1E8' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#F7F5EF; --bg2:#EFEBE1; --card:#FFFFFF; --ink:#15140F; --ink2:#43403A;
+    --muted:#787264; --line:rgba(21,20,15,.14); --accent:#8C5A2B; --accent2:#2E4038;
+    --tint:rgba(140,90,43,.08);
+    --serif:"New York",ui-serif,"Iowan Old Style","Palatino Linotype",Georgia,"Noto Serif KR",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Pretendard",Roboto,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --r:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  h1,h2,h3{margin:0;font-family:var(--serif);font-weight:400;letter-spacing:-.01em}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+  .eyebrow{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+  .topbar{position:fixed;inset:0 0 auto;z-index:50;background:var(--bg);background:color-mix(in srgb,var(--bg) 93%,transparent);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .topbar-in{max-width:1140px;margin:0 auto;padding:11px 28px;display:flex;align-items:center;gap:22px}
+  .brand{display:flex;flex-direction:column;line-height:1}
+  .brand strong{font-family:var(--serif);font-weight:400;font-size:20px;letter-spacing:.01em}
+  .brand i{font-style:normal;font-family:var(--mono);font-size:7.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .nav{display:flex;gap:18px}
+  .nav a{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);
+    padding-bottom:3px;border-bottom:1px solid transparent}
+  .nav a:hover{color:var(--accent);border-color:var(--accent)}
+  .langs{display:flex;gap:5px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+  .langs::-webkit-scrollbar{display:none}
+  .lang{font-family:var(--mono);font-size:9.5px;border:1px solid var(--line);border-radius:99px;padding:6px 8px;
+    white-space:nowrap;color:var(--ink2);transition:.16s}
+  .lang:hover{border-color:var(--accent);color:var(--accent)}
+  .lang.is-on{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent2);color:#fff;border:1px solid var(--accent2);
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;padding:12px 18px;border-radius:99px;transition:.18s}
+  .btn:hover{background:var(--accent);border-color:var(--accent)}
+  .btn-sm{padding:9px 14px;font-size:8.5px;flex:0 0 auto}
+  .btn-ghost{background:transparent;color:var(--accent2);border-color:var(--line)}
+  .btn-ghost:hover{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+
+  .hero{padding:132px 0 60px}
+  .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:48px;align-items:center}
+  .kicker{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  h1{margin-top:16px;font-size:clamp(36px,4.8vw,58px);line-height:1.05}
+  h1 em{font-style:italic;color:var(--accent)}
+  .hero p{margin:18px 0 0;font-size:15.5px;line-height:1.7;color:var(--ink2);max-width:46ch}
+  .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+  .art{position:relative;border-radius:20px;overflow:hidden;min-height:360px;border:1px solid var(--line);
+    background:linear-gradient(168deg,var(--bg2),var(--bg));
+    background-image:linear-gradient(168deg,var(--bg2),color-mix(in srgb,var(--accent) 12%,var(--bg2)))}
+  .art::before{content:"";position:absolute;width:280px;height:280px;border-radius:50%;left:-50px;top:-70px;
+    border:1px solid var(--line);border-color:color-mix(in srgb,var(--accent) 30%,transparent)}
+  .art::after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-30px;bottom:70px;
+    background:radial-gradient(circle at 35% 30%,#fff,transparent 70%)}
+  .art-note{position:absolute;left:22px;top:22px;font-family:var(--mono);font-size:8px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--accent)}
+  .art-quote{position:absolute;left:22px;right:22px;top:46%;transform:translateY(-50%);font-family:var(--serif);
+    font-size:23px;line-height:1.28;color:var(--accent2);max-width:24ch}
+  .art-fact{position:absolute;left:22px;right:22px;bottom:20px;background:rgba(255,255,255,.86);border-radius:12px;
+    padding:12px 14px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);
+    box-shadow:0 12px 26px -20px rgba(21,20,15,.5)}
+  .concept{position:absolute;right:16px;top:16px;background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:99px;
+    padding:5px 10px;font-family:var(--mono);font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+  .sec{padding:58px 0;border-top:1px solid var(--line)}
+  .sec-head{margin-bottom:26px;max-width:62ch}
+  h2{font-size:clamp(25px,3vw,36px);line-height:1.12;margin-top:10px}
+  .sec-head p{margin:10px 0 0;font-size:13px;line-height:1.65;color:var(--muted)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .item{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;transition:.2s}
+  .item:hover{border-color:var(--accent);box-shadow:0 16px 30px -26px rgba(21,20,15,.5)}
+  .item .n{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--accent)}
+  .item h3{font-size:18px;margin-top:8px;line-height:1.28}
+  .item p{margin:8px 0 0;font-size:12px;line-height:1.62;color:var(--muted)}
+
+  .visit{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .row{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .row b{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .row span{font-family:var(--mono);font-size:10.5px;color:var(--ink2);text-align:right}
+  .blocks{margin-top:18px}
+  .block{margin-top:14px}
+  .block b{display:block;font-family:var(--mono);font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .block span{display:block;margin-top:5px;font-size:12.5px;line-height:1.65;color:var(--ink2)}
+  .contact{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;align-self:start}
+  .contact h3{font-size:19px}
+  .cline{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .cline:last-of-type{border-bottom:0}
+  .cline b{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .cline a{font-size:12px;color:var(--accent2);border-bottom:1px solid var(--line);border-bottom-color:color-mix(in srgb,var(--accent) 50%,transparent);
+    text-underline-offset:2px;word-break:break-all}
+  .contact .btn{margin-top:16px;width:100%;justify-content:center}
+
+  footer{background:var(--ink);color:#EEE9DF;padding:44px 0 26px;margin-top:14px}
+  .foot{display:grid;grid-template-columns:1.4fr .6fr;gap:26px}
+  .foot strong{font-family:var(--serif);font-weight:400;font-size:19px}
+  .foot p{margin:12px 0 0;font-size:10.5px;line-height:1.7;color:#B6AE9E;max-width:52ch}
+  .foot .credit{margin-top:14px;font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;color:#D8D0C0}
+  .foot .credit a{border-bottom:1px solid rgba(216,208,192,.5)}
+  .foot-bottom{margin-top:24px;padding-top:14px;border-top:1px solid rgba(238,233,223,.16);display:flex;
+    justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:8px;letter-spacing:.1em;
+    text-transform:uppercase;color:#9A9282}
+  .foot .concept-note{font-size:10px;line-height:1.6;color:#9A9282;max-width:60ch}
+
+  @media (max-width:960px){
+    .nav{display:none}
+    .hero{padding-top:112px}
+    .hero-grid,.visit,.grid{grid-template-columns:1fr;gap:26px}
+    .foot{grid-template-columns:1fr}
+    .topbar-in{flex-wrap:wrap;gap:10px}
+    .langs{order:3;width:100%;margin-left:0}
+    .btn-sm{margin-left:auto}
+    .art{min-height:320px}
+  }
+  @media (max-width:600px){
+    .wrap,.topbar-in{padding-left:18px;padding-right:18px}
+    .art-quote{font-size:20px}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="#top"><strong>게스트하우스 포비</strong><i data-i18n="brand_sub">부산 해운대 게스트하우스</i></a>
+    <nav class="nav">
+      <a href="#offer" data-i18n="nav1">숙소 안내</a>
+      <a href="#visit" data-i18n="nav2">시간·오시는 길</a>
+      <a href="mailto:pobihouse@gmail.com" data-i18n="nav3">문의</a>
+    </nav>
+    <div class="langs" role="group" data-i18n-aria="lang_aria" aria-label="Language">
+      <button type="button" class="lang" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" class="lang is-on" data-lang="ko" aria-pressed="true">KO</button>
+      <button type="button" class="lang" data-lang="ja" aria-pressed="false">JA</button>
+      <button type="button" class="lang" data-lang="zh" aria-pressed="false">ZH</button>
+      <button type="button" class="lang" data-lang="es" aria-pressed="false">ES</button>
+      <button type="button" class="lang" data-lang="vi" aria-pressed="false">VI</button>
+    </div>
+    <a class="btn btn-sm" href="#visit" data-i18n="nav_cta">자리 문의</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="kicker" data-i18n="hero_kick">해운대해수욕장 도보 3분</div>
+        <h1 data-i18n="hero_title">바닷가의 침대 하나, <em>그리고 부산을 아는 사람들.</em></h1>
+        <p data-i18n="hero_lede">해운대해수욕장에서 걸어서 3분, 해운대시장에서 1분 거리의 게스트하우스입니다. 6인실과 10인실 도미토리, 무료 조식과 수건, 짐 보관이 있고, 20명에서 50명까지 단체도 받습니다.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#offer" data-i18n="cta1">숙소 구성</a>
+          <a class="btn btn-ghost" href="#visit" data-i18n="cta2">시간과 오시는 길</a>
+        </div>
+      </div>
+      <div class="art" aria-hidden="true">
+        <div class="concept" data-i18n="concept_badge">Concept preview · Atelier Web</div>
+        <div class="art-note" data-i18n="art_note">도미토리 침대, 바다까지 3분</div>
+        <div class="art-quote" data-i18n="art_quote">“바다는 3분, 시장은 1분.”</div>
+        <div class="art-fact" data-i18n="art_fact">6·10인 도미토리 · 무료 조식</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="offer">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow" data-i18n="sec1_kick">01 — 숙소</div>
+        <h2 data-i18n="sec1_title">도미토리, 공용 주방, 무료 조식.</h2>
+        <p data-i18n="sec1_lede">6인실과 10인실 도미토리를 운영하고 20명에서 50명까지 단체를 받습니다. 조식과 와이파이, 수건, 샴푸·바디클렌저가 무료이며, 짐은 오전 9시부터 저녁 8시까지 맡길 수 있습니다.</p>
+      </div>
+      <div class="grid">
+        <article class="item"><div class="n">i1</div><h3 data-i18n="i1_n">6인실·10인실 도미토리</h3><p data-i18n="i1_d">공용실 이층 침대와 개인 신발장, 짐을 넣는 락커가 있습니다.</p></article>
+        <article class="item"><div class="n">i2</div><h3 data-i18n="i2_n">무료 조식</h3><p data-i18n="i2_d">아침 식사가 무료로 나오고, 수건과 샴푸·바디클렌저·치약도 제공합니다.</p></article>
+        <article class="item"><div class="n">i3</div><h3 data-i18n="i3_n">단체 환영</h3><p data-i18n="i3_d">20명에서 50명까지 단체 예약을 받습니다. 인원과 날짜를 메일로 보내주시면 자리를 확인해 드립니다.</p></article>
+        <article class="item"><div class="n">i4</div><h3 data-i18n="i4_n">바다까지 3분</h3><p data-i18n="i4_d">해운대해수욕장 도보 3분, 해운대시장 1분, 동백섬과 달맞이 고개도 걸어서 갈 수 있습니다.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="visit">
+    <div class="wrap visit">
+      <div>
+        <div class="eyebrow" data-i18n="sec2_kick">02 — 시간과 오시는 길</div>
+        <h2 data-i18n="sec2_title">오후에 들어와, 열한 시까지 나갑니다.</h2>
+        <div style="margin-top:18px">
+          <div class="row"><b data-i18n="h1_l">체크인</b><span data-i18n="h1_v">15:00–22:00</span></div>
+          <div class="row"><b data-i18n="h2_l">체크아웃</b><span data-i18n="h2_v">11:00까지</span></div>
+          <div class="row"><b data-i18n="h3_l">짐 보관</b><span data-i18n="h3_v">09:00–20:00</span></div>
+        </div>
+        <div class="blocks">
+          <div class="block"><b data-i18n="lbl_address">Address</b><span data-i18n="addr">부산광역시 해운대구 중동1로 41-1 (우 48095)</span></div>
+          <div class="block"><b data-i18n="lbl_getting">Getting here</b><span data-i18n="transit">해운대해수욕장에서 도보 3분, 지하철역에서 약 5분이며 벡스코까지 지하철 세 정거장입니다. 체크인 후에는 24시간 출입이 가능합니다.</span></div>
+        </div>
+      </div>
+      <div class="contact">
+        <h3 data-i18n="contact_title" style="font-size:16px">Talk to us directly</h3>
+        <div style="margin-top:8px">
+          <div class="cline"><b data-i18n="lbl_email">Email</b><a href="mailto:pobihouse@gmail.com">pobihouse@gmail.com</a></div>
+          <div class="cline"><b data-i18n="lbl_phone">Phone</b><a href="tel:0517467990">051-746-7990</a></div>
+          <div class="cline"><b data-i18n="lbl_messenger">Message</b><span style="font-size:12px;color:var(--ink2)">KakaoTalk · pobihouse</span></div>
+        </div>
+        <a class="btn" href="mailto:pobihouse@gmail.com" data-i18n="cta_email">Write an email</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <strong>게스트하우스 포비</strong>
+        <p data-i18n="foot_tagline">해운대해수욕장 3분 거리 게스트하우스 — 6·10인 도미토리, 무료 조식, 단체 50명까지.</p>
+        <p class="concept-note" data-i18n="concept_note">이 페이지는 Atelier Web이 제안용으로 만든 시안이며 게스트하우스 포비의 공식 홈페이지가 아닙니다.</p>
+        <div class="credit">Concept preview prepared by Atelier Web (<a href="https://atelierweb-studio.github.io/" target="_blank" rel="noopener">atelierweb-studio.github.io</a>)</div>
+      </div>
+      <div>
+        <p style="font-family:var(--mono);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:#8E8677;margin:0" data-i18n="lbl_hours">Hours</p>
+        <p style="margin-top:8px;font-family:var(--mono);font-size:10px;line-height:1.9;color:#CBC3B3">체크인 15:00–22:00 · 체크아웃 11:00</p>
+        <p style="margin-top:10px;font-family:var(--mono);font-size:9px;color:#8E8677" data-i18n="foot_lang">EN · KO · JA · ZH · ES · VI</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>게스트하우스 포비 · Busan · Haeundae</span>
+      <span>© 2026 Atelier Web · concept</span>
+    </div>
+  </div>
+</footer>
+
+<noscript><div style="position:fixed;left:0;right:0;bottom:0;z-index:80;background:#15140F;color:#EEE9DF;font-family:monospace;font-size:9px;padding:9px 14px;text-align:center">JavaScript is off. Open this page in Safari or Chrome for the six-language switch.</div></noscript>
+
+<script>
+window.I18N = {"en":{"lang_aria":"Language","lbl_hours":"Hours","lbl_address":"Address","lbl_getting":"Getting here","lbl_email":"Email","lbl_phone":"Phone","lbl_messenger":"Message","concept_badge":"Concept preview · Atelier Web","concept_note":"This page is an unsolicited concept preview prepared by Atelier Web. It is not the official website of 게스트하우스 포비.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Talk to us directly","cta_email":"Write an email","brand_sub":"Guesthouse · Haeundae, Busan","nav1":"The house","nav2":"Hours & arrival","nav3":"Contact","nav_cta":"Ask about a bed","hero_kick":"Three minutes from Haeundae Beach","hero_title":"A bed by the beach, <em>and people who know Busan.</em>","hero_lede":"A guesthouse three minutes on foot from Haeundae Beach and one minute from Haeundae Market. Six- and ten-bed dorms, free breakfast, towels and luggage storage, and room for groups of twenty to fifty.","cta1":"What the house has","cta2":"Hours and arrival","art_note":"Dorm beds, 3 min from the sand","art_quote":"“The beach is three minutes away; the market, one.”","art_fact":"Dorms of 6 and 10 · free breakfast","sec1_kick":"01 — The house","sec1_title":"Dorm beds, a shared kitchen, free breakfast.","sec1_lede":"The house runs six- and ten-bed dormitories and takes groups of twenty to fifty. Breakfast, Wi-Fi, towels, shampoo and body wash are free, and luggage can be left at the desk from nine in the morning until eight at night.","i1_n":"Six- and ten-bed dorms","i1_d":"Bunk beds in shared rooms, with a personal shoe locker and a locker for your bag.","i2_n":"Free breakfast","i2_d":"Breakfast is included, and towels, shampoo, body wash and toothpaste are provided.","i3_n":"Groups welcome","i3_d":"The house takes groups of twenty to fifty people; send dates and numbers by email and the beds are confirmed.","i4_n":"Three minutes to the beach","i4_d":"Haeundae Beach three minutes on foot, Haeundae Market one minute, and Dongbaek Island and Dalmaji Hill within walking distance.","sec2_kick":"02 — Hours and arrival","sec2_title":"Check in in the afternoon, leave by eleven.","h1_l":"Check-in","h1_v":"15:00–22:00","h2_l":"Check-out","h2_v":"By 11:00","h3_l":"Luggage","h3_v":"09:00–20:00","addr":"41-1 Jungdong 1-ro, Haeundae-gu, Busan (48095)","transit":"Three minutes on foot from Haeundae Beach, about five minutes from the subway, and three stops from BEXCO. Once checked in, the door is open 24 hours.","foot_tagline":"A guesthouse three minutes from Haeundae Beach — dorms of six and ten, free breakfast, groups up to fifty."},"ko":{"lang_aria":"언어 선택","lbl_hours":"영업시간","lbl_address":"주소","lbl_getting":"오시는 길","lbl_email":"이메일","lbl_phone":"전화","lbl_messenger":"메신저","concept_badge":"시안 미리보기 · Atelier Web","concept_note":"이 페이지는 Atelier Web이 제안용으로 만든 시안이며 게스트하우스 포비의 공식 홈페이지가 아닙니다.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"바로 연락하기","cta_email":"이메일 보내기","brand_sub":"부산 해운대 게스트하우스","nav1":"숙소 안내","nav2":"시간·오시는 길","nav3":"문의","nav_cta":"자리 문의","hero_kick":"해운대해수욕장 도보 3분","hero_title":"바닷가의 침대 하나, <em>그리고 부산을 아는 사람들.</em>","hero_lede":"해운대해수욕장에서 걸어서 3분, 해운대시장에서 1분 거리의 게스트하우스입니다. 6인실과 10인실 도미토리, 무료 조식과 수건, 짐 보관이 있고, 20명에서 50명까지 단체도 받습니다.","cta1":"숙소 구성","cta2":"시간과 오시는 길","art_note":"도미토리 침대, 바다까지 3분","art_quote":"“바다는 3분, 시장은 1분.”","art_fact":"6·10인 도미토리 · 무료 조식","sec1_kick":"01 — 숙소","sec1_title":"도미토리, 공용 주방, 무료 조식.","sec1_lede":"6인실과 10인실 도미토리를 운영하고 20명에서 50명까지 단체를 받습니다. 조식과 와이파이, 수건, 샴푸·바디클렌저가 무료이며, 짐은 오전 9시부터 저녁 8시까지 맡길 수 있습니다.","i1_n":"6인실·10인실 도미토리","i1_d":"공용실 이층 침대와 개인 신발장, 짐을 넣는 락커가 있습니다.","i2_n":"무료 조식","i2_d":"아침 식사가 무료로 나오고, 수건과 샴푸·바디클렌저·치약도 제공합니다.","i3_n":"단체 환영","i3_d":"20명에서 50명까지 단체 예약을 받습니다. 인원과 날짜를 메일로 보내주시면 자리를 확인해 드립니다.","i4_n":"바다까지 3분","i4_d":"해운대해수욕장 도보 3분, 해운대시장 1분, 동백섬과 달맞이 고개도 걸어서 갈 수 있습니다.","sec2_kick":"02 — 시간과 오시는 길","sec2_title":"오후에 들어와, 열한 시까지 나갑니다.","h1_l":"체크인","h1_v":"15:00–22:00","h2_l":"체크아웃","h2_v":"11:00까지","h3_l":"짐 보관","h3_v":"09:00–20:00","addr":"부산광역시 해운대구 중동1로 41-1 (우 48095)","transit":"해운대해수욕장에서 도보 3분, 지하철역에서 약 5분이며 벡스코까지 지하철 세 정거장입니다. 체크인 후에는 24시간 출입이 가능합니다.","foot_tagline":"해운대해수욕장 3분 거리 게스트하우스 — 6·10인 도미토리, 무료 조식, 단체 50명까지."},"ja":{"lang_aria":"言語","lbl_hours":"営業時間","lbl_address":"住所","lbl_getting":"アクセス","lbl_email":"メール","lbl_phone":"電話","lbl_messenger":"メッセージ","concept_badge":"コンセプトプレビュー · Atelier Web","concept_note":"このページは Atelier Web が提案用に制作したコンセプトで、게스트하우스 포비 の公式サイトではありません。","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"直接のご連絡","cta_email":"メールを書く","brand_sub":"釜山 海雲台（ヘウンデ）ゲストハウス","nav1":"宿について","nav2":"時間・アクセス","nav3":"お問い合わせ","nav_cta":"空きの相談","hero_kick":"海雲台ビーチから徒歩3分","hero_title":"ビーチそばのベッドと、<em>釜山を知る人たち。</em>","hero_lede":"海雲台ビーチから徒歩3分、海雲台市場から1分のゲストハウスです。6人部屋と10人部屋のドミトリー、無料の朝食とタオル、荷物預かりがあり、20名から50名までの団体も受け入れます。","cta1":"宿の設備","cta2":"時間とアクセス","art_note":"ドミトリー、海まで3分","art_quote":"「海まで3分、市場まで1分。」","art_fact":"6・10人ドミトリー · 朝食無料","sec1_kick":"01 — 宿","sec1_title":"ドミトリー、共用キッチン、無料の朝食。","sec1_lede":"6人部屋と10人部屋のドミトリーを運営し、20名から50名までの団体を受け入れます。朝食とWi-Fi、タオル、シャンプー・ボディソープは無料で、荷物は朝9時から夜8時まで預かれます。","i1_n":"6人・10人ドミトリー","i1_d":"相部屋の二段ベッド、個人用の靴箱と貴重品ロッカーがあります。","i2_n":"朝食無料","i2_d":"朝食が無料で出て、タオル・シャンプー・ボディソープ・歯磨き粉も用意されています。","i3_n":"団体歓迎","i3_d":"20名から50名までの団体予約を受け付けます。人数と日付をメールでお知らせください。","i4_n":"海まで3分","i4_d":"海雲台ビーチ徒歩3分、海雲台市場1分、冬柏島（トンベクソム）とタルマジ峠も歩いて行けます。","sec2_kick":"02 — 時間とアクセス","sec2_title":"午後にチェックイン、十一時までにチェックアウト。","h1_l":"チェックイン","h1_v":"15:00–22:00","h2_l":"チェックアウト","h2_v":"11:00まで","h3_l":"荷物預かり","h3_v":"09:00–20:00","addr":"釜山広域市海雲台区中洞1路 41-1（郵便番号 48095）","transit":"海雲台ビーチから徒歩3分、地下鉄駅から約5分、BEXCOまで地下鉄で三駅です。チェックイン後は24時間出入りできます。","foot_tagline":"海雲台ビーチから3分のゲストハウス — 6・10人ドミトリー、朝食無料、団体50名まで。"},"zh":{"lang_aria":"语言","lbl_hours":"营业时间","lbl_address":"地址","lbl_getting":"交通","lbl_email":"邮箱","lbl_phone":"电话","lbl_messenger":"消息","concept_badge":"方案预览 · Atelier Web","concept_note":"本页面是 Atelier Web 制作的概念方案，并非 게스트하우스 포비 的官方网站。","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"直接联系","cta_email":"写邮件","brand_sub":"釜山海云台民宿","nav1":"房型","nav2":"时间·交通","nav3":"联系","nav_cta":"询问床位","hero_kick":"距海云台海水浴场步行 3 分钟","hero_title":"海边的床位，<em>还有熟悉釜山的人。</em>","hero_lede":"距海云台海水浴场步行三分钟、海云台市场一分钟的民宿。有六人间与十人间床位房，含免费早餐、毛巾与行李寄存，也可接待二十到五十人的团体。","cta1":"房内设施","cta2":"时间与交通","art_note":"床位房，距海滩 3 分钟","art_quote":"“到海边三分钟，到市场一分钟。”","art_fact":"6·10 人床位房 · 免费早餐","sec1_kick":"01 — 房型","sec1_title":"床位房、共用厨房、免费早餐。","sec1_lede":"运营六人间与十人间床位房，接待二十到五十人的团体。早餐、Wi-Fi、毛巾、洗发水和沐浴露免费，行李可在上午九点到晚上八点间寄存。","i1_n":"六人间·十人间","i1_d":"共用房间的上下铺，配个人鞋柜和存放行李的柜子。","i2_n":"免费早餐","i2_d":"早上提供免费早餐，毛巾、洗发水、沐浴露与牙膏也一并提供。","i3_n":"欢迎团体","i3_d":"接待二十到五十人的团体预订，把人数与日期发邮件即可确认。","i4_n":"到海边三分钟","i4_d":"距海云台海水浴场步行三分钟，海云台市场一分钟，冬柏岛与达摩吉岭也在步行范围内。","sec2_kick":"02 — 时间与交通","sec2_title":"下午入住，十一点前退房。","h1_l":"入住","h1_v":"15:00–22:00","h2_l":"退房","h2_v":"11:00 前","h3_l":"行李寄存","h3_v":"09:00–20:00","addr":"釜山广域市海云台区中洞 1 路 41-1（邮编 48095）","transit":"距海云台海水浴场步行三分钟，距地铁站约五分钟，到 BEXCO 乘地铁三站。入住后可 24 小时进出。","foot_tagline":"距海云台海水浴场三分钟的民宿——六人与十人床位房，含早餐，团体可达五十人。"},"es":{"lang_aria":"Idioma","lbl_hours":"Horario","lbl_address":"Dirección","lbl_getting":"Cómo llegar","lbl_email":"Correo","lbl_phone":"Teléfono","lbl_messenger":"Mensaje","concept_badge":"Vista de concepto · Atelier Web","concept_note":"Esta página es una propuesta de concepto preparada por Atelier Web. No es el sitio oficial de 게스트하우스 포비.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Contacto directo","cta_email":"Escribir un correo","brand_sub":"Casa de huéspedes · Haeundae, Busan","nav1":"La casa","nav2":"Horario y llegada","nav3":"Contacto","nav_cta":"Consultar cama","hero_kick":"A tres minutos de la playa de Haeundae","hero_title":"Una cama junto a la playa, <em>y gente que conoce Busan.</em>","hero_lede":"Una casa de huéspedes a tres minutos a pie de la playa de Haeundae y a uno del mercado. Dormitorios de seis y diez camas, desayuno, toallas y consigna gratuitos, y espacio para grupos de veinte a cincuenta personas.","cta1":"Qué tiene la casa","cta2":"Horario y llegada","art_note":"Literas, a 3 min de la arena","art_quote":"«La playa a tres minutos; el mercado, a uno.»","art_fact":"Dormitorios de 6 y 10 · desayuno gratis","sec1_kick":"01 — La casa","sec1_title":"Literas, cocina compartida y desayuno gratis.","sec1_lede":"La casa tiene dormitorios de seis y diez camas y recibe grupos de veinte a cincuenta personas. El desayuno, el wifi, las toallas, el champú y el gel son gratuitos; el equipaje se guarda de nueve a ocho.","i1_n":"Dormitorios de 6 y 10","i1_d":"Literas en habitaciones compartidas, con taquilla para el calzado y armario con llave para la mochila.","i2_n":"Desayuno gratis","i2_d":"El desayuno está incluido, y se dan toallas, champú, gel y pasta de dientes.","i3_n":"Grupos bienvenidos","i3_d":"Se aceptan grupos de veinte a cincuenta personas; escribe con fechas y número para confirmar.","i4_n":"Tres minutos a la playa","i4_d":"Playa de Haeundae a tres minutos, mercado de Haeundae a uno, y la isla Dongbaek y la colina Dalmaji a pie.","sec2_kick":"02 — Horario y llegada","sec2_title":"Entrada por la tarde, salida antes de las once.","h1_l":"Entrada","h1_v":"15:00–22:00","h2_l":"Salida","h2_v":"Antes de las 11:00","h3_l":"Equipaje","h3_v":"09:00–20:00","addr":"41-1 Jungdong 1-ro, Haeundae-gu, Busan (48095)","transit":"A tres minutos a pie de la playa de Haeundae, unos cinco del metro y tres paradas de BEXCO. Una vez dentro, el acceso es libre las 24 horas.","foot_tagline":"Casa de huéspedes a tres minutos de la playa de Haeundae: dormitorios de seis y diez, desayuno gratis, grupos hasta cincuenta."},"vi":{"lang_aria":"Ngôn ngữ","lbl_hours":"Giờ mở cửa","lbl_address":"Địa chỉ","lbl_getting":"Đường đi","lbl_email":"Email","lbl_phone":"Điện thoại","lbl_messenger":"Tin nhắn","concept_badge":"Bản xem trước ý tưởng · Atelier Web","concept_note":"Trang này là bản phác thảo ý tưởng do Atelier Web thực hiện, không phải website chính thức của 게스트하우스 포비.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Liên hệ trực tiếp","cta_email":"Gửi email","brand_sub":"Nhà nghỉ · Haeundae, Busan","nav1":"Nhà","nav2":"Giờ & lối đi","nav3":"Liên hệ","nav_cta":"Hỏi giường","hero_kick":"Cách bãi biển Haeundae 3 phút","hero_title":"Một chiếc giường bên biển, <em>và những người biết Busan.</em>","hero_lede":"Nhà nghỉ cách bãi biển Haeundae ba phút đi bộ, cách chợ Haeundae một phút. Có phòng tập thể 6 và 10 giường, bữa sáng, khăn tắm và gửi hành lý miễn phí, nhận đoàn từ 20 đến 50 người.","cta1":"Trong nhà có gì","cta2":"Giờ và lối đi","art_note":"Giường tầng, cách biển 3 phút","art_quote":"“Biển ba phút, chợ một phút.”","art_fact":"Phòng 6 và 10 giường · sáng miễn phí","sec1_kick":"01 — Nhà","sec1_title":"Giường tầng, bếp chung, bữa sáng miễn phí.","sec1_lede":"Nhà có phòng tập thể 6 và 10 giường, nhận đoàn từ 20 đến 50 người. Bữa sáng, Wi-Fi, khăn tắm, dầu gội và sữa tắm đều miễn phí; hành lý gửi được từ chín giờ sáng đến tám giờ tối.","i1_n":"Phòng 6 và 10 giường","i1_d":"Giường tầng trong phòng chung, có tủ giày riêng và tủ khoá cho hành lý.","i2_n":"Bữa sáng miễn phí","i2_d":"Bữa sáng miễn phí; khăn tắm, dầu gội, sữa tắm và kem đánh răng cũng có sẵn.","i3_n":"Nhận đoàn","i3_d":"Nhận đoàn từ 20 đến 50 người; gửi email số người và ngày để xác nhận.","i4_n":"Ba phút tới biển","i4_d":"Bãi biển Haeundae ba phút, chợ Haeundae một phút, đảo Dongbaek và đèo Dalmaji đi bộ được.","sec2_kick":"02 — Giờ và lối đi","sec2_title":"Nhận phòng buổi chiều, trả phòng trước mười một giờ.","h1_l":"Nhận phòng","h1_v":"15:00–22:00","h2_l":"Trả phòng","h2_v":"Trước 11:00","h3_l":"Gửi hành lý","h3_v":"09:00–20:00","addr":"41-1 Jungdong 1-ro, Haeundae-gu, Busan (48095)","transit":"Cách bãi biển Haeundae ba phút đi bộ, cách ga tàu điện khoảng năm phút, và ba ga tới BEXCO. Sau khi nhận phòng có thể ra vào 24 giờ.","foot_tagline":"Nhà nghỉ cách bãi biển Haeundae ba phút — phòng 6 và 10 giường, bữa sáng miễn phí, đoàn tới 50 người."}};
+</script>
+<script>
+(function(){
+  var dict = window.I18N || {}, LANGS = ['en','ko','ja','zh','es','vi'], current = 'ko';
+  function t(k){
+    var pack = dict[current] || dict.en || {};
+    if (pack[k] !== undefined) return pack[k];
+    return (dict.en && dict.en[k] !== undefined) ? dict.en[k] : '';
+  }
+  function apply(lang){
+    if (LANGS.indexOf(lang) < 0) lang = 'en';
+    current = lang;
+    document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-Hans' : lang);
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n'));
+      if (v !== '') el.innerHTML = v;
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n-aria'));
+      if (v !== '') el.setAttribute('aria-label', v);
+    });
+    document.querySelectorAll('.lang').forEach(function(b){
+      var on = b.getAttribute('data-lang') === lang;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    try { localStorage.setItem('aw_concept_lang', lang); } catch(e) {}
+  }
+  document.querySelectorAll('.lang').forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.getAttribute('data-lang')); });
+  });
+  var saved = null;
+  try { saved = localStorage.getItem('aw_concept_lang'); } catch(e) {}
+  if (LANGS.indexOf(saved) < 0) saved = 'ko';
+  apply(saved);
+})();
+</script>
+</body>
+</html>

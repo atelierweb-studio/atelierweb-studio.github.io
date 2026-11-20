@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko" data-lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>예맛 (YEMAT) — 김 제조·수출 (개념 시안)</title>
+<meta name="description" content="Concept preview for YEMAT, a Korean seaweed manufacturer and exporter in Icheon, with a six-language switch.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1F3A5F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230F0E0B'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='13' fill='%23F5F1E8' text-anchor='middle'%3EY%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#F7F5EF; --bg2:#EFEBE1; --card:#FFFFFF; --ink:#15140F; --ink2:#43403A;
+    --muted:#787264; --line:rgba(21,20,15,.14); --accent:#8C5A2B; --accent2:#2E4038;
+    --tint:rgba(140,90,43,.08);
+    --serif:"New York",ui-serif,"Iowan Old Style","Palatino Linotype",Georgia,"Noto Serif KR",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Pretendard",Roboto,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --r:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  h1,h2,h3{margin:0;font-family:var(--serif);font-weight:400;letter-spacing:-.01em}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+  .eyebrow{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+  .topbar{position:fixed;inset:0 0 auto;z-index:50;background:var(--bg);background:color-mix(in srgb,var(--bg) 93%,transparent);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .topbar-in{max-width:1140px;margin:0 auto;padding:11px 28px;display:flex;align-items:center;gap:22px}
+  .brand{display:flex;flex-direction:column;line-height:1}
+  .brand strong{font-family:var(--serif);font-weight:400;font-size:20px;letter-spacing:.01em}
+  .brand i{font-style:normal;font-family:var(--mono);font-size:7.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .nav{display:flex;gap:18px}
+  .nav a{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);
+    padding-bottom:3px;border-bottom:1px solid transparent}
+  .nav a:hover{color:var(--accent);border-color:var(--accent)}
+  .langs{display:flex;gap:5px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+  .langs::-webkit-scrollbar{display:none}
+  .lang{font-family:var(--mono);font-size:9.5px;border:1px solid var(--line);border-radius:99px;padding:6px 8px;
+    white-space:nowrap;color:var(--ink2);transition:.16s}
+  .lang:hover{border-color:var(--accent);color:var(--accent)}
+  .lang.is-on{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent2);color:#fff;border:1px solid var(--accent2);
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;padding:12px 18px;border-radius:99px;transition:.18s}
+  .btn:hover{background:var(--accent);border-color:var(--accent)}
+  .btn-sm{padding:9px 14px;font-size:8.5px;flex:0 0 auto}
+  .btn-ghost{background:transparent;color:var(--accent2);border-color:var(--line)}
+  .btn-ghost:hover{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+
+  .hero{padding:132px 0 60px}
+  .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:48px;align-items:center}
+  .kicker{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  h1{margin-top:16px;font-size:clamp(36px,4.8vw,58px);line-height:1.05}
+  h1 em{font-style:italic;color:var(--accent)}
+  .hero p{margin:18px 0 0;font-size:15.5px;line-height:1.7;color:var(--ink2);max-width:46ch}
+  .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+  .art{position:relative;border-radius:20px;overflow:hidden;min-height:360px;border:1px solid var(--line);
+    background:linear-gradient(168deg,var(--bg2),var(--bg));
+    background-image:linear-gradient(168deg,var(--bg2),color-mix(in srgb,var(--accent) 12%,var(--bg2)))}
+  .art::before{content:"";position:absolute;width:280px;height:280px;border-radius:50%;left:-50px;top:-70px;
+    border:1px solid var(--line);border-color:color-mix(in srgb,var(--accent) 30%,transparent)}
+  .art::after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-30px;bottom:70px;
+    background:radial-gradient(circle at 35% 30%,#fff,transparent 70%)}
+  .art-note{position:absolute;left:22px;top:22px;font-family:var(--mono);font-size:8px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--accent)}
+  .art-quote{position:absolute;left:22px;right:22px;top:46%;transform:translateY(-50%);font-family:var(--serif);
+    font-size:23px;line-height:1.28;color:var(--accent2);max-width:24ch}
+  .art-fact{position:absolute;left:22px;right:22px;bottom:20px;background:rgba(255,255,255,.86);border-radius:12px;
+    padding:12px 14px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);
+    box-shadow:0 12px 26px -20px rgba(21,20,15,.5)}
+  .concept{position:absolute;right:16px;top:16px;background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:99px;
+    padding:5px 10px;font-family:var(--mono);font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+  .sec{padding:58px 0;border-top:1px solid var(--line)}
+  .sec-head{margin-bottom:26px;max-width:62ch}
+  h2{font-size:clamp(25px,3vw,36px);line-height:1.12;margin-top:10px}
+  .sec-head p{margin:10px 0 0;font-size:13px;line-height:1.65;color:var(--muted)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .item{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;transition:.2s}
+  .item:hover{border-color:var(--accent);box-shadow:0 16px 30px -26px rgba(21,20,15,.5)}
+  .item .n{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--accent)}
+  .item h3{font-size:18px;margin-top:8px;line-height:1.28}
+  .item p{margin:8px 0 0;font-size:12px;line-height:1.62;color:var(--muted)}
+
+  .visit{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .row{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .row b{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .row span{font-family:var(--mono);font-size:10.5px;color:var(--ink2);text-align:right}
+  .blocks{margin-top:18px}
+  .block{margin-top:14px}
+  .block b{display:block;font-family:var(--mono);font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .block span{display:block;margin-top:5px;font-size:12.5px;line-height:1.65;color:var(--ink2)}
+  .contact{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;align-self:start}
+  .contact h3{font-size:19px}
+  .cline{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .cline:last-of-type{border-bottom:0}
+  .cline b{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .cline a{font-size:12px;color:var(--accent2);border-bottom:1px solid var(--line);border-bottom-color:color-mix(in srgb,var(--accent) 50%,transparent);
+    text-underline-offset:2px;word-break:break-all}
+  .contact .btn{margin-top:16px;width:100%;justify-content:center}
+
+  footer{background:var(--ink);color:#EEE9DF;padding:44px 0 26px;margin-top:14px}
+  .foot{display:grid;grid-template-columns:1.4fr .6fr;gap:26px}
+  .foot strong{font-family:var(--serif);font-weight:400;font-size:19px}
+  .foot p{margin:12px 0 0;font-size:10.5px;line-height:1.7;color:#B6AE9E;max-width:52ch}
+  .foot .credit{margin-top:14px;font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;color:#D8D0C0}
+  .foot .credit a{border-bottom:1px solid rgba(216,208,192,.5)}
+  .foot-bottom{margin-top:24px;padding-top:14px;border-top:1px solid rgba(238,233,223,.16);display:flex;
+    justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:8px;letter-spacing:.1em;
+    text-transform:uppercase;color:#9A9282}
+  .foot .concept-note{font-size:10px;line-height:1.6;color:#9A9282;max-width:60ch}
+
+  @media (max-width:960px){
+    .nav{display:none}
+    .hero{padding-top:112px}
+    .hero-grid,.visit,.grid{grid-template-columns:1fr;gap:26px}
+    .foot{grid-template-columns:1fr}
+    .topbar-in{flex-wrap:wrap;gap:10px}
+    .langs{order:3;width:100%;margin-left:0}
+    .btn-sm{margin-left:auto}
+    .art{min-height:320px}
+  }
+  @media (max-width:600px){
+    .wrap,.topbar-in{padding-left:18px;padding-right:18px}
+    .art-quote{font-size:20px}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="#top"><strong>예맛</strong><i data-i18n="brand_sub">김 전문 기업 · 경기 이천</i></a>
+    <nav class="nav">
+      <a href="#offer" data-i18n="nav1">만드는 것</a>
+      <a href="#visit" data-i18n="nav2">회사·수출</a>
+      <a href="mailto:sales@yemat1004.com" data-i18n="nav3">문의</a>
+    </nav>
+    <div class="langs" role="group" data-i18n-aria="lang_aria" aria-label="Language">
+      <button type="button" class="lang" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" class="lang is-on" data-lang="ko" aria-pressed="true">KO</button>
+      <button type="button" class="lang" data-lang="ja" aria-pressed="false">JA</button>
+      <button type="button" class="lang" data-lang="zh" aria-pressed="false">ZH</button>
+      <button type="button" class="lang" data-lang="es" aria-pressed="false">ES</button>
+      <button type="button" class="lang" data-lang="vi" aria-pressed="false">VI</button>
+    </div>
+    <a class="btn btn-sm" href="#visit" data-i18n="nav_cta">샘플 문의</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="kicker" data-i18n="hero_kick">김 40년 · 경기 이천</div>
+        <h1 data-i18n="hero_title">한국의 김을, <em>컨테이너로.</em></h1>
+        <p data-i18n="hero_lede">이천에서 구이김과 조미김을 만들어 해외로 보냅니다. 해마다 1,000톤 이상을 생산하고, 관계사 포함 수출 컨테이너 2,700대 이상, 12개국 이상·16곳 이상의 파트너와 거래합니다. 자체 브랜드는 C-WEED SNACK과 Kwon's Gim입니다.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#offer" data-i18n="cta1">제품군</a>
+          <a class="btn btn-ghost" href="#visit" data-i18n="cta2">회사와 수출</a>
+        </div>
+      </div>
+      <div class="art" aria-hidden="true">
+        <div class="concept" data-i18n="concept_badge">Concept preview · Atelier Web</div>
+        <div class="art-note" data-i18n="art_note">원초를 골라 굽습니다</div>
+        <div class="art-quote" data-i18n="art_quote">“40년 동안 김을 골라 왔습니다.”</div>
+        <div class="art-fact" data-i18n="art_fact">수출 12개국 이상 · 파트너 16곳 이상 (2025년 기준)</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="offer">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow" data-i18n="sec1_kick">01 — 만드는 것</div>
+        <h2 data-i18n="sec1_title">한 제품을, 시장이 원하는 형태로.</h2>
+        <p data-i18n="sec1_lede">굽기 전에 제품별로 원초를 골라, 라인마다 쓰임에 맞는 김을 씁니다. 자체 브랜드와 해외 파트너 브랜드를 함께 생산하며 연중 출하합니다.</p>
+      </div>
+      <div class="grid">
+        <article class="item"><div class="n">i1</div><h3 data-i18n="i1_n">조미김·스낵김</h3><p data-i18n="i1_d">구이와 조미를 거친 김, 그리고 C-WEED SNACK 이름으로 나가는 스낵 포장입니다.</p></article>
+        <article class="item"><div class="n">i2</div><h3 data-i18n="i2_n">자체 브랜드</h3><p data-i18n="i2_d">C-WEED SNACK과 Kwon's Gim — 국내와 수출에 함께 쓰는 두 브랜드입니다.</p></article>
+        <article class="item"><div class="n">i3</div><h3 data-i18n="i3_n">원초 선별</h3><p data-i18n="i3_d">굽기 전에 제품에 맞는 원초를 고릅니다. 식감과 보관성의 차이가 여기서 갈립니다.</p></article>
+        <article class="item"><div class="n">i4</div><h3 data-i18n="i4_n">파트너 생산</h3><p data-i18n="i4_d">파트너 브랜드의 물량과 포장을 시장별로 협의해 생산합니다.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="visit">
+    <div class="wrap visit">
+      <div>
+        <div class="eyebrow" data-i18n="sec2_kick">02 — 회사와 수출</div>
+        <h2 data-i18n="sec2_title">이천 공장, 12개국 파트너.</h2>
+        <div style="margin-top:18px">
+          <div class="row"><b data-i18n="h1_l">경험</b><span data-i18n="h1_v">김 40년</span></div>
+          <div class="row"><b data-i18n="h2_l">생산</b><span data-i18n="h2_v">연 1,000톤 이상</span></div>
+          <div class="row"><b data-i18n="h3_l">수출</b><span data-i18n="h3_v">12개국 이상 · 파트너 16곳 이상</span></div>
+        </div>
+        <div class="blocks">
+          <div class="block"><b data-i18n="lbl_address">Address</b><span data-i18n="addr">경기도 이천시 마장면 서이천로 231번길 64</span></div>
+          <div class="block"><b data-i18n="lbl_getting">Getting here</b><span data-i18n="transit">수출·샘플 문의는 sales@yemat1004.com으로 받습니다. 시장에 맞는 규격과 포장 조건을 함께 보내드립니다.</span></div>
+        </div>
+      </div>
+      <div class="contact">
+        <h3 data-i18n="contact_title" style="font-size:16px">Talk to us directly</h3>
+        <div style="margin-top:8px">
+          <div class="cline"><b data-i18n="lbl_email">Email</b><a href="mailto:sales@yemat1004.com">sales@yemat1004.com</a></div>
+          <div class="cline"><b data-i18n="lbl_phone">Phone</b><a href="tel:07044847200">070-4484-7200</a></div>
+
+        </div>
+        <a class="btn" href="mailto:sales@yemat1004.com" data-i18n="cta_email">Write an email</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <strong>예맛</strong>
+        <p data-i18n="foot_tagline">이천에서 만드는 한국의 김 — 연 1,000톤, 12개국 파트너, 브랜드 C-WEED SNACK·Kwon's Gim.</p>
+        <p class="concept-note" data-i18n="concept_note">이 페이지는 Atelier Web이 제안용으로 만든 시안이며 예맛의 공식 홈페이지가 아닙니다.</p>
+        <div class="credit">Concept preview prepared by Atelier Web (<a href="https://atelierweb-studio.github.io/" target="_blank" rel="noopener">atelierweb-studio.github.io</a>)</div>
+      </div>
+      <div>
+        <p style="font-family:var(--mono);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:#8E8677;margin:0" data-i18n="lbl_hours">Hours</p>
+        <p style="margin-top:8px;font-family:var(--mono);font-size:10px;line-height:1.9;color:#CBC3B3">수출 12개국 이상 · 파트너 16곳 이상 (2025)</p>
+        <p style="margin-top:10px;font-family:var(--mono);font-size:9px;color:#8E8677" data-i18n="foot_lang">EN · KO · JA · ZH · ES · VI</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>예맛 · Icheon · Gyeonggi</span>
+      <span>© 2026 Atelier Web · concept</span>
+    </div>
+  </div>
+</footer>
+
+<noscript><div style="position:fixed;left:0;right:0;bottom:0;z-index:80;background:#15140F;color:#EEE9DF;font-family:monospace;font-size:9px;padding:9px 14px;text-align:center">JavaScript is off. Open this page in Safari or Chrome for the six-language switch.</div></noscript>
+
+<script>
+window.I18N = {"en":{"lang_aria":"Language","lbl_hours":"Hours","lbl_address":"Address","lbl_getting":"Getting here","lbl_email":"Email","lbl_phone":"Phone","lbl_messenger":"Message","concept_badge":"Concept preview · Atelier Web","concept_note":"This page is an unsolicited concept preview prepared by Atelier Web. It is not the official website of 예맛.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Talk to us directly","cta_email":"Write an email","brand_sub":"Korean seaweed · Icheon, Korea","nav1":"What we make","nav2":"Company & export","nav3":"Contact","nav_cta":"Ask for a sample","hero_kick":"Four decades of gim · Icheon, Korea","hero_title":"Korean gim, <em>shipped by the container.</em>","hero_lede":"Yemat makes roasted and seasoned gim in Icheon and ships it abroad: more than 1,000 tonnes a year, over 2,700 containers including affiliates, and partners in twelve countries or more. The house brands are C-WEED SNACK and Kwon's Gim.","cta1":"Product lines","cta2":"Company and export","art_note":"Raw seaweed, chosen by hand","art_quote":"“Forty years of choosing the right laver.”","art_fact":"12+ export markets · 16+ partners (2025)","sec1_kick":"01 — What we make","sec1_title":"One product, in the forms a market asks for.","sec1_lede":"Laver is selected by product line before it is roasted, so each line is suited to its use. The company produces for its own brands and for partners abroad, and ships through the year.","i1_n":"Seasoned and snack gim","i1_d":"Roasted and seasoned sheets, and the snack packs that go out under C-WEED SNACK.","i2_n":"Own brands","i2_d":"C-WEED SNACK and Kwon's Gim, the two house brands used for retail and export.","i3_n":"Raw material selection","i3_d":"Laver is graded for each product before roasting, which is where the difference in texture and keeping quality begins.","i4_n":"Production for partners","i4_d":"Volume and packing for partner brands are agreed market by market.","sec2_kick":"02 — Company and export","sec2_title":"Icheon factory, partners in twelve countries.","h1_l":"Experience","h1_v":"40 years in gim","h2_l":"Output","h2_v":"1,000+ tonnes a year","h3_l":"Export","h3_v":"12+ countries, 16+ partners","addr":"64 Seoicheon-ro 231beon-gil, Majang-myeon, Icheon-si, Gyeonggi-do, Korea","transit":"Export and sample enquiries go to sales@yemat1004.com; the office sends specifications and packing details for your market.","foot_tagline":"Korean gim from Icheon — 1,000 tonnes a year, partners in twelve countries, house brands C-WEED SNACK and Kwon's Gim."},"ko":{"lang_aria":"언어 선택","lbl_hours":"영업시간","lbl_address":"주소","lbl_getting":"오시는 길","lbl_email":"이메일","lbl_phone":"전화","lbl_messenger":"메신저","concept_badge":"시안 미리보기 · Atelier Web","concept_note":"이 페이지는 Atelier Web이 제안용으로 만든 시안이며 예맛의 공식 홈페이지가 아닙니다.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"바로 연락하기","cta_email":"이메일 보내기","brand_sub":"김 전문 기업 · 경기 이천","nav1":"만드는 것","nav2":"회사·수출","nav3":"문의","nav_cta":"샘플 문의","hero_kick":"김 40년 · 경기 이천","hero_title":"한국의 김을, <em>컨테이너로.</em>","hero_lede":"이천에서 구이김과 조미김을 만들어 해외로 보냅니다. 해마다 1,000톤 이상을 생산하고, 관계사 포함 수출 컨테이너 2,700대 이상, 12개국 이상·16곳 이상의 파트너와 거래합니다. 자체 브랜드는 C-WEED SNACK과 Kwon's Gim입니다.","cta1":"제품군","cta2":"회사와 수출","art_note":"원초를 골라 굽습니다","art_quote":"“40년 동안 김을 골라 왔습니다.”","art_fact":"수출 12개국 이상 · 파트너 16곳 이상 (2025년 기준)","sec1_kick":"01 — 만드는 것","sec1_title":"한 제품을, 시장이 원하는 형태로.","sec1_lede":"굽기 전에 제품별로 원초를 골라, 라인마다 쓰임에 맞는 김을 씁니다. 자체 브랜드와 해외 파트너 브랜드를 함께 생산하며 연중 출하합니다.","i1_n":"조미김·스낵김","i1_d":"구이와 조미를 거친 김, 그리고 C-WEED SNACK 이름으로 나가는 스낵 포장입니다.","i2_n":"자체 브랜드","i2_d":"C-WEED SNACK과 Kwon's Gim — 국내와 수출에 함께 쓰는 두 브랜드입니다.","i3_n":"원초 선별","i3_d":"굽기 전에 제품에 맞는 원초를 고릅니다. 식감과 보관성의 차이가 여기서 갈립니다.","i4_n":"파트너 생산","i4_d":"파트너 브랜드의 물량과 포장을 시장별로 협의해 생산합니다.","sec2_kick":"02 — 회사와 수출","sec2_title":"이천 공장, 12개국 파트너.","h1_l":"경험","h1_v":"김 40년","h2_l":"생산","h2_v":"연 1,000톤 이상","h3_l":"수출","h3_v":"12개국 이상 · 파트너 16곳 이상","addr":"경기도 이천시 마장면 서이천로 231번길 64","transit":"수출·샘플 문의는 sales@yemat1004.com으로 받습니다. 시장에 맞는 규격과 포장 조건을 함께 보내드립니다.","foot_tagline":"이천에서 만드는 한국의 김 — 연 1,000톤, 12개국 파트너, 브랜드 C-WEED SNACK·Kwon's Gim."},"ja":{"lang_aria":"言語","lbl_hours":"営業時間","lbl_address":"住所","lbl_getting":"アクセス","lbl_email":"メール","lbl_phone":"電話","lbl_messenger":"メッセージ","concept_badge":"コンセプトプレビュー · Atelier Web","concept_note":"このページは Atelier Web が提案用に制作したコンセプトで、예맛 の公式サイトではありません。","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"直接のご連絡","cta_email":"メールを書く","brand_sub":"韓国海苔メーカー · 京畿道利川","nav1":"製品","nav2":"会社・輸出","nav3":"お問い合わせ","nav_cta":"サンプル相談","hero_kick":"海苔四十年 · 京畿道利川","hero_title":"韓国の海苔を、<em>コンテナで。</em>","hero_lede":"利川で焼き海苔と味付け海苔をつくり、海外へ送っています。年間1,000トン以上を生産し、関係会社を含む輸出コンテナは2,700台以上、12か国以上・16社以上のパートナーと取引しています。自社ブランドはC-WEED SNACKとKwon's Gimです。","cta1":"製品ライン","cta2":"会社と輸出","art_note":"原藻を選んで焼く","art_quote":"「四十年、海苔を選んできました。」","art_fact":"輸出12か国以上 · パートナー16社以上（2025年）","sec1_kick":"01 — 製品","sec1_title":"ひとつの製品を、市場が求める形に。","sec1_lede":"焼く前に製品ごとに原藻を選ぶため、ラインごとに用途に合った海苔を使います。自社ブランドと海外パートナーのブランドを併行して生産し、年間を通して出荷します。","i1_n":"味付け海苔・スナック海苔","i1_d":"焼きと味付けを経た海苔、そしてC-WEED SNACKの名で出るスナック包装です。","i2_n":"自社ブランド","i2_d":"C-WEED SNACKとKwon's Gim — 国内と輸出に使う二つのブランドです。","i3_n":"原藻の選別","i3_d":"焼く前に製品に合う原藻を選びます。食感と保存性の差はここで決まります。","i4_n":"パートナー生産","i4_d":"パートナーブランドの数量と包装を市場ごとに協議して生産します。","sec2_kick":"02 — 会社と輸出","sec2_title":"利川工場、12か国のパートナー。","h1_l":"経験","h1_v":"海苔40年","h2_l":"生産","h2_v":"年1,000トン以上","h3_l":"輸出","h3_v":"12か国以上・16社以上","addr":"京畿道利川市麻長面西利川路231番キル64","transit":"輸出・サンプルのお問い合わせは sales@yemat1004.com で承ります。市場に合わせた規格と包装条件をあわせてご案内します。","foot_tagline":"利川でつくる韓国の海苔 — 年1,000トン、12か国のパートナー、ブランドC-WEED SNACK・Kwon's Gim。"},"zh":{"lang_aria":"语言","lbl_hours":"营业时间","lbl_address":"地址","lbl_getting":"交通","lbl_email":"邮箱","lbl_phone":"电话","lbl_messenger":"消息","concept_badge":"方案预览 · Atelier Web","concept_note":"本页面是 Atelier Web 制作的概念方案，并非 예맛 的官方网站。","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"直接联系","cta_email":"写邮件","brand_sub":"韩国海苔企业 · 京畿道利川","nav1":"产品","nav2":"公司与出口","nav3":"联系","nav_cta":"索取样品","hero_kick":"海苔四十年 · 京畿道利川","hero_title":"把韩国海苔，<em>装进集装箱。</em>","hero_lede":"在利川生产烤海苔与调味海苔并出口海外。年产量一千吨以上，含关联公司在内的出口集装箱超过两千七百个，与十二个以上国家、十六家以上伙伴合作。自有品牌为 C-WEED SNACK 与 Kwon's Gim。","cta1":"产品线","cta2":"公司与出口","art_note":"先选原藻，再烘烤","art_quote":"“四十年，只做挑选海苔这件事。”","art_fact":"出口 12 国以上 · 伙伴 16 家以上（2025）","sec1_kick":"01 — 产品","sec1_title":"一种产品，做成市场需要的样子。","sec1_lede":"烘烤前按产品挑选原藻，每条产品线都用适合其用途的原料。既做自有品牌，也为海外伙伴代工，全年出货。","i1_n":"调味海苔·零食海苔","i1_d":"经过烘烤与调味的原张海苔，以及以 C-WEED SNACK 名义出货的零食包装。","i2_n":"自有品牌","i2_d":"C-WEED SNACK 与 Kwon's Gim——内销与出口并用的两个品牌。","i3_n":"原藻筛选","i3_d":"烘烤前按产品选原藻，口感与耐储性的差别就在这里。","i4_n":"伙伴代工","i4_d":"按市场协商伙伴品牌的数量与包装后生产。","sec2_kick":"02 — 公司与出口","sec2_title":"利川工厂，十二国伙伴。","h1_l":"经验","h1_v":"海苔 40 年","h2_l":"产能","h2_v":"年产 1,000 吨以上","h3_l":"出口","h3_v":"12 国以上 · 伙伴 16 家以上","addr":"京畿道利川市麻长面西利川路 231 番街 64","transit":"出口与样品询价请发至 sales@yemat1004.com，我们会一并提供适合贵市场的规格与包装条件。","foot_tagline":"利川生产的韩国海苔——年产千吨，十二国伙伴，品牌 C-WEED SNACK 与 Kwon's Gim。"},"es":{"lang_aria":"Idioma","lbl_hours":"Horario","lbl_address":"Dirección","lbl_getting":"Cómo llegar","lbl_email":"Correo","lbl_phone":"Teléfono","lbl_messenger":"Mensaje","concept_badge":"Vista de concepto · Atelier Web","concept_note":"Esta página es una propuesta de concepto preparada por Atelier Web. No es el sitio oficial de 예맛.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Contacto directo","cta_email":"Escribir un correo","brand_sub":"Alga coreana · Icheon, Corea","nav1":"Qué hacemos","nav2":"Empresa y exportación","nav3":"Contacto","nav_cta":"Pedir muestra","hero_kick":"Cuarenta años de alga · Icheon","hero_title":"Alga coreana, <em>por contenedor.</em>","hero_lede":"Yemat produce alga tostada y condimentada en Icheon y la envía al exterior: más de 1.000 toneladas al año, más de 2.700 contenedores incluida la filial y socios en doce países o más. Sus marcas propias son C-WEED SNACK y Kwon's Gim.","cta1":"Líneas de producto","cta2":"Empresa y exportación","art_note":"Alga elegida a mano","art_quote":"«Cuarenta años eligiendo alga.»","art_fact":"12+ mercados · 16+ socios (2025)","sec1_kick":"01 — Qué hacemos","sec1_title":"Un producto, en la forma que pide cada mercado.","sec1_lede":"El alga se selecciona por línea antes de tostarla, de modo que cada producto recibe la hoja adecuada. La planta produce para las marcas propias y para socios del exterior, y envía todo el año.","i1_n":"Alga tostada y condimentada","i1_d":"Hojas tostadas y condimentadas, y los envases de snack que salen como C-WEED SNACK.","i2_n":"Marcas propias","i2_d":"C-WEED SNACK y Kwon's Gim, las dos marcas de la casa para tienda y exportación.","i3_n":"Selección de la materia prima","i3_d":"La hoja se clasifica por producto antes del tostado: ahí empieza la diferencia de textura y conservación.","i4_n":"Producción para socios","i4_d":"Volumen y envasado se acuerdan con cada socio según su mercado.","sec2_kick":"02 — Empresa y exportación","sec2_title":"Planta de Icheon, socios en doce países.","h1_l":"Experiencia","h1_v":"40 años en el alga","h2_l":"Producción","h2_v":"1.000+ toneladas al año","h3_l":"Exportación","h3_v":"12+ países, 16+ socios","addr":"64 Seoicheon-ro 231beon-gil, Majang-myeon, Icheon-si, Gyeonggi-do, Corea","transit":"Las consultas de exportación y muestras van a sales@yemat1004.com; enviamos especificaciones y condiciones de envasado para su mercado.","foot_tagline":"Alga coreana de Icheon: 1.000 toneladas al año, socios en doce países, marcas C-WEED SNACK y Kwon's Gim."},"vi":{"lang_aria":"Ngôn ngữ","lbl_hours":"Giờ mở cửa","lbl_address":"Địa chỉ","lbl_getting":"Đường đi","lbl_email":"Email","lbl_phone":"Điện thoại","lbl_messenger":"Tin nhắn","concept_badge":"Bản xem trước ý tưởng · Atelier Web","concept_note":"Trang này là bản phác thảo ý tưởng do Atelier Web thực hiện, không phải website chính thức của 예맛.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Liên hệ trực tiếp","cta_email":"Gửi email","brand_sub":"Rong biển Hàn Quốc · Icheon","nav1":"Sản phẩm","nav2":"Công ty & xuất khẩu","nav3":"Liên hệ","nav_cta":"Xin mẫu","hero_kick":"Bốn mươi năm làm rong biển · Icheon","hero_title":"Rong biển Hàn Quốc, <em>theo container.</em>","hero_lede":"Yemat làm rong biển nướng và tẩm gia vị tại Icheon rồi xuất đi: hơn 1.000 tấn mỗi năm, hơn 2.700 container gồm cả công ty liên kết, và đối tác ở hơn mười hai quốc gia. Thương hiệu riêng là C-WEED SNACK và Kwon's Gim.","cta1":"Dòng sản phẩm","cta2":"Công ty và xuất khẩu","art_note":"Chọn nguyên liệu rồi nướng","art_quote":"“Bốn mươi năm chỉ để chọn rong biển.”","art_fact":"12+ thị trường · 16+ đối tác (2025)","sec1_kick":"01 — Sản phẩm","sec1_title":"Một sản phẩm, làm theo dạng thị trường cần.","sec1_lede":"Rong biển được chọn theo từng dòng sản phẩm trước khi nướng, nên mỗi dòng dùng loại lá phù hợp. Nhà máy sản xuất cho thương hiệu riêng và cho đối tác nước ngoài, giao hàng quanh năm.","i1_n":"Rong biển nướng và tẩm vị","i1_d":"Lá rong biển nướng, tẩm gia vị, và các gói snack mang tên C-WEED SNACK.","i2_n":"Thương hiệu riêng","i2_d":"C-WEED SNACK và Kwon's Gim — hai thương hiệu dùng cho bán lẻ và xuất khẩu.","i3_n":"Chọn nguyên liệu","i3_d":"Lá được phân loại theo sản phẩm trước khi nướng; khác biệt về độ giòn và bảo quản bắt đầu từ đây.","i4_n":"Sản xuất cho đối tác","i4_d":"Số lượng và bao bì được thống nhất với từng đối tác theo thị trường.","sec2_kick":"02 — Công ty và xuất khẩu","sec2_title":"Nhà máy Icheon, đối tác ở mười hai nước.","h1_l":"Kinh nghiệm","h1_v":"40 năm rong biển","h2_l":"Sản lượng","h2_v":"1.000+ tấn mỗi năm","h3_l":"Xuất khẩu","h3_v":"12+ quốc gia, 16+ đối tác","addr":"64 Seoicheon-ro 231beon-gil, Majang-myeon, Icheon-si, Gyeonggi-do, Hàn Quốc","transit":"Yêu cầu xuất khẩu và xin mẫu gửi tới sales@yemat1004.com; chúng tôi gửi kèm quy cách và điều kiện đóng gói phù hợp thị trường của bạn.","foot_tagline":"Rong biển Hàn Quốc từ Icheon — 1.000 tấn mỗi năm, đối tác mười hai nước, thương hiệu C-WEED SNACK và Kwon's Gim."}};
+</script>
+<script>
+(function(){
+  var dict = window.I18N || {}, LANGS = ['en','ko','ja','zh','es','vi'], current = 'ko';
+  function t(k){
+    var pack = dict[current] || dict.en || {};
+    if (pack[k] !== undefined) return pack[k];
+    return (dict.en && dict.en[k] !== undefined) ? dict.en[k] : '';
+  }
+  function apply(lang){
+    if (LANGS.indexOf(lang) < 0) lang = 'en';
+    current = lang;
+    document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-Hans' : lang);
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n'));
+      if (v !== '') el.innerHTML = v;
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n-aria'));
+      if (v !== '') el.setAttribute('aria-label', v);
+    });
+    document.querySelectorAll('.lang').forEach(function(b){
+      var on = b.getAttribute('data-lang') === lang;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    try { localStorage.setItem('aw_concept_lang', lang); } catch(e) {}
+  }
+  document.querySelectorAll('.lang').forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.getAttribute('data-lang')); });
+  });
+  var saved = null;
+  try { saved = localStorage.getItem('aw_concept_lang'); } catch(e) {}
+  if (LANGS.indexOf(saved) < 0) saved = 'ko';
+  apply(saved);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko" data-lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>한옥스테이 오늘 — 전주 한옥 독채 (개념 시안)</title>
+<meta name="description" content="Concept preview for Hanok Stay Oneul, an exclusive hanok house beside Jeonju Hyanggyo, with a six-language switch.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#6B4A2F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230F0E0B'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='13' fill='%23F5F1E8' text-anchor='middle'%3EO%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#F7F5EF; --bg2:#EFEBE1; --card:#FFFFFF; --ink:#15140F; --ink2:#43403A;
+    --muted:#787264; --line:rgba(21,20,15,.14); --accent:#8C5A2B; --accent2:#2E4038;
+    --tint:rgba(140,90,43,.08);
+    --serif:"New York",ui-serif,"Iowan Old Style","Palatino Linotype",Georgia,"Noto Serif KR",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Pretendard",Roboto,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --r:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  h1,h2,h3{margin:0;font-family:var(--serif);font-weight:400;letter-spacing:-.01em}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+  .eyebrow{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+  .topbar{position:fixed;inset:0 0 auto;z-index:50;background:var(--bg);background:color-mix(in srgb,var(--bg) 93%,transparent);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .topbar-in{max-width:1140px;margin:0 auto;padding:11px 28px;display:flex;align-items:center;gap:22px}
+  .brand{display:flex;flex-direction:column;line-height:1}
+  .brand strong{font-family:var(--serif);font-weight:400;font-size:20px;letter-spacing:.01em}
+  .brand i{font-style:normal;font-family:var(--mono);font-size:7.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .nav{display:flex;gap:18px}
+  .nav a{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);
+    padding-bottom:3px;border-bottom:1px solid transparent}
+  .nav a:hover{color:var(--accent);border-color:var(--accent)}
+  .langs{display:flex;gap:5px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+  .langs::-webkit-scrollbar{display:none}
+  .lang{font-family:var(--mono);font-size:9.5px;border:1px solid var(--line);border-radius:99px;padding:6px 8px;
+    white-space:nowrap;color:var(--ink2);transition:.16s}
+  .lang:hover{border-color:var(--accent);color:var(--accent)}
+  .lang.is-on{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent2);color:#fff;border:1px solid var(--accent2);
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;padding:12px 18px;border-radius:99px;transition:.18s}
+  .btn:hover{background:var(--accent);border-color:var(--accent)}
+  .btn-sm{padding:9px 14px;font-size:8.5px;flex:0 0 auto}
+  .btn-ghost{background:transparent;color:var(--accent2);border-color:var(--line)}
+  .btn-ghost:hover{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+
+  .hero{padding:132px 0 60px}
+  .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:48px;align-items:center}
+  .kicker{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  h1{margin-top:16px;font-size:clamp(36px,4.8vw,58px);line-height:1.05}
+  h1 em{font-style:italic;color:var(--accent)}
+  .hero p{margin:18px 0 0;font-size:15.5px;line-height:1.7;color:var(--ink2);max-width:46ch}
+  .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+  .art{position:relative;border-radius:20px;overflow:hidden;min-height:360px;border:1px solid var(--line);
+    background:linear-gradient(168deg,var(--bg2),var(--bg));
+    background-image:linear-gradient(168deg,var(--bg2),color-mix(in srgb,var(--accent) 12%,var(--bg2)))}
+  .art::before{content:"";position:absolute;width:280px;height:280px;border-radius:50%;left:-50px;top:-70px;
+    border:1px solid var(--line);border-color:color-mix(in srgb,var(--accent) 30%,transparent)}
+  .art::after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-30px;bottom:70px;
+    background:radial-gradient(circle at 35% 30%,#fff,transparent 70%)}
+  .art-note{position:absolute;left:22px;top:22px;font-family:var(--mono);font-size:8px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--accent)}
+  .art-quote{position:absolute;left:22px;right:22px;top:46%;transform:translateY(-50%);font-family:var(--serif);
+    font-size:23px;line-height:1.28;color:var(--accent2);max-width:24ch}
+  .art-fact{position:absolute;left:22px;right:22px;bottom:20px;background:rgba(255,255,255,.86);border-radius:12px;
+    padding:12px 14px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);
+    box-shadow:0 12px 26px -20px rgba(21,20,15,.5)}
+  .concept{position:absolute;right:16px;top:16px;background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:99px;
+    padding:5px 10px;font-family:var(--mono);font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+  .sec{padding:58px 0;border-top:1px solid var(--line)}
+  .sec-head{margin-bottom:26px;max-width:62ch}
+  h2{font-size:clamp(25px,3vw,36px);line-height:1.12;margin-top:10px}
+  .sec-head p{margin:10px 0 0;font-size:13px;line-height:1.65;color:var(--muted)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .item{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;transition:.2s}
+  .item:hover{border-color:var(--accent);box-shadow:0 16px 30px -26px rgba(21,20,15,.5)}
+  .item .n{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--accent)}
+  .item h3{font-size:18px;margin-top:8px;line-height:1.28}
+  .item p{margin:8px 0 0;font-size:12px;line-height:1.62;color:var(--muted)}
+
+  .visit{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .row{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .row b{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .row span{font-family:var(--mono);font-size:10.5px;color:var(--ink2);text-align:right}
+  .blocks{margin-top:18px}
+  .block{margin-top:14px}
+  .block b{display:block;font-family:var(--mono);font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .block span{display:block;margin-top:5px;font-size:12.5px;line-height:1.65;color:var(--ink2)}
+  .contact{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;align-self:start}
+  .contact h3{font-size:19px}
+  .cline{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .cline:last-of-type{border-bottom:0}
+  .cline b{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .cline a{font-size:12px;color:var(--accent2);border-bottom:1px solid var(--line);border-bottom-color:color-mix(in srgb,var(--accent) 50%,transparent);
+    text-underline-offset:2px;word-break:break-all}
+  .contact .btn{margin-top:16px;width:100%;justify-content:center}
+
+  footer{background:var(--ink);color:#EEE9DF;padding:44px 0 26px;margin-top:14px}
+  .foot{display:grid;grid-template-columns:1.4fr .6fr;gap:26px}
+  .foot strong{font-family:var(--serif);font-weight:400;font-size:19px}
+  .foot p{margin:12px 0 0;font-size:10.5px;line-height:1.7;color:#B6AE9E;max-width:52ch}
+  .foot .credit{margin-top:14px;font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;color:#D8D0C0}
+  .foot .credit a{border-bottom:1px solid rgba(216,208,192,.5)}
+  .foot-bottom{margin-top:24px;padding-top:14px;border-top:1px solid rgba(238,233,223,.16);display:flex;
+    justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:8px;letter-spacing:.1em;
+    text-transform:uppercase;color:#9A9282}
+  .foot .concept-note{font-size:10px;line-height:1.6;color:#9A9282;max-width:60ch}
+
+  @media (max-width:960px){
+    .nav{display:none}
+    .hero{padding-top:112px}
+    .hero-grid,.visit,.grid{grid-template-columns:1fr;gap:26px}
+    .foot{grid-template-columns:1fr}
+    .topbar-in{flex-wrap:wrap;gap:10px}
+    .langs{order:3;width:100%;margin-left:0}
+    .btn-sm{margin-left:auto}
+    .art{min-height:320px}
+  }
+  @media (max-width:600px){
+    .wrap,.topbar-in{padding-left:18px;padding-right:18px}
+    .art-quote{font-size:20px}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="#top"><strong>한옥스테이 오늘</strong><i data-i18n="brand_sub">전주 한옥 독채 스테이</i></a>
+    <nav class="nav">
+      <a href="#offer" data-i18n="nav1">집 소개</a>
+      <a href="#visit" data-i18n="nav2">요금·오시는 길</a>
+      <a href="mailto:hanoktoday@naver.com" data-i18n="nav3">문의</a>
+    </nav>
+    <div class="langs" role="group" data-i18n-aria="lang_aria" aria-label="Language">
+      <button type="button" class="lang" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" class="lang is-on" data-lang="ko" aria-pressed="true">KO</button>
+      <button type="button" class="lang" data-lang="ja" aria-pressed="false">JA</button>
+      <button type="button" class="lang" data-lang="zh" aria-pressed="false">ZH</button>
+      <button type="button" class="lang" data-lang="es" aria-pressed="false">ES</button>
+      <button type="button" class="lang" data-lang="vi" aria-pressed="false">VI</button>
+    </div>
+    <a class="btn btn-sm" href="#visit" data-i18n="nav_cta">예약 문의</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="kicker" data-i18n="hero_kick">전주한옥마을·전주향교 옆</div>
+        <h1 data-i18n="hero_title">온전한 한옥 한 채를, <em>한 팀만을 위해.</em></h1>
+        <p data-i18n="hero_lede">한옥마을 가장자리, 전주향교 옆의 한옥입니다. 침실 두 개와 거실, 주방, 실내 자쿠지를 갖추고 두 명에서 여섯 명까지 한 팀만 받습니다.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#offer" data-i18n="cta1">집 안 구성</a>
+          <a class="btn btn-ghost" href="#visit" data-i18n="cta2">요금과 오시는 길</a>
+        </div>
+      </div>
+      <div class="art" aria-hidden="true">
+        <div class="concept" data-i18n="concept_badge">Concept preview · Atelier Web</div>
+        <div class="art-note" data-i18n="art_note">한 채, 한 팀</div>
+        <div class="art-quote" data-i18n="art_quote">“전주에서는 담장 안으로 들어서면 하루가 느려집니다.”</div>
+        <div class="art-fact" data-i18n="art_fact">독채 · 2–6인 · 450,000원부터</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="offer">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow" data-i18n="sec1_kick">01 — 집</div>
+        <h2 data-i18n="sec1_title">방 둘과 거실, 그리고 실내 자쿠지.</h2>
+        <p data-i18n="sec1_lede">다른 팀과 나눠 쓰지 않습니다. 두 침실에는 각각 건식 세면대와 화장대, 샤워실이 있고, 거실은 통창으로 열려 있으며, 주방에는 식탁과 냉장고, 인덕션이 있어 간단한 취사가 가능합니다.</p>
+      </div>
+      <div class="grid">
+        <article class="item"><div class="n">i1</div><h3 data-i18n="i1_n">독채로만 받습니다</h3><p data-i18n="i1_d">한 팀이 집 전체를 쓰기 때문에 방과 거실, 자쿠지가 머무는 동안 온전히 손님의 것이 됩니다.</p></article>
+        <article class="item"><div class="n">i2</div><h3 data-i18n="i2_n">침실 두 개</h3><p data-i18n="i2_d">방마다 건식 세면대와 화장대, 샤워실이 따로 있어 아침에 기다릴 일이 없습니다.</p></article>
+        <article class="item"><div class="n">i3</div><h3 data-i18n="i3_n">거실과 주방</h3><p data-i18n="i3_d">거실에는 좌식 소파와 통창이, 주방에는 식탁과 냉장고, 인덕션이 있어 아침이나 늦은 저녁을 간단히 차릴 수 있습니다.</p></article>
+        <article class="item"><div class="n">i4</div><h3 data-i18n="i4_n">실내 자쿠지</h3><p data-i18n="i4_d">자쿠지가 실내에 있어, 마을을 걷고 돌아온 뒤 다시 밖으로 나가지 않고 몸을 풀 수 있습니다.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="visit">
+    <div class="wrap visit">
+      <div>
+        <div class="eyebrow" data-i18n="sec2_kick">02 — 요금과 오시는 길</div>
+        <h2 data-i18n="sec2_title">전주향교 옆, 조용한 쪽에.</h2>
+        <div style="margin-top:18px">
+          <div class="row"><b data-i18n="h1_l">숙박 형태</b><span data-i18n="h1_v">독채 · 2–6인</span></div>
+          <div class="row"><b data-i18n="h2_l">요금</b><span data-i18n="h2_v">450,000원부터</span></div>
+          <div class="row"><b data-i18n="h3_l">예약</b><span data-i18n="h3_v">네이버 예약 · 전화</span></div>
+        </div>
+        <div class="blocks">
+          <div class="block"><b data-i18n="lbl_address">Address</b><span data-i18n="addr">전북 전주시 완산구 향교길 155-26 — 전주향교 옆</span></div>
+          <div class="block"><b data-i18n="lbl_getting">Getting here</b><span data-i18n="transit">평일에는 숙소 앞과 주변, 완판본문화관 주차장을 이용하실 수 있습니다. 주말·공휴일에는 한옥마을이 차 없는 거리(10:00–18:00)로 운영되며, 길 건너 국립무형유산원 주차장은 무료입니다.</span></div>
+        </div>
+      </div>
+      <div class="contact">
+        <h3 data-i18n="contact_title" style="font-size:16px">Talk to us directly</h3>
+        <div style="margin-top:8px">
+          <div class="cline"><b data-i18n="lbl_email">Email</b><a href="mailto:hanoktoday@naver.com">hanoktoday@naver.com</a></div>
+          <div class="cline"><b data-i18n="lbl_phone">Phone</b><a href="tel:050713481522">0507-1348-1522</a></div>
+
+        </div>
+        <a class="btn" href="mailto:hanoktoday@naver.com" data-i18n="cta_email">Write an email</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <strong>한옥스테이 오늘</strong>
+        <p data-i18n="foot_tagline">전주향교 옆 독채 한옥 스테이 — 침실 둘과 거실, 주방, 실내 자쿠지를 한 팀만 사용합니다.</p>
+        <p class="concept-note" data-i18n="concept_note">이 페이지는 Atelier Web이 제안용으로 만든 시안이며 한옥스테이 오늘의 공식 홈페이지가 아닙니다.</p>
+        <div class="credit">Concept preview prepared by Atelier Web (<a href="https://atelierweb-studio.github.io/" target="_blank" rel="noopener">atelierweb-studio.github.io</a>)</div>
+      </div>
+      <div>
+        <p style="font-family:var(--mono);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:#8E8677;margin:0" data-i18n="lbl_hours">Hours</p>
+        <p style="margin-top:8px;font-family:var(--mono);font-size:10px;line-height:1.9;color:#CBC3B3">독채 · 2–6인 · 450,000원부터</p>
+        <p style="margin-top:10px;font-family:var(--mono);font-size:9px;color:#8E8677" data-i18n="foot_lang">EN · KO · JA · ZH · ES · VI</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>한옥스테이 오늘 · Jeonju · Jeonju Hyanggyo</span>
+      <span>© 2026 Atelier Web · concept</span>
+    </div>
+  </div>
+</footer>
+
+<noscript><div style="position:fixed;left:0;right:0;bottom:0;z-index:80;background:#15140F;color:#EEE9DF;font-family:monospace;font-size:9px;padding:9px 14px;text-align:center">JavaScript is off. Open this page in Safari or Chrome for the six-language switch.</div></noscript>
+
+<script>
+window.I18N = {"en":{"lang_aria":"Language","lbl_hours":"Hours","lbl_address":"Address","lbl_getting":"Getting here","lbl_email":"Email","lbl_phone":"Phone","lbl_messenger":"Message","concept_badge":"Concept preview · Atelier Web","concept_note":"This page is an unsolicited concept preview prepared by Atelier Web. It is not the official website of 한옥스테이 오늘.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Talk to us directly","cta_email":"Write an email","brand_sub":"Hanok stay · Jeonju","nav1":"The house","nav2":"Rates & arrival","nav3":"Contact","nav_cta":"Ask about dates","hero_kick":"Jeonju Hanok Village · beside Hyanggyo","hero_title":"A whole hanok, <em>for your group alone.</em>","hero_lede":"A hanok house beside Jeonju Hyanggyo, at the quiet edge of the hanok village. Two bedrooms, a living room, a kitchen and an indoor jacuzzi, rented to one group of two to six people at a time.","cta1":"What the house has","cta2":"Rates and arrival","art_note":"One house, one group","art_quote":"“In Jeonju the day slows down once you are inside the walls.”","art_fact":"Exclusive house · 2–6 guests · from KRW 450,000","sec1_kick":"01 — The house","sec1_title":"Two rooms, a living room, and a jacuzzi indoors.","sec1_lede":"The house is not shared with anyone else. Each of the two bedrooms has its own washstand, vanity and shower; the living room opens onto a full-width window, and the kitchen holds a dining table, a fridge and an induction hob for a simple meal.","i1_n":"The whole house, one booking","i1_d":"One group takes the entire house, so the rooms, the living room and the jacuzzi belong to you for the night.","i2_n":"Two bedrooms","i2_d":"Each room has a dry washstand, a vanity and a shower of its own — no queue in the morning.","i3_n":"Living room and kitchen","i3_d":"A low sofa and a full-width window in the living room; a dining table, fridge and induction hob in the kitchen for breakfast or a late supper.","i4_n":"Indoor jacuzzi","i4_d":"The jacuzzi is inside the house, so you can soak after a day of walking the village without going back outside.","sec2_kick":"02 — Rates and arrival","sec2_title":"Beside Jeonju Hyanggyo, on the quiet side.","h1_l":"The house","h1_v":"Exclusive · 2–6 guests","h2_l":"Rate","h2_v":"From KRW 450,000","h3_l":"Booking","h3_v":"Naver Booking · phone","addr":"155-26 Hyanggyo-gil, Wansan-gu, Jeonju — beside Jeonju Hyanggyo","transit":"On weekdays you can park in front of the house, nearby, or at the Wanpanbon Culture Centre. At weekends and on holidays the village keeps car-free hours (10:00–18:00); the National Intangible Heritage Center car park across the road is free.","foot_tagline":"An exclusive hanok stay beside Jeonju Hyanggyo — two rooms, a living room, a kitchen and an indoor jacuzzi for one group at a time."},"ko":{"lang_aria":"언어 선택","lbl_hours":"영업시간","lbl_address":"주소","lbl_getting":"오시는 길","lbl_email":"이메일","lbl_phone":"전화","lbl_messenger":"메신저","concept_badge":"시안 미리보기 · Atelier Web","concept_note":"이 페이지는 Atelier Web이 제안용으로 만든 시안이며 한옥스테이 오늘의 공식 홈페이지가 아닙니다.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"바로 연락하기","cta_email":"이메일 보내기","brand_sub":"전주 한옥 독채 스테이","nav1":"집 소개","nav2":"요금·오시는 길","nav3":"문의","nav_cta":"예약 문의","hero_kick":"전주한옥마을·전주향교 옆","hero_title":"온전한 한옥 한 채를, <em>한 팀만을 위해.</em>","hero_lede":"한옥마을 가장자리, 전주향교 옆의 한옥입니다. 침실 두 개와 거실, 주방, 실내 자쿠지를 갖추고 두 명에서 여섯 명까지 한 팀만 받습니다.","cta1":"집 안 구성","cta2":"요금과 오시는 길","art_note":"한 채, 한 팀","art_quote":"“전주에서는 담장 안으로 들어서면 하루가 느려집니다.”","art_fact":"독채 · 2–6인 · 450,000원부터","sec1_kick":"01 — 집","sec1_title":"방 둘과 거실, 그리고 실내 자쿠지.","sec1_lede":"다른 팀과 나눠 쓰지 않습니다. 두 침실에는 각각 건식 세면대와 화장대, 샤워실이 있고, 거실은 통창으로 열려 있으며, 주방에는 식탁과 냉장고, 인덕션이 있어 간단한 취사가 가능합니다.","i1_n":"독채로만 받습니다","i1_d":"한 팀이 집 전체를 쓰기 때문에 방과 거실, 자쿠지가 머무는 동안 온전히 손님의 것이 됩니다.","i2_n":"침실 두 개","i2_d":"방마다 건식 세면대와 화장대, 샤워실이 따로 있어 아침에 기다릴 일이 없습니다.","i3_n":"거실과 주방","i3_d":"거실에는 좌식 소파와 통창이, 주방에는 식탁과 냉장고, 인덕션이 있어 아침이나 늦은 저녁을 간단히 차릴 수 있습니다.","i4_n":"실내 자쿠지","i4_d":"자쿠지가 실내에 있어, 마을을 걷고 돌아온 뒤 다시 밖으로 나가지 않고 몸을 풀 수 있습니다.","sec2_kick":"02 — 요금과 오시는 길","sec2_title":"전주향교 옆, 조용한 쪽에.","h1_l":"숙박 형태","h1_v":"독채 · 2–6인","h2_l":"요금","h2_v":"450,000원부터","h3_l":"예약","h3_v":"네이버 예약 · 전화","addr":"전북 전주시 완산구 향교길 155-26 — 전주향교 옆","transit":"평일에는 숙소 앞과 주변, 완판본문화관 주차장을 이용하실 수 있습니다. 주말·공휴일에는 한옥마을이 차 없는 거리(10:00–18:00)로 운영되며, 길 건너 국립무형유산원 주차장은 무료입니다.","foot_tagline":"전주향교 옆 독채 한옥 스테이 — 침실 둘과 거실, 주방, 실내 자쿠지를 한 팀만 사용합니다."},"ja":{"lang_aria":"言語","lbl_hours":"営業時間","lbl_address":"住所","lbl_getting":"アクセス","lbl_email":"メール","lbl_phone":"電話","lbl_messenger":"メッセージ","concept_badge":"コンセプトプレビュー · Atelier Web","concept_note":"このページは Atelier Web が提案用に制作したコンセプトで、한옥스테이 오늘 の公式サイトではありません。","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"直接のご連絡","cta_email":"メールを書く","brand_sub":"全州 韓屋（ハノク）貸切ステイ","nav1":"家のこと","nav2":"料金・アクセス","nav3":"お問い合わせ","nav_cta":"予約の相談","hero_kick":"全州韓屋村・全州郷校の隣","hero_title":"韓屋を一棟まるごと、<em>一組だけのために。</em>","hero_lede":"韓屋村の落ち着いた外れ、全州郷校の隣にある韓屋です。寝室2つと居間、台所、屋内ジャグジーを備え、2名から6名まで一組だけをお迎えします。","cta1":"家の構成","cta2":"料金とアクセス","art_note":"一棟、一組","art_quote":"「全州では、塀の内側に入ると一日がゆっくりになります。」","art_fact":"貸切 · 2〜6名 · 450,000ウォンから","sec1_kick":"01 — 家","sec1_title":"部屋が二つ、居間、そして屋内ジャグジー。","sec1_lede":"他のお客様と分け合うことはありません。二つの寝室にはそれぞれ洗面台と化粧台、シャワーがあり、居間は全面窓で開け、台所には食卓と冷蔵庫、IHコンロがあるので簡単な調理もできます。","i1_n":"貸切でのご案内","i1_d":"一組が家全体を使うため、部屋も居間もジャグジーも滞在中はお客様だけのものです。","i2_n":"寝室二つ","i2_d":"各部屋に洗面台・化粧台・シャワーが付いているので、朝に順番を待つ必要がありません。","i3_n":"居間と台所","i3_d":"居間には低いソファと全面窓、台所には食卓・冷蔵庫・IHコンロがあり、朝食や遅い夕食を簡単に用意できます。","i4_n":"屋内ジャグジー","i4_d":"ジャグジーが屋内にあるので、村を歩いて戻ったあと外に出ずに体をほぐせます。","sec2_kick":"02 — 料金とアクセス","sec2_title":"全州郷校の隣、静かな側に。","h1_l":"滞在形式","h1_v":"貸切 · 2〜6名","h2_l":"料金","h2_v":"450,000ウォンから","h3_l":"予約","h3_v":"ネイバー予約・電話","addr":"全羅北道全州市完山区郷校キル 155-26 — 全州郷校の隣","transit":"平日は宿の前や周辺、ワンパンボン文化館の駐車場が使えます。週末と祝日は韓屋村が車両進入禁止時間（10:00–18:00）となり、道の向かいの国立無形遺産院の駐車場は無料です。","foot_tagline":"全州郷校の隣の貸切韓屋ステイ — 寝室二つ、居間、台所、屋内ジャグジーを一組だけで。"},"zh":{"lang_aria":"语言","lbl_hours":"营业时间","lbl_address":"地址","lbl_getting":"交通","lbl_email":"邮箱","lbl_phone":"电话","lbl_messenger":"消息","concept_badge":"方案预览 · Atelier Web","concept_note":"本页面是 Atelier Web 制作的概念方案，并非 한옥스테이 오늘 的官方网站。","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"直接联系","cta_email":"写邮件","brand_sub":"全州韩屋独栋住宿","nav1":"房屋","nav2":"价格与交通","nav3":"联系","nav_cta":"询问空房","hero_kick":"全州韩屋村·全州乡校旁","hero_title":"一栋完整的韩屋，<em>只为一组客人。</em>","hero_lede":"位于韩屋村安静边缘、全州乡校旁的韩屋。两间卧室、客厅、厨房和室内按摩浴缸，每次只接待一组二至六位客人。","cta1":"屋内有什么","cta2":"价格与交通","art_note":"一栋房，一组人","art_quote":"“在全州，走进围墙之内，一天就慢了下来。”","art_fact":"独栋 · 2–6 位 · 450,000 韩元起","sec1_kick":"01 — 房屋","sec1_title":"两间卧室、一间客厅，还有室内浴缸。","sec1_lede":"不与其他人共享。两间卧室各自配有干式洗漱台、化妆台和淋浴，客厅整面开窗，厨房备有餐桌、冰箱和电磁炉，可做简单料理。","i1_n":"整栋独享","i1_d":"一组客人使用整栋房屋，房间、客厅与浴缸在入住期间都只属于你们。","i2_n":"两间卧室","i2_d":"每间都有独立的洗漱台、化妆台和淋浴，早上不必排队。","i3_n":"客厅与厨房","i3_d":"客厅有低矮沙发和整面窗；厨房有餐桌、冰箱和电磁炉，可以简单做个早餐或夜宵。","i4_n":"室内按摩浴缸","i4_d":"浴缸在室内，逛完村子回来不必再出门就能泡澡放松。","sec2_kick":"02 — 价格与交通","sec2_title":"在全州乡校旁，安静的一侧。","h1_l":"房型","h1_v":"独栋 · 2–6 位","h2_l":"价格","h2_v":"450,000 韩元起","h3_l":"预订","h3_v":"Naver 预订 · 电话","addr":"全罗北道全州市完山区乡校街 155-26 — 全州乡校旁","transit":"平日可停在住处门前、附近或完板本文化馆停车场。周末与公休日韩屋村实行无车时段（10:00–18:00），马路对面的国立无形遗产院停车场免费。","foot_tagline":"全州乡校旁的独栋韩屋住宿——两间卧室、客厅、厨房与室内浴缸，一次只接待一组客人。"},"es":{"lang_aria":"Idioma","lbl_hours":"Horario","lbl_address":"Dirección","lbl_getting":"Cómo llegar","lbl_email":"Correo","lbl_phone":"Teléfono","lbl_messenger":"Mensaje","concept_badge":"Vista de concepto · Atelier Web","concept_note":"Esta página es una propuesta de concepto preparada por Atelier Web. No es el sitio oficial de 한옥스테이 오늘.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Contacto directo","cta_email":"Escribir un correo","brand_sub":"Estancia hanok · Jeonju","nav1":"La casa","nav2":"Tarifas y llegada","nav3":"Contacto","nav_cta":"Consultar fechas","hero_kick":"Pueblo hanok de Jeonju · junto a Hyanggyo","hero_title":"Una casa hanok entera, <em>solo para tu grupo.</em>","hero_lede":"Una casa hanok junto a Jeonju Hyanggyo, en el borde tranquilo del pueblo hanok. Dos dormitorios, salón, cocina y jacuzzi interior, alquilada a un solo grupo de dos a seis personas.","cta1":"Qué tiene la casa","cta2":"Tarifas y llegada","art_note":"Una casa, un grupo","art_quote":"«En Jeonju el día se detiene al cruzar el muro.»","art_fact":"Casa exclusiva · 2–6 personas · desde 450.000 KRW","sec1_kick":"01 — La casa","sec1_title":"Dos habitaciones, un salón y un jacuzzi interior.","sec1_lede":"La casa no se comparte. Cada uno de los dos dormitorios tiene su propio lavabo, tocador y ducha; el salón se abre con una ventana de pared a pared, y la cocina tiene mesa, nevera y vitrocerámica para cocinar algo sencillo.","i1_n":"La casa completa","i1_d":"Un solo grupo ocupa toda la casa: las habitaciones, el salón y el jacuzzi son vuestros durante la estancia.","i2_n":"Dos dormitorios","i2_d":"Cada habitación tiene lavabo, tocador y ducha propios, sin turnos por la mañana.","i3_n":"Salón y cocina","i3_d":"Sofá bajo y ventana de pared a pared en el salón; mesa, nevera y vitrocerámica en la cocina para un desayuno o una cena tardía.","i4_n":"Jacuzzi interior","i4_d":"El jacuzzi está dentro de la casa, así que puedes relajarte al volver de caminar por el pueblo sin salir de nuevo.","sec2_kick":"02 — Tarifas y llegada","sec2_title":"Junto a Jeonju Hyanggyo, en el lado tranquilo.","h1_l":"Alojamiento","h1_v":"Exclusivo · 2–6 personas","h2_l":"Tarifa","h2_v":"Desde 450.000 KRW","h3_l":"Reserva","h3_v":"Naver Booking · teléfono","addr":"155-26 Hyanggyo-gil, Wansan-gu, Jeonju — junto a Jeonju Hyanggyo","transit":"Entre semana se puede aparcar delante de la casa, cerca o en el centro cultural Wanpanbon. Los fines de semana y festivos el pueblo tiene horas sin coches (10:00–18:00); el aparcamiento del Centro del Patrimonio Inmaterial Nacional, al otro lado de la calle, es gratuito.","foot_tagline":"Estancia hanok exclusiva junto a Jeonju Hyanggyo: dos habitaciones, salón, cocina y jacuzzi interior para un grupo."},"vi":{"lang_aria":"Ngôn ngữ","lbl_hours":"Giờ mở cửa","lbl_address":"Địa chỉ","lbl_getting":"Đường đi","lbl_email":"Email","lbl_phone":"Điện thoại","lbl_messenger":"Tin nhắn","concept_badge":"Bản xem trước ý tưởng · Atelier Web","concept_note":"Trang này là bản phác thảo ý tưởng do Atelier Web thực hiện, không phải website chính thức của 한옥스테이 오늘.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Liên hệ trực tiếp","cta_email":"Gửi email","brand_sub":"Nhà hanok nguyên căn · Jeonju","nav1":"Ngôi nhà","nav2":"Giá & lối đi","nav3":"Liên hệ","nav_cta":"Hỏi ngày trống","hero_kick":"Làng hanok Jeonju · cạnh Hyanggyo","hero_title":"Cả một ngôi nhà hanok, <em>chỉ cho nhóm bạn.</em>","hero_lede":"Một ngôi nhà hanok bên cạnh Văn miếu Jeonju Hyanggyo, ở rìa yên tĩnh của làng hanok. Hai phòng ngủ, phòng khách, bếp và bồn jacuzzi trong nhà, cho thuê nguyên căn cho một nhóm từ hai đến sáu người.","cta1":"Trong nhà có gì","cta2":"Giá và lối đi","art_note":"Một căn nhà, một nhóm","art_quote":"“Ở Jeonju, bước vào sau bức tường là ngày tháng chậm lại.”","art_fact":"Nguyên căn · 2–6 khách · từ 450.000 KRW","sec1_kick":"01 — Ngôi nhà","sec1_title":"Hai phòng, một phòng khách và jacuzzi trong nhà.","sec1_lede":"Nhà không dùng chung với ai. Mỗi phòng ngủ có bồn rửa, bàn trang điểm và vòi sen riêng; phòng khách mở ra cửa sổ kính suốt, bếp có bàn ăn, tủ lạnh và bếp điện để nấu món đơn giản.","i1_n":"Thuê nguyên căn","i1_d":"Một nhóm dùng cả ngôi nhà, nên phòng, phòng khách và jacuzzi đều là của bạn trong suốt kỳ nghỉ.","i2_n":"Hai phòng ngủ","i2_d":"Mỗi phòng có bồn rửa, bàn trang điểm và vòi sen riêng, buổi sáng không phải chờ nhau.","i3_n":"Phòng khách và bếp","i3_d":"Phòng khách có sofa thấp và cửa kính suốt; bếp có bàn ăn, tủ lạnh và bếp điện để làm bữa sáng hay bữa tối muộn.","i4_n":"Jacuzzi trong nhà","i4_d":"Jacuzzi nằm trong nhà, nên đi dạo làng về bạn có thể ngâm mình mà không phải ra ngoài.","sec2_kick":"02 — Giá và lối đi","sec2_title":"Cạnh Văn miếu Jeonju, phía yên tĩnh.","h1_l":"Hình thức","h1_v":"Nguyên căn · 2–6 khách","h2_l":"Giá","h2_v":"Từ 450.000 KRW","h3_l":"Đặt phòng","h3_v":"Naver Booking · điện thoại","addr":"155-26 Hyanggyo-gil, Wansan-gu, Jeonju — cạnh Văn miếu Jeonju","transit":"Ngày thường có thể đỗ xe trước nhà, quanh nhà hoặc ở bãi giữ xe Wanpanbon. Cuối tuần và ngày lễ làng có giờ cấm xe (10:00–18:00); bãi giữ xe của Trung tâm Di sản Phi vật thể Quốc gia bên kia đường miễn phí.","foot_tagline":"Nhà hanok nguyên căn cạnh Văn miếu Jeonju — hai phòng ngủ, phòng khách, bếp và jacuzzi trong nhà cho một nhóm."}};
+</script>
+<script>
+(function(){
+  var dict = window.I18N || {}, LANGS = ['en','ko','ja','zh','es','vi'], current = 'ko';
+  function t(k){
+    var pack = dict[current] || dict.en || {};
+    if (pack[k] !== undefined) return pack[k];
+    return (dict.en && dict.en[k] !== undefined) ? dict.en[k] : '';
+  }
+  function apply(lang){
+    if (LANGS.indexOf(lang) < 0) lang = 'en';
+    current = lang;
+    document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-Hans' : lang);
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n'));
+      if (v !== '') el.innerHTML = v;
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n-aria'));
+      if (v !== '') el.setAttribute('aria-label', v);
+    });
+    document.querySelectorAll('.lang').forEach(function(b){
+      var on = b.getAttribute('data-lang') === lang;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    try { localStorage.setItem('aw_concept_lang', lang); } catch(e) {}
+  }
+  document.querySelectorAll('.lang').forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.getAttribute('data-lang')); });
+  });
+  var saved = null;
+  try { saved = localStorage.getItem('aw_concept_lang'); } catch(e) {}
+  if (LANGS.indexOf(saved) < 0) saved = 'ko';
+  apply(saved);
+})();
+</script>
+</body>
+</html>

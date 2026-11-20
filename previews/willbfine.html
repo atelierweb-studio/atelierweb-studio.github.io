@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko" data-lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>괜찮아요한의원 — 마포·공덕역 한의원 (개념 시안)</title>
+<meta name="description" content="Concept preview for Will B Fine Korean Medicine Clinic near Gongdeok Station, with a six-language switch.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#3A4A6B">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230F0E0B'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='13' fill='%23F5F1E8' text-anchor='middle'%3EW%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#F7F5EF; --bg2:#EFEBE1; --card:#FFFFFF; --ink:#15140F; --ink2:#43403A;
+    --muted:#787264; --line:rgba(21,20,15,.14); --accent:#8C5A2B; --accent2:#2E4038;
+    --tint:rgba(140,90,43,.08);
+    --serif:"New York",ui-serif,"Iowan Old Style","Palatino Linotype",Georgia,"Noto Serif KR",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Pretendard",Roboto,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --r:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  h1,h2,h3{margin:0;font-family:var(--serif);font-weight:400;letter-spacing:-.01em}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+  .eyebrow{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+  .topbar{position:fixed;inset:0 0 auto;z-index:50;background:var(--bg);background:color-mix(in srgb,var(--bg) 93%,transparent);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .topbar-in{max-width:1140px;margin:0 auto;padding:11px 28px;display:flex;align-items:center;gap:22px}
+  .brand{display:flex;flex-direction:column;line-height:1}
+  .brand strong{font-family:var(--serif);font-weight:400;font-size:20px;letter-spacing:.01em}
+  .brand i{font-style:normal;font-family:var(--mono);font-size:7.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .nav{display:flex;gap:18px}
+  .nav a{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);
+    padding-bottom:3px;border-bottom:1px solid transparent}
+  .nav a:hover{color:var(--accent);border-color:var(--accent)}
+  .langs{display:flex;gap:5px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+  .langs::-webkit-scrollbar{display:none}
+  .lang{font-family:var(--mono);font-size:9.5px;border:1px solid var(--line);border-radius:99px;padding:6px 8px;
+    white-space:nowrap;color:var(--ink2);transition:.16s}
+  .lang:hover{border-color:var(--accent);color:var(--accent)}
+  .lang.is-on{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent2);color:#fff;border:1px solid var(--accent2);
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;padding:12px 18px;border-radius:99px;transition:.18s}
+  .btn:hover{background:var(--accent);border-color:var(--accent)}
+  .btn-sm{padding:9px 14px;font-size:8.5px;flex:0 0 auto}
+  .btn-ghost{background:transparent;color:var(--accent2);border-color:var(--line)}
+  .btn-ghost:hover{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+
+  .hero{padding:132px 0 60px}
+  .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:48px;align-items:center}
+  .kicker{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  h1{margin-top:16px;font-size:clamp(36px,4.8vw,58px);line-height:1.05}
+  h1 em{font-style:italic;color:var(--accent)}
+  .hero p{margin:18px 0 0;font-size:15.5px;line-height:1.7;color:var(--ink2);max-width:46ch}
+  .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+  .art{position:relative;border-radius:20px;overflow:hidden;min-height:360px;border:1px solid var(--line);
+    background:linear-gradient(168deg,var(--bg2),var(--bg));
+    background-image:linear-gradient(168deg,var(--bg2),color-mix(in srgb,var(--accent) 12%,var(--bg2)))}
+  .art::before{content:"";position:absolute;width:280px;height:280px;border-radius:50%;left:-50px;top:-70px;
+    border:1px solid var(--line);border-color:color-mix(in srgb,var(--accent) 30%,transparent)}
+  .art::after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-30px;bottom:70px;
+    background:radial-gradient(circle at 35% 30%,#fff,transparent 70%)}
+  .art-note{position:absolute;left:22px;top:22px;font-family:var(--mono);font-size:8px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--accent)}
+  .art-quote{position:absolute;left:22px;right:22px;top:46%;transform:translateY(-50%);font-family:var(--serif);
+    font-size:23px;line-height:1.28;color:var(--accent2);max-width:24ch}
+  .art-fact{position:absolute;left:22px;right:22px;bottom:20px;background:rgba(255,255,255,.86);border-radius:12px;
+    padding:12px 14px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);
+    box-shadow:0 12px 26px -20px rgba(21,20,15,.5)}
+  .concept{position:absolute;right:16px;top:16px;background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:99px;
+    padding:5px 10px;font-family:var(--mono);font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+  .sec{padding:58px 0;border-top:1px solid var(--line)}
+  .sec-head{margin-bottom:26px;max-width:62ch}
+  h2{font-size:clamp(25px,3vw,36px);line-height:1.12;margin-top:10px}
+  .sec-head p{margin:10px 0 0;font-size:13px;line-height:1.65;color:var(--muted)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .item{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;transition:.2s}
+  .item:hover{border-color:var(--accent);box-shadow:0 16px 30px -26px rgba(21,20,15,.5)}
+  .item .n{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--accent)}
+  .item h3{font-size:18px;margin-top:8px;line-height:1.28}
+  .item p{margin:8px 0 0;font-size:12px;line-height:1.62;color:var(--muted)}
+
+  .visit{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .row{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .row b{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .row span{font-family:var(--mono);font-size:10.5px;color:var(--ink2);text-align:right}
+  .blocks{margin-top:18px}
+  .block{margin-top:14px}
+  .block b{display:block;font-family:var(--mono);font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .block span{display:block;margin-top:5px;font-size:12.5px;line-height:1.65;color:var(--ink2)}
+  .contact{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;align-self:start}
+  .contact h3{font-size:19px}
+  .cline{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .cline:last-of-type{border-bottom:0}
+  .cline b{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .cline a{font-size:12px;color:var(--accent2);border-bottom:1px solid var(--line);border-bottom-color:color-mix(in srgb,var(--accent) 50%,transparent);
+    text-underline-offset:2px;word-break:break-all}
+  .contact .btn{margin-top:16px;width:100%;justify-content:center}
+
+  footer{background:var(--ink);color:#EEE9DF;padding:44px 0 26px;margin-top:14px}
+  .foot{display:grid;grid-template-columns:1.4fr .6fr;gap:26px}
+  .foot strong{font-family:var(--serif);font-weight:400;font-size:19px}
+  .foot p{margin:12px 0 0;font-size:10.5px;line-height:1.7;color:#B6AE9E;max-width:52ch}
+  .foot .credit{margin-top:14px;font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;color:#D8D0C0}
+  .foot .credit a{border-bottom:1px solid rgba(216,208,192,.5)}
+  .foot-bottom{margin-top:24px;padding-top:14px;border-top:1px solid rgba(238,233,223,.16);display:flex;
+    justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:8px;letter-spacing:.1em;
+    text-transform:uppercase;color:#9A9282}
+  .foot .concept-note{font-size:10px;line-height:1.6;color:#9A9282;max-width:60ch}
+
+  @media (max-width:960px){
+    .nav{display:none}
+    .hero{padding-top:112px}
+    .hero-grid,.visit,.grid{grid-template-columns:1fr;gap:26px}
+    .foot{grid-template-columns:1fr}
+    .topbar-in{flex-wrap:wrap;gap:10px}
+    .langs{order:3;width:100%;margin-left:0}
+    .btn-sm{margin-left:auto}
+    .art{min-height:320px}
+  }
+  @media (max-width:600px){
+    .wrap,.topbar-in{padding-left:18px;padding-right:18px}
+    .art-quote{font-size:20px}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="#top"><strong>괜찮아요한의원</strong><i data-i18n="brand_sub">마포·공덕역 한의원</i></a>
+    <nav class="nav">
+      <a href="#offer" data-i18n="nav1">진료</a>
+      <a href="#visit" data-i18n="nav2">시간·오시는 길</a>
+      <a href="mailto:dr.will.b.fine@gmail.com" data-i18n="nav3">문의</a>
+    </nav>
+    <div class="langs" role="group" data-i18n-aria="lang_aria" aria-label="Language">
+      <button type="button" class="lang" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" class="lang is-on" data-lang="ko" aria-pressed="true">KO</button>
+      <button type="button" class="lang" data-lang="ja" aria-pressed="false">JA</button>
+      <button type="button" class="lang" data-lang="zh" aria-pressed="false">ZH</button>
+      <button type="button" class="lang" data-lang="es" aria-pressed="false">ES</button>
+      <button type="button" class="lang" data-lang="vi" aria-pressed="false">VI</button>
+    </div>
+    <a class="btn btn-sm" href="#visit" data-i18n="nav_cta">진료 문의</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="kicker" data-i18n="hero_kick">서울 마포 · 공덕역 5분</div>
+        <h1 data-i18n="hero_title">아픈 곳을 보는 대신, <em>왜 아픈지를 봅니다.</em></h1>
+        <p data-i18n="hero_lede">서울 마포 공덕역에서 5분 거리의 한의원입니다. 통증과 추나, 교통사고 진료, 여성 클리닉, 체질과 체중 관리 프로그램을 함께 봅니다. 원장 두 분이 영어로, 한 분은 중국어로도 진료합니다.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#offer" data-i18n="cta1">진료 분야</a>
+          <a class="btn btn-ghost" href="#visit" data-i18n="cta2">시간과 오시는 길</a>
+        </div>
+      </div>
+      <div class="art" aria-hidden="true">
+        <div class="concept" data-i18n="concept_badge">Concept preview · Atelier Web</div>
+        <div class="art-note" data-i18n="art_note">연간 추나 6,000건</div>
+        <div class="art-quote" data-i18n="art_quote">“아픈 곳을 치료하면서, 왜 아픈지도 함께 확인합니다.”</div>
+        <div class="art-fact" data-i18n="art_fact">영어·중국어 진료</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="offer">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow" data-i18n="sec1_kick">01 — 진료</div>
+        <h2 data-i18n="sec1_title">통증, 추나, 여성, 체질.</h2>
+        <p data-i18n="sec1_lede">한 해 추나치료를 6,000건 이상 시행해 왔고, 통증을 다루면서 원인도 함께 확인합니다. 진찰과 시술은 한의사가 직접 하며, 영어나 중국어가 필요하면 예약할 때 말씀해 주시면 미리 준비합니다.</p>
+      </div>
+      <div class="grid">
+        <article class="item"><div class="n">i1</div><h3 data-i18n="i1_n">통증과 추나</h3><p data-i18n="i1_d">목·어깨·허리 통증을 초음파 가이드 약침과 추나로 봅니다. 추나는 건강보험이 적용되어 연간 20회까지 받으실 수 있습니다.</p></article>
+        <article class="item"><div class="n">i2</div><h3 data-i18n="i2_n">교통사고 진료</h3><p data-i18n="i2_d">교통사고 후 진료는 자동차보험으로 처리되며, 보험사에서 필요한 서류와 절차는 접수할 때 확인해 드립니다.</p></article>
+        <article class="item"><div class="n">i3</div><h3 data-i18n="i3_n">여성과 체질</h3><p data-i18n="i3_d">생리통·갱년기·산전산후와 체질 프로그램을 함께 보며, 필요하면 초음파로 상태를 확인합니다.</p></article>
+        <article class="item"><div class="n">i4</div><h3 data-i18n="i4_n">영어·중국어 진료</h3><p data-i18n="i4_d">원장 두 분이 영어로, 한 분은 중국어로도 진료합니다. 예약할 때 알려 주시면 그에 맞춰 준비합니다.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="visit">
+    <div class="wrap visit">
+      <div>
+        <div class="eyebrow" data-i18n="sec2_kick">02 — 시간과 오시는 길</div>
+        <h2 data-i18n="sec2_title">평일은 늦게까지, 토요일은 두 시까지.</h2>
+        <div style="margin-top:18px">
+          <div class="row"><b data-i18n="h1_l">월–목</b><span data-i18n="h1_v">10:00–20:30</span></div>
+          <div class="row"><b data-i18n="h2_l">금요일</b><span data-i18n="h2_v">10:00–19:30</span></div>
+          <div class="row"><b data-i18n="h3_l">토요일</b><span data-i18n="h3_v">10:00–14:00</span></div>
+        </div>
+        <div class="blocks">
+          <div class="block"><b data-i18n="lbl_address">Address</b><span data-i18n="addr">서울 마포구 마포대로 63-8 삼창프라자 2층 215호</span></div>
+          <div class="block"><b data-i18n="lbl_getting">Getting here</b><span data-i18n="transit">공덕역(5·6호선·경의중앙선·공항철도) 1번 출구 또는 마포역(5호선) 2번 출구에서 도보 약 5분입니다. 건물 지하주차장은 3시간 무료입니다.</span></div>
+        </div>
+      </div>
+      <div class="contact">
+        <h3 data-i18n="contact_title" style="font-size:16px">Talk to us directly</h3>
+        <div style="margin-top:8px">
+          <div class="cline"><b data-i18n="lbl_email">Email</b><a href="mailto:dr.will.b.fine@gmail.com">dr.will.b.fine@gmail.com</a></div>
+          <div class="cline"><b data-i18n="lbl_phone">Phone</b><a href="tel:027071002">02-707-1002</a></div>
+
+        </div>
+        <a class="btn" href="mailto:dr.will.b.fine@gmail.com" data-i18n="cta_email">Write an email</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <strong>괜찮아요한의원</strong>
+        <p data-i18n="foot_tagline">마포 공덕역 한의원 — 통증·추나·여성·체질 진료, 영어 진료 가능.</p>
+        <p class="concept-note" data-i18n="concept_note">이 페이지는 Atelier Web이 제안용으로 만든 시안이며 괜찮아요한의원의 공식 홈페이지가 아닙니다.</p>
+        <div class="credit">Concept preview prepared by Atelier Web (<a href="https://atelierweb-studio.github.io/" target="_blank" rel="noopener">atelierweb-studio.github.io</a>)</div>
+      </div>
+      <div>
+        <p style="font-family:var(--mono);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:#8E8677;margin:0" data-i18n="lbl_hours">Hours</p>
+        <p style="margin-top:8px;font-family:var(--mono);font-size:10px;line-height:1.9;color:#CBC3B3">월–목 10:00–20:30 · 금 19:30 · 토 14:00</p>
+        <p style="margin-top:10px;font-family:var(--mono);font-size:9px;color:#8E8677" data-i18n="foot_lang">EN · KO · JA · ZH · ES · VI</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>괜찮아요한의원 · Seoul · Mapo</span>
+      <span>© 2026 Atelier Web · concept</span>
+    </div>
+  </div>
+</footer>
+
+<noscript><div style="position:fixed;left:0;right:0;bottom:0;z-index:80;background:#15140F;color:#EEE9DF;font-family:monospace;font-size:9px;padding:9px 14px;text-align:center">JavaScript is off. Open this page in Safari or Chrome for the six-language switch.</div></noscript>
+
+<script>
+window.I18N = {"en":{"lang_aria":"Language","lbl_hours":"Hours","lbl_address":"Address","lbl_getting":"Getting here","lbl_email":"Email","lbl_phone":"Phone","lbl_messenger":"Message","concept_badge":"Concept preview · Atelier Web","concept_note":"This page is an unsolicited concept preview prepared by Atelier Web. It is not the official website of 괜찮아요한의원.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Talk to us directly","cta_email":"Write an email","brand_sub":"Korean medicine clinic · Mapo, Seoul","nav1":"Clinics","nav2":"Hours & arrival","nav3":"Contact","nav_cta":"Ask about a visit","hero_kick":"Gongdeok Station · Mapo, Seoul","hero_title":"A clinic that asks <em>why it hurts.</em>","hero_lede":"A Korean medicine clinic five minutes from Gongdeok Station in Mapo, Seoul: pain and Chuna treatment, traffic-accident care, women's health, constitution and weight programmes. Two of the doctors consult in English, and one also in Chinese.","cta1":"What the clinic covers","cta2":"Hours and arrival","art_note":"Six thousand Chuna sessions a year","art_quote":"“We treat where it hurts, and look into why.”","art_fact":"English & Chinese consultations","sec1_kick":"01 — Clinics","sec1_title":"Pain, Chuna, women's health, constitution.","sec1_lede":"The clinic has performed more than 6,000 Chuna sessions a year and treats pain while checking its cause. Consultations and treatment are by Korean medicine doctors; where English or Chinese is needed, say so when booking and it is arranged.","i1_n":"Pain and Chuna","i1_d":"Neck, shoulder and back pain, with ultrasound-guided pharmacopuncture and Chuna manual therapy. Chuna is covered by Korean national health insurance, up to twenty sessions a year.","i2_n":"Traffic-accident care","i2_d":"Treatment after a road accident is handled through automotive insurance; what the insurer needs is confirmed at reception.","i3_n":"Women's health and constitution","i3_d":"Menstrual pain, menopause, prenatal and postnatal care, and constitution-based programmes, with ultrasound checks where needed.","i4_n":"English and Chinese consultations","i4_d":"Two doctors consult in English; one also in Chinese. Mention it when booking and the clinic prepares for it.","sec2_kick":"02 — Hours and arrival","sec2_title":"Late on weekdays, until two on Saturday.","h1_l":"Mon–Thu","h1_v":"10:00–20:30","h2_l":"Friday","h2_v":"10:00–19:30","h3_l":"Saturday","h3_v":"10:00–14:00","addr":"Room 215, 2F, Samchang Plaza, 63-8 Mapo-daero, Mapo-gu, Seoul","transit":"Gongdeok Station (lines 5 and 6, Gyeongui-Jungang, Airport Railroad), exit 1, or Mapo Station (line 5), exit 2 — about five minutes on foot. The building car park is free for three hours.","foot_tagline":"Korean medicine clinic by Gongdeok Station, Mapo — pain, Chuna, women's health and constitution care, with English consultations."},"ko":{"lang_aria":"언어 선택","lbl_hours":"영업시간","lbl_address":"주소","lbl_getting":"오시는 길","lbl_email":"이메일","lbl_phone":"전화","lbl_messenger":"메신저","concept_badge":"시안 미리보기 · Atelier Web","concept_note":"이 페이지는 Atelier Web이 제안용으로 만든 시안이며 괜찮아요한의원의 공식 홈페이지가 아닙니다.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"바로 연락하기","cta_email":"이메일 보내기","brand_sub":"마포·공덕역 한의원","nav1":"진료","nav2":"시간·오시는 길","nav3":"문의","nav_cta":"진료 문의","hero_kick":"서울 마포 · 공덕역 5분","hero_title":"아픈 곳을 보는 대신, <em>왜 아픈지를 봅니다.</em>","hero_lede":"서울 마포 공덕역에서 5분 거리의 한의원입니다. 통증과 추나, 교통사고 진료, 여성 클리닉, 체질과 체중 관리 프로그램을 함께 봅니다. 원장 두 분이 영어로, 한 분은 중국어로도 진료합니다.","cta1":"진료 분야","cta2":"시간과 오시는 길","art_note":"연간 추나 6,000건","art_quote":"“아픈 곳을 치료하면서, 왜 아픈지도 함께 확인합니다.”","art_fact":"영어·중국어 진료","sec1_kick":"01 — 진료","sec1_title":"통증, 추나, 여성, 체질.","sec1_lede":"한 해 추나치료를 6,000건 이상 시행해 왔고, 통증을 다루면서 원인도 함께 확인합니다. 진찰과 시술은 한의사가 직접 하며, 영어나 중국어가 필요하면 예약할 때 말씀해 주시면 미리 준비합니다.","i1_n":"통증과 추나","i1_d":"목·어깨·허리 통증을 초음파 가이드 약침과 추나로 봅니다. 추나는 건강보험이 적용되어 연간 20회까지 받으실 수 있습니다.","i2_n":"교통사고 진료","i2_d":"교통사고 후 진료는 자동차보험으로 처리되며, 보험사에서 필요한 서류와 절차는 접수할 때 확인해 드립니다.","i3_n":"여성과 체질","i3_d":"생리통·갱년기·산전산후와 체질 프로그램을 함께 보며, 필요하면 초음파로 상태를 확인합니다.","i4_n":"영어·중국어 진료","i4_d":"원장 두 분이 영어로, 한 분은 중국어로도 진료합니다. 예약할 때 알려 주시면 그에 맞춰 준비합니다.","sec2_kick":"02 — 시간과 오시는 길","sec2_title":"평일은 늦게까지, 토요일은 두 시까지.","h1_l":"월–목","h1_v":"10:00–20:30","h2_l":"금요일","h2_v":"10:00–19:30","h3_l":"토요일","h3_v":"10:00–14:00","addr":"서울 마포구 마포대로 63-8 삼창프라자 2층 215호","transit":"공덕역(5·6호선·경의중앙선·공항철도) 1번 출구 또는 마포역(5호선) 2번 출구에서 도보 약 5분입니다. 건물 지하주차장은 3시간 무료입니다.","foot_tagline":"마포 공덕역 한의원 — 통증·추나·여성·체질 진료, 영어 진료 가능."},"ja":{"lang_aria":"言語","lbl_hours":"営業時間","lbl_address":"住所","lbl_getting":"アクセス","lbl_email":"メール","lbl_phone":"電話","lbl_messenger":"メッセージ","concept_badge":"コンセプトプレビュー · Atelier Web","concept_note":"このページは Atelier Web が提案用に制作したコンセプトで、괜찮아요한의원 の公式サイトではありません。","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"直接のご連絡","cta_email":"メールを書く","brand_sub":"麻浦（マポ）・コンデク駅の韓医院","nav1":"診療","nav2":"時間・アクセス","nav3":"お問い合わせ","nav_cta":"診療相談","hero_kick":"ソウル 麻浦 · コンデク駅から5分","hero_title":"痛いところではなく、<em>なぜ痛むのかを見ます。</em>","hero_lede":"ソウル麻浦、コンデク駅から徒歩5分の韓医院です。痛みとチュナ（推拿）、交通事故の診療、女性外来、体質と体重管理のプログラムを扱います。院長二人が英語で、一人は中国語でも診療します。","cta1":"診療分野","cta2":"時間とアクセス","art_note":"年間チュナ6,000件","art_quote":"「痛む場所を診ながら、なぜ痛むのかも確かめます。」","art_fact":"英語・中国語診療","sec1_kick":"01 — 診療","sec1_title":"痛み、チュナ、女性、体質。","sec1_lede":"チュナ治療を年間6,000件以上行ってきた院です。痛みを扱いながら原因も一緒に確かめます。診察と施術は韓医師が直接行い、英語や中国語が必要な場合は予約時にお伝えいただければ準備します。","i1_n":"痛みとチュナ","i1_d":"首・肩・腰の痛みを超音波ガイド薬鍼とチュナで診ます。チュナは韓国の健康保険が適用され、年に20回まで受けられます。","i2_n":"交通事故の診療","i2_d":"事故後の診療は自動車保険で処理し、保険会社に必要な書類と手続きは受付で確認します。","i3_n":"女性と体質","i3_d":"生理痛・更年期・産前産後と体質プログラムを合わせて診て、必要に応じて超音波で状態を確認します。","i4_n":"英語・中国語の診療","i4_d":"院長二人が英語で、一人は中国語でも診療します。予約時にお知らせください。","sec2_kick":"02 — 時間とアクセス","sec2_title":"平日は遅くまで、土曜は二時まで。","h1_l":"月〜木","h1_v":"10:00–20:30","h2_l":"金曜","h2_v":"10:00–19:30","h3_l":"土曜","h3_v":"10:00–14:00","addr":"ソウル市麻浦区麻浦大路63-8 三昌プラザ2階215号","transit":"コンデク（孔徳）駅（5・6号線、京義中央線、空港鉄道）1番出口、または麻浦駅（5号線）2番出口から徒歩約5分。建物の地下駐車場は3時間無料です。","foot_tagline":"麻浦コンデク駅の韓医院 — 痛み・チュナ・女性・体質、英語診療可。"},"zh":{"lang_aria":"语言","lbl_hours":"营业时间","lbl_address":"地址","lbl_getting":"交通","lbl_email":"邮箱","lbl_phone":"电话","lbl_messenger":"消息","concept_badge":"方案预览 · Atelier Web","concept_note":"本页面是 Atelier Web 制作的概念方案，并非 괜찮아요한의원 的官方网站。","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"直接联系","cta_email":"写邮件","brand_sub":"麻浦·孔德站 韩医院","nav1":"诊疗","nav2":"时间·交通","nav3":"联系","nav_cta":"诊疗咨询","hero_kick":"首尔麻浦 · 距孔德站 5 分钟","hero_title":"不只看看哪里痛，<em>还看为什么会痛。</em>","hero_lede":"首尔麻浦、距孔德站步行五分钟的韩医院。诊疗范围包括疼痛与推拿（Chuna）、交通事故诊疗、女性门诊、体质与体重管理项目。两位院长可用英语诊疗，一位还可使用中文。","cta1":"诊疗范围","cta2":"时间与交通","art_note":"每年推拿 6,000 例","art_quote":"“治痛处，也一起确认痛的原因。”","art_fact":"英语·中文诊疗","sec1_kick":"01 — 诊疗","sec1_title":"疼痛、推拿、女性、体质。","sec1_lede":"每年实施推拿治疗六千例以上，处理疼痛的同时确认原因。诊察与施术由韩医师亲自进行；需要英语或中文时，预约时说明即可提前安排。","i1_n":"疼痛与推拿","i1_d":"颈部、肩部与腰部疼痛以超声引导药针和推拿诊疗。推拿适用韩国健康保险，每年可接受二十次。","i2_n":"交通事故诊疗","i2_d":"事故后的诊疗通过汽车保险处理，保险公司所需的材料与流程在接诊时确认。","i3_n":"女性与体质","i3_d":"痛经、更年期、产前产后与体质项目一起看，必要时用超声确认状态。","i4_n":"英语·中文诊疗","i4_d":"两位院长可用英语诊疗，其中一位可用中文。预约时告知即可。","sec2_kick":"02 — 时间与交通","sec2_title":"平日到晚间，周六到两点。","h1_l":"周一至周四","h1_v":"10:00–20:30","h2_l":"周五","h2_v":"10:00–19:30","h3_l":"周六","h3_v":"10:00–14:00","addr":"首尔麻浦区麻浦大路 63-8 三昌广场 2 层 215 号","transit":"孔德站（5·6 号线、京义中央线、机场铁路）1 号出口，或麻浦站（5 号线）2 号出口步行约五分钟。楼内地下停车场三小时免费。","foot_tagline":"麻浦孔德站的韩医院——疼痛、推拿、女性与体质诊疗，可英语诊疗。"},"es":{"lang_aria":"Idioma","lbl_hours":"Horario","lbl_address":"Dirección","lbl_getting":"Cómo llegar","lbl_email":"Correo","lbl_phone":"Teléfono","lbl_messenger":"Mensaje","concept_badge":"Vista de concepto · Atelier Web","concept_note":"Esta página es una propuesta de concepto preparada por Atelier Web. No es el sitio oficial de 괜찮아요한의원.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Contacto directo","cta_email":"Escribir un correo","brand_sub":"Clínica de medicina coreana · Mapo, Seúl","nav1":"Tratamientos","nav2":"Horario y llegada","nav3":"Contacto","nav_cta":"Consultar visita","hero_kick":"Estación Gongdeok · Mapo, Seúl","hero_title":"Una clínica que pregunta <em>por qué duele.</em>","hero_lede":"Una clínica de medicina coreana a cinco minutos de la estación Gongdeok, en Mapo: dolor y terapia Chuna, atención tras accidentes de tráfico, salud de la mujer, constitución y programas de peso. Dos de los doctores atienden en inglés y uno también en chino.","cta1":"Qué cubre la clínica","cta2":"Horario y llegada","art_note":"6.000 sesiones de Chuna al año","art_quote":"«Tratamos donde duele y miramos por qué.»","art_fact":"Consulta en inglés y chino","sec1_kick":"01 — Tratamientos","sec1_title":"Dolor, Chuna, salud de la mujer, constitución.","sec1_lede":"La clínica realiza más de 6.000 sesiones de Chuna al año y aborda el dolor revisando su origen. La consulta y el tratamiento los realiza el médico de medicina coreana; si necesitas inglés o chino, dilo al reservar.","i1_n":"Dolor y Chuna","i1_d":"Dolor de cuello, hombros y espalda con farmacopuntura guiada por ecografía y terapia manual Chuna, cubierta por el seguro nacional hasta veinte sesiones al año.","i2_n":"Atención tras accidente","i2_d":"El tratamiento tras un accidente de tráfico se gestiona con el seguro del automóvil; en recepción se confirma lo que pide la aseguradora.","i3_n":"Mujer y constitución","i3_d":"Dolor menstrual, menopausia, cuidado prenatal y posparto, y programas según constitución, con ecografía cuando hace falta.","i4_n":"Inglés y chino","i4_d":"Dos doctores atienden en inglés y uno también en chino; avisa al reservar y la clínica lo prepara.","sec2_kick":"02 — Horario y llegada","sec2_title":"Tarde entre semana, hasta las dos el sábado.","h1_l":"Lun–Jue","h1_v":"10:00–20:30","h2_l":"Viernes","h2_v":"10:00–19:30","h3_l":"Sábado","h3_v":"10:00–14:00","addr":"Habitación 215, 2.ª planta, Samchang Plaza, 63-8 Mapo-daero, Mapo-gu, Seúl","transit":"Estación Gongdeok (líneas 5 y 6, Gyeongui-Jungang, Airport Railroad), salida 1, o estación Mapo (línea 5), salida 2: unos cinco minutos a pie. El aparcamiento del edificio es gratuito tres horas.","foot_tagline":"Clínica de medicina coreana junto a Gongdeok, Mapo: dolor, Chuna, salud de la mujer y constitución, con consulta en inglés."},"vi":{"lang_aria":"Ngôn ngữ","lbl_hours":"Giờ mở cửa","lbl_address":"Địa chỉ","lbl_getting":"Đường đi","lbl_email":"Email","lbl_phone":"Điện thoại","lbl_messenger":"Tin nhắn","concept_badge":"Bản xem trước ý tưởng · Atelier Web","concept_note":"Trang này là bản phác thảo ý tưởng do Atelier Web thực hiện, không phải website chính thức của 괜찮아요한의원.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Liên hệ trực tiếp","cta_email":"Gửi email","brand_sub":"Phòng khám y học cổ truyền · Mapo, Seoul","nav1":"Điều trị","nav2":"Giờ & lối đi","nav3":"Liên hệ","nav_cta":"Hỏi khám","hero_kick":"Ga Gongdeok · Mapo, Seoul","hero_title":"Không chỉ xem chỗ đau, <em>mà xem vì sao đau.</em>","hero_lede":"Phòng khám y học cổ truyền cách ga Gongdeok năm phút ở Mapo, Seoul: đau và trị liệu Chuna, chăm sóc sau tai nạn giao thông, sức khỏe phụ nữ, thể trạng và chương trình cân nặng. Hai bác sĩ khám bằng tiếng Anh, một người khám cả tiếng Trung.","cta1":"Điều trị gì","cta2":"Giờ và lối đi","art_note":"6.000 ca Chuna mỗi năm","art_quote":"“Chữa chỗ đau, và cùng xem vì sao đau.”","art_fact":"Khám bằng tiếng Anh và tiếng Trung","sec1_kick":"01 — Điều trị","sec1_title":"Đau, Chuna, phụ nữ, thể trạng.","sec1_lede":"Phòng khám đã thực hiện hơn 6.000 ca Chuna một năm và xem cả nguyên nhân khi điều trị đau. Bác sĩ y học cổ truyền trực tiếp thăm khám và làm trị liệu; nếu cần tiếng Anh hay tiếng Trung, hãy nói khi đặt lịch.","i1_n":"Đau và Chuna","i1_d":"Đau cổ, vai, lưng bằng châm thuốc dưới hướng dẫn siêu âm và trị liệu Chuna, được bảo hiểm y tế Hàn Quốc chi trả tối đa 20 lần mỗi năm.","i2_n":"Sau tai nạn giao thông","i2_d":"Điều trị sau tai nạn được xử lý qua bảo hiểm xe; giấy tờ bảo hiểm cần gì sẽ được xác nhận khi tiếp nhận.","i3_n":"Phụ nữ và thể trạng","i3_d":"Đau bụng kinh, tiền mãn kinh, trước và sau sinh, cùng chương trình theo thể trạng, siêu âm khi cần.","i4_n":"Tiếng Anh và tiếng Trung","i4_d":"Hai bác sĩ khám bằng tiếng Anh, một người khám cả tiếng Trung; báo khi đặt lịch để phòng khám chuẩn bị.","sec2_kick":"02 — Giờ và lối đi","sec2_title":"Ngày thường đến tối, thứ Bảy đến hai giờ.","h1_l":"Thứ Hai–Năm","h1_v":"10:00–20:30","h2_l":"Thứ Sáu","h2_v":"10:00–19:30","h3_l":"Thứ Bảy","h3_v":"10:00–14:00","addr":"Phòng 215, tầng 2, Samchang Plaza, 63-8 Mapo-daero, Mapo-gu, Seoul","transit":"Ga Gongdeok (tuyến 5, 6, Gyeongui-Jungang, Airport Railroad) cửa 1, hoặc ga Mapo (tuyến 5) cửa 2, đi bộ khoảng năm phút. Bãi đỗ xe trong toà nhà miễn phí ba giờ.","foot_tagline":"Phòng khám y học cổ truyền cạnh ga Gongdeok, Mapo — đau, Chuna, phụ nữ và thể trạng, khám được bằng tiếng Anh."}};
+</script>
+<script>
+(function(){
+  var dict = window.I18N || {}, LANGS = ['en','ko','ja','zh','es','vi'], current = 'ko';
+  function t(k){
+    var pack = dict[current] || dict.en || {};
+    if (pack[k] !== undefined) return pack[k];
+    return (dict.en && dict.en[k] !== undefined) ? dict.en[k] : '';
+  }
+  function apply(lang){
+    if (LANGS.indexOf(lang) < 0) lang = 'en';
+    current = lang;
+    document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-Hans' : lang);
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n'));
+      if (v !== '') el.innerHTML = v;
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n-aria'));
+      if (v !== '') el.setAttribute('aria-label', v);
+    });
+    document.querySelectorAll('.lang').forEach(function(b){
+      var on = b.getAttribute('data-lang') === lang;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    try { localStorage.setItem('aw_concept_lang', lang); } catch(e) {}
+  }
+  document.querySelectorAll('.lang').forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.getAttribute('data-lang')); });
+  });
+  var saved = null;
+  try { saved = localStorage.getItem('aw_concept_lang'); } catch(e) {}
+  if (LANGS.indexOf(saved) < 0) saved = 'ko';
+  apply(saved);
+})();
+</script>
+</body>
+</html>

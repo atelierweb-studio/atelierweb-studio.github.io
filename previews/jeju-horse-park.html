@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko" data-lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>제주승마공원 — 애월 숲길 승마 (개념 시안)</title>
+<meta name="description" content="Concept preview for Jeju Horse Park in Aewol, with a six-language switch.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#4A5D3A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230F0E0B'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='13' fill='%23F5F1E8' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#F7F5EF; --bg2:#EFEBE1; --card:#FFFFFF; --ink:#15140F; --ink2:#43403A;
+    --muted:#787264; --line:rgba(21,20,15,.14); --accent:#8C5A2B; --accent2:#2E4038;
+    --tint:rgba(140,90,43,.08);
+    --serif:"New York",ui-serif,"Iowan Old Style","Palatino Linotype",Georgia,"Noto Serif KR",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Pretendard",Roboto,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --r:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  h1,h2,h3{margin:0;font-family:var(--serif);font-weight:400;letter-spacing:-.01em}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+  .eyebrow{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+  .topbar{position:fixed;inset:0 0 auto;z-index:50;background:var(--bg);background:color-mix(in srgb,var(--bg) 93%,transparent);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .topbar-in{max-width:1140px;margin:0 auto;padding:11px 28px;display:flex;align-items:center;gap:22px}
+  .brand{display:flex;flex-direction:column;line-height:1}
+  .brand strong{font-family:var(--serif);font-weight:400;font-size:20px;letter-spacing:.01em}
+  .brand i{font-style:normal;font-family:var(--mono);font-size:7.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .nav{display:flex;gap:18px}
+  .nav a{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);
+    padding-bottom:3px;border-bottom:1px solid transparent}
+  .nav a:hover{color:var(--accent);border-color:var(--accent)}
+  .langs{display:flex;gap:5px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+  .langs::-webkit-scrollbar{display:none}
+  .lang{font-family:var(--mono);font-size:9.5px;border:1px solid var(--line);border-radius:99px;padding:6px 8px;
+    white-space:nowrap;color:var(--ink2);transition:.16s}
+  .lang:hover{border-color:var(--accent);color:var(--accent)}
+  .lang.is-on{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent2);color:#fff;border:1px solid var(--accent2);
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;padding:12px 18px;border-radius:99px;transition:.18s}
+  .btn:hover{background:var(--accent);border-color:var(--accent)}
+  .btn-sm{padding:9px 14px;font-size:8.5px;flex:0 0 auto}
+  .btn-ghost{background:transparent;color:var(--accent2);border-color:var(--line)}
+  .btn-ghost:hover{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+
+  .hero{padding:132px 0 60px}
+  .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:48px;align-items:center}
+  .kicker{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  h1{margin-top:16px;font-size:clamp(36px,4.8vw,58px);line-height:1.05}
+  h1 em{font-style:italic;color:var(--accent)}
+  .hero p{margin:18px 0 0;font-size:15.5px;line-height:1.7;color:var(--ink2);max-width:46ch}
+  .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+  .art{position:relative;border-radius:20px;overflow:hidden;min-height:360px;border:1px solid var(--line);
+    background:linear-gradient(168deg,var(--bg2),var(--bg));
+    background-image:linear-gradient(168deg,var(--bg2),color-mix(in srgb,var(--accent) 12%,var(--bg2)))}
+  .art::before{content:"";position:absolute;width:280px;height:280px;border-radius:50%;left:-50px;top:-70px;
+    border:1px solid var(--line);border-color:color-mix(in srgb,var(--accent) 30%,transparent)}
+  .art::after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-30px;bottom:70px;
+    background:radial-gradient(circle at 35% 30%,#fff,transparent 70%)}
+  .art-note{position:absolute;left:22px;top:22px;font-family:var(--mono);font-size:8px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--accent)}
+  .art-quote{position:absolute;left:22px;right:22px;top:46%;transform:translateY(-50%);font-family:var(--serif);
+    font-size:23px;line-height:1.28;color:var(--accent2);max-width:24ch}
+  .art-fact{position:absolute;left:22px;right:22px;bottom:20px;background:rgba(255,255,255,.86);border-radius:12px;
+    padding:12px 14px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);
+    box-shadow:0 12px 26px -20px rgba(21,20,15,.5)}
+  .concept{position:absolute;right:16px;top:16px;background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:99px;
+    padding:5px 10px;font-family:var(--mono);font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+  .sec{padding:58px 0;border-top:1px solid var(--line)}
+  .sec-head{margin-bottom:26px;max-width:62ch}
+  h2{font-size:clamp(25px,3vw,36px);line-height:1.12;margin-top:10px}
+  .sec-head p{margin:10px 0 0;font-size:13px;line-height:1.65;color:var(--muted)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .item{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;transition:.2s}
+  .item:hover{border-color:var(--accent);box-shadow:0 16px 30px -26px rgba(21,20,15,.5)}
+  .item .n{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--accent)}
+  .item h3{font-size:18px;margin-top:8px;line-height:1.28}
+  .item p{margin:8px 0 0;font-size:12px;line-height:1.62;color:var(--muted)}
+
+  .visit{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .row{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .row b{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .row span{font-family:var(--mono);font-size:10.5px;color:var(--ink2);text-align:right}
+  .blocks{margin-top:18px}
+  .block{margin-top:14px}
+  .block b{display:block;font-family:var(--mono);font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .block span{display:block;margin-top:5px;font-size:12.5px;line-height:1.65;color:var(--ink2)}
+  .contact{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;align-self:start}
+  .contact h3{font-size:19px}
+  .cline{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .cline:last-of-type{border-bottom:0}
+  .cline b{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .cline a{font-size:12px;color:var(--accent2);border-bottom:1px solid var(--line);border-bottom-color:color-mix(in srgb,var(--accent) 50%,transparent);
+    text-underline-offset:2px;word-break:break-all}
+  .contact .btn{margin-top:16px;width:100%;justify-content:center}
+
+  footer{background:var(--ink);color:#EEE9DF;padding:44px 0 26px;margin-top:14px}
+  .foot{display:grid;grid-template-columns:1.4fr .6fr;gap:26px}
+  .foot strong{font-family:var(--serif);font-weight:400;font-size:19px}
+  .foot p{margin:12px 0 0;font-size:10.5px;line-height:1.7;color:#B6AE9E;max-width:52ch}
+  .foot .credit{margin-top:14px;font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;color:#D8D0C0}
+  .foot .credit a{border-bottom:1px solid rgba(216,208,192,.5)}
+  .foot-bottom{margin-top:24px;padding-top:14px;border-top:1px solid rgba(238,233,223,.16);display:flex;
+    justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:8px;letter-spacing:.1em;
+    text-transform:uppercase;color:#9A9282}
+  .foot .concept-note{font-size:10px;line-height:1.6;color:#9A9282;max-width:60ch}
+
+  @media (max-width:960px){
+    .nav{display:none}
+    .hero{padding-top:112px}
+    .hero-grid,.visit,.grid{grid-template-columns:1fr;gap:26px}
+    .foot{grid-template-columns:1fr}
+    .topbar-in{flex-wrap:wrap;gap:10px}
+    .langs{order:3;width:100%;margin-left:0}
+    .btn-sm{margin-left:auto}
+    .art{min-height:320px}
+  }
+  @media (max-width:600px){
+    .wrap,.topbar-in{padding-left:18px;padding-right:18px}
+    .art-quote{font-size:20px}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="#top"><strong>제주승마공원</strong><i data-i18n="brand_sub">제주 승마 · 곶자왈</i></a>
+    <nav class="nav">
+      <a href="#offer" data-i18n="nav1">체험 안내</a>
+      <a href="#visit" data-i18n="nav2">요금·오시는 길</a>
+      <a href="mailto:jhrp65@naver.com" data-i18n="nav3">문의</a>
+    </nav>
+    <div class="langs" role="group" data-i18n-aria="lang_aria" aria-label="Language">
+      <button type="button" class="lang" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" class="lang is-on" data-lang="ko" aria-pressed="true">KO</button>
+      <button type="button" class="lang" data-lang="ja" aria-pressed="false">JA</button>
+      <button type="button" class="lang" data-lang="zh" aria-pressed="false">ZH</button>
+      <button type="button" class="lang" data-lang="es" aria-pressed="false">ES</button>
+      <button type="button" class="lang" data-lang="vi" aria-pressed="false">VI</button>
+    </div>
+    <a class="btn btn-sm" href="#visit" data-i18n="nav_cta">승마 문의</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="kicker" data-i18n="hero_kick">제주 애월 · 2009년부터</div>
+        <h1 data-i18n="hero_title">곶자왈 숲을, <em>말 위에서.</em></h1>
+        <p data-i18n="hero_lede">제주 서쪽 애월의 곶자왈 숲에 있는 승마장입니다. 공항에서 차로 25분, 숲길 코스는 15분에서 40분까지 있고, 한 팀마다 교관 한 분이 평보로 인솔합니다.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#offer" data-i18n="cta1">세 가지 숲길</a>
+          <a class="btn btn-ghost" href="#visit" data-i18n="cta2">요금과 오시는 길</a>
+        </div>
+      </div>
+      <div class="art" aria-hidden="true">
+        <div class="concept" data-i18n="concept_badge">Concept preview · Atelier Web</div>
+        <div class="art-note" data-i18n="art_note">숲길, 15분에서 40분</div>
+        <div class="art-quote" data-i18n="art_quote">“안장 위에서는 숲이 다르게 보입니다.”</div>
+        <div class="art-fact" data-i18n="art_fact">숲길 A 15분 · 44,000원부터</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="offer">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow" data-i18n="sec1_kick">01 — 체험</div>
+        <h2 data-i18n="sec1_title">세 갈래 숲길, 팀마다 교관 한 분.</h2>
+        <p data-i18n="sec1_lede">체험승마는 예약 없이 방문 순서대로 이용합니다. 헬멧과 조끼, 장갑은 무료이고, 체험은 평보로만 걷습니다. 속보와 구보는 정규 레슨에서 배웁니다.</p>
+      </div>
+      <div class="grid">
+        <article class="item"><div class="n">i1</div><h3 data-i18n="i1_n">숲길 A · 15분</h3><p data-i18n="i1_d">숲 초입까지 가는 가장 짧고 편한 코스입니다. 처음 타는 분이나 아이에게 맞습니다.</p></article>
+        <article class="item"><div class="n">i2</div><h3 data-i18n="i2_n">숲길 B · 30분</h3><p data-i18n="i2_d">숲 중간까지 들어갑니다. 그늘이 길어 한여름에도 시원합니다.</p></article>
+        <article class="item"><div class="n">i3</div><h3 data-i18n="i3_n">숲길 C · 40분</h3><p data-i18n="i3_d">숲 가장 깊은 곳까지 다녀오는 가장 긴 코스입니다.</p></article>
+        <article class="item"><div class="n">i4</div><h3 data-i18n="i4_n">단체와 제휴</h3><p data-i18n="i4_d">10명 이상 단체는 이메일이나 전화로 예약하고, 호텔·기업·학교와는 별도 프로그램을 함께 짭니다.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="visit">
+    <div class="wrap visit">
+      <div>
+        <div class="eyebrow" data-i18n="sec2_kick">02 — 요금과 오시는 길</div>
+        <h2 data-i18n="sec2_title">오전과 오후, 화요일은 쉽니다.</h2>
+        <div style="margin-top:18px">
+          <div class="row"><b data-i18n="h1_l">숲길 A · 15분</b><span data-i18n="h1_v">1인 44,000원</span></div>
+          <div class="row"><b data-i18n="h2_l">숲길 B · 30분</b><span data-i18n="h2_v">1인 66,000원</span></div>
+          <div class="row"><b data-i18n="h3_l">숲길 C · 40분</b><span data-i18n="h3_v">1인 92,000원</span></div>
+        </div>
+        <div class="blocks">
+          <div class="block"><b data-i18n="lbl_address">Address</b><span data-i18n="addr">제주특별자치도 제주시 애월읍 녹고메길 152-1</span></div>
+          <div class="block"><b data-i18n="lbl_getting">Getting here</b><span data-i18n="transit">제주공항에서 차로 25분입니다. 방문 시간은 09:30–12:00과 13:30–16:20이고, 12:30–13:30은 점심시간, 17:00에 운영을 마칩니다.</span></div>
+        </div>
+      </div>
+      <div class="contact">
+        <h3 data-i18n="contact_title" style="font-size:16px">Talk to us directly</h3>
+        <div style="margin-top:8px">
+          <div class="cline"><b data-i18n="lbl_email">Email</b><a href="mailto:jhrp65@naver.com">jhrp65@naver.com</a></div>
+          <div class="cline"><b data-i18n="lbl_phone">Phone</b><a href="tel:0647999540">064-799-9540</a></div>
+
+        </div>
+        <a class="btn" href="mailto:jhrp65@naver.com" data-i18n="cta_email">Write an email</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <strong>제주승마공원</strong>
+        <p data-i18n="foot_tagline">제주 애월 곶자왈 숲의 승마 — 15분에서 40분까지 세 코스, 화요일 휴무.</p>
+        <p class="concept-note" data-i18n="concept_note">이 페이지는 Atelier Web이 제안용으로 만든 시안이며 제주승마공원의 공식 홈페이지가 아닙니다.</p>
+        <div class="credit">Concept preview prepared by Atelier Web (<a href="https://atelierweb-studio.github.io/" target="_blank" rel="noopener">atelierweb-studio.github.io</a>)</div>
+      </div>
+      <div>
+        <p style="font-family:var(--mono);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:#8E8677;margin:0" data-i18n="lbl_hours">Hours</p>
+        <p style="margin-top:8px;font-family:var(--mono);font-size:10px;line-height:1.9;color:#CBC3B3">09:30–12:00 · 13:30–16:20 · 화요일 휴무</p>
+        <p style="margin-top:10px;font-family:var(--mono);font-size:9px;color:#8E8677" data-i18n="foot_lang">EN · KO · JA · ZH · ES · VI</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>제주승마공원 · Jeju · Aewol</span>
+      <span>© 2026 Atelier Web · concept</span>
+    </div>
+  </div>
+</footer>
+
+<noscript><div style="position:fixed;left:0;right:0;bottom:0;z-index:80;background:#15140F;color:#EEE9DF;font-family:monospace;font-size:9px;padding:9px 14px;text-align:center">JavaScript is off. Open this page in Safari or Chrome for the six-language switch.</div></noscript>
+
+<script>
+window.I18N = {"en":{"lang_aria":"Language","lbl_hours":"Hours","lbl_address":"Address","lbl_getting":"Getting here","lbl_email":"Email","lbl_phone":"Phone","lbl_messenger":"Message","concept_badge":"Concept preview · Atelier Web","concept_note":"This page is an unsolicited concept preview prepared by Atelier Web. It is not the official website of 제주승마공원.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Talk to us directly","cta_email":"Write an email","brand_sub":"Horse riding · Jeju","nav1":"Rides","nav2":"Prices & arrival","nav3":"Contact","nav_cta":"Plan a ride","hero_kick":"Aewol, Jeju · since 2009","hero_title":"A forest of gotjawal, <em>seen from a horse.</em>","hero_lede":"A riding park in the gotjawal woods of Aewol, on the west side of Jeju, twenty-five minutes by car from the airport. The forest trails run fifteen to forty minutes, and an instructor leads each group at a walk.","cta1":"The three trails","cta2":"Prices and arrival","art_note":"Forest trails, 15 to 40 minutes","art_quote":"“The forest looks different from a saddle.”","art_fact":"Trail A 15 min · from KRW 44,000","sec1_kick":"01 — Rides","sec1_title":"Three forest trails, one instructor per group.","sec1_lede":"Rides go out without a reservation; you arrive, wait your turn and go. Helmets, vests and gloves are free, and the horses walk — trotting and cantering are taught in the regular lessons.","i1_n":"Trail A, 15 minutes","i1_d":"To the edge of the forest: the shortest and easiest route, for a first ride or a child who is a little nervous.","i2_n":"Trail B, 30 minutes","i2_d":"Into the middle of the forest, where the shade stays cool even in midsummer.","i3_n":"Trail C, 40 minutes","i3_d":"The longest route, to the deepest part of the forest.","i4_n":"Groups and partners","i4_d":"Groups of ten or more book by email or phone; with hotels, companies and schools the park runs separate programmes.","sec2_kick":"02 — Prices and arrival","sec2_title":"Morning and afternoon, closed Tuesdays.","h1_l":"Trail A · 15 min","h1_v":"KRW 44,000 / person","h2_l":"Trail B · 30 min","h2_v":"KRW 66,000 / person","h3_l":"Trail C · 40 min","h3_v":"KRW 92,000 / person","addr":"152-1 Nokgome-gil, Aewol-eup, Jeju-si, Jeju","transit":"Twenty-five minutes by car from Jeju airport. Visiting hours are 09:30–12:00 and 13:30–16:20, with a lunch break from 12:30 to 13:30; the park closes at 17:00.","foot_tagline":"Horse riding through the gotjawal forest in Aewol, Jeju — three trails, 15 to 40 minutes, closed Tuesdays."},"ko":{"lang_aria":"언어 선택","lbl_hours":"영업시간","lbl_address":"주소","lbl_getting":"오시는 길","lbl_email":"이메일","lbl_phone":"전화","lbl_messenger":"메신저","concept_badge":"시안 미리보기 · Atelier Web","concept_note":"이 페이지는 Atelier Web이 제안용으로 만든 시안이며 제주승마공원의 공식 홈페이지가 아닙니다.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"바로 연락하기","cta_email":"이메일 보내기","brand_sub":"제주 승마 · 곶자왈","nav1":"체험 안내","nav2":"요금·오시는 길","nav3":"문의","nav_cta":"승마 문의","hero_kick":"제주 애월 · 2009년부터","hero_title":"곶자왈 숲을, <em>말 위에서.</em>","hero_lede":"제주 서쪽 애월의 곶자왈 숲에 있는 승마장입니다. 공항에서 차로 25분, 숲길 코스는 15분에서 40분까지 있고, 한 팀마다 교관 한 분이 평보로 인솔합니다.","cta1":"세 가지 숲길","cta2":"요금과 오시는 길","art_note":"숲길, 15분에서 40분","art_quote":"“안장 위에서는 숲이 다르게 보입니다.”","art_fact":"숲길 A 15분 · 44,000원부터","sec1_kick":"01 — 체험","sec1_title":"세 갈래 숲길, 팀마다 교관 한 분.","sec1_lede":"체험승마는 예약 없이 방문 순서대로 이용합니다. 헬멧과 조끼, 장갑은 무료이고, 체험은 평보로만 걷습니다. 속보와 구보는 정규 레슨에서 배웁니다.","i1_n":"숲길 A · 15분","i1_d":"숲 초입까지 가는 가장 짧고 편한 코스입니다. 처음 타는 분이나 아이에게 맞습니다.","i2_n":"숲길 B · 30분","i2_d":"숲 중간까지 들어갑니다. 그늘이 길어 한여름에도 시원합니다.","i3_n":"숲길 C · 40분","i3_d":"숲 가장 깊은 곳까지 다녀오는 가장 긴 코스입니다.","i4_n":"단체와 제휴","i4_d":"10명 이상 단체는 이메일이나 전화로 예약하고, 호텔·기업·학교와는 별도 프로그램을 함께 짭니다.","sec2_kick":"02 — 요금과 오시는 길","sec2_title":"오전과 오후, 화요일은 쉽니다.","h1_l":"숲길 A · 15분","h1_v":"1인 44,000원","h2_l":"숲길 B · 30분","h2_v":"1인 66,000원","h3_l":"숲길 C · 40분","h3_v":"1인 92,000원","addr":"제주특별자치도 제주시 애월읍 녹고메길 152-1","transit":"제주공항에서 차로 25분입니다. 방문 시간은 09:30–12:00과 13:30–16:20이고, 12:30–13:30은 점심시간, 17:00에 운영을 마칩니다.","foot_tagline":"제주 애월 곶자왈 숲의 승마 — 15분에서 40분까지 세 코스, 화요일 휴무."},"ja":{"lang_aria":"言語","lbl_hours":"営業時間","lbl_address":"住所","lbl_getting":"アクセス","lbl_email":"メール","lbl_phone":"電話","lbl_messenger":"メッセージ","concept_badge":"コンセプトプレビュー · Atelier Web","concept_note":"このページは Atelier Web が提案用に制作したコンセプトで、제주승마공원 の公式サイトではありません。","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"直接のご連絡","cta_email":"メールを書く","brand_sub":"済州 乗馬 · ゴッジャワル","nav1":"体験案内","nav2":"料金・アクセス","nav3":"お問い合わせ","nav_cta":"乗馬の相談","hero_kick":"済州 涯月（エウォル）· 2009年から","hero_title":"ゴッジャワルの森を、<em>馬の上から。</em>","hero_lede":"済州西側、涯月のゴッジャワルの森にある乗馬場です。空港から車で25分、森のコースは15分から40分まであり、一組ごとにインストラクターが並足で案内します。","cta1":"三つの森の道","cta2":"料金とアクセス","art_note":"森の道、15分から40分","art_quote":"「鞍の上では森の見え方が変わります。」","art_fact":"森の道A 15分 · 44,000ウォンから","sec1_kick":"01 — 体験","sec1_title":"三つの森の道、一組にインストラクター一人。","sec1_lede":"体験乗馬は予約なしで、来た順に案内します。ヘルメット・ベスト・手袋は無料で、体験は並足のみ。速歩と駈歩は正規レッスンで学びます。","i1_n":"森の道A · 15分","i1_d":"森の入り口までの短くて楽なコース。初めての方や子どもに向きます。","i2_n":"森の道B · 30分","i2_d":"森の中ほどまで。木陰が長く、真夏でも涼しい道です。","i3_n":"森の道C · 40分","i3_d":"森のいちばん奥まで往復する、最も長いコースです。","i4_n":"団体と提携","i4_d":"10名以上の団体はメールか電話で予約し、ホテル・企業・学校とは別プログラムを組んでいます。","sec2_kick":"02 — 料金とアクセス","sec2_title":"午前と午後、火曜日は休み。","h1_l":"森の道A · 15分","h1_v":"1名 44,000ウォン","h2_l":"森の道B · 30分","h2_v":"1名 66,000ウォン","h3_l":"森の道C · 40分","h3_v":"1名 92,000ウォン","addr":"済州特別自治道済州市涯月邑ノッコメキル 152-1","transit":"済州空港から車で25分。訪問時間は09:30–12:00と13:30–16:20、12:30–13:30は昼休み、17:00に営業を終えます。","foot_tagline":"済州涯月ゴッジャワルの森の乗馬 — 15分から40分の三コース、火曜日休み。"},"zh":{"lang_aria":"语言","lbl_hours":"营业时间","lbl_address":"地址","lbl_getting":"交通","lbl_email":"邮箱","lbl_phone":"电话","lbl_messenger":"消息","concept_badge":"方案预览 · Atelier Web","concept_note":"本页面是 Atelier Web 制作的概念方案，并非 제주승마공원 的官方网站。","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"直接联系","cta_email":"写邮件","brand_sub":"济州骑马 · 熔岩林","nav1":"体验","nav2":"价格与交通","nav3":"联系","nav_cta":"骑马咨询","hero_kick":"济州 涯月 · 2009 年起","hero_title":"在熔岩林里，<em>从马背上。</em>","hero_lede":"位于济州西侧涯月的熔岩林（곶자왈）中，距机场车程二十五分钟。林中路线从十五分钟到四十分钟，每组由一位教练陪同慢步前行。","cta1":"三条林间路线","cta2":"价格与交通","art_note":"林间路线，15 至 40 分钟","art_quote":"“坐在马鞍上，森林看起来不一样。”","art_fact":"路线 A 15 分钟 · 44,000 韩元起","sec1_kick":"01 — 体验","sec1_title":"三条林道，每组一位教练。","sec1_lede":"体验骑马无需预约，按到场顺序安排。头盔、护背和手套免费，体验只走慢步；快步与跑步在正式课程中学习。","i1_n":"林道 A · 15 分钟","i1_d":"到林子入口的最短最轻松路线，适合第一次骑的人和小朋友。","i2_n":"林道 B · 30 分钟","i2_d":"走进林中段，树荫很长，盛夏也凉快。","i3_n":"林道 C · 40 分钟","i3_d":"走到林子最深处的往返，是最长的路线。","i4_n":"团体与合作","i4_d":"十人以上团体可用邮件或电话预约，并可与酒店、企业、学校另行安排项目。","sec2_kick":"02 — 价格与交通","sec2_title":"上午与下午开放，周二休息。","h1_l":"林道 A · 15 分钟","h1_v":"每人 44,000 韩元","h2_l":"林道 B · 30 分钟","h2_v":"每人 66,000 韩元","h3_l":"林道 C · 40 分钟","h3_v":"每人 92,000 韩元","addr":"济州特别自治道济州市涯月邑 绿高梅街 152-1","transit":"从济州机场车程二十五分钟。到访时间为 09:30–12:00 与 13:30–16:20，12:30–13:30 为午休，17:00 结束营业。","foot_tagline":"济州涯月熔岩林中的骑马——三条路线，十五到四十分钟，周二休息。"},"es":{"lang_aria":"Idioma","lbl_hours":"Horario","lbl_address":"Dirección","lbl_getting":"Cómo llegar","lbl_email":"Correo","lbl_phone":"Teléfono","lbl_messenger":"Mensaje","concept_badge":"Vista de concepto · Atelier Web","concept_note":"Esta página es una propuesta de concepto preparada por Atelier Web. No es el sitio oficial de 제주승마공원.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Contacto directo","cta_email":"Escribir un correo","brand_sub":"Paseos a caballo · Jeju","nav1":"Paseos","nav2":"Precios y llegada","nav3":"Contacto","nav_cta":"Consultar un paseo","hero_kick":"Aewol, Jeju · desde 2009","hero_title":"El bosque de gotjawal, <em>desde la silla.</em>","hero_lede":"Un centro de equitación en el bosque de gotjawal de Aewol, al oeste de Jeju, a veinticinco minutos en coche del aeropuerto. Las rutas por el bosque van de quince a cuarenta minutos y un instructor guía a cada grupo al paso.","cta1":"Las tres rutas","cta2":"Precios y llegada","art_note":"Rutas de bosque, 15 a 40 minutos","art_quote":"«Desde la silla, el bosque se ve distinto.»","art_fact":"Ruta A 15 min · desde 44.000 KRW","sec1_kick":"01 — Paseos","sec1_title":"Tres rutas de bosque, un instructor por grupo.","sec1_lede":"Los paseos no necesitan reserva: se llega, se espera el turno y se sale. Casco, chaleco y guantes son gratuitos, y el caballo va al paso; el trote y el galope se aprenden en las clases regulares.","i1_n":"Ruta A, 15 minutos","i1_d":"Hasta la entrada del bosque: la más corta y sencilla, para quien monta por primera vez o para niños.","i2_n":"Ruta B, 30 minutos","i2_d":"Hasta la mitad del bosque, donde la sombra se mantiene fresca incluso en pleno verano.","i3_n":"Ruta C, 40 minutos","i3_d":"La ruta más larga, hasta la parte más profunda del bosque.","i4_n":"Grupos y colaboraciones","i4_d":"Los grupos de diez o más reservan por correo o teléfono; con hoteles, empresas y escuelas se organizan programas aparte.","sec2_kick":"02 — Precios y llegada","sec2_title":"Mañana y tarde, cerrado los martes.","h1_l":"Ruta A · 15 min","h1_v":"44.000 KRW por persona","h2_l":"Ruta B · 30 min","h2_v":"66.000 KRW por persona","h3_l":"Ruta C · 40 min","h3_v":"92.000 KRW por persona","addr":"152-1 Nokgome-gil, Aewol-eup, Jeju-si, Jeju","transit":"A veinticinco minutos en coche del aeropuerto de Jeju. El horario de visita es 09:30–12:00 y 13:30–16:20, con descanso de 12:30 a 13:30; cierra a las 17:00.","foot_tagline":"Paseos a caballo por el bosque de gotjawal en Aewol, Jeju: tres rutas de 15 a 40 minutos, cerrado los martes."},"vi":{"lang_aria":"Ngôn ngữ","lbl_hours":"Giờ mở cửa","lbl_address":"Địa chỉ","lbl_getting":"Đường đi","lbl_email":"Email","lbl_phone":"Điện thoại","lbl_messenger":"Tin nhắn","concept_badge":"Bản xem trước ý tưởng · Atelier Web","concept_note":"Trang này là bản phác thảo ý tưởng do Atelier Web thực hiện, không phải website chính thức của 제주승마공원.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Liên hệ trực tiếp","cta_email":"Gửi email","brand_sub":"Cưỡi ngựa · Jeju","nav1":"Trải nghiệm","nav2":"Giá & lối đi","nav3":"Liên hệ","nav_cta":"Hỏi về chuyến đi","hero_kick":"Aewol, Jeju · từ 2009","hero_title":"Rừng gotjawal, <em>nhìn từ trên yên ngựa.</em>","hero_lede":"Trang trại cưỡi ngựa trong rừng gotjawal ở Aewol, phía tây đảo Jeju, cách sân bay 25 phút xe. Các tuyến trong rừng dài từ 15 đến 40 phút, mỗi nhóm có một huấn luyện viên dẫn đi nước kiệu.","cta1":"Ba tuyến rừng","cta2":"Giá và lối đi","art_note":"Tuyến rừng, 15 đến 40 phút","art_quote":"“Ngồi trên yên, khu rừng trông khác hẳn.”","art_fact":"Tuyến A 15 phút · từ 44.000 KRW","sec1_kick":"01 — Trải nghiệm","sec1_title":"Ba tuyến rừng, mỗi nhóm một huấn luyện viên.","sec1_lede":"Cưỡi thử không cần đặt trước, đến theo thứ tự là được dẫn đi. Mũ, áo bảo hộ và găng tay miễn phí; ngựa chỉ đi nước kiệu, còn chạy nhanh học ở lớp chính quy.","i1_n":"Tuyến A, 15 phút","i1_d":"Đến mép rừng: tuyến ngắn và nhẹ nhất, hợp với người lần đầu cưỡi và trẻ nhỏ.","i2_n":"Tuyến B, 30 phút","i2_d":"Vào giữa rừng, nơi bóng mát dài nên giữa hè vẫn mát.","i3_n":"Tuyến C, 40 phút","i3_d":"Tuyến dài nhất, vào tận nơi sâu nhất của khu rừng.","i4_n":"Đoàn đông và hợp tác","i4_d":"Đoàn từ 10 người đặt qua email hoặc điện thoại; với khách sạn, doanh nghiệp và trường học có chương trình riêng.","sec2_kick":"02 — Giá và lối đi","sec2_title":"Sáng và chiều, nghỉ thứ Ba.","h1_l":"Tuyến A · 15 phút","h1_v":"44.000 KRW mỗi người","h2_l":"Tuyến B · 30 phút","h2_v":"66.000 KRW mỗi người","h3_l":"Tuyến C · 40 phút","h3_v":"92.000 KRW mỗi người","addr":"152-1 Nokgome-gil, Aewol-eup, Jeju-si, Jeju","transit":"Cách sân bay Jeju 25 phút xe. Giờ đón khách 09:30–12:00 và 13:30–16:20, nghỉ trưa 12:30–13:30, đóng cửa lúc 17:00.","foot_tagline":"Cưỡi ngựa trong rừng gotjawal ở Aewol, Jeju — ba tuyến 15 đến 40 phút, nghỉ thứ Ba."}};
+</script>
+<script>
+(function(){
+  var dict = window.I18N || {}, LANGS = ['en','ko','ja','zh','es','vi'], current = 'ko';
+  function t(k){
+    var pack = dict[current] || dict.en || {};
+    if (pack[k] !== undefined) return pack[k];
+    return (dict.en && dict.en[k] !== undefined) ? dict.en[k] : '';
+  }
+  function apply(lang){
+    if (LANGS.indexOf(lang) < 0) lang = 'en';
+    current = lang;
+    document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-Hans' : lang);
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n'));
+      if (v !== '') el.innerHTML = v;
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n-aria'));
+      if (v !== '') el.setAttribute('aria-label', v);
+    });
+    document.querySelectorAll('.lang').forEach(function(b){
+      var on = b.getAttribute('data-lang') === lang;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    try { localStorage.setItem('aw_concept_lang', lang); } catch(e) {}
+  }
+  document.querySelectorAll('.lang').forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.getAttribute('data-lang')); });
+  });
+  var saved = null;
+  try { saved = localStorage.getItem('aw_concept_lang'); } catch(e) {}
+  if (LANGS.indexOf(saved) < 0) saved = 'ko';
+  apply(saved);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko" data-lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>고운솔한복 — 경복궁 한복대여 (개념 시안)</title>
+<meta name="description" content="Concept preview for Gowoonsol Hanbok, a hanbok rental house one minute from Gyeongbokgung, with a six-language switch.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#8C3B4A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230F0E0B'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='13' fill='%23F5F1E8' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#F7F5EF; --bg2:#EFEBE1; --card:#FFFFFF; --ink:#15140F; --ink2:#43403A;
+    --muted:#787264; --line:rgba(21,20,15,.14); --accent:#8C5A2B; --accent2:#2E4038;
+    --tint:rgba(140,90,43,.08);
+    --serif:"New York",ui-serif,"Iowan Old Style","Palatino Linotype",Georgia,"Noto Serif KR",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Pretendard",Roboto,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --r:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  h1,h2,h3{margin:0;font-family:var(--serif);font-weight:400;letter-spacing:-.01em}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+  .eyebrow{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+  .topbar{position:fixed;inset:0 0 auto;z-index:50;background:var(--bg);background:color-mix(in srgb,var(--bg) 93%,transparent);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .topbar-in{max-width:1140px;margin:0 auto;padding:11px 28px;display:flex;align-items:center;gap:22px}
+  .brand{display:flex;flex-direction:column;line-height:1}
+  .brand strong{font-family:var(--serif);font-weight:400;font-size:20px;letter-spacing:.01em}
+  .brand i{font-style:normal;font-family:var(--mono);font-size:7.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .nav{display:flex;gap:18px}
+  .nav a{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);
+    padding-bottom:3px;border-bottom:1px solid transparent}
+  .nav a:hover{color:var(--accent);border-color:var(--accent)}
+  .langs{display:flex;gap:5px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+  .langs::-webkit-scrollbar{display:none}
+  .lang{font-family:var(--mono);font-size:9.5px;border:1px solid var(--line);border-radius:99px;padding:6px 8px;
+    white-space:nowrap;color:var(--ink2);transition:.16s}
+  .lang:hover{border-color:var(--accent);color:var(--accent)}
+  .lang.is-on{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent2);color:#fff;border:1px solid var(--accent2);
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;padding:12px 18px;border-radius:99px;transition:.18s}
+  .btn:hover{background:var(--accent);border-color:var(--accent)}
+  .btn-sm{padding:9px 14px;font-size:8.5px;flex:0 0 auto}
+  .btn-ghost{background:transparent;color:var(--accent2);border-color:var(--line)}
+  .btn-ghost:hover{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+
+  .hero{padding:132px 0 60px}
+  .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:48px;align-items:center}
+  .kicker{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  h1{margin-top:16px;font-size:clamp(36px,4.8vw,58px);line-height:1.05}
+  h1 em{font-style:italic;color:var(--accent)}
+  .hero p{margin:18px 0 0;font-size:15.5px;line-height:1.7;color:var(--ink2);max-width:46ch}
+  .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+  .art{position:relative;border-radius:20px;overflow:hidden;min-height:360px;border:1px solid var(--line);
+    background:linear-gradient(168deg,var(--bg2),var(--bg));
+    background-image:linear-gradient(168deg,var(--bg2),color-mix(in srgb,var(--accent) 12%,var(--bg2)))}
+  .art::before{content:"";position:absolute;width:280px;height:280px;border-radius:50%;left:-50px;top:-70px;
+    border:1px solid var(--line);border-color:color-mix(in srgb,var(--accent) 30%,transparent)}
+  .art::after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-30px;bottom:70px;
+    background:radial-gradient(circle at 35% 30%,#fff,transparent 70%)}
+  .art-note{position:absolute;left:22px;top:22px;font-family:var(--mono);font-size:8px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--accent)}
+  .art-quote{position:absolute;left:22px;right:22px;top:46%;transform:translateY(-50%);font-family:var(--serif);
+    font-size:23px;line-height:1.28;color:var(--accent2);max-width:24ch}
+  .art-fact{position:absolute;left:22px;right:22px;bottom:20px;background:rgba(255,255,255,.86);border-radius:12px;
+    padding:12px 14px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);
+    box-shadow:0 12px 26px -20px rgba(21,20,15,.5)}
+  .concept{position:absolute;right:16px;top:16px;background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:99px;
+    padding:5px 10px;font-family:var(--mono);font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+  .sec{padding:58px 0;border-top:1px solid var(--line)}
+  .sec-head{margin-bottom:26px;max-width:62ch}
+  h2{font-size:clamp(25px,3vw,36px);line-height:1.12;margin-top:10px}
+  .sec-head p{margin:10px 0 0;font-size:13px;line-height:1.65;color:var(--muted)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .item{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;transition:.2s}
+  .item:hover{border-color:var(--accent);box-shadow:0 16px 30px -26px rgba(21,20,15,.5)}
+  .item .n{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--accent)}
+  .item h3{font-size:18px;margin-top:8px;line-height:1.28}
+  .item p{margin:8px 0 0;font-size:12px;line-height:1.62;color:var(--muted)}
+
+  .visit{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .row{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .row b{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .row span{font-family:var(--mono);font-size:10.5px;color:var(--ink2);text-align:right}
+  .blocks{margin-top:18px}
+  .block{margin-top:14px}
+  .block b{display:block;font-family:var(--mono);font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .block span{display:block;margin-top:5px;font-size:12.5px;line-height:1.65;color:var(--ink2)}
+  .contact{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;align-self:start}
+  .contact h3{font-size:19px}
+  .cline{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .cline:last-of-type{border-bottom:0}
+  .cline b{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .cline a{font-size:12px;color:var(--accent2);border-bottom:1px solid var(--line);border-bottom-color:color-mix(in srgb,var(--accent) 50%,transparent);
+    text-underline-offset:2px;word-break:break-all}
+  .contact .btn{margin-top:16px;width:100%;justify-content:center}
+
+  footer{background:var(--ink);color:#EEE9DF;padding:44px 0 26px;margin-top:14px}
+  .foot{display:grid;grid-template-columns:1.4fr .6fr;gap:26px}
+  .foot strong{font-family:var(--serif);font-weight:400;font-size:19px}
+  .foot p{margin:12px 0 0;font-size:10.5px;line-height:1.7;color:#B6AE9E;max-width:52ch}
+  .foot .credit{margin-top:14px;font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;color:#D8D0C0}
+  .foot .credit a{border-bottom:1px solid rgba(216,208,192,.5)}
+  .foot-bottom{margin-top:24px;padding-top:14px;border-top:1px solid rgba(238,233,223,.16);display:flex;
+    justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:8px;letter-spacing:.1em;
+    text-transform:uppercase;color:#9A9282}
+  .foot .concept-note{font-size:10px;line-height:1.6;color:#9A9282;max-width:60ch}
+
+  @media (max-width:960px){
+    .nav{display:none}
+    .hero{padding-top:112px}
+    .hero-grid,.visit,.grid{grid-template-columns:1fr;gap:26px}
+    .foot{grid-template-columns:1fr}
+    .topbar-in{flex-wrap:wrap;gap:10px}
+    .langs{order:3;width:100%;margin-left:0}
+    .btn-sm{margin-left:auto}
+    .art{min-height:320px}
+  }
+  @media (max-width:600px){
+    .wrap,.topbar-in{padding-left:18px;padding-right:18px}
+    .art-quote{font-size:20px}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="#top"><strong>고운솔한복</strong><i data-i18n="brand_sub">경복궁 한복대여</i></a>
+    <nav class="nav">
+      <a href="#offer" data-i18n="nav1">대여 안내</a>
+      <a href="#visit" data-i18n="nav2">영업시간·오시는 길</a>
+      <a href="mailto:gowoonso17@gmail.com" data-i18n="nav3">문의</a>
+    </nav>
+    <div class="langs" role="group" data-i18n-aria="lang_aria" aria-label="Language">
+      <button type="button" class="lang" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" class="lang is-on" data-lang="ko" aria-pressed="true">KO</button>
+      <button type="button" class="lang" data-lang="ja" aria-pressed="false">JA</button>
+      <button type="button" class="lang" data-lang="zh" aria-pressed="false">ZH</button>
+      <button type="button" class="lang" data-lang="es" aria-pressed="false">ES</button>
+      <button type="button" class="lang" data-lang="vi" aria-pressed="false">VI</button>
+    </div>
+    <a class="btn btn-sm" href="#visit" data-i18n="nav_cta">방문 문의</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="kicker" data-i18n="hero_kick">경복궁에서 도보 1분</div>
+        <h1 data-i18n="hero_title">여기서 지어, <em>당신이 입습니다.</em></h1>
+        <p data-i18n="hero_lede">경복궁에서 1분 거리, 종로 사직로 133 3층의 한복대여점입니다. 한복은 이곳에서 직접 디자인하고 지은 것으로 수백 벌이 있으며, 머리 땋기와 속치마, 악세서리가 대여에 함께 들어갑니다.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#offer" data-i18n="cta1">무엇이 포함되는지</a>
+          <a class="btn btn-ghost" href="#visit" data-i18n="cta2">영업시간과 오시는 길</a>
+        </div>
+      </div>
+      <div class="art" aria-hidden="true">
+        <div class="concept" data-i18n="concept_badge">Concept preview · Atelier Web</div>
+        <div class="art-note" data-i18n="art_note">여기서 짓고, 여기서 빌립니다</div>
+        <div class="art-quote" data-i18n="art_quote">“수백 벌을 이 가게에서 재단하고 지었습니다.”</div>
+        <div class="art-fact" data-i18n="art_fact">경복궁 도보 1분 · 매주 화요일 휴무</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="offer">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow" data-i18n="sec1_kick">01 — 대여</div>
+        <h2 data-i18n="sec1_title">머리 땋기와 속치마, 악세서리까지 기본.</h2>
+        <p data-i18n="sec1_lede">땋아주는 머리에 따로 요금을 받는 곳도 많지만, 이곳은 땋기와 속치마, 머리띠·화관이 모두 대여에 포함됩니다. 악세서리도 추가 요금 없이 이용할 수 있고, 예약하고 오시면 대여 시간이 30분 늘어납니다.</p>
+      </div>
+      <div class="grid">
+        <article class="item"><div class="n">i1</div><h3 data-i18n="i1_n">직접 제작한 한복</h3><p data-i18n="i1_d">한복을 직접 디자인하고 지어 수백 벌을 갖추었습니다. 원단과 핏을 만든 사람이 그대로 알고 있으니 입는 법도 함께 안내받습니다.</p></article>
+        <article class="item"><div class="n">i2</div><h3 data-i18n="i2_n">머리 땋기 무료</h3><p data-i18n="i2_d">땋기와 머리띠, 화관이 무료입니다. 묶이지 않는 머리는 핀을 꽂거나 머리띠로 정리해 드립니다.</p></article>
+        <article class="item"><div class="n">i3</div><h3 data-i18n="i3_n">예약하면 30분 더</h3><p data-i18n="i3_d">예약하고 방문하시면 대여 시간이 30분 연장됩니다.</p></article>
+        <article class="item"><div class="n">i4</div><h3 data-i18n="i4_n">궁까지 1분</h3><p data-i18n="i4_d">사직로 133 3층, 경복궁과 역에서 각각 도보 1분 거리입니다.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="visit">
+    <div class="wrap visit">
+      <div>
+        <div class="eyebrow" data-i18n="sec2_kick">02 — 영업시간과 오시는 길</div>
+        <h2 data-i18n="sec2_title">화요일만 쉬고 매일 엽니다.</h2>
+        <div style="margin-top:18px">
+          <div class="row"><b data-i18n="h1_l">영업시간</b><span data-i18n="h1_v">09:30–19:00</span></div>
+          <div class="row"><b data-i18n="h2_l">야간개장</b><span data-i18n="h2_v">22:00까지</span></div>
+          <div class="row"><b data-i18n="h3_l">휴무</b><span data-i18n="h3_v">매주 화요일</span></div>
+        </div>
+        <div class="blocks">
+          <div class="block"><b data-i18n="lbl_address">Address</b><span data-i18n="addr">서울 종로구 사직로 133, 3층 — 경복궁역에서 도보 1분</span></div>
+          <div class="block"><b data-i18n="lbl_getting">Getting here</b><span data-i18n="transit">3호선 경복궁역에서 도보 1분입니다. 경복궁이 화요일에 휴궁하기 때문에 가게도 같은 날 쉽니다.</span></div>
+        </div>
+      </div>
+      <div class="contact">
+        <h3 data-i18n="contact_title" style="font-size:16px">Talk to us directly</h3>
+        <div style="margin-top:8px">
+          <div class="cline"><b data-i18n="lbl_email">Email</b><a href="mailto:gowoonso17@gmail.com">gowoonso17@gmail.com</a></div>
+
+
+        </div>
+        <a class="btn" href="mailto:gowoonso17@gmail.com" data-i18n="cta_email">Write an email</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <strong>고운솔한복</strong>
+        <p data-i18n="foot_tagline">경복궁 1분 거리, 직접 지은 한복 — 땋기와 악세서리 포함, 화요일 휴무.</p>
+        <p class="concept-note" data-i18n="concept_note">이 페이지는 Atelier Web이 제안용으로 만든 시안이며 고운솔한복의 공식 홈페이지가 아닙니다.</p>
+        <div class="credit">Concept preview prepared by Atelier Web (<a href="https://atelierweb-studio.github.io/" target="_blank" rel="noopener">atelierweb-studio.github.io</a>)</div>
+      </div>
+      <div>
+        <p style="font-family:var(--mono);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:#8E8677;margin:0" data-i18n="lbl_hours">Hours</p>
+        <p style="margin-top:8px;font-family:var(--mono);font-size:10px;line-height:1.9;color:#CBC3B3">09:30–19:00 · 야간개장 22:00 · 화요일 휴무</p>
+        <p style="margin-top:10px;font-family:var(--mono);font-size:9px;color:#8E8677" data-i18n="foot_lang">EN · KO · JA · ZH · ES · VI</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>고운솔한복 · Seoul · Gyeongbokgung</span>
+      <span>© 2026 Atelier Web · concept</span>
+    </div>
+  </div>
+</footer>
+
+<noscript><div style="position:fixed;left:0;right:0;bottom:0;z-index:80;background:#15140F;color:#EEE9DF;font-family:monospace;font-size:9px;padding:9px 14px;text-align:center">JavaScript is off. Open this page in Safari or Chrome for the six-language switch.</div></noscript>
+
+<script>
+window.I18N = {"en":{"lang_aria":"Language","lbl_hours":"Hours","lbl_address":"Address","lbl_getting":"Getting here","lbl_email":"Email","lbl_phone":"Phone","lbl_messenger":"Message","concept_badge":"Concept preview · Atelier Web","concept_note":"This page is an unsolicited concept preview prepared by Atelier Web. It is not the official website of 고운솔한복.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Talk to us directly","cta_email":"Write an email","brand_sub":"Hanbok rental · Gyeongbokgung, Seoul","nav1":"Rental","nav2":"Hours & arrival","nav3":"Contact","nav_cta":"Ask about a visit","hero_kick":"One minute from Gyeongbokgung Palace","hero_title":"Hanbok made here, <em>worn by you.</em>","hero_lede":"A rental house one minute from Gyeongbokgung Palace, on the third floor of 133 Sajik-ro in Jongno. The hanbok are designed and sewn in-house — several hundred of them — and hair braiding, the underskirt and accessories come with the rental.","cta1":"What comes with it","cta2":"Hours and arrival","art_note":"Sewn here, rented here","art_quote":"“Several hundred pieces, cut and sewn in this shop.”","art_fact":"1 min from Gyeongbokgung · closed Tuesdays","sec1_kick":"01 — Rental","sec1_title":"Braiding, underskirt and accessories included.","sec1_lede":"Many shops charge extra for braiding; here it is part of the rental, as are the underskirt, hairband and floral crown. Accessories can be added without an extra fee, and a reservation adds thirty minutes to your rental time.","i1_n":"Made in-house","i1_d":"The hanbok are designed and sewn by the shop itself, with several hundred to choose from, so the people who dress you know the fabric and the cut.","i2_n":"Braiding included","i2_d":"Hair braiding, a hairband and a floral crown are free. Hair that cannot be braided is pinned or tied with a band instead.","i3_n":"Thirty minutes more","i3_d":"Come with a reservation and the rental time is extended by thirty minutes.","i4_n":"One minute to the gate","i4_d":"The shop is on the third floor of 133 Sajik-ro, a minute from the palace and a minute from the station.","sec2_kick":"02 — Hours and arrival","sec2_title":"Open daily except Tuesday.","h1_l":"Hours","h1_v":"09:30–19:00","h2_l":"Night opening","h2_v":"Until 22:00","h3_l":"Closed","h3_v":"Every Tuesday","addr":"3F, 133 Sajik-ro, Jongno-gu, Seoul — one minute from Gyeongbokgung Station","transit":"Gyeongbokgung Station (Line 3), about a minute on foot. The palace itself closes on Tuesdays, which is why the shop rests that day too.","foot_tagline":"Hanbok designed and sewn in-house, one minute from Gyeongbokgung — braiding and accessories included, closed Tuesdays."},"ko":{"lang_aria":"언어 선택","lbl_hours":"영업시간","lbl_address":"주소","lbl_getting":"오시는 길","lbl_email":"이메일","lbl_phone":"전화","lbl_messenger":"메신저","concept_badge":"시안 미리보기 · Atelier Web","concept_note":"이 페이지는 Atelier Web이 제안용으로 만든 시안이며 고운솔한복의 공식 홈페이지가 아닙니다.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"바로 연락하기","cta_email":"이메일 보내기","brand_sub":"경복궁 한복대여","nav1":"대여 안내","nav2":"영업시간·오시는 길","nav3":"문의","nav_cta":"방문 문의","hero_kick":"경복궁에서 도보 1분","hero_title":"여기서 지어, <em>당신이 입습니다.</em>","hero_lede":"경복궁에서 1분 거리, 종로 사직로 133 3층의 한복대여점입니다. 한복은 이곳에서 직접 디자인하고 지은 것으로 수백 벌이 있으며, 머리 땋기와 속치마, 악세서리가 대여에 함께 들어갑니다.","cta1":"무엇이 포함되는지","cta2":"영업시간과 오시는 길","art_note":"여기서 짓고, 여기서 빌립니다","art_quote":"“수백 벌을 이 가게에서 재단하고 지었습니다.”","art_fact":"경복궁 도보 1분 · 매주 화요일 휴무","sec1_kick":"01 — 대여","sec1_title":"머리 땋기와 속치마, 악세서리까지 기본.","sec1_lede":"땋아주는 머리에 따로 요금을 받는 곳도 많지만, 이곳은 땋기와 속치마, 머리띠·화관이 모두 대여에 포함됩니다. 악세서리도 추가 요금 없이 이용할 수 있고, 예약하고 오시면 대여 시간이 30분 늘어납니다.","i1_n":"직접 제작한 한복","i1_d":"한복을 직접 디자인하고 지어 수백 벌을 갖추었습니다. 원단과 핏을 만든 사람이 그대로 알고 있으니 입는 법도 함께 안내받습니다.","i2_n":"머리 땋기 무료","i2_d":"땋기와 머리띠, 화관이 무료입니다. 묶이지 않는 머리는 핀을 꽂거나 머리띠로 정리해 드립니다.","i3_n":"예약하면 30분 더","i3_d":"예약하고 방문하시면 대여 시간이 30분 연장됩니다.","i4_n":"궁까지 1분","i4_d":"사직로 133 3층, 경복궁과 역에서 각각 도보 1분 거리입니다.","sec2_kick":"02 — 영업시간과 오시는 길","sec2_title":"화요일만 쉬고 매일 엽니다.","h1_l":"영업시간","h1_v":"09:30–19:00","h2_l":"야간개장","h2_v":"22:00까지","h3_l":"휴무","h3_v":"매주 화요일","addr":"서울 종로구 사직로 133, 3층 — 경복궁역에서 도보 1분","transit":"3호선 경복궁역에서 도보 1분입니다. 경복궁이 화요일에 휴궁하기 때문에 가게도 같은 날 쉽니다.","foot_tagline":"경복궁 1분 거리, 직접 지은 한복 — 땋기와 악세서리 포함, 화요일 휴무."},"ja":{"lang_aria":"言語","lbl_hours":"営業時間","lbl_address":"住所","lbl_getting":"アクセス","lbl_email":"メール","lbl_phone":"電話","lbl_messenger":"メッセージ","concept_badge":"コンセプトプレビュー · Atelier Web","concept_note":"このページは Atelier Web が提案用に制作したコンセプトで、고운솔한복 の公式サイトではありません。","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"直接のご連絡","cta_email":"メールを書く","brand_sub":"景福宮 韓服レンタル","nav1":"レンタル","nav2":"営業時間・アクセス","nav3":"お問い合わせ","nav_cta":"来店の相談","hero_kick":"景福宮から徒歩1分","hero_title":"ここで仕立てた一着を、<em>あなたが着る。</em>","hero_lede":"景福宮から徒歩1分、鍾路サジクロ133の3階にある韓服レンタル店です。韓服は店内でデザインし仕立てた数百着。髪の編み込み、スカートの下に着る下着、小物までレンタルに含まれます。","cta1":"含まれるもの","cta2":"営業時間とアクセス","art_note":"ここで仕立て、ここで貸す","art_quote":"「数百着を、この店で断ち縫いました。」","art_fact":"景福宮まで1分 · 毎週火曜休み","sec1_kick":"01 — レンタル","sec1_title":"編み込みも下着も小物も、基本料金のうち。","sec1_lede":"編み込みを別料金にする店も多いですが、こちらは編み込み・下着・ヘアバンド・花冠がすべてレンタルに含まれます。小物も追加料金なしで使え、予約するとレンタル時間が30分延びます。","i1_n":"自社で仕立てた韓服","i1_d":"デザインから縫製まで店内で行い、数百着を揃えています。生地と仕立てを知る人がそのまま着方も案内します。","i2_n":"編み込み無料","i2_d":"編み込みとヘアバンド、花冠は無料です。結べない髪はピンで留めるかバンドで整えます。","i3_n":"予約で30分延長","i3_d":"予約して来店すると、レンタル時間が30分延びます。","i4_n":"宮まで1分","i4_d":"サジクロ133の3階、景福宮にも駅にも徒歩1分です。","sec2_kick":"02 — 営業時間とアクセス","sec2_title":"火曜日だけ休んで、毎日開けています。","h1_l":"営業時間","h1_v":"09:30–19:00","h2_l":"夜間開場","h2_v":"22:00まで","h3_l":"休み","h3_v":"毎週火曜日","addr":"ソウル市鍾路区サジクロ133、3階 — 景福宮駅から徒歩1分","transit":"3号線キョンボックン（景福宮）駅から徒歩1分。景福宮が火曜日に休宮するため、店も同じ日に休みます。","foot_tagline":"景福宮まで1分、自社で仕立てた韓服 — 編み込みと小物込み、火曜日休み。"},"zh":{"lang_aria":"语言","lbl_hours":"营业时间","lbl_address":"地址","lbl_getting":"交通","lbl_email":"邮箱","lbl_phone":"电话","lbl_messenger":"消息","concept_badge":"方案预览 · Atelier Web","concept_note":"本页面是 Atelier Web 制作的概念方案，并非 고운솔한복 的官方网站。","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"直接联系","cta_email":"写邮件","brand_sub":"景福宫韩服租赁","nav1":"租赁","nav2":"营业时间·交通","nav3":"联系","nav_cta":"到店咨询","hero_kick":"距景福宫步行 1 分钟","hero_title":"在这里缝制，<em>由你来穿。</em>","hero_lede":"距景福宫步行一分钟，位于钟路社稷路 133 号三层。这里的韩服由店内自行设计缝制，共有数百套，编发、衬裙和配饰都包含在租赁中。","cta1":"包含什么","cta2":"营业时间与交通","art_note":"在此缝制，在此出租","art_quote":"“数百套，都是在这家店里裁剪缝制的。”","art_fact":"距景福宫 1 分钟 · 每周二休息","sec1_kick":"01 — 租赁","sec1_title":"编发、衬裙、配饰，都是基本包含。","sec1_lede":"不少店编发要另外收费，这里编发、衬裙、发带和花冠都含在租赁里。配饰也不另收费，预约到店还可延长三十分钟。","i1_n":"自行设计与缝制","i1_d":"从设计到缝制都在店内完成，备有数百套。了解面料与版型的人会顺带教你穿法。","i2_n":"编发免费","i2_d":"编发、发带和花冠都免费。无法编起的头发会用发夹或发带整理。","i3_n":"预约多三十分钟","i3_d":"预约后到店，租赁时间延长三十分钟。","i4_n":"到宫门一分钟","i4_d":"社稷路 133 号三层，距景福宫和地铁站各步行一分钟。","sec2_kick":"02 — 营业时间与交通","sec2_title":"只在周二休息，每天都开门。","h1_l":"营业时间","h1_v":"09:30–19:00","h2_l":"夜间开放","h2_v":"至 22:00","h3_l":"休息","h3_v":"每周二","addr":"首尔钟路区社稷路 133 号 3 层 — 距景福宫站步行 1 分钟","transit":"地铁 3 号线景福宫站步行一分钟。景福宫周二闭宫，因此店也在同一天休息。","foot_tagline":"距景福宫一分钟，自行缝制的韩服——含编发与配饰，周二休息。"},"es":{"lang_aria":"Idioma","lbl_hours":"Horario","lbl_address":"Dirección","lbl_getting":"Cómo llegar","lbl_email":"Correo","lbl_phone":"Teléfono","lbl_messenger":"Mensaje","concept_badge":"Vista de concepto · Atelier Web","concept_note":"Esta página es una propuesta de concepto preparada por Atelier Web. No es el sitio oficial de 고운솔한복.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Contacto directo","cta_email":"Escribir un correo","brand_sub":"Alquiler de hanbok · Gyeongbokgung, Seúl","nav1":"Alquiler","nav2":"Horario y llegada","nav3":"Contacto","nav_cta":"Consultar visita","hero_kick":"A un minuto del palacio de Gyeongbokgung","hero_title":"Hanbok cosido aquí, <em>puesto por ti.</em>","hero_lede":"Una casa de alquiler a un minuto del palacio de Gyeongbokgung, en el tercer piso de Sajik-ro 133, Jongno. Los hanbok se diseñan y cosen en la propia tienda —hay varios cientos— y el trenzado del pelo, la enagua y los accesorios van incluidos.","cta1":"Qué incluye","cta2":"Horario y llegada","art_note":"Cosido aquí, alquilado aquí","art_quote":"«Varios cientos de piezas, cortadas y cosidas en esta tienda.»","art_fact":"A 1 min de Gyeongbokgung · cerrado los martes","sec1_kick":"01 — Alquiler","sec1_title":"Trenzado, enagua y accesorios incluidos.","sec1_lede":"Muchas tiendas cobran aparte el trenzado; aquí forma parte del alquiler, igual que la enagua, la cinta y la corona de flores. Los accesorios se añaden sin coste extra y, con reserva, el tiempo de alquiler se alarga treinta minutos.","i1_n":"Hecho en la tienda","i1_d":"Los hanbok se diseñan y cosen aquí, con varios cientos para elegir; quien te viste conoce la tela y el corte.","i2_n":"Trenzado gratis","i2_d":"El trenzado, la cinta y la corona son gratuitos. El pelo que no se puede trenzar se recoge con pinzas o con cinta.","i3_n":"Treinta minutos más","i3_d":"Si vienes con reserva, el tiempo de alquiler se amplía media hora.","i4_n":"Un minuto a la puerta","i4_d":"Tercer piso de Sajik-ro 133, a un minuto del palacio y de la estación.","sec2_kick":"02 — Horario y llegada","sec2_title":"Abierto todos los días menos el martes.","h1_l":"Horario","h1_v":"09:30–19:00","h2_l":"Apertura nocturna","h2_v":"Hasta las 22:00","h3_l":"Cerrado","h3_v":"Todos los martes","addr":"3.ª planta, Sajik-ro 133, Jongno-gu, Seúl — a un minuto de la estación Gyeongbokgung","transit":"Estación Gyeongbokgung (línea 3), a un minuto a pie. El palacio cierra los martes, y por eso la tienda también descansa ese día.","foot_tagline":"Hanbok cosido en la propia tienda a un minuto de Gyeongbokgung: trenzado y accesorios incluidos, cerrado los martes."},"vi":{"lang_aria":"Ngôn ngữ","lbl_hours":"Giờ mở cửa","lbl_address":"Địa chỉ","lbl_getting":"Đường đi","lbl_email":"Email","lbl_phone":"Điện thoại","lbl_messenger":"Tin nhắn","concept_badge":"Bản xem trước ý tưởng · Atelier Web","concept_note":"Trang này là bản phác thảo ý tưởng do Atelier Web thực hiện, không phải website chính thức của 고운솔한복.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Liên hệ trực tiếp","cta_email":"Gửi email","brand_sub":"Cho thuê hanbok · Gyeongbokgung, Seoul","nav1":"Thuê","nav2":"Giờ & lối đi","nav3":"Liên hệ","nav_cta":"Hỏi khi đến","hero_kick":"Cách cung Gyeongbokgung 1 phút đi bộ","hero_title":"May tại đây, <em>để bạn mặc.</em>","hero_lede":"Tiệm cho thuê hanbok cách cung Gyeongbokgung một phút, ở tầng 3 toà nhà 133 Sajik-ro, Jongno. Hanbok được chính tiệm thiết kế và may, có vài trăm bộ; tết tóc, váy lót và phụ kiện đều nằm trong giá thuê.","cta1":"Gồm những gì","cta2":"Giờ và lối đi","art_note":"May ở đây, cho thuê ở đây","art_quote":"“Vài trăm bộ, đều do tiệm này tự cắt may.”","art_fact":"Cách Gyeongbokgung 1 phút · nghỉ thứ Ba","sec1_kick":"01 — Thuê","sec1_title":"Tết tóc, váy lót, phụ kiện đều có sẵn.","sec1_lede":"Nhiều tiệm tính thêm tiền tết tóc; ở đây tết tóc, váy lót, băng đô và vòng hoa đều nằm trong giá thuê. Phụ kiện dùng thêm không mất phí, và nếu đặt trước, thời gian thuê tăng thêm ba mươi phút.","i1_n":"Tự thiết kế và may","i1_d":"Hanbok được thiết kế và may tại tiệm, có vài trăm bộ; người mặc cho bạn hiểu rõ vải và phom dáng.","i2_n":"Tết tóc miễn phí","i2_d":"Tết tóc, băng đô và vòng hoa miễn phí. Tóc không tết được sẽ được ghim hoặc buộc bằng băng đô.","i3_n":"Thêm ba mươi phút","i3_d":"Đặt trước khi đến, thời gian thuê được cộng thêm 30 phút.","i4_n":"Một phút tới cổng cung","i4_d":"Tầng 3 toà 133 Sajik-ro, cách cung và ga tàu mỗi nơi một phút đi bộ.","sec2_kick":"02 — Giờ và lối đi","sec2_title":"Mở hằng ngày, chỉ nghỉ thứ Ba.","h1_l":"Giờ mở cửa","h1_v":"09:30–19:00","h2_l":"Mở đêm","h2_v":"Đến 22:00","h3_l":"Nghỉ","h3_v":"Thứ Ba hằng tuần","addr":"Tầng 3, 133 Sajik-ro, Jongno-gu, Seoul — cách ga Gyeongbokgung 1 phút đi bộ","transit":"Ga Gyeongbokgung (tuyến 3), đi bộ khoảng một phút. Cung Gyeongbokgung đóng cửa thứ Ba nên tiệm cũng nghỉ cùng ngày.","foot_tagline":"Cách Gyeongbokgung một phút, hanbok tự may — gồm tết tóc và phụ kiện, nghỉ thứ Ba."}};
+</script>
+<script>
+(function(){
+  var dict = window.I18N || {}, LANGS = ['en','ko','ja','zh','es','vi'], current = 'ko';
+  function t(k){
+    var pack = dict[current] || dict.en || {};
+    if (pack[k] !== undefined) return pack[k];
+    return (dict.en && dict.en[k] !== undefined) ? dict.en[k] : '';
+  }
+  function apply(lang){
+    if (LANGS.indexOf(lang) < 0) lang = 'en';
+    current = lang;
+    document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-Hans' : lang);
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n'));
+      if (v !== '') el.innerHTML = v;
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n-aria'));
+      if (v !== '') el.setAttribute('aria-label', v);
+    });
+    document.querySelectorAll('.lang').forEach(function(b){
+      var on = b.getAttribute('data-lang') === lang;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    try { localStorage.setItem('aw_concept_lang', lang); } catch(e) {}
+  }
+  document.querySelectorAll('.lang').forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.getAttribute('data-lang')); });
+  });
+  var saved = null;
+  try { saved = localStorage.getItem('aw_concept_lang'); } catch(e) {}
+  if (LANGS.indexOf(saved) < 0) saved = 'ko';
+  apply(saved);
+})();
+</script>
+</body>
+</html>

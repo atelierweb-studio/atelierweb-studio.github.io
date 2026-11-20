@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko" data-lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>패러이야기 — 단양 패러글라이딩 (개념 시안)</title>
+<meta name="description" content="Concept preview for Parastory tandem paragliding in Danyang, with a six-language switch.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#2E4038">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230F0E0B'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='13' fill='%23F5F1E8' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#F7F5EF; --bg2:#EFEBE1; --card:#FFFFFF; --ink:#15140F; --ink2:#43403A;
+    --muted:#787264; --line:rgba(21,20,15,.14); --accent:#8C5A2B; --accent2:#2E4038;
+    --tint:rgba(140,90,43,.08);
+    --serif:"New York",ui-serif,"Iowan Old Style","Palatino Linotype",Georgia,"Noto Serif KR",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Pretendard",Roboto,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --r:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  h1,h2,h3{margin:0;font-family:var(--serif);font-weight:400;letter-spacing:-.01em}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+  .eyebrow{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+  .topbar{position:fixed;inset:0 0 auto;z-index:50;background:var(--bg);background:color-mix(in srgb,var(--bg) 93%,transparent);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .topbar-in{max-width:1140px;margin:0 auto;padding:11px 28px;display:flex;align-items:center;gap:22px}
+  .brand{display:flex;flex-direction:column;line-height:1}
+  .brand strong{font-family:var(--serif);font-weight:400;font-size:20px;letter-spacing:.01em}
+  .brand i{font-style:normal;font-family:var(--mono);font-size:7.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .nav{display:flex;gap:18px}
+  .nav a{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);
+    padding-bottom:3px;border-bottom:1px solid transparent}
+  .nav a:hover{color:var(--accent);border-color:var(--accent)}
+  .langs{display:flex;gap:5px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+  .langs::-webkit-scrollbar{display:none}
+  .lang{font-family:var(--mono);font-size:9.5px;border:1px solid var(--line);border-radius:99px;padding:6px 8px;
+    white-space:nowrap;color:var(--ink2);transition:.16s}
+  .lang:hover{border-color:var(--accent);color:var(--accent)}
+  .lang.is-on{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent2);color:#fff;border:1px solid var(--accent2);
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;padding:12px 18px;border-radius:99px;transition:.18s}
+  .btn:hover{background:var(--accent);border-color:var(--accent)}
+  .btn-sm{padding:9px 14px;font-size:8.5px;flex:0 0 auto}
+  .btn-ghost{background:transparent;color:var(--accent2);border-color:var(--line)}
+  .btn-ghost:hover{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+
+  .hero{padding:132px 0 60px}
+  .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:48px;align-items:center}
+  .kicker{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  h1{margin-top:16px;font-size:clamp(36px,4.8vw,58px);line-height:1.05}
+  h1 em{font-style:italic;color:var(--accent)}
+  .hero p{margin:18px 0 0;font-size:15.5px;line-height:1.7;color:var(--ink2);max-width:46ch}
+  .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+  .art{position:relative;border-radius:20px;overflow:hidden;min-height:360px;border:1px solid var(--line);
+    background:linear-gradient(168deg,var(--bg2),var(--bg));
+    background-image:linear-gradient(168deg,var(--bg2),color-mix(in srgb,var(--accent) 12%,var(--bg2)))}
+  .art::before{content:"";position:absolute;width:280px;height:280px;border-radius:50%;left:-50px;top:-70px;
+    border:1px solid var(--line);border-color:color-mix(in srgb,var(--accent) 30%,transparent)}
+  .art::after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-30px;bottom:70px;
+    background:radial-gradient(circle at 35% 30%,#fff,transparent 70%)}
+  .art-note{position:absolute;left:22px;top:22px;font-family:var(--mono);font-size:8px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--accent)}
+  .art-quote{position:absolute;left:22px;right:22px;top:46%;transform:translateY(-50%);font-family:var(--serif);
+    font-size:23px;line-height:1.28;color:var(--accent2);max-width:24ch}
+  .art-fact{position:absolute;left:22px;right:22px;bottom:20px;background:rgba(255,255,255,.86);border-radius:12px;
+    padding:12px 14px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);
+    box-shadow:0 12px 26px -20px rgba(21,20,15,.5)}
+  .concept{position:absolute;right:16px;top:16px;background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:99px;
+    padding:5px 10px;font-family:var(--mono);font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+  .sec{padding:58px 0;border-top:1px solid var(--line)}
+  .sec-head{margin-bottom:26px;max-width:62ch}
+  h2{font-size:clamp(25px,3vw,36px);line-height:1.12;margin-top:10px}
+  .sec-head p{margin:10px 0 0;font-size:13px;line-height:1.65;color:var(--muted)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .item{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;transition:.2s}
+  .item:hover{border-color:var(--accent);box-shadow:0 16px 30px -26px rgba(21,20,15,.5)}
+  .item .n{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;color:var(--accent)}
+  .item h3{font-size:18px;margin-top:8px;line-height:1.28}
+  .item p{margin:8px 0 0;font-size:12px;line-height:1.62;color:var(--muted)}
+
+  .visit{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .row{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .row b{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .row span{font-family:var(--mono);font-size:10.5px;color:var(--ink2);text-align:right}
+  .blocks{margin-top:18px}
+  .block{margin-top:14px}
+  .block b{display:block;font-family:var(--mono);font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .block span{display:block;margin-top:5px;font-size:12.5px;line-height:1.65;color:var(--ink2)}
+  .contact{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;align-self:start}
+  .contact h3{font-size:19px}
+  .cline{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:12px}
+  .cline:last-of-type{border-bottom:0}
+  .cline b{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400}
+  .cline a{font-size:12px;color:var(--accent2);border-bottom:1px solid var(--line);border-bottom-color:color-mix(in srgb,var(--accent) 50%,transparent);
+    text-underline-offset:2px;word-break:break-all}
+  .contact .btn{margin-top:16px;width:100%;justify-content:center}
+
+  footer{background:var(--ink);color:#EEE9DF;padding:44px 0 26px;margin-top:14px}
+  .foot{display:grid;grid-template-columns:1.4fr .6fr;gap:26px}
+  .foot strong{font-family:var(--serif);font-weight:400;font-size:19px}
+  .foot p{margin:12px 0 0;font-size:10.5px;line-height:1.7;color:#B6AE9E;max-width:52ch}
+  .foot .credit{margin-top:14px;font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;color:#D8D0C0}
+  .foot .credit a{border-bottom:1px solid rgba(216,208,192,.5)}
+  .foot-bottom{margin-top:24px;padding-top:14px;border-top:1px solid rgba(238,233,223,.16);display:flex;
+    justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:8px;letter-spacing:.1em;
+    text-transform:uppercase;color:#9A9282}
+  .foot .concept-note{font-size:10px;line-height:1.6;color:#9A9282;max-width:60ch}
+
+  @media (max-width:960px){
+    .nav{display:none}
+    .hero{padding-top:112px}
+    .hero-grid,.visit,.grid{grid-template-columns:1fr;gap:26px}
+    .foot{grid-template-columns:1fr}
+    .topbar-in{flex-wrap:wrap;gap:10px}
+    .langs{order:3;width:100%;margin-left:0}
+    .btn-sm{margin-left:auto}
+    .art{min-height:320px}
+  }
+  @media (max-width:600px){
+    .wrap,.topbar-in{padding-left:18px;padding-right:18px}
+    .art-quote{font-size:20px}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="#top"><strong>패러이야기</strong><i data-i18n="brand_sub">단양 패러글라이딩</i></a>
+    <nav class="nav">
+      <a href="#offer" data-i18n="nav1">비행 안내</a>
+      <a href="#visit" data-i18n="nav2">요금·오시는 길</a>
+      <a href="mailto:parastory0@naver.com" data-i18n="nav3">문의</a>
+    </nav>
+    <div class="langs" role="group" data-i18n-aria="lang_aria" aria-label="Language">
+      <button type="button" class="lang" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" class="lang is-on" data-lang="ko" aria-pressed="true">KO</button>
+      <button type="button" class="lang" data-lang="ja" aria-pressed="false">JA</button>
+      <button type="button" class="lang" data-lang="zh" aria-pressed="false">ZH</button>
+      <button type="button" class="lang" data-lang="es" aria-pressed="false">ES</button>
+      <button type="button" class="lang" data-lang="vi" aria-pressed="false">VI</button>
+    </div>
+    <a class="btn btn-sm" href="#visit" data-i18n="nav_cta">비행 문의</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="kicker" data-i18n="hero_kick">단양 두산활공장</div>
+        <h1 data-i18n="hero_title">아래로는 강, <em>앞으로는 하늘.</em></h1>
+        <p data-i18n="hero_lede">단양 두산마을 이륙장에서 남한강을 내려다보며 나는 2인승 패러글라이딩입니다. 파일럿과 함께 타며, 기본 비행은 공중에서 5~7분, 접수부터 착륙까지 한 시간 남짓 걸립니다.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#offer" data-i18n="cta1">비행은 이렇게</a>
+          <a class="btn btn-ghost" href="#visit" data-i18n="cta2">요금과 오시는 길</a>
+        </div>
+      </div>
+      <div class="art" aria-hidden="true">
+        <div class="concept" data-i18n="concept_badge">Concept preview · Atelier Web</div>
+        <div class="art-note" data-i18n="art_note">두 자리, 한 파일럿</div>
+        <div class="art-quote" data-i18n="art_quote">“능선에 서면 남한강이 한 번에 열립니다.”</div>
+        <div class="art-fact" data-i18n="art_fact">기본비행 90,000원 · 공중 5–7분</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="offer">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow" data-i18n="sec1_kick">01 — 비행</div>
+        <h2 data-i18n="sec1_title">동의서부터 착륙까지, 다섯 단계.</h2>
+        <p data-i18n="sec1_lede">동의서를 쓰고 비행복을 입고 안전교육을 받은 뒤, 안전장비를 착용하고 파일럿과 함께 납니다. 착륙 후 이륙장으로 돌아오고, 능선에서 사진을 찍는 시간도 일정에 들어 있습니다.</p>
+      </div>
+      <div class="grid">
+        <article class="item"><div class="n">i1</div><h3 data-i18n="i1_n">기본비행</h3><p data-i18n="i1_d">가장 편안한 코스입니다. 남한강과 소백산맥을 공중 5~7분 동안 천천히 내려다보며, 조종은 파일럿이 합니다.</p></article>
+        <article class="item"><div class="n">i2</div><h3 data-i18n="i2_n">다이나믹 코스</h3><p data-i18n="i2_d">움직임이 더 큰 비행을 원하시면 다른 코스도 있습니다. 차이는 사무실에서 먼저 설명해 드리고 고르시면 됩니다.</p></article>
+        <article class="item"><div class="n">i3</div><h3 data-i18n="i3_n">가족용 하네스</h3><p data-i18n="i3_d">아이부터 어른까지 맞춤 하네스를 제공하며 이중 안전장치를 착용합니다.</p></article>
+        <article class="item"><div class="n">i4</div><h3 data-i18n="i4_n">비행복과 장비</h3><p data-i18n="i4_d">여러 색의 비행복과 KC 인증 안전장비를 현장에서 제공합니다.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="visit">
+    <div class="wrap visit">
+      <div>
+        <div class="eyebrow" data-i18n="sec2_kick">02 — 요금과 오시는 길</div>
+        <h2 data-i18n="sec2_title">단양 두산마을, 이륙장에서.</h2>
+        <div style="margin-top:18px">
+          <div class="row"><b data-i18n="h1_l">기본비행</b><span data-i18n="h1_v">1인 90,000원</span></div>
+          <div class="row"><b data-i18n="h2_l">비행시간</b><span data-i18n="h2_v">공중 약 5–7분</span></div>
+          <div class="row"><b data-i18n="h3_l">예약</b><span data-i18n="h3_v">전화</span></div>
+        </div>
+        <div class="blocks">
+          <div class="block"><b data-i18n="lbl_address">Address</b><span data-i18n="addr">충청북도 단양군 가곡면 두산길 196-86</span></div>
+          <div class="block"><b data-i18n="lbl_getting">Getting here</b><span data-i18n="transit">단양 가곡면 두산마을에 있습니다. 오시기 전에 전화 주시면 그날 바람 상태와 만날 장소를 안내해 드립니다.</span></div>
+        </div>
+      </div>
+      <div class="contact">
+        <h3 data-i18n="contact_title" style="font-size:16px">Talk to us directly</h3>
+        <div style="margin-top:8px">
+          <div class="cline"><b data-i18n="lbl_email">Email</b><a href="mailto:parastory0@naver.com">parastory0@naver.com</a></div>
+          <div class="cline"><b data-i18n="lbl_phone">Phone</b><a href="tel:01033627722">010-3362-7722</a></div>
+
+        </div>
+        <a class="btn" href="mailto:parastory0@naver.com" data-i18n="cta_email">Write an email</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <strong>패러이야기</strong>
+        <p data-i18n="foot_tagline">단양 남한강 위 2인승 패러글라이딩 — 기본비행 90,000원, 공중 5~7분.</p>
+        <p class="concept-note" data-i18n="concept_note">이 페이지는 Atelier Web이 제안용으로 만든 시안이며 패러이야기의 공식 홈페이지가 아닙니다.</p>
+        <div class="credit">Concept preview prepared by Atelier Web (<a href="https://atelierweb-studio.github.io/" target="_blank" rel="noopener">atelierweb-studio.github.io</a>)</div>
+      </div>
+      <div>
+        <p style="font-family:var(--mono);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:#8E8677;margin:0" data-i18n="lbl_hours">Hours</p>
+        <p style="margin-top:8px;font-family:var(--mono);font-size:10px;line-height:1.9;color:#CBC3B3">기본비행 90,000원 · 공중 5–7분</p>
+        <p style="margin-top:10px;font-family:var(--mono);font-size:9px;color:#8E8677" data-i18n="foot_lang">EN · KO · JA · ZH · ES · VI</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>패러이야기 · Danyang · Chungbuk</span>
+      <span>© 2026 Atelier Web · concept</span>
+    </div>
+  </div>
+</footer>
+
+<noscript><div style="position:fixed;left:0;right:0;bottom:0;z-index:80;background:#15140F;color:#EEE9DF;font-family:monospace;font-size:9px;padding:9px 14px;text-align:center">JavaScript is off. Open this page in Safari or Chrome for the six-language switch.</div></noscript>
+
+<script>
+window.I18N = {"en":{"lang_aria":"Language","lbl_hours":"Hours","lbl_address":"Address","lbl_getting":"Getting here","lbl_email":"Email","lbl_phone":"Phone","lbl_messenger":"Message","concept_badge":"Concept preview · Atelier Web","concept_note":"This page is an unsolicited concept preview prepared by Atelier Web. It is not the official website of 패러이야기.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Talk to us directly","cta_email":"Write an email","brand_sub":"Paragliding · Danyang, Chungbuk","nav1":"The flight","nav2":"Price & arrival","nav3":"Contact","nav_cta":"Ask about a flight","hero_kick":"Dosan take-off site · Danyang","hero_title":"The river below, <em>the sky in front.</em>","hero_lede":"A tandem paragliding flight from the Dosan take-off site in Danyang, above the Namhan River. A pilot flies with you, and the basic flight lasts about five to seven minutes in the air — around an hour from signing in to landing.","cta1":"How the flight goes","cta2":"Price and arrival","art_note":"Two seats, one pilot","art_quote":"“From the ridge the Namhan River opens all at once.”","art_fact":"Basic flight KRW 90,000 · 5–7 min in the air","sec1_kick":"01 — The flight","sec1_title":"Five steps, from the form to the landing.","sec1_lede":"You sign a consent form, put on a flight suit and take the safety briefing, strap into certified gear, fly with a pilot, and come back up to the take-off site after landing. Photographs at the ridge are part of the day.","i1_n":"Basic flight","i1_d":"The gentlest course: five to seven minutes above the Namhan River and the Sobaeksan ridges, with a pilot doing the flying.","i2_n":"Livelier courses","i2_d":"Longer and more dynamic flights are available for those who want more movement; the office explains the difference before you choose.","i3_n":"Harnesses for families","i3_d":"Harnesses are fitted for children and adults alike, with a double safety strap.","i4_n":"Suits and gear","i4_d":"Flight suits in several colours and safety equipment are provided at the site.","sec2_kick":"02 — Price and arrival","sec2_title":"Danyang, at the Dosan take-off site.","h1_l":"Basic flight","h1_v":"KRW 90,000 / person","h2_l":"In the air","h2_v":"About 5–7 minutes","h3_l":"Booking","h3_v":"Phone","addr":"196-86 Dosan-gil, Gagok-myeon, Danyang-gun, Chungcheongbuk-do","transit":"The site is in Dosan village, Gagok-myeon, Danyang. Call before you come so the office can check the wind and tell you the meeting point.","foot_tagline":"Tandem paragliding above the Namhan River in Danyang — basic flight KRW 90,000, about five to seven minutes in the air."},"ko":{"lang_aria":"언어 선택","lbl_hours":"영업시간","lbl_address":"주소","lbl_getting":"오시는 길","lbl_email":"이메일","lbl_phone":"전화","lbl_messenger":"메신저","concept_badge":"시안 미리보기 · Atelier Web","concept_note":"이 페이지는 Atelier Web이 제안용으로 만든 시안이며 패러이야기의 공식 홈페이지가 아닙니다.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"바로 연락하기","cta_email":"이메일 보내기","brand_sub":"단양 패러글라이딩","nav1":"비행 안내","nav2":"요금·오시는 길","nav3":"문의","nav_cta":"비행 문의","hero_kick":"단양 두산활공장","hero_title":"아래로는 강, <em>앞으로는 하늘.</em>","hero_lede":"단양 두산마을 이륙장에서 남한강을 내려다보며 나는 2인승 패러글라이딩입니다. 파일럿과 함께 타며, 기본 비행은 공중에서 5~7분, 접수부터 착륙까지 한 시간 남짓 걸립니다.","cta1":"비행은 이렇게","cta2":"요금과 오시는 길","art_note":"두 자리, 한 파일럿","art_quote":"“능선에 서면 남한강이 한 번에 열립니다.”","art_fact":"기본비행 90,000원 · 공중 5–7분","sec1_kick":"01 — 비행","sec1_title":"동의서부터 착륙까지, 다섯 단계.","sec1_lede":"동의서를 쓰고 비행복을 입고 안전교육을 받은 뒤, 안전장비를 착용하고 파일럿과 함께 납니다. 착륙 후 이륙장으로 돌아오고, 능선에서 사진을 찍는 시간도 일정에 들어 있습니다.","i1_n":"기본비행","i1_d":"가장 편안한 코스입니다. 남한강과 소백산맥을 공중 5~7분 동안 천천히 내려다보며, 조종은 파일럿이 합니다.","i2_n":"다이나믹 코스","i2_d":"움직임이 더 큰 비행을 원하시면 다른 코스도 있습니다. 차이는 사무실에서 먼저 설명해 드리고 고르시면 됩니다.","i3_n":"가족용 하네스","i3_d":"아이부터 어른까지 맞춤 하네스를 제공하며 이중 안전장치를 착용합니다.","i4_n":"비행복과 장비","i4_d":"여러 색의 비행복과 KC 인증 안전장비를 현장에서 제공합니다.","sec2_kick":"02 — 요금과 오시는 길","sec2_title":"단양 두산마을, 이륙장에서.","h1_l":"기본비행","h1_v":"1인 90,000원","h2_l":"비행시간","h2_v":"공중 약 5–7분","h3_l":"예약","h3_v":"전화","addr":"충청북도 단양군 가곡면 두산길 196-86","transit":"단양 가곡면 두산마을에 있습니다. 오시기 전에 전화 주시면 그날 바람 상태와 만날 장소를 안내해 드립니다.","foot_tagline":"단양 남한강 위 2인승 패러글라이딩 — 기본비행 90,000원, 공중 5~7분."},"ja":{"lang_aria":"言語","lbl_hours":"営業時間","lbl_address":"住所","lbl_getting":"アクセス","lbl_email":"メール","lbl_phone":"電話","lbl_messenger":"メッセージ","concept_badge":"コンセプトプレビュー · Atelier Web","concept_note":"このページは Atelier Web が提案用に制作したコンセプトで、패러이야기 の公式サイトではありません。","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"直接のご連絡","cta_email":"メールを書く","brand_sub":"丹陽 パラグライディング","nav1":"フライト","nav2":"料金・アクセス","nav3":"お問い合わせ","nav_cta":"フライト相談","hero_kick":"丹陽 斗山（トゥサン）滑空場","hero_title":"眼下に川、<em>前方に空。</em>","hero_lede":"丹陽の斗山離陸場から南漢江を見下ろして飛ぶ二人乗りパラグライディングです。パイロットと一緒に飛び、基本フライトは空中で5〜7分、受付から着陸まで一時間ほどです。","cta1":"フライトの流れ","cta2":"料金とアクセス","art_note":"二席、パイロット一人","art_quote":"「尾根に立つと、南漢江が一度に開けます。」","art_fact":"基本フライト 90,000ウォン · 空中5〜7分","sec1_kick":"01 — フライト","sec1_title":"同意書から着陸まで、五つのステップ。","sec1_lede":"同意書を書き、フライトスーツに着替えて安全説明を受けたあと、安全装備を着けてパイロットと飛びます。着陸後は離陸場へ戻り、尾根での写真撮影も流れに含まれます。","i1_n":"基本フライト","i1_d":"いちばん穏やかなコース。南漢江と小白山脈を空中5〜7分かけてゆっくり眺め、操縦はパイロットが行います。","i2_n":"ダイナミックなコース","i2_d":"動きの大きいフライトを希望する方には別のコースもあります。違いは事務所で説明を受けてから選べます。","i3_n":"家族用ハーネス","i3_d":"子どもから大人まで体格に合わせたハーネスを用意し、二重の安全装置を着用します。","i4_n":"フライトスーツと装備","i4_d":"色違いのフライトスーツと安全装備を現地で用意します。","sec2_kick":"02 — 料金とアクセス","sec2_title":"丹陽の斗山、離陸場にて。","h1_l":"基本フライト","h1_v":"1名 90,000ウォン","h2_l":"飛行時間","h2_v":"空中 約5〜7分","h3_l":"予約","h3_v":"電話","addr":"忠清北道丹陽郡佳谷面斗山キル 196-86","transit":"丹陽の佳谷面斗山集落にあります。来る前に電話をいただければ、その日の風の状況と待ち合わせ場所をお伝えします。","foot_tagline":"丹陽の南漢江の上を飛ぶ二人乗りパラグライディング — 基本90,000ウォン、空中5〜7分。"},"zh":{"lang_aria":"语言","lbl_hours":"营业时间","lbl_address":"地址","lbl_getting":"交通","lbl_email":"邮箱","lbl_phone":"电话","lbl_messenger":"消息","concept_badge":"方案预览 · Atelier Web","concept_note":"本页面是 Atelier Web 制作的概念方案，并非 패러이야기 的官方网站。","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"直接联系","cta_email":"写邮件","brand_sub":"丹阳滑翔伞","nav1":"飞行","nav2":"价格与交通","nav3":"联系","nav_cta":"飞行咨询","hero_kick":"丹阳斗山起飞场","hero_title":"脚下是江，<em>前方是天。</em>","hero_lede":"从丹阳斗山起飞场俯瞰南汉江的双人滑翔伞体验。由教练带你飞，基本飞行在空中约五到七分钟，从办理到落地大约一小时。","cta1":"飞行流程","cta2":"价格与交通","art_note":"两个座位，一位教练","art_quote":"“站上山脊，南汉江一下子铺开。”","art_fact":"基本飞行 90,000 韩元 · 空中 5–7 分钟","sec1_kick":"01 — 飞行","sec1_title":"从同意书到落地，五步。","sec1_lede":"先写同意书，换上飞行服并接受安全讲解，穿戴安全装备后与教练一起起飞。落地后返回起飞场，在山脊拍照的时间也包含在行程里。","i1_n":"基本飞行","i1_d":"最平缓的路线。在空中约五到七分钟慢慢俯瞰南汉江与小白山脉，操控由教练负责。","i2_n":"更刺激的路线","i2_d":"想要动作更大的飞行，可以选择其他路线。区别会在办公室先说明，再决定。","i3_n":"家庭用安全带","i3_d":"从儿童到成人都按体型配安全带，并加装双重安全扣。","i4_n":"飞行服与装备","i4_d":"现场提供多种颜色的飞行服与安全装备。","sec2_kick":"02 — 价格与交通","sec2_title":"丹阳斗山，在起飞场。","h1_l":"基本飞行","h1_v":"每人 90,000 韩元","h2_l":"飞行时间","h2_v":"空中约 5–7 分钟","h3_l":"预订","h3_v":"电话","addr":"忠清北道丹阳郡佳谷面斗山路 196-86","transit":"位于丹阳佳谷面斗山村。来之前打个电话，会告知当天风况和集合地点。","foot_tagline":"在丹阳南汉江上空的双人滑翔伞——基本飞行 90,000 韩元，空中五到七分钟。"},"es":{"lang_aria":"Idioma","lbl_hours":"Horario","lbl_address":"Dirección","lbl_getting":"Cómo llegar","lbl_email":"Correo","lbl_phone":"Teléfono","lbl_messenger":"Mensaje","concept_badge":"Vista de concepto · Atelier Web","concept_note":"Esta página es una propuesta de concepto preparada por Atelier Web. No es el sitio oficial de 패러이야기.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Contacto directo","cta_email":"Escribir un correo","brand_sub":"Parapente · Danyang, Chungbuk","nav1":"El vuelo","nav2":"Precio y llegada","nav3":"Contacto","nav_cta":"Consultar un vuelo","hero_kick":"Rampa de Dosan · Danyang","hero_title":"El río abajo, <em>el cielo delante.</em>","hero_lede":"Un vuelo biplaza en parapente desde la rampa de Dosan, en Danyang, sobre el río Namhan. Vuelas con un piloto; el vuelo básico dura entre cinco y siete minutos en el aire, y cerca de una hora desde el registro hasta el aterrizaje.","cta1":"Cómo es el vuelo","cta2":"Precio y llegada","art_note":"Dos plazas, un piloto","art_quote":"«Desde la cresta, el río Namhan se abre de golpe.»","art_fact":"Vuelo básico 90.000 KRW · 5–7 min en el aire","sec1_kick":"01 — El vuelo","sec1_title":"Cinco pasos, del formulario al aterrizaje.","sec1_lede":"Firmas el consentimiento, te pones el mono de vuelo y recibes la explicación de seguridad, te ajustas el equipo, vuelas con el piloto y subes de nuevo a la rampa tras aterrizar. Las fotos en la cresta forman parte del día.","i1_n":"Vuelo básico","i1_d":"El recorrido más suave: cinco a siete minutos sobre el Namhan y las crestas de Sobaeksan, con el piloto a los mandos.","i2_n":"Vuelos más dinámicos","i2_d":"Hay vuelos más largos y movidos para quien quiera más acción; la oficina explica la diferencia antes de elegir.","i3_n":"Arneses familiares","i3_d":"Se ajustan arneses para niños y adultos, con doble cierre de seguridad.","i4_n":"Monos y equipo","i4_d":"En la rampa se entregan monos de vuelo de varios colores y equipo de seguridad.","sec2_kick":"02 — Precio y llegada","sec2_title":"Danyang, en la rampa de Dosan.","h1_l":"Vuelo básico","h1_v":"90.000 KRW por persona","h2_l":"En el aire","h2_v":"Unos 5–7 minutos","h3_l":"Reserva","h3_v":"Teléfono","addr":"196-86 Dosan-gil, Gagok-myeon, Danyang-gun, Chungcheongbuk-do","transit":"Está en la aldea de Dosan, Gagok-myeon, Danyang. Llama antes de venir para que la oficina consulte el viento y te diga el punto de encuentro.","foot_tagline":"Parapente biplaza sobre el río Namhan en Danyang: vuelo básico 90.000 KRW, unos cinco a siete minutos en el aire."},"vi":{"lang_aria":"Ngôn ngữ","lbl_hours":"Giờ mở cửa","lbl_address":"Địa chỉ","lbl_getting":"Đường đi","lbl_email":"Email","lbl_phone":"Điện thoại","lbl_messenger":"Tin nhắn","concept_badge":"Bản xem trước ý tưởng · Atelier Web","concept_note":"Trang này là bản phác thảo ý tưởng do Atelier Web thực hiện, không phải website chính thức của 패러이야기.","foot_lang":"EN · KO · JA · ZH · ES · VI","contact_title":"Liên hệ trực tiếp","cta_email":"Gửi email","brand_sub":"Dù lượn · Danyang, Chungbuk","nav1":"Chuyến bay","nav2":"Giá & lối đi","nav3":"Liên hệ","nav_cta":"Hỏi về chuyến bay","hero_kick":"Bãi cất cánh Dosan · Danyang","hero_title":"Dưới là sông, <em>trước mặt là trời.</em>","hero_lede":"Chuyến dù lượn hai người từ bãi cất cánh Dosan ở Danyang, nhìn xuống sông Namhan. Bạn bay cùng phi công; chuyến cơ bản kéo dài khoảng năm đến bảy phút trên không, và khoảng một giờ từ lúc làm thủ tục đến khi hạ cánh.","cta1":"Chuyến bay diễn ra thế nào","cta2":"Giá và lối đi","art_note":"Hai chỗ, một phi công","art_quote":"“Đứng trên sống núi, sông Namhan mở ra cùng lúc.”","art_fact":"Bay cơ bản 90.000 KRW · 5–7 phút trên không","sec1_kick":"01 — Chuyến bay","sec1_title":"Năm bước, từ giấy đồng ý đến hạ cánh.","sec1_lede":"Bạn ký giấy đồng ý, mặc bộ đồ bay và nghe hướng dẫn an toàn, đeo thiết bị an toàn rồi bay cùng phi công. Hạ cánh xong sẽ quay lại bãi cất cánh, và thời gian chụp ảnh trên sống núi cũng nằm trong chuyến.","i1_n":"Bay cơ bản","i1_d":"Cung nhẹ nhàng nhất: năm đến bảy phút trên sông Namhan và dãy Sobaeksan, phi công điều khiển.","i2_n":"Cung mạnh hơn","i2_d":"Có những chuyến dài và nhiều động tác hơn cho ai muốn cảm giác mạnh; văn phòng giải thích khác biệt trước khi bạn chọn.","i3_n":"Đai an toàn cho gia đình","i3_d":"Đai được chỉnh theo trẻ em và người lớn, với khoá an toàn hai lớp.","i4_n":"Đồ bay và thiết bị","i4_d":"Tại chỗ có đồ bay nhiều màu và thiết bị an toàn đạt chứng nhận KC.","sec2_kick":"02 — Giá và lối đi","sec2_title":"Danyang, tại bãi cất cánh Dosan.","h1_l":"Bay cơ bản","h1_v":"90.000 KRW mỗi người","h2_l":"Thời gian bay","h2_v":"Khoảng 5–7 phút","h3_l":"Đặt trước","h3_v":"Điện thoại","addr":"196-86 Dosan-gil, Gagok-myeon, Danyang-gun, Chungcheongbuk-do","transit":"Ở làng Dosan, Gagok-myeon, Danyang. Gọi điện trước khi đến để văn phòng xem gió và hẹn điểm gặp.","foot_tagline":"Dù lượn hai người trên sông Namhan ở Danyang — bay cơ bản 90.000 KRW, khoảng năm đến bảy phút trên không."}};
+</script>
+<script>
+(function(){
+  var dict = window.I18N || {}, LANGS = ['en','ko','ja','zh','es','vi'], current = 'ko';
+  function t(k){
+    var pack = dict[current] || dict.en || {};
+    if (pack[k] !== undefined) return pack[k];
+    return (dict.en && dict.en[k] !== undefined) ? dict.en[k] : '';
+  }
+  function apply(lang){
+    if (LANGS.indexOf(lang) < 0) lang = 'en';
+    current = lang;
+    document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-Hans' : lang);
+    document.documentElement.setAttribute('data-lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n'));
+      if (v !== '') el.innerHTML = v;
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
+      var v = t(el.getAttribute('data-i18n-aria'));
+      if (v !== '') el.setAttribute('aria-label', v);
+    });
+    document.querySelectorAll('.lang').forEach(function(b){
+      var on = b.getAttribute('data-lang') === lang;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    try { localStorage.setItem('aw_concept_lang', lang); } catch(e) {}
+  }
+  document.querySelectorAll('.lang').forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.getAttribute('data-lang')); });
+  });
+  var saved = null;
+  try { saved = localStorage.getItem('aw_concept_lang'); } catch(e) {}
+  if (LANGS.indexOf(saved) < 0) saved = 'ko';
+  apply(saved);
+})();
+</script>
+</body>
+</html>
