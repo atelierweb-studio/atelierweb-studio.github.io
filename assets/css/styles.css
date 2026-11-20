@@ -89,7 +89,7 @@ ul,ol,dl,dd{margin:0;padding:0;list-style:none}
 .cw-brand-mark::after{content:"";position:absolute;right:-3px;bottom:-3px;width:8px;height:8px;background:var(--lime);border-radius:1px}
 .cw-brand-txt{display:flex;flex-direction:column;line-height:1.05}
 .cw-brand-txt strong{font-family:var(--font-display);font-size:16px;font-weight:700;letter-spacing:-.01em;white-space:nowrap}
-.cw-brand-txt i{font-style:normal;font-family:var(--font-mono);font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--charcoal-48);margin-top:4px}
+.cw-brand-txt i{white-space:nowrap;font-style:normal;font-family:var(--font-mono);font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--charcoal-48);margin-top:4px}
 
 .cw-nav{display:flex;gap:26px;margin-left:18px}
 .cw-nav a{
@@ -121,7 +121,7 @@ ul,ol,dl,dd{margin:0;padding:0;list-style:none}
   display:grid;place-items:center;border:1.5px solid var(--ivory);
 }
 .cart-count[data-empty="true"]{display:none}
-.menu-toggle{display:none}
+.icon-btn.menu-toggle{display:none}
 
 /* mobile drawer */
 .cw-drawer{
@@ -877,7 +877,7 @@ details.faq:first-child{border-top:1px solid var(--charcoal-12)}
 @media (max-width:980px){
   .cw-nav,.cw-header-tools .lang-switch{display:none}
   .cw-drawer .lang-switch{display:flex}
-  .menu-toggle{display:grid}
+  .icon-btn.menu-toggle{display:grid}
   .hero-top{grid-template-columns:1fr;gap:44px}
   .hero-art{max-width:520px}
   .sec-head{grid-template-columns:1fr;gap:18px;margin-bottom:34px}
