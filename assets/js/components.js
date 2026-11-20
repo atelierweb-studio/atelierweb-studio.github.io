@@ -71,7 +71,7 @@
 
   function footer() {
     var cats = C.categories.map(function (c) {
-      return '<li><a href="services.html#cat-' + c.id + '">' + tv(c.name) + '</a></li>';
+      return '<li><a href="services.html#cat-' + c.id + '" data-i18n-cat="' + c.id + '">' + tv(c.name) + '</a></li>';
     }).join('');
 
     return '' +
@@ -183,7 +183,7 @@
     if (!p.price) return '';
     if (p.price.mode === 'fixed') return t('price_vat');
     if (p.price.amountFrom) return t('badge_quote');
-    return p.quoteFrom ? tv(p.quoteFrom) : t('badge_quote');
+    return '';
   }
 
   /* ------------------------------------------------------------ product card */
@@ -247,6 +247,7 @@
   /* ------------------------------------------------------------ init */
   function init(opts) {
     opts = opts || {};
+    I.init();
     var headerSlot = document.querySelector('[data-cw-header]');
     if (headerSlot) headerSlot.innerHTML = header(opts.active || '');
     var footSlot = document.querySelector('[data-cw-footer]');
@@ -275,7 +276,6 @@
     I.onChange(refreshCart);
 
     I.apply();
-    I.init();
   }
 
   function refreshCart() {

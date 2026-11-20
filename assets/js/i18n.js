@@ -13,7 +13,7 @@
   /* [key, en, ko, ja, zh, es, vi] */
   var ROWS = [
     /* ---- header / common ---- */
-    ['meta_title', 'CAMPUSWAY DESIGN — Design studio & online shop', 'CAMPUSWAY DESIGN — 디자인 스튜디오 &amp; 온라인 숍', 'CAMPUSWAY DESIGN — デザインスタジオ＆オンラインショップ', 'CAMPUSWAY DESIGN — 设计工作室与在线商店', 'CAMPUSWAY DESIGN — Estudio y tienda de diseño', 'CAMPUSWAY DESIGN — Studio & cửa hàng thiết kế'],
+    ['meta_title', 'CAMPUSWAY DESIGN — Design studio & online shop', 'CAMPUSWAY DESIGN — 디자인 스튜디오 & 온라인 숍', 'CAMPUSWAY DESIGN — デザインスタジオ＆オンラインショップ', 'CAMPUSWAY DESIGN — 设计工作室与在线商店', 'CAMPUSWAY DESIGN — Estudio y tienda de diseño', 'CAMPUSWAY DESIGN — Studio & cửa hàng thiết kế'],
     ['brand_sub', 'Design studio & commerce', '디자인 스튜디오 & 커머스', 'デザインスタジオ＆コマース', '设计工作室与商店', 'Estudio y tienda de diseño', 'Studio & cửa hàng thiết kế'],
     ['nav_home', 'Home', '홈', 'ホーム', '首页', 'Inicio', 'Trang chủ'],
     ['nav_service', 'Design service', '디자인 서비스', 'デザインサービス', '设计服务', 'Servicios', 'Dịch vụ'],
@@ -90,6 +90,7 @@
     ['folio_live', 'Live six-language builds', '라이브 6개국어 구현', '6言語ライブ実装', '六语线上实现', 'Sitios en seis idiomas', 'Site 6 ngôn ngữ'],
     ['folio_open', 'Open the build', '완성 페이지 열기', '完成ページを開く', '打开成品', 'Abrir el sitio', 'Mở trang'],
     ['folio_preview', 'Quick preview', '빠른 미리보기', 'クイックプレビュー', '快速预览', 'Vista rápida', 'Xem nhanh'],
+    ['folio_concepts', 'Concept previews', '업종별 시안', '業種別コンセプト', '行业概念稿', 'Conceptos por sector', 'Concept theo ngành'],
     ['folio_note', 'Each build opens in a new tab. Use the language bar on any page to switch the whole site instantly.', '각 결과물은 새 탭에서 열립니다. 어느 페이지에서든 상단 언어 버튼으로 즉시 바뀝니다.', '各ページは新しいタブで開きます。上部の言語ボタンで即座に切り替わります。', '各页面在新标签页打开，顶部语言按钮可即时切换整站。', 'Cada sitio abre en una pestaña nueva. La barra superior cambia todo al instante.', 'Mỗi trang mở tab mới. Thanh ngôn ngữ đổi toàn site ngay.'],
     ['modal_note', 'A styled preview of the layout. Open the live page for the real, clickable site.', '레이아웃을 재현한 미리보기입니다. 실제로 클릭되는 페이지는 라이브에서 확인하세요.', 'レイアウトを再現したプレビューです。実際に動くページはライブでご確認ください。', '这是版式的样式预览，实际可点击的页面请在线上查看。', 'Vista del diseño. Abre el sitio real para navegar.', 'Bản xem trước bố cục. Mở trang thật để tương tác.'],
     ['modal_eyebrow', 'Inline preview', '인라인 미리보기', 'インラインプレビュー', '内嵌预览', 'Vista previa', 'Xem trước'],
@@ -529,6 +530,13 @@
 
     var tk = document.body && document.body.getAttribute('data-title-key');
     if (tk) document.title = t(tk, document.title);
+
+    var catEls = scope.querySelectorAll('[data-i18n-cat]');
+    for (var q = 0; q < catEls.length; q++) {
+      var cid = catEls[q].getAttribute('data-i18n-cat');
+      var cobj = (window.CATALOG && window.CATALOG.cat) ? window.CATALOG.cat(cid) : null;
+      if (cobj) catEls[q].textContent = tv(cobj.name);
+    }
 
     var langBtns = document.querySelectorAll('[data-lang-set]');
     for (var p = 0; p < langBtns.length; p++) {
