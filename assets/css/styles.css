@@ -237,9 +237,12 @@ ul,ol,dl,dd{margin:0;padding:0;list-style:none}
   font-size:clamp(44px,6.4vw,88px);line-height:1.3;letter-spacing:-.05em;
 }
 .hero h1 .line{display:block}
-/* Korean headline: Pretendard is wider per glyph, so it takes a smaller size to keep
-   the two agreed lines intact and never break a word in the middle. */
-html[lang="ko"] .hero h1{font-size:clamp(38px,4.2vw,58px);line-height:1.34;letter-spacing:-.04em;word-break:keep-all}
+/* CJK headlines: a square glyph is roughly twice as wide as a Latin letter, so Korean,
+   Japanese and Chinese take a smaller size to keep the agreed line breaks intact. */
+html[lang="ko"] .hero h1,
+html[lang="ja"] .hero h1,
+html[lang="zh"] .hero h1{font-size:clamp(38px,4.2vw,58px);letter-spacing:-.03em}
+html[lang="ko"] .hero h1{letter-spacing:-.04em;word-break:keep-all}
 html[lang="ko"] body{word-break:keep-all;overflow-wrap:break-word}
 .hero h1 em{font-style:normal;position:relative;white-space:nowrap;z-index:0}
 .hero h1 em::after{content:"";position:absolute;left:2px;right:2px;bottom:.07em;height:.22em;background:var(--lime);z-index:-1}
