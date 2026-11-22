@@ -241,7 +241,7 @@ ul,ol,dl,dd{margin:0;padding:0;list-style:none}
    Japanese and Chinese take a smaller size to keep the agreed line breaks intact. */
 html[lang="ko"] .hero h1,
 html[lang="ja"] .hero h1,
-html[lang="zh"] .hero h1{font-size:clamp(38px,4.2vw,58px);letter-spacing:-.03em}
+html[lang^="zh"] .hero h1{font-size:clamp(38px,4.2vw,58px);letter-spacing:-.03em}
 html[lang="ko"] .hero h1{letter-spacing:-.04em;word-break:keep-all}
 html[lang="ko"] body{word-break:keep-all;overflow-wrap:break-word}
 .hero h1 em{font-style:normal;position:relative;white-space:nowrap;z-index:0}
