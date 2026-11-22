@@ -228,7 +228,7 @@ ul,ol,dl,dd{margin:0;padding:0;list-style:none}
    HOME — HERO
    ========================================================================== */
 .hero{padding:66px 0 0;position:relative;overflow:hidden}
-.hero-top{display:grid;grid-template-columns:1.06fr .94fr;gap:54px;align-items:center;padding-bottom:64px}
+.hero-top{display:grid;grid-template-columns:1.2fr .8fr;gap:44px;align-items:center;padding-bottom:64px}
 .hero-kicker{display:flex;align-items:center;gap:12px;font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--charcoal-64)}
 .hero-kicker .pulse{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 0 var(--lime-40);animation:pulse 2.4s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 var(--lime-40)}70%{box-shadow:0 0 0 9px rgba(210,255,90,0)}100%{box-shadow:0 0 0 0 rgba(210,255,90,0)}}
@@ -237,6 +237,10 @@ ul,ol,dl,dd{margin:0;padding:0;list-style:none}
   font-size:clamp(44px,6.4vw,88px);line-height:1.3;letter-spacing:-.05em;
 }
 .hero h1 .line{display:block}
+/* Korean headline: Pretendard is wider per glyph, so it takes a smaller size to keep
+   the two agreed lines intact and never break a word in the middle. */
+html[lang="ko"] .hero h1{font-size:clamp(38px,4.2vw,58px);line-height:1.34;letter-spacing:-.04em;word-break:keep-all}
+html[lang="ko"] body{word-break:keep-all;overflow-wrap:break-word}
 .hero h1 em{font-style:normal;position:relative;white-space:nowrap;z-index:0}
 .hero h1 em::after{content:"";position:absolute;left:2px;right:2px;bottom:.07em;height:.22em;background:var(--lime);z-index:-1}
 .hero-lede{margin-top:28px;font-size:16.5px;line-height:1.7;color:var(--charcoal-64);max-width:47ch}
@@ -305,7 +309,7 @@ ul,ol,dl,dd{margin:0;padding:0;list-style:none}
 .intro-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
 .intro-quote{font-family:var(--font-display);font-size:clamp(24px,3vw,36px);font-weight:500;letter-spacing:-.035em;line-height:1.22}
 .intro-quote em{font-style:normal;color:var(--charcoal-48)}
-.intro-body{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.intro-body{display:grid;grid-template-columns:1fr;gap:28px}
 .intro-body p{font-size:14.5px;line-height:1.75;color:var(--charcoal-64)}
 .intro-body p b{color:var(--charcoal);font-weight:600}
 .intro-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:46px;border-top:1px solid var(--charcoal-12)}
@@ -313,7 +317,7 @@ ul,ol,dl,dd{margin:0;padding:0;list-style:none}
 .intro-metrics div:last-child{border-right:0}
 .intro-metrics b{display:block;font-family:var(--font-display);font-size:30px;font-weight:600;letter-spacing:-.04em}
 /* lime "+" needs a charcoal hairline to stay legible on ivory */
-.intro-metrics b .plus{color:var(--lime);-webkit-text-stroke:.9px var(--charcoal);text-shadow:0 1px 0 rgba(41,45,50,.14)}
+.intro-metrics b .plus{display:inline;font-family:inherit;font-size:inherit;font-weight:700;letter-spacing:inherit;text-transform:none;margin-top:0;color:var(--lime);-webkit-text-stroke:.9px var(--charcoal);text-shadow:0 1px 0 rgba(41,45,50,.14)}
 .intro-metrics span{display:block;font-family:var(--font-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--charcoal-48);margin-top:5px}
 
 /* ==========================================================================
