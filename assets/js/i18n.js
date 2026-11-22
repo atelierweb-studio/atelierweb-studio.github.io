@@ -33,45 +33,49 @@
     ['back_to_products', 'All products', '상품 목록으로', '商品一覧へ', '返回商品列表', 'Volver a productos', 'Về danh sách'],
 
     /* ---- home hero ---- */
-    ['hero_kicker', 'Atelier Web · Seoul &amp; Gumi · Since 2026', 'Atelier Web · 서울 &amp; 구미 · 2026년부터', 'Atelier Web・ソウル＆亀尾・2026年〜', 'Atelier Web · 首尔与龟尾 · 2026 年起', 'Atelier Web · Seúl y Gumi · desde 2026', 'Atelier Web · Seoul & Gumi · từ 2026'],
-    ['hero_title', 'Brand design,<br><span class="line">chosen and sold</span><span class="line"><em>in one flow.</em></span>', '브랜드 디자인을<br><span class="line">고르고, 결제하고,</span><span class="line"><em>제작까지.</em></span>', 'ブランドデザインを<br><span class="line">選び、決済し、</span><span class="line"><em>制作まで。</em></span>', '品牌设计<br><span class="line">挑选、下单，</span><span class="line"><em>直到交付。</em></span>', 'Diseño de marca:<br><span class="line">elige, paga y</span><span class="line"><em>recíbelo.</em></span>', 'Thiết kế thương hiệu:<br><span class="line">chọn, thanh toán</span><span class="line"><em>và nhận hàng.</em></span>'],
-    ['hero_lede', 'Atelier Web is a studio and a shop at once. Detail pages from 110,000 KRW, six-language websites, web design, SNS and print — set your options, see the exact total, and send your materials in the same place.', 'Atelier Web은 스튜디오이자 쇼핑몰입니다. 11만 원대 상세페이지부터 6개국어 웹사이트, 웹디자인, SNS, 인쇄물까지 — 옵션을 고르면 정확한 총액이 보이고, 같은 곳에서 작업 자료까지 제출합니다.', 'Atelier Webはスタジオであり、ショップでもあります。11万ウォン台の詳細ページから6言語サイト、ウェブデザイン、SNS、印刷物まで。オプションを選べば正確な合計が見え、同じ場所で資料も提出できます。', 'Atelier Web 既是工作室，也是商店。详情页 11 万韩元起，另有六语网站、网页设计、SNS 与印刷品。选定选项即可看到准确总额，并在同一处提交资料。', 'Atelier Web es estudio y tienda a la vez. Páginas de producto desde 110.000 KRW, sitios en seis idiomas, diseño web, SNS e impresos. Elige opciones, ve el total exacto y envía tus materiales aquí mismo.', 'Atelier Web vừa là studio vừa là cửa hàng. Trang chi tiết từ 110.000 KRW, website 6 ngôn ngữ, thiết kế web, SNS và ấn phẩm in. Chọn tuỳ chọn, thấy tổng chính xác và gửi tài liệu tại đây.'],
-    ['hero_cta1', 'Browse design services', '디자인 상품 보기', 'デザイン商品を見る', '浏览设计商品', 'Ver servicios', 'Xem sản phẩm'],
-    ['hero_cta2', 'Request a quote', '견적 문의하기', '見積もりを依頼', '索取报价', 'Pedir presupuesto', 'Yêu cầu báo giá'],
-    ['hero_fact1', 'Detail page from ₩110,000', '상세페이지 11만 원부터', '詳細ページ ₩110,000〜', '详情页 ₩110,000 起', 'Detalle desde ₩110.000', 'Trang chi tiết từ ₩110.000'],
-    ['hero_fact2', 'EN · KO · JA · ZH · ES · VI', 'EN · KO · JA · ZH · ES · VI', 'EN · KO · JA · ZH · ES · VI', 'EN · KO · JA · ZH · ES · VI', 'EN · KO · JA · ZH · ES · VI', 'EN · KO · JA · ZH · ES · VI'],
-    ['hero_fact3', 'Quote in 1 business day', '견적은 영업일 1일', '見積もりは1営業日', '一个工作日回复', 'Presupuesto en 1 día', 'Báo giá trong 1 ngày'],
+    ['hero_kicker', 'ATELIER WEB — CREATIVE DESIGN STUDIO', 'ATELIER WEB — CREATIVE DESIGN STUDIO', 'ATELIER WEB — CREATIVE DESIGN STUDIO', 'ATELIER WEB — CREATIVE DESIGN STUDIO', 'ATELIER WEB — CREATIVE DESIGN STUDIO', 'ATELIER WEB — CREATIVE DESIGN STUDIO'],
+    ['hero_title', 'One Studio.<br>Every Design<br>Your Brand Needs.', '브랜드에 필요한 모든 디자인,<br>하나의 스튜디오에서.', 'ブランドに必要なすべてのデザインを、<br>ひとつのスタジオで。', '品牌所需的一切设计，<br>都在同一个工作室。', 'Todo el diseño que tu marca necesita,<br>en un solo estudio.', 'Mọi thiết kế thương hiệu cần,<br>trong một studio.'],
+    ['hero_lede', 'From brand identity and websites to e-commerce, digital marketing, and print design. We bring your brand together, from start to finish.', '로고와 브랜딩부터 웹사이트, 상세페이지, 마케팅, 인쇄물까지.<br>브랜드의 시작과 성장을 함께 디자인합니다.<br>브랜드를 만들고, 세상에 선보이고, 성장시키는 모든 과정에 필요한 디자인을 제공합니다.', 'ロゴとブランディングからウェブサイト、詳細ページ、マーケティング、印刷物まで。<br>ブランドの始まりと成長を一緒にデザインします。<br>ブランドをつくり、世に送り出し、成長させるすべての過程に必要なデザインを提供します。', '从标志与品牌设计到网站、详情页、营销与印刷品。<br>与品牌一同起步并成长。<br>为品牌的创建、亮相与成长的每个过程提供所需的设计。', 'De la identidad de marca y los sitios web al e-commerce, el marketing digital y el diseño impreso.<br>Diseñamos el inicio y el crecimiento de tu marca.<br>Ofrecemos el diseño que cada etapa necesita: crear la marca, presentarla y hacerla crecer.', 'Từ logo và nhận diện thương hiệu đến website, trang chi tiết, marketing và ấn phẩm in.<br>Đồng hành thiết kế từ khởi đầu đến khi thương hiệu lớn mạnh.<br>Cung cấp thiết kế cho mọi bước: tạo dựng thương hiệu, giới thiệu và phát triển.'],
+    ['hero_cta1', 'EXPLORE SERVICES', '디자인 상품 보기', 'デザインサービスを見る', '浏览设计服务', 'Ver servicios', 'Xem dịch vụ'],
+    ['hero_cta2', 'VIEW OUR WORKS', '포트폴리오 보기', '作品を見る', '查看作品', 'Ver proyectos', 'Xem dự án'],
+    ['hero_fact1', 'BRANDING', 'BRANDING', 'BRANDING', 'BRANDING', 'BRANDING', 'BRANDING'],
+    ['hero_fact2', 'DIGITAL', 'DIGITAL', 'DIGITAL', 'DIGITAL', 'DIGITAL', 'DIGITAL'],
+    ['hero_fact3', 'CREATIVE', 'CREATIVE', 'CREATIVE', 'CREATIVE', 'CREATIVE', 'CREATIVE'],
     ['hp_kick', 'Live preview', '실시간 미리보기', 'ライブプレビュー', '实时预览', 'Vista previa', 'Xem trước'],
     ['hp_title', 'One page.<br>Six languages.', '한 페이지.<br>여섯 언어.', '1ページ。<br>6言語。', '一个页面。<br>六种语言。', 'Una página.<br>Seis idiomas.', 'Một trang.<br>Sáu ngôn ngữ.'],
     ['hp_sub', 'Tap a language — the page rewrites in place.', '언어를 누르면 페이지가 그 자리에서 바뀝니다.', '言語を押すと、その場で書き換わります。', '点击语言，页面就地切换。', 'Toca un idioma y la página cambia en el sitio.', 'Chạm ngôn ngữ, trang đổi ngay tại chỗ.'],
     ['hp_shot', 'Signature · 01', '시그니처 · 01', 'シグネチャー · 01', '招牌 · 01', 'Firma · 01', 'Đặc trưng · 01'],
     ['hp_badge', 'Live language switch', '실시간 언어 전환', 'その場で言語切替', '即时语言切换', 'Cambio instantáneo', 'Chuyển ngôn ngữ tức thì'],
     ['hp_badge_sub', 'No reload · no widget', '새로고침 없음 · 위젯 없음', '再読込なし・外部ウィジェットなし', '无需刷新 · 无第三方插件', 'Sin recarga · sin widget', 'Không tải lại · không widget'],
+    ['live_band_kicker', 'Live preview', '실시간 미리보기', 'ライブプレビュー', '实时预览', 'Vista previa', 'Xem trước'],
+    ['live_band_title', 'Six languages, switched inside the page.', '여섯 언어, 페이지 안에서 바뀝니다.', '6言語、ページの中で切り替わります。', '六种语言，在页面内切换。', 'Seis idiomas que cambian dentro de la página.', 'Sáu ngôn ngữ, đổi ngay trong trang.'],
+    ['live_band_body', 'This is the language switch built into every site we deliver. Press a language and the module rewrites in place — no reload, no third-party widget.', '저희가 납품하는 모든 사이트에 들어가는 언어 전환 방식입니다. 언어를 누르면 새로고침 없이 그 자리에서 바뀌고, 외부 위젯을 쓰지 않습니다.', '納品するすべてのサイトに入っている言語切替です。言語を押すと再読込なしでその場で切り替わり、外部ウィジェットは使いません。', '这是每个交付网站都内置的语言切换。点击语言即可就地切换，无需刷新，也不用第三方插件。', 'Es el selector de idiomas incluido en cada sitio que entregamos. Pulsa un idioma y el módulo cambia en el sitio, sin recarga ni widget externo.', 'Đây là bộ chuyển ngôn ngữ có trong mọi website chúng tôi bàn giao. Chạm một ngôn ngữ, nội dung đổi ngay tại chỗ, không tải lại, không widget ngoài.'],
+    ['live_band_note', 'This page runs on the same switch.', '이 페이지도 같은 방식으로 동작합니다.', 'このページも同じ仕組みで動いています。', '本页面也使用同一套切换。', 'Esta página usa el mismo selector.', 'Trang này cũng dùng bộ chuyển này.'],
 
     /* ---- about ---- */
-    ['about_kicker', '01 — About', '01 — 소개', '01 — 紹介', '01 — 关于', '01 — Nosotros', '01 — Giới thiệu'],
-    ['about_quote', 'A studio that answers the mail, and a shop that takes the order. <em>Both, properly.</em>', '메일에 답하는 스튜디오, 주문을 받는 쇼핑몰. <em>둘 다 제대로.</em>', 'メールに返すスタジオ、注文を受けるショップ。<em>どちらも本気で。</em>', '会回邮件的设计工作室，也能下单的商店。<em>两件事都做好。</em>', 'Un estudio que responde el correo y una tienda que toma el pedido. <em>Ambos, bien hechos.</em>', 'Studio trả lời email và cửa hàng nhận đơn. <em>Cả hai, chỉn chu.</em>'],
-    ['about_p1', 'We design detail pages, websites and campaign artwork for small brands that sell in Korean and beyond. Everything is hand-made: layout, type and copy planned together, not assembled from a template.', '한국어로, 그리고 그 너머로 판매하는 작은 브랜드를 위해 상세페이지·웹사이트·캠페인 이미지를 디자인합니다. 레이아웃과 타이포, 카피를 함께 설계하는 직접 작업이며 템플릿 조립이 아닙니다.', '韓国語で、そしてその先へ売る小さなブランドのために、詳細ページ・サイト・キャンペーン画像を設計します。レイアウトとタイポ、コピーを一緒に設計する手仕事で、テンプレートの組み立てではありません。', '为以韩语及更多语言销售的小品牌设计详情页、网站与活动视觉。版式、字体与文案一并设计，是手工完成，而非模板拼装。', 'Diseñamos páginas de producto, sitios y piezas de campaña para marcas pequeñas que venden en coreano y más allá. Todo se hace a mano.', 'Chúng tôi thiết kế trang chi tiết, website và ấn phẩm chiến dịch cho thương hiệu nhỏ bán bằng tiếng Hàn và xa hơn. Tất cả làm thủ công.'],
+    ['about_kicker', '01 ABOUT ATELIER WEB', '01 ABOUT ATELIER WEB', '01 ATELIER WEBについて', '01 关于 ATELIER WEB', '01 SOBRE ATELIER WEB', '01 GIỚI THIỆU ATELIER WEB'],
+    ['about_quote', 'Beyond good design,<br>we build brand value.', '좋은 디자인을 넘어,<br>브랜드의 가치를 만듭니다.', '良いデザインを超えて、<br>ブランドの価値を形にします。', '超越好的设计，<br>创造品牌的价值。', 'Más allá del buen diseño,<br>creamos valor de marca.', 'Không chỉ là thiết kế đẹp,<br>chúng tôi tạo nên giá trị thương hiệu.'],
+    ['about_p1', 'From brand identity to websites, detail pages, marketing and print, Atelier Web grows the work in one natural direction. We connect every piece of design into a single flow, so your brand stays consistent and the production stays efficient.', '브랜드의 아이덴티티부터 웹사이트, 상세페이지, 마케팅, 인쇄물까지 자연스럽게 확장될 수 있도록 아틀리에웹이 함께합니다. 다양한 디자인을 하나의 흐름으로 연결하여 브랜드의 일관성을 높이고, 효율적인 제작 경험을 제공합니다.', 'ブランドのアイデンティティからウェブサイト、詳細ページ、マーケティング、印刷物まで自然に広がるよう、Atelier Webが伴走します。さまざまなデザインをひとつの流れにつなぎ、ブランドの一貫性を高め、効率のよい制作体験を提供します。', '从品牌识别到网站、详情页、营销与印刷品，Atelier Web 陪伴品牌自然延展。将多样的设计连接成一条流程，提升品牌一致性，并带来高效的制作体验。', 'De la identidad de marca a los sitios web, las páginas de producto, el marketing y los impresos, Atelier Web acompaña ese crecimiento natural. Conectamos cada pieza en un solo flujo para dar coherencia a la marca y eficiencia a la producción.', 'Từ nhận diện thương hiệu đến website, trang chi tiết, marketing và ấn phẩm in, Atelier Web đồng hành để mọi thứ mở rộng tự nhiên. Chúng tôi kết nối các thiết kế thành một dòng chảy, giúp thương hiệu nhất quán và quá trình sản xuất hiệu quả.'],
     ['about_p2', 'Because the same team designs and produces, the price at checkout is the whole price. No hand-off, no separate production quote, no agency retainer.', '디자인과 제작을 같은 팀이 하기 때문에 결제 화면의 금액이 전부입니다. 외주 전달도, 별도 제작 견적도, 에이전시 리테이너도 없습니다.', 'デザインと制作を同じチームが行うため、決済画面の金額がすべてです。外注への引き継ぎも、別途の制作見積もりも、月額顧問料もありません。', '由于设计与制作由同一团队完成，结算页面的金额就是全部费用。没有转包、没有另行报价、没有月度顾问费。', 'Como el mismo equipo diseña y produce, el importe del pago es el total. Sin traspasos ni cuotas de agencia.', 'Vì cùng một đội thiết kế và sản xuất, số tiền ở bước thanh toán là toàn bộ. Không chuyển giao, không báo giá riêng.'],
-    ['metric1', 'Concept builds shipped', '누적 제작 시안', '制作したコンセプト', '已交付概念方案', 'Propuestas entregadas', 'Bản thiết kế đã giao'],
-    ['metric2', 'Languages per build', '결과물당 언어', '1案件の言語数', '每个项目语言数', 'Idiomas por proyecto', 'Ngôn ngữ mỗi dự án'],
-    ['metric3', 'First draft', '첫 시안', '初稿', '首稿', 'Primer borrador', 'Bản nháp đầu'],
-    ['metric4', 'Refund before start', '착수 전 환불', '着手前の返金', '开工前退款', 'Reembolso antes', 'Hoàn trước khi làm'],
+    ['metric1', 'Years Experience', '디자인 경력', 'デザイン歴', '设计经验', 'Años de experiencia', 'Kinh nghiệm thiết kế'],
+    ['metric2', 'Languages', '지원 언어', '対応言語', '支持语言', 'Idiomas', 'Ngôn ngữ'],
+    ['metric3', 'Design Studio', '원스톱 디자인', 'ワンストップ制作', '一站式设计', 'Estudio integral', 'Thiết kế trọn gói'],
+    ['metric4', 'Personal Service', '전담 디자인', '専任デザイン', '专属设计', 'Servicio personal', 'Thiết kế riêng'],
 
     /* ---- services section ---- */
-    ['svc_kicker', '02 — Design service', '02 — 디자인 서비스', '02 — デザインサービス', '02 — 设计服务', '02 — Servicios', '02 — Dịch vụ'],
+    ['svc_kicker', '02 Design service', '02 디자인 서비스', '02 デザインサービス', '02 设计服务', '02 Servicios', '02 Dịch vụ'],
     ['svc_title', 'Six categories, one production line.', '여섯 카테고리, 하나의 제작 라인.', '6カテゴリ、1つの制作ライン。', '六个类别，一条制作线。', 'Seis categorías, una línea de producción.', 'Sáu nhóm, một dây chuyền.'],
     ['svc_lede', 'From a single detail page to a full multilingual site. Fixed-price items can be bought now; everything else is quoted after a short brief.', '상세페이지 한 장부터 6개국어 사이트까지. 단가가 확정된 상품은 바로 구매할 수 있고, 나머지는 짧은 브리프 후 견적을 드립니다.', '詳細ページ1枚から6言語サイトまで。単価確定の商品はすぐ購入でき、それ以外は短いヒアリング後に見積もります。', '从一张详情页到完整六语网站。已定价商品可直接购买，其余在简短沟通后报价。', 'De una página de producto a un sitio completo en seis idiomas. Los artículos con precio se compran ya; el resto se cotiza.', 'Từ một trang chi tiết đến website 6 ngôn ngữ. Sản phẩm có giá mua ngay; còn lại báo giá sau.'],
     ['svc_view_all', 'View all products', '전체 상품 보기', '全商品を見る', '查看全部商品', 'Ver todos', 'Xem tất cả'],
     ['prod_count', 'products', '개 상품', '点の商品', '件商品', 'productos', 'sản phẩm'],
 
     /* ---- featured ---- */
-    ['feat_kicker', '03 — Featured products', '03 — 주요 상품', '03 — 注目商品', '03 — 精选商品', '03 — Destacados', '03 — Sản phẩm nổi bật'],
+    ['feat_kicker', '03 Featured products', '03 주요 상품', '03 注目商品', '03 精选商品', '03 Destacados', '03 Sản phẩm nổi bật'],
     ['feat_title', 'Start where most clients start.', '대부분의 고객이 시작하는 곳.', '多くのお客様が始める場所。', '多数客户的起点。', 'Donde empieza la mayoría.', 'Nơi nhiều khách bắt đầu.'],
     ['feat_lede', 'The detail page is our most-ordered item — it is the only product priced down to the option, so the total is known before you press buy.', '가장 많이 주문하는 상품은 상세페이지입니다. 옵션 단위까지 단가가 정해져 있어 구매 전에 총액을 알 수 있습니다.', '最も注文されるのは詳細ページ。オプション単位まで価格が決まっており、購入前に合計が分かります。', '订单最多的是详情页：价格细到选项，购买前即可知道总额。', 'La página de producto es lo más pedido: el precio baja hasta la opción, así que sabes el total antes de comprar.', 'Trang chi tiết được đặt nhiều nhất: giá chi tiết đến từng tuỳ chọn, biết tổng trước khi mua.'],
 
     /* ---- why ---- */
-    ['why_kicker', '04 — Why Atelier Web', '04 — 왜 아틀리에 웹인가', '04 — Atelier Webの理由', '04 — 为什么选择我们', '04 — Por qué Atelier Web', '04 — Vì sao Atelier Web'],
+    ['why_kicker', '04 Why Atelier Web', '04 왜 아틀리에 웹인가', '04 Atelier Webの理由', '04 为什么选择我们', '04 Por qué Atelier Web', '04 Vì sao Atelier Web'],
     ['why_title', 'Four things we do not compromise.', '타협하지 않는 네 가지.', '妥協しない4つのこと。', '不打折扣的四件事。', 'Cuatro cosas que no negociamos.', 'Bốn điều không thoả hiệp.'],
     ['why_lede', 'The rules below are in writing on every order. They are the reason a small studio can quote a fixed price.', '아래 원칙은 모든 주문에 문서로 안내됩니다. 작은 스튜디오가 고정 가격을 제시할 수 있는 이유입니다.', '以下の原則はすべてのご注文で書面に明記します。小さなスタジオが固定価格を出せる理由です。', '以下原则写入每一份订单。这是小工作室能给出固定价格的原因。', 'Estas reglas constan en cada pedido. Son la razón por la que un estudio pequeño puede dar un precio fijo.', 'Các nguyên tắc này có trong mọi đơn hàng. Đó là lý do studio nhỏ có thể báo giá cố định.'],
     ['why1_t', 'Fixed scope, fixed price', '범위 고정, 가격 고정', '範囲固定・価格固定', '范围与价格固定', 'Alcance y precio fijos', 'Phạm vi và giá cố định'],
@@ -84,7 +88,7 @@
     ['why4_d', 'If you cancel before design begins, the full amount is returned. After work starts, settlement follows the stage reached.', '디자인 착수 전에 취소하시면 전액 환불합니다. 착수 후에는 진행 단계에 따라 정산합니다.', 'デザイン着手前のキャンセルは全額返金。着手後は進行段階に応じて精算します。', '设计开工前取消全额退款；开工后按进度结算。', 'Si cancelas antes de empezar, se devuelve todo. Después, se liquida por etapa.', 'Huỷ trước khi bắt đầu hoàn toàn bộ. Sau đó quyết toán theo giai đoạn.'],
 
     /* ---- portfolio ---- */
-    ['folio_kicker', '05 — Portfolio', '05 — 포트폴리오', '05 — ポートフォリオ', '05 — 作品集', '05 — Portafolio', '05 — Dự án'],
+    ['folio_kicker', '05 Portfolio', '05 포트폴리오', '05 ポートフォリオ', '05 作品集', '05 Portafolio', '05 Dự án'],
     ['folio_title', '23 concept builds, three live sites.', '시안 23건, 라이브 사이트 3건.', 'コンセプト23件、ライブサイト3件。', '23 个概念方案，3 个线上站点。', '23 propuestas y tres sitios en vivo.', '23 bản thiết kế và 3 site đang chạy.'],
     ['folio_lede', 'Each card opens a real, clickable build. The three live sites below are full six-language projects; the rest are industry concept previews made for outreach.', '카드를 열면 실제로 클릭되는 결과물이 나옵니다. 아래 라이브 3건은 6개국어 전체 구현이고, 나머지는 업종별 제안용 시안입니다.', 'カードを開くと実際に動く制作物が開きます。下の3件は6言語の完全実装、他は業種別の提案用コンセプトです。', '点击卡片可打开真实可交互的成果。下方三个为完整六语项目，其余为行业提案概念稿。', 'Cada tarjeta abre una pieza real. Los tres sitios de abajo son proyectos completos en seis idiomas; el resto son conceptos por sector.', 'Mỗi thẻ mở một sản phẩm thật. Ba site dưới là dự án 6 ngôn ngữ hoàn chỉnh; còn lại là bản concept theo ngành.'],
     ['folio_live', 'Live six-language builds', '라이브 6개국어 구현', '6言語ライブ実装', '六语线上实现', 'Sitios en seis idiomas', 'Site 6 ngôn ngữ'],
@@ -96,7 +100,7 @@
     ['modal_eyebrow', 'Inline preview', '인라인 미리보기', 'インラインプレビュー', '内嵌预览', 'Vista previa', 'Xem trước'],
 
     /* ---- pricing ---- */
-    ['price_kicker', '06 — Pricing', '06 — 가격', '06 — 料金', '06 — 价格', '06 — Precios', '06 — Giá'],
+    ['price_kicker', '06 Pricing', '06 가격', '06 料金', '06 价格', '06 Precios', '06 Giá'],
     ['price_title', 'Website packages, unchanged.', '웹사이트 패키지, 그대로.', 'ウェブサイトパッケージはそのまま。', '网站套餐，保持不变。', 'Paquetes web, sin cambios.', 'Gói website, giữ nguyên.'],
     ['price_lede', 'The three website packages keep the scope and price they have always had. Design items are priced per option or quoted after a brief.', '웹사이트 패키지 3종은 기존 사양과 가격을 그대로 유지합니다. 디자인 상품은 옵션 단가 또는 브리프 후 견적으로 안내합니다.', 'ウェブサイト3プランは従来の仕様と価格を維持します。デザイン商品はオプション単価または見積もりでご案内します。', '三款网站套餐维持原有范围与价格；设计商品按选项计价或沟通后报价。', 'Los tres paquetes web mantienen alcance y precio. Los artículos de diseño se cotizan por opción.', 'Ba gói website giữ nguyên phạm vi và giá. Sản phẩm thiết kế tính theo tuỳ chọn.'],
     ['rate_title', 'Design rates at a glance', '디자인 단가 한눈에', 'デザイン単価の目安', '设计单价一览', 'Tarifas de diseño', 'Đơn giá thiết kế'],
@@ -138,7 +142,7 @@
     ['price_footnote', 'Every package is built to the scope agreed up front — no add-on costs and no monthly retainer. Send your industry and the pages you need, and we reply with a free first concept and a fixed quote.', '모든 패키지는 사전에 합의한 범위 그대로, 추가 비용이나 월 구독료 없이 제작합니다. 업종과 필요한 페이지를 보내 주시면 무료 첫 시안과 확정 견적을 회신드립니다.', 'すべてのプランは事前合意の範囲で、追加費用も月額料金もありません。業種と必要なページをお送りいただければ、無料の初回コンセプトと確定見積もりを返信します。', '所有套餐按事先约定的范围制作，无附加费用与月费。告知行业与所需页面，我们会回复免费初稿与确定报价。', 'Cada paquete se construye al alcance acordado, sin costes extra ni cuota mensual. Envía tu sector y páginas y respondemos con un primer concepto gratis.', 'Mọi gói làm đúng phạm vi đã thoả thuận, không phụ phí, không phí tháng. Gửi ngành và số trang, chúng tôi trả concept đầu miễn phí.'],
 
     /* ---- process ---- */
-    ['process_kicker', '07 — Process', '07 — 프로세스', '07 — 制作の流れ', '07 — 流程', '07 — Proceso', '07 — Quy trình'],
+    ['process_kicker', '07 Process', '07 프로세스', '07 制作の流れ', '07 流程', '07 Proceso', '07 Quy trình'],
     ['process_title', 'Five steps from option to delivery.', '옵션 선택에서 납품까지 다섯 단계.', 'オプション選択から納品まで5ステップ。', '从选配到交付，五个步骤。', 'Cinco pasos de la opción a la entrega.', 'Năm bước từ tuỳ chọn đến giao hàng.'],
     ['process_lede', 'Order number links every step: payment, materials, draft and final delivery. You can follow all of it in My Page.', '주문번호 하나로 결제·자료·시안·납품이 연결됩니다. 마이페이지에서 전 과정을 확인할 수 있습니다.', '注文番号1つで決済・資料・初稿・納品がつながります。マイページで全工程を確認できます。', '一个订单号串联付款、资料、初稿与交付，可在我的页面查看全程。', 'El número de pedido enlaza pago, materiales, borrador y entrega. Todo se sigue en Mi página.', 'Mã đơn nối thanh toán, tài liệu, bản nháp và giao hàng. Theo dõi ở Trang của tôi.'],
     ['step1_t', 'Choose &amp; price', '상품 선택·견적', '選択と見積もり', '选择与计价', 'Elegir y calcular', 'Chọn và tính giá'],
@@ -158,7 +162,7 @@
     ['step5_time', '1 day', '1일', '1日', '1 天', '1 día', '1 ngày'],
 
     /* ---- faq ---- */
-    ['faq_kicker', '08 — FAQ', '08 — 자주 묻는 질문', '08 — よくある質問', '08 — 常见问题', '08 — Preguntas', '08 — Câu hỏi'],
+    ['faq_kicker', '08 FAQ', '08 자주 묻는 질문', '08 よくある質問', '08 常见问题', '08 Preguntas', '08 Câu hỏi'],
     ['faq_title', 'Questions before you order.', '주문 전에 확인하세요.', 'ご注文前の確認。', '下单前的疑问。', 'Dudas antes de pedir.', 'Hỏi trước khi đặt.'],
     ['faq_lede', 'Short answers. Anything else, write to atelierweb.seoul@gmail.com.', '짧은 답입니다. 그 외는 atelierweb.seoul@gmail.com으로.', '短い回答です。それ以外は atelierweb.seoul@gmail.com まで。', '简短回答。其他问题请邮件至 atelierweb.seoul@gmail.com。', 'Respuestas breves. O escribe a atelierweb.seoul@gmail.com.', 'Trả lời ngắn. Khác thì gửi atelierweb.seoul@gmail.com.'],
     ['q1', 'Can I buy without asking first?', '문의 없이 바로 구매할 수 있나요?', '問い合わせなしで購入できますか？', '可以不咨询直接购买吗？', '¿Puedo comprar sin consultar?', 'Có thể mua mà không cần hỏi?'],
@@ -179,7 +183,7 @@
     ['a8', 'In phase one your order stays in this browser and in the email you send. Phase two moves orders and files to private storage tied to the order number.', '1차에서는 주문이 이 브라우저와 보내신 메일에 남습니다. 2차에서는 주문과 파일이 주문번호에 연결된 비공개 저장소로 이전됩니다.', '第1段階では注文はこのブラウザと送信メールに残ります。第2段階で注文とファイルは注文番号に紐づく非公開ストレージへ移ります。', '第一阶段订单保存在此浏览器与您发送的邮件中。第二阶段将移至与订单号绑定的私有存储。', 'En la fase uno el pedido queda en este navegador y en el correo. En la fase dos pasa a almacenamiento privado por pedido.', 'Giai đoạn 1 đơn lưu trong trình duyệt và email. Giai đoạn 2 chuyển sang lưu trữ riêng theo mã đơn.'],
 
     /* ---- contact ---- */
-    ['contact_kicker', '09 — Contact', '09 — 문의', '09 — お問い合わせ', '09 — 联系', '09 — Contacto', '09 — Liên hệ'],
+    ['contact_kicker', '09 Contact', '09 문의', '09 お問い合わせ', '09 联系', '09 Contacto', '09 Liên hệ'],
     ['contact_title', 'Tell us what you are making.', '무엇을 만들고 있는지 알려주세요.', '何を作っているか教えてください。', '告诉我们你在做什么。', 'Cuéntanos qué estás creando.', 'Cho chúng tôi biết bạn đang làm gì.'],
     ['contact_lede', 'Send a short brief and we reply with a direction and a fixed quote — usually within one business day.', '짧은 브리프를 보내주시면 방향과 고정 견적을 보통 영업일 하루 안에 회신합니다.', '短いブリーフをお送りいただければ、方向性と確定見積もりを通常1営業日以内に返信します。', '发送简短需求，我们通常在一个工作日内回复方向与确定报价。', 'Envía un breve resumen y respondemos con dirección y precio fijo en un día laborable.', 'Gửi mô tả ngắn, chúng tôi trả lời hướng và giá cố định trong 1 ngày làm việc.'],
     ['contact_email_label', 'Email', '이메일', 'メール', '邮箱', 'Correo', 'Email'],
