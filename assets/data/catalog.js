@@ -13,7 +13,7 @@
     {
       id: 'detail', code: 'DTL', order: 1, tone: 'th-b',
       name: L('Detail Page Design', '상세페이지 디자인', '詳細ページデザイン', '详情页设计', 'Diseño de página de producto', 'Thiết kế trang chi tiết'),
-      short: L('Product detail pages that sell', '판매로 이어지는 상품 상세페이지', '売れる商品詳細ページ', '能带来销售的详情页', 'Páginas que venden', 'Trang chi tiết bán hàng'),
+      short: L('Design that turns a product into a purchase', '제품의 매력을 구매로 연결하는 디자인', '商品の魅力を購入につなげるデザイン', '把产品魅力转化为购买的设计', 'Diseño que convierte el atractivo en compra', 'Thiết kế biến sản phẩm thành đơn hàng'),
       desc: L('Conversion-focused detail pages for smart stores and brand shops — layout, typography and copy rhythm planned around the product photo.',
         '스마트스토어·브랜드몰용 상품 상세페이지입니다. 상품 사진을 중심으로 레이아웃·타이포·카피 리듬을 설계해 구매 전환을 높입니다.',
         'スマートストアやブランドショップ向けの商品詳細ページ。商品写真を軸にレイアウト・タイポグラフィ・コピーのリズムを設計し、購入率を高めます。',
@@ -30,7 +30,7 @@
     {
       id: 'website', code: 'WEB', order: 2, tone: 'th-a',
       name: L('Website Production', '웹사이트 제작', 'ウェブサイト制作', '网站制作', 'Producción web', 'Thiết kế website'),
-      short: L('Hand-coded, six-language sites', '직접 코딩한 6개국어 사이트', '手書きコードの6言語サイト', '手写代码六语网站', 'Sitios en seis idiomas', 'Website 6 ngôn ngữ'),
+      short: L('A website built around your brand', '브랜드를 위한 맞춤형 웹사이트', 'ブランドのためのオーダーメイドサイト', '为品牌量身打造的网站', 'Un sitio web hecho para tu marca', 'Website riêng cho thương hiệu của bạn'),
       desc: L('Hand-written HTML, CSS and plain JavaScript — no template, no plugin. Every build ships with the six-language switch and a mobile-first layout.',
         '직접 작성한 HTML·CSS·순수 JavaScript로 제작합니다. 템플릿도 플러그인도 없습니다. 모든 결과물에 6개국어 전환과 모바일 우선 레이아웃이 포함됩니다.',
         '手書きのHTML・CSS・素のJavaScriptで制作。テンプレートもプラグインも使いません。全案件に6言語切替とモバイル優先レイアウトが付きます。',
@@ -47,7 +47,7 @@
     {
       id: 'webdesign', code: 'WDS', order: 3, tone: 'th-c',
       name: L('Web Design', '웹디자인', 'ウェブデザイン', '网页设计', 'Diseño web', 'Thiết kế web'),
-      short: L('Banners, promo pages, store skins', '배너·프로모션·스토어 디자인', 'バナー・プロモ・ストア', '横幅、活动页、店铺', 'Banners y páginas promo', 'Banner, trang khuyến mãi'),
+      short: L('Web banners and event content', '웹배너와 이벤트 콘텐츠 디자인', 'ウェブバナーとイベントコンテンツ', '网页横幅与活动内容设计', 'Banners web y contenido de eventos', 'Banner web và nội dung sự kiện'),
       desc: L('Banners, event pages and store skins designed to sit inside an existing site or marketplace — delivered as layered or flat image files.',
         '이미 운영 중인 사이트나 마켓플레이스 안에 들어가는 배너·이벤트 페이지·스토어 디자인입니다. 레이어 또는 이미지 파일로 납품합니다.',
         '既存サイトやモール内に組み込むバナー・イベントページ・ストアデザイン。レイヤーまたは画像ファイルで納品します。',
@@ -64,7 +64,7 @@
     {
       id: 'sns', code: 'SNS', order: 4, tone: 'th-e',
       name: L('SNS Design', 'SNS 디자인', 'SNSデザイン', 'SNS 设计', 'Diseño para redes', 'Thiết kế mạng xã hội'),
-      short: L('Feeds, card news, ad creatives', '피드·카드뉴스·광고 소재', 'フィード・カードニュース', '帖文、卡片新闻、广告', 'Feeds, noticias y anuncios', 'Feed, card news, quảng cáo'),
+      short: L('Content that carries your brand message', '브랜드 메시지를 전하는 콘텐츠', 'ブランドのメッセージを伝えるコンテンツ', '传递品牌信息的内容', 'Contenido que transmite tu mensaje', 'Nội dung truyền tải thông điệp thương hiệu'),
       desc: L('Feed sets, card news and ad creatives built on one visual rule so the account reads as a single brand, not a pile of posts.',
         '피드 세트, 카드뉴스, 광고 소재를 하나의 시각 규칙 위에서 제작합니다. 게시물 더미가 아니라 하나의 브랜드로 읽히게 합니다.',
         'フィードセット、カードニュース、広告クリエイティブを1つの視覚ルールで制作。投稿の寄せ集めではなく、1つのブランドとして見せます。',
@@ -81,7 +81,7 @@
     {
       id: 'print', code: 'PRT', order: 5, tone: 'th-f',
       name: L('Print Design', '인쇄 디자인', '印刷デザイン', '印刷设计', 'Diseño impreso', 'Thiết kế ấn phẩm in'),
-      short: L('Cards, banners, menus, posters', '명함·배너·메뉴판·포스터', '名刺・バナー・メニュー', '名片、横幅、菜单', 'Tarjetas, lonas, menús', 'Danh thiếp, banner, menu'),
+      short: L('From business cards to every printed item', '명함부터 각종 홍보 인쇄물까지', '名刺から各種の販促印刷物まで', '从名片到各类宣传印刷品', 'De la tarjeta de visita a todo lo impreso', 'Từ danh thiếp đến mọi ấn phẩm in'),
       desc: L('Print-ready artwork with bleed, CMYK and the specifications your printer asks for — files go straight to the press without a fix-up round.',
         '인쇄소가 요구하는 재단 여백·CMYK·규격을 맞춘 인쇄용 원고입니다. 수정 없이 바로 인쇄에 넘길 수 있는 파일로 납품합니다.',
         '印刷所が求める塗り足し・CMYK・規格に合わせた入稿データ。修正なしでそのまま印刷に出せる形で納品します。',
@@ -98,7 +98,7 @@
     {
       id: 'package', code: 'PKG', order: 6, tone: 'th-d',
       name: L('Design Package', '디자인 패키지', 'デザインパッケージ', '设计套餐', 'Paquete de diseño', 'Gói thiết kế'),
-      short: L('Brand, launch and monthly sets', '브랜드·오픈·정기 디자인', 'ブランド・開業・定額', '品牌、开店、包月', 'Marca, apertura, mensual', 'Thương hiệu, khai trương, định kỳ'),
+      short: L('All the design your brand needs, in one', '브랜드에 필요한 디자인을 한 번에', 'ブランドに必要なデザインをまとめて', '一次备齐品牌所需的全部设计', 'Todo el diseño de tu marca en uno', 'Trọn bộ thiết kế thương hiệu cần'),
       desc: L('Bundle the pieces a launch actually needs — identity, detail pages, feed sets and print — scheduled as one project with one point of contact.',
         '브랜드 아이덴티티, 상세페이지, 피드 세트, 인쇄물까지 오픈에 필요한 작업을 하나의 프로젝트로 묶어 진행합니다. 창구는 하나입니다.',
         'ブランドアイデンティティ、詳細ページ、フィード、印刷物まで、開業に必要な一式を1つの案件として進行。窓口は1つです。',
