@@ -251,7 +251,7 @@ html[lang="vi"] .hero h1{font-size:clamp(32px,3.6vw,50px);line-height:1.2}
 /* lime underline point: a CSS pseudo-element sized to the text box, so the bar follows
    the word on every language and never carries over a line break. */
 .hero h1 em{font-style:normal;position:relative;white-space:nowrap;z-index:0}
-.hero h1 em::after{content:"";position:absolute;left:-.03em;right:-.03em;bottom:.02em;height:.24em;background:var(--lime);border-radius:2px;z-index:-1}
+.hero h1 em::after{content:"";position:absolute;left:-.03em;right:-.03em;bottom:.19em;height:.34em;background:var(--lime);border-radius:2px;z-index:-1}
 .hero-lede{margin-top:28px;font-size:16.5px;line-height:1.7;color:var(--charcoal-64);max-width:47ch}
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
 .hero-facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:38px}
