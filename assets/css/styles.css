@@ -996,6 +996,8 @@ details.faq:first-child{border-top:1px solid var(--charcoal-12)}
   .cw-lang{display:block}
   .cw-drawer .lang-switch{display:flex}
   .icon-btn.menu-toggle{display:grid}
+  /* 아뜰리에웹 디자인 셀렉션 — 980px 이하에서는 앞의 3개만 (PC는 6개 유지) */
+  #featuredGrid > :nth-child(n+4){display:none}
   .hero-top{grid-template-columns:1fr;gap:44px}
   .hero-art{max-width:520px}
   .hero-media{max-width:620px}
