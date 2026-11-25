@@ -996,6 +996,11 @@ details.faq:first-child{border-top:1px solid var(--charcoal-12)}
   .cw-header-tools .cart-btn{display:none}
   .cw-lang{display:block}
   .icon-btn.menu-toggle{display:grid}
+  /* 닫힌 드로어는 화면 밖으로 완전히 빼고 그리지 않는다.
+     기존 -102%만으로는 드로어 아래쪽 일부가 화면 안에 남아, 스크롤로 헤더가
+     올라간 뒤 장바구니·마이페이지 2단 버튼이 화면 위에 노출됐다. */
+  .cw-drawer{visibility:hidden;pointer-events:none;transform:translateY(calc(-100% - var(--header-h) - 8px));transition:transform .3s var(--ease),visibility 0s linear .3s}
+  .cw-drawer.is-open{visibility:visible;pointer-events:auto;transform:translateY(0);transition:transform .3s var(--ease),visibility 0s linear 0s}
   /* 아뜰리에웹 디자인 셀렉션 — 980px 이하에서는 앞의 3개만 (PC는 6개 유지) */
   #featuredGrid > :nth-child(n+4){display:none}
   .hero-top{grid-template-columns:1fr;gap:44px}
