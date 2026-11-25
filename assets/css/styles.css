@@ -144,7 +144,7 @@ ul,ol,dl,dd{margin:0;padding:0;list-style:none}
 }
 .lang-pill:hover{border-color:var(--charcoal)}
 .lang-pill[aria-expanded="true"]{background:var(--charcoal);border-color:var(--charcoal);color:var(--ivory)}
-.lang-pill-caret{font-size:8px;line-height:1;opacity:.72;transform:translateY(-1px);transition:transform .18s var(--ease)}
+.lang-pill-caret{font-size:11px;line-height:1;opacity:.72;transform:translateY(-1px);transition:transform .18s var(--ease)}
 .lang-pill[aria-expanded="true"] .lang-pill-caret{opacity:.85;transform:translateY(-1px) rotate(180deg)}
 .lang-menu{
   position:absolute;top:calc(100% + 9px);right:0;min-width:138px;padding:6px;z-index:90;
@@ -172,8 +172,9 @@ ul,ol,dl,dd{margin:0;padding:0;list-style:none}
 .cw-drawer nav a{padding:18px 2px;border-bottom:1px solid var(--charcoal-12);font-family:var(--font-display);font-size:22px;letter-spacing:-.02em;display:flex;justify-content:space-between;align-items:center}
 .cw-drawer nav a span{font-family:var(--font-mono);font-size:10px;color:var(--charcoal-48)}
 .cw-drawer .drawer-foot{margin-top:26px;display:flex;flex-direction:column;gap:12px}
-.cw-drawer .drawer-cart{justify-content:space-between;padding-right:16px}
-.cw-drawer .drawer-cart .cart-count{position:static;min-width:20px;height:20px;font-size:10px;border:0;background:var(--lime);color:var(--charcoal)}
+.cw-drawer .drawer-foot-row{display:flex;gap:10px}
+.cw-drawer .drawer-foot-row > .btn{flex:1 1 0;justify-content:center;text-align:center;padding-left:14px;padding-right:14px}
+.cw-drawer .drawer-cart .cart-count{position:static;min-width:20px;height:20px;font-size:10px;border:0;background:var(--lime);color:var(--charcoal);margin-left:2px}
 
 /* ==========================================================================
    BUTTONS / LINKS / BADGES
@@ -994,7 +995,6 @@ details.faq:first-child{border-top:1px solid var(--charcoal-12)}
   .cw-nav,.cw-header-tools .lang-switch{display:none}
   .cw-header-tools .cart-btn{display:none}
   .cw-lang{display:block}
-  .cw-drawer .lang-switch{display:flex}
   .icon-btn.menu-toggle{display:grid}
   /* 아뜰리에웹 디자인 셀렉션 — 980px 이하에서는 앞의 3개만 (PC는 6개 유지) */
   #featuredGrid > :nth-child(n+4){display:none}
