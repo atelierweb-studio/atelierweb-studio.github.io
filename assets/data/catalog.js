@@ -328,56 +328,279 @@
   ];
 
   /* ---------------------------------------------------------------- portfolio */
-  var folioGroups = [
-    { id: 'all', name: L('All', '전체', 'すべて', '全部', 'Todo', 'Tất cả') },
-    { id: 'fnb', name: L('F&B', '식음료', '飲食', '餐饮', 'Gastronomía', 'F&B') },
-    { id: 'clinic', name: L('Clinic', '클리닉', 'クリニック', '诊所', 'Clínica', 'Phòng khám') },
-    { id: 'stay', name: L('Stay & Space', '숙박·공간', '宿泊・空間', '住宿与空间', 'Alojamiento', 'Lưu trú') },
-    { id: 'leisure', name: L('Leisure', '레저·체험', 'レジャー', '休闲体验', 'Ocio', 'Trải nghiệm') },
-    { id: 'brand', name: L('Brand & B2B', '브랜드·B2B', 'ブランド・B2B', '品牌与 B2B', 'Marca y B2B', 'Thương hiệu & B2B') }
+  /* One list for every piece of work. The Featured row on the home page is a view
+     of this same list (featured: true) — never a second copy of the data.
+     · cat  : web | detail | brand | print  (the five filters are built from these)
+     · img  : image card (studio mockup)      · file : clickable build in the repo
+     · tone : thumbnail tone when an item has no image
+     · order: position in "All Projects" — featured items lead
+     To add work, append one item here: it appears in Explore Our Work, in its
+     category filter, and — with featured: true — in the row above. */
+  var folioCats = [
+    { id: 'all', name: L('All Projects', '전체 작업', 'すべての制作', '全部作品', 'Todos los proyectos', 'Tất cả dự án') },
+    { id: 'web', name: L('Web Site', '웹사이트', 'ウェブサイト', '网站', 'Sitios web', 'Website') },
+    { id: 'detail', name: L('Detail Pages', '상세페이지', '詳細ページ', '详情页', 'Páginas de producto', 'Trang chi tiết') },
+    { id: 'brand', name: L('Brand Logo', '브랜드 로고', 'ブランドロゴ', '品牌标志', 'Logotipo de marca', 'Logo thương hiệu') },
+    { id: 'print', name: L('Print & Marketing', '인쇄·마케팅', '印刷・販促', '印刷与营销', 'Impresión y marketing', 'In ấn & tiếp thị') }
   ];
 
-  var folio = [
-    { file: 'cha-cha.html', name: '차차티클럽', group: 'fnb', tone: 'th-a', sub: L('Hanok tea house · Bukchon', '한옥 티하우스 · 북촌', '韓屋ティーハウス・北村', '韩屋茶屋 · 北村', 'Casa de té hanok', 'Trà quán hanok') },
-    { file: 'seoul-brewery.html', name: '서울브루어리 성수', group: 'fnb', tone: 'th-b', sub: L('Brewery & culture space', '브루어리 & 컬쳐 스페이스', 'ブリュワリー＆カルチャー', '精酿与文化空间', 'Cervecería y cultura', 'Nhà máy bia & văn hoá') },
-    { file: 'sungsimdang.html', name: '성심당', group: 'fnb', tone: 'th-c', sub: L('Bakery · Daejeon', '베이커리 · 대전', 'ベーカリー・大田', '烘焙 · 大田', 'Panadería · Daejeon', 'Tiệm bánh · Daejeon') },
-    { file: 'erowl-clinic.html', name: '이로울한의원', group: 'clinic', tone: 'th-f', sub: L('Korean medicine · Hongdae', '한의원 · 홍대', '韓医院・弘大', '韩医诊所 · 弘大', 'Medicina coreana', 'Y học cổ truyền') },
-    { file: 'mode-dental.html', name: '모드치과의원', group: 'clinic', tone: 'th-h', sub: L('Aesthetic dentistry · Gangnam', '심미치과 · 강남', '審美歯科・江南', '美学牙科 · 江南', 'Odontología estética', 'Nha khoa thẩm mỹ') },
-    { file: 'sydney-on-dental.html', name: '시드니 연치과', group: 'clinic', tone: 'th-a', sub: L('Dental clinic · Sydney', '치과 · 시드니', '歯科・シドニー', '牙科 · 悉尼', 'Clínica dental · Sídney', 'Nha khoa · Sydney') },
-    { file: 'willbfine.html', name: '괜찮아요한의원', group: 'clinic', tone: 'th-c', sub: L('Korean medicine · Gongdeok', '한의원 · 공덕', '韓医院・孔徳', '韩医诊所 · 孔德', 'Medicina coreana', 'Y học cổ truyền') },
-    { file: 'hanok-today.html', name: '한옥스테이 오늘', group: 'stay', tone: 'th-a', sub: L('Hanok stay · Jeonju', '한옥 독채 · 전주', '韓屋ステイ・全州', '韩屋独栋 · 全州', 'Estancia hanok', 'Nhà hanok') },
-    { file: 'hongdae-guesthouse.html', name: 'Hongdae Guesthouse', group: 'stay', tone: 'th-d', sub: L('Guesthouse · Seoul', '게스트하우스 · 서울', 'ゲストハウス・ソウル', '民宿 · 首尔', 'Casa de huéspedes', 'Nhà nghỉ') },
-    { file: 'mido-hostel.html', name: 'MIDO Hostel', group: 'stay', tone: 'th-g', sub: L('Hostel · Seogwipo', '호스텔 · 서귀포', 'ホステル・西帰浦', '旅舍 · 西归浦', 'Hostal · Seogwipo', 'Hostel · Seogwipo') },
-    { file: 'pobi-guesthouse.html', name: '게스트하우스 포비', group: 'stay', tone: 'th-c', sub: L('Guesthouse · Haeundae', '게스트하우스 · 해운대', 'ゲストハウス・海雲台', '民宿 · 海云台', 'Casa de huéspedes', 'Nhà nghỉ') },
-    { file: 'seomun-hanok.html', name: '서문한옥게스트하우스', group: 'stay', tone: 'th-f', sub: L('Hanok stay · Daegu', '한옥 숙소 · 대구', '韓屋宿・大邱', '韩屋住宿 · 大邱', 'Estancia hanok', 'Nhà hanok') },
-    { file: 'bubble-tank.html', name: 'Bubble Tank', group: 'leisure', tone: 'th-d', sub: L('Scuba diving · Jeju', '스쿠버다이빙 · 제주', 'ダイビング・済州', '潜水 · 济州', 'Buceo · Jeju', 'Lặn biển · Jeju') },
-    { file: 'daysurf.html', name: '데이서프', group: 'leisure', tone: 'th-e', sub: L('Surf school · Busan', '서핑 강습 · 부산', 'サーフィン・釜山', '冲浪教学 · 釜山', 'Surf · Busan', 'Lướt sóng · Busan') },
-    { file: 'yangyang-surf.html', name: '양양서핑학교', group: 'leisure', tone: 'th-a', sub: L('Surf school · Yangyang', '서핑 강습 · 양양', 'サーフィン・襄陽', '冲浪教学 · 襄阳', 'Surf · Yangyang', 'Lướt sóng · Yangyang') },
-    { file: 'jeju-horse-park.html', name: '제주승마공원', group: 'leisure', tone: 'th-c', sub: L('Horse riding · Aewol', '승마 · 애월', '乗馬・涯月', '骑马 · 涯月', 'Equitación · Aewol', 'Cưỡi ngựa · Aewol') },
-    { file: 'parastory.html', name: '패러이야기', group: 'leisure', tone: 'th-h', sub: L('Paragliding · Danyang', '패러글라이딩 · 단양', 'パラグライダー・丹陽', '滑翔伞 · 丹阳', 'Parapente · Danyang', 'Dù lượn · Danyang') },
-    { file: 'yacht-holic.html', name: 'Yachtholic', group: 'leisure', tone: 'th-b', sub: L('Yacht tour · Gwangalli', '요트투어 · 광안리', 'ヨットツアー・広安里', '游艇 · 广安里', 'Paseo en yate', 'Tour du thuyền') },
-    { file: 'sura-seoul.html', name: 'SURA Seoul', group: 'leisure', tone: 'th-g', sub: L('Cooking class · Bukchon', '쿠킹클래스 · 북촌', '料理教室・北村', '料理课 · 北村', 'Clase de cocina', 'Lớp nấu ăn') },
-    { file: 'gowoonsol-hanbok.html', name: '고운솔한복', group: 'leisure', tone: 'th-f', sub: L('Hanbok rental · Gyeongbokgung', '한복대여 · 경복궁', '韓服レンタル・景福宮', '韩服租赁 · 景福宫', 'Alquiler de hanbok', 'Cho thuê hanbok') },
-    { file: 'eden-farm.html', name: '이든팜', group: 'brand', tone: 'th-e', sub: L('Cosmetics OEM · B2B', '화장품 OEM · B2B', '化粧品OEM・B2B', '化妆品 OEM', 'Cosmética OEM', 'Mỹ phẩm OEM') },
-    { file: 'vitdam.html', name: '빛담 VITDAM', group: 'brand', tone: 'th-a', sub: L('Export OEM · B2B', '수출 OEM · B2B', '輸出OEM・B2B', '出口 OEM', 'Exportación OEM', 'Xuất khẩu OEM') },
-    { file: 'yemat.html', name: '예맛 YEMAT', group: 'brand', tone: 'th-c', sub: L('Laver producer · Export', '김 제조 · 수출', '海苔製造・輸出', '海苔制造与出口', 'Productor de alga', 'Sản xuất rong biển') }
-  ];
+  var portfolio = [
 
-  /* legacy live builds — must keep working exactly as before */
-  var liveBuilds = [
-    { demo: 'cafe', file: 'sample_cafe_loom_roast.html', name: 'Loom & Roast', tone: 'cafe',
-      tag: L('F&B · Café & Bakery', 'F&B · 카페 & 베이커리', 'F&B・カフェ＆ベーカリー', '餐饮 · 咖啡与烘焙', 'Gastronomía · Café', 'F&B · Cà phê & Bánh'),
-      desc: L('A specialty coffee house with a filterable menu, a story page and a table-inquiry flow.', '필터형 메뉴, 매장 이야기, 테이블·단체 문의 흐름을 갖춘 스페셜티 카페.', 'フィルター付きメニュー、店舗ストーリー、席・団体の問い合わせ導線を備えたスペシャルティカフェ。', '带筛选菜单、门店故事与订位咨询流程的精品咖啡馆。', 'Café de especialidad con menú filtrable, historia y consulta de mesa.', 'Quán cà phê specialty với menu lọc, câu chuyện và luồng đặt bàn.'),
-      meta: L('6 languages · menu filter · booking modal', '6개국어 · 메뉴 필터 · 예약 모달', '6言語・メニューフィルター・予約モーダル', '六语 · 菜单筛选 · 订位弹窗', '6 idiomas · filtro · reserva', '6 ngôn ngữ · lọc menu · đặt bàn') },
-    { demo: 'clinic', file: 'sample_clinic_lumiere.html', name: 'Lumière Dental & Care', tone: 'clinic',
-      tag: L('Healthcare · Dental & Wellness', '헬스케어 · 치과 & 웰니스', 'ヘルスケア・歯科＆ウェルネス', '医疗 · 齿科与健康', 'Salud · Dental', 'Y tế · Nha khoa'),
-      desc: L('A calm clinic site for international patients: treatments, doctors and appointment requests.', '외국인 환자와 지역 고객을 함께 겨냥한 차분한 클리닉 사이트. 진료 과목, 의료진, 예약 신청.', '海外患者と地域の患者の両方に向けた落ち着いたクリニックサイト。診療科目、医師紹介、予約申込。', '面向外籍患者与本地客户的安静诊所网站：诊疗项目、医生、预约申请。', 'Sitio de clínica para pacientes internacionales: tratamientos, médicos y citas.', 'Website phòng khám cho bệnh nhân quốc tế: điều trị, bác sĩ, đặt hẹn.'),
-      meta: L('6 languages · appointment modal · hours', '6개국어 · 예약 모달 · 진료 시간', '6言語・予約モーダル・診療時間', '六语 · 预约弹窗 · 门诊时间', '6 idiomas · cita · horario', '6 ngôn ngữ · đặt hẹn · giờ mở') },
-    { demo: 'b2b', file: 'sample_b2b_apex.html', name: 'Apex Advisory', tone: 'b2b',
-      tag: L('B2B · Consulting', 'B2B · 컨설팅', 'B2B・コンサルティング', 'B2B · 咨询', 'B2B · Consultoría', 'B2B · Tư vấn'),
-      desc: L('A sharp agency presence with services, illustrative metrics and a consultation form.', '서비스 소개, 샘플 지표, 상담 폼을 갖춘 단정한 에이전시 사이트.', 'サービス紹介、参考指標、相談フォームを備えた鋭いエージェンシーサイト。', '包含服务介绍、示例指标与咨询表单的干练机构网站。', 'Presencia de agencia con servicios, métricas y formulario.', 'Website agency với dịch vụ, số liệu và form tư vấn.'),
-      meta: L('6 languages · metrics band · consult form', '6개국어 · 지표 밴드 · 상담 폼', '6言語・指標バンド・相談フォーム', '六语 · 指标带 · 咨询表单', '6 idiomas · métricas · consulta', '6 ngôn ngữ · số liệu · form tư vấn') }
-  ];
+    /* ---- web site · live six-language builds ------------------------------ */
+    {
+      id: 'w-loom', cat: 'web', order: 1, featured: true, live: true, tone: 'cafe',
+      img: 'assets/img/portfolio/web-loom-roast.jpg', file: 'sample_cafe_loom_roast.html',
+      name: 'Loom & Roast',
+      sub: L('F&B · Café & Bakery · Seongsu', 'F&B · 카페 & 베이커리 · 성수', 'F&B・カフェ＆ベーカリー・聖水', '餐饮 · 咖啡与烘焙 · 圣水', 'Gastronomía · Café · Seongsu', 'F&B · Cà phê & Bánh · Seongsu'),
+      desc: L('A specialty coffee house with a filterable menu, a story page and a table-inquiry flow — one page, six languages.',
+        '필터형 메뉴, 매장 이야기, 테이블·단체 문의 흐름을 갖춘 스페셜티 카페. 한 페이지에서 6개국어로.',
+        'フィルター付きメニュー、店舗ストーリー、席・団体の問い合わせ導線を備えたスペシャルティカフェ。1ページで6言語。',
+        '带筛选菜单、门店故事与订位咨询流程的精品咖啡馆，单页六语。',
+        'Café de especialidad con menú filtrable, historia y consulta de mesa, en seis idiomas.',
+        'Quán cà phê specialty với menu lọc, câu chuyện và luồng đặt bàn, sáu ngôn ngữ.')
+    },
+    {
+      id: 'w-lumiere', cat: 'web', order: 4, live: true, tone: 'clinic',
+      file: 'sample_clinic_lumiere.html',
+      name: 'Lumière Dental & Care',
+      sub: L('Healthcare · Dental & Wellness', '헬스케어 · 치과 & 웰니스', 'ヘルスケア・歯科＆ウェルネス', '医疗 · 齿科与健康', 'Salud · Dental', 'Y tế · Nha khoa'),
+      desc: L('A calm clinic site for international patients: treatments, doctors and appointment requests.',
+        '외국인 환자와 지역 고객을 함께 겨냥한 차분한 클리닉 사이트. 진료 과목, 의료진, 예약 신청.',
+        '海外患者と地域の患者の両方に向けた落ち着いたクリニックサイト。診療科目、医師紹介、予約申込。',
+        '面向外籍患者与本地客户的安静诊所网站：诊疗项目、医生、预约申请。',
+        'Sitio de clínica para pacientes internacionales: tratamientos, médicos y citas.',
+        'Website phòng khám cho bệnh nhân quốc tế: điều trị, bác sĩ, đặt hẹn.')
+    },
+    {
+      id: 'w-apex', cat: 'web', order: 5, live: true, tone: 'b2b',
+      file: 'sample_b2b_apex.html',
+      name: 'Apex Advisory',
+      sub: L('B2B · Consulting', 'B2B · 컨설팅', 'B2B・コンサルティング', 'B2B · 咨询', 'B2B · Consultoría', 'B2B · Tư vấn'),
+      desc: L('A sharp agency presence with services, illustrative metrics and a consultation form.',
+        '서비스 소개, 샘플 지표, 상담 폼을 갖춘 단정한 에이전시 사이트.',
+        'サービス紹介、参考指標、相談フォームを備えた鋭いエージェンシーサイト。',
+        '包含服务介绍、示例指标与咨询表单的干练机构网站。',
+        'Presencia de agencia con servicios, métricas y formulario.',
+        'Website agency với dịch vụ, số liệu và form tư vấn.')
+    },
+    { id: 'w-chacha', cat: 'web', order: 22, tone: 'th-a', file: 'previews/cha-cha.html', name: '차차티클럽',
+      sub: L('Hanok tea house · Bukchon', '한옥 티하우스 · 북촌', '韓屋ティーハウス・北村', '韩屋茶屋 · 北村', 'Casa de té hanok', 'Trà quán hanok') },
+    { id: 'w-seoulbrewery', cat: 'web', order: 23, tone: 'th-b', file: 'previews/seoul-brewery.html', name: '서울브루어리 성수',
+      sub: L('Brewery & culture space', '브루어리 & 컬쳐 스페이스', 'ブリュワリー＆カルチャー', '精酿与文化空间', 'Cervecería y cultura', 'Nhà máy bia & văn hoá') },
+    { id: 'w-sungsimdang', cat: 'web', order: 24, tone: 'th-c', file: 'previews/sungsimdang.html', name: '성심당',
+      sub: L('Bakery · Daejeon', '베이커리 · 대전', 'ベーカリー・大田', '烘焙 · 大田', 'Panadería · Daejeon', 'Tiệm bánh · Daejeon') },
+    { id: 'w-erowl', cat: 'web', order: 25, tone: 'th-f', file: 'previews/erowl-clinic.html', name: '이로울한의원',
+      sub: L('Korean medicine · Hongdae', '한의원 · 홍대', '韓医院・弘大', '韩医诊所 · 弘大', 'Medicina coreana', 'Y học cổ truyền') },
+    { id: 'w-mode', cat: 'web', order: 26, tone: 'th-h', file: 'previews/mode-dental.html', name: '모드치과의원',
+      sub: L('Aesthetic dentistry · Gangnam', '심미치과 · 강남', '審美歯科・江南', '美学牙科 · 江南', 'Odontología estética', 'Nha khoa thẩm mỹ') },
+    { id: 'w-sydney', cat: 'web', order: 27, tone: 'th-a', file: 'previews/sydney-on-dental.html', name: '시드니 연치과',
+      sub: L('Dental clinic · Sydney', '치과 · 시드니', '歯科・シドニー', '牙科 · 悉尼', 'Clínica dental · Sídney', 'Nha khoa · Sydney') },
+    { id: 'w-willbfine', cat: 'web', order: 28, tone: 'th-c', file: 'previews/willbfine.html', name: '괜찮아요한의원',
+      sub: L('Korean medicine · Gongdeok', '한의원 · 공덕', '韓医院・孔徳', '韩医诊所 · 孔德', 'Medicina coreana', 'Y học cổ truyền') },
+    { id: 'w-hanoktoday', cat: 'web', order: 29, tone: 'th-a', file: 'previews/hanok-today.html', name: '한옥스테이 오늘',
+      sub: L('Hanok stay · Jeonju', '한옥 독채 · 전주', '韓屋ステイ・全州', '韩屋独栋 · 全州', 'Estancia hanok', 'Nhà hanok') },
+    { id: 'w-hongdae', cat: 'web', order: 30, tone: 'th-d', file: 'previews/hongdae-guesthouse.html', name: 'Hongdae Guesthouse',
+      sub: L('Guesthouse · Seoul', '게스트하우스 · 서울', 'ゲストハウス・ソウル', '民宿 · 首尔', 'Casa de huéspedes', 'Nhà nghỉ') },
+    { id: 'w-mido', cat: 'web', order: 31, tone: 'th-g', file: 'previews/mido-hostel.html', name: 'MIDO Hostel',
+      sub: L('Hostel · Seogwipo', '호스텔 · 서귀포', 'ホステル・西帰浦', '旅舍 · 西归浦', 'Hostal · Seogwipo', 'Hostel · Seogwipo') },
+    { id: 'w-pobi', cat: 'web', order: 32, tone: 'th-c', file: 'previews/pobi-guesthouse.html', name: '게스트하우스 포비',
+      sub: L('Guesthouse · Haeundae', '게스트하우스 · 해운대', 'ゲストハウス・海雲台', '民宿 · 海云台', 'Casa de huéspedes', 'Nhà nghỉ') },
+    { id: 'w-seomun', cat: 'web', order: 33, tone: 'th-f', file: 'previews/seomun-hanok.html', name: '서문한옥게스트하우스',
+      sub: L('Hanok stay · Daegu', '한옥 숙소 · 대구', '韓屋宿・大邱', '韩屋住宿 · 大邱', 'Estancia hanok', 'Nhà hanok') },
+    { id: 'w-bubble', cat: 'web', order: 34, tone: 'th-d', file: 'previews/bubble-tank.html', name: 'Bubble Tank',
+      sub: L('Scuba diving · Jeju', '스쿠버다이빙 · 제주', 'ダイビング・済州', '潜水 · 济州', 'Buceo · Jeju', 'Lặn biển · Jeju') },
+    { id: 'w-daysurf', cat: 'web', order: 35, tone: 'th-e', file: 'previews/daysurf.html', name: '데이서프',
+      sub: L('Surf school · Busan', '서핑 강습 · 부산', 'サーフィン・釜山', '冲浪教学 · 釜山', 'Surf · Busan', 'Lướt sóng · Busan') },
+    { id: 'w-yangyang', cat: 'web', order: 36, tone: 'th-a', file: 'previews/yangyang-surf.html', name: '양양서핑학교',
+      sub: L('Surf school · Yangyang', '서핑 강습 · 양양', 'サーフィン・襄陽', '冲浪教学 · 襄阳', 'Surf · Yangyang', 'Lướt sóng · Yangyang') },
+    { id: 'w-jejuhorse', cat: 'web', order: 37, tone: 'th-c', file: 'previews/jeju-horse-park.html', name: '제주승마공원',
+      sub: L('Horse riding · Aewol', '승마 · 애월', '乗馬・涯月', '骑马 · 涯月', 'Equitación · Aewol', 'Cưỡi ngựa · Aewol') },
+    { id: 'w-parastory', cat: 'web', order: 38, tone: 'th-h', file: 'previews/parastory.html', name: '패러이야기',
+      sub: L('Paragliding · Danyang', '패러글라이딩 · 단양', 'パラグライダー・丹陽', '滑翔伞 · 丹阳', 'Parapente · Danyang', 'Dù lượn · Danyang') },
+    { id: 'w-yacht', cat: 'web', order: 39, tone: 'th-b', file: 'previews/yacht-holic.html', name: 'Yachtholic',
+      sub: L('Yacht tour · Gwangalli', '요트투어 · 광안리', 'ヨットツアー・広安里', '游艇 · 广安里', 'Paseo en yate', 'Tour du thuyền') },
+    { id: 'w-sura', cat: 'web', order: 40, tone: 'th-g', file: 'previews/sura-seoul.html', name: 'SURA Seoul',
+      sub: L('Cooking class · Bukchon', '쿠킹클래스 · 북촌', '料理教室・北村', '料理课 · 北村', 'Clase de cocina', 'Lớp nấu ăn') },
+    { id: 'w-gowoonsol', cat: 'web', order: 41, tone: 'th-f', file: 'previews/gowoonsol-hanbok.html', name: '고운솔한복',
+      sub: L('Hanbok rental · Gyeongbokgung', '한복대여 · 경복궁', '韓服レンタル・景福宮', '韩服租赁 · 景福宫', 'Alquiler de hanbok', 'Cho thuê hanbok') },
+    { id: 'w-eden', cat: 'web', order: 42, tone: 'th-e', file: 'previews/eden-farm.html', name: '이든팜',
+      sub: L('Cosmetics OEM · B2B', '화장품 OEM · B2B', '化粧品OEM・B2B', '化妆品 OEM', 'Cosmética OEM', 'Mỹ phẩm OEM') },
+    { id: 'w-vitdam', cat: 'web', order: 43, tone: 'th-a', file: 'previews/vitdam.html', name: '빛담 VITDAM',
+      sub: L('Export OEM · B2B', '수출 OEM · B2B', '輸出OEM・B2B', '出口 OEM', 'Exportación OEM', 'Xuất khẩu OEM') },
+    { id: 'w-yemat', cat: 'web', order: 44, tone: 'th-c', file: 'previews/yemat.html', name: '예맛 YEMAT',
+      sub: L('Laver producer · Export', '김 제조 · 수출', '海苔製造・輸出', '海苔制造与出口', 'Productor de alga', 'Sản xuất rong biển') },
+
+    /* ---- detail pages ------------------------------------------------------ */
+    {
+      id: 'd-miel', cat: 'detail', order: 2, featured: true,
+      img: 'assets/img/portfolio/dp-01.jpg',
+      name: L('Miel Serum', '미엘 세럼', 'Miel セラム', 'Miel 精华', 'Miel Serum', 'Miel Serum'),
+      desc: L('Long-form skincare page: a full-bleed bottle shot, an ingredient grid, texture close-ups and a review block.',
+        '풀블리드 제품컷, 성분 그리드, 텍스처 클로즈업, 후기 블록으로 이어지는 롱폼 스킨케어 상세페이지.',
+        'フルブリードの商品カット、成分グリッド、テクスチャのクローズアップ、レビューブロックで構成したロングフォームのスキンケア詳細ページ。',
+        '由全幅产品图、成分网格、质地特写与评价区块组成的长图文护肤详情页。',
+        'Página larga de cosmética: foto a sangre, cuadrícula de ingredientes, texturas y bloque de reseñas.',
+        'Trang mỹ phẩm dạng dài: ảnh tràn viền, lưới thành phần, cận cảnh chất kem và khối đánh giá.')
+    },
+    {
+      id: 'd-linen', cat: 'detail', order: 6,
+      img: 'assets/img/portfolio/dp-02.jpg',
+      name: L('Linen Lab Bedding', '리넨랩 침구', 'Linen Lab 寝具', 'Linen Lab 床品', 'Linen Lab · ropa de cama', 'Linen Lab · chăn ga'),
+      desc: L('Bedding page built on fabric close-ups: a swatch strip, a thread-count table and a size guide in one scroll.',
+        '원단 클로즈업을 중심으로 스와치, 실 밀도 표, 사이즈 가이드를 한 번의 스크롤에 담은 침구 상세페이지.',
+        '生地のクローズアップを軸に、スウォッチ、密度表、サイズガイドを1スクロールにまとめた寝具の詳細ページ。',
+        '以面料特写为主，一次滚动包含色卡、纱支表与尺寸指南的床品详情页。',
+        'Página de ropa de cama con texturas: muestrario, tabla de densidad y guía de medidas en un solo scroll.',
+        'Trang chăn ga dựa trên cận cảnh vải: dải mẫu, bảng mật độ sợi và hướng dẫn kích thước trong một cuộn.')
+    },
+    {
+      id: 'd-seom', cat: 'detail', order: 9,
+      img: 'assets/img/portfolio/dp-03.jpg',
+      name: L('Seom Ceramic Mug', '섬 세라믹 머그', 'Seom セラミックマグ', 'Seom 陶瓷杯', 'Taza Seom', 'Cốc gốm Seom'),
+      desc: L('Handmade mug page: a pedestal product shot, three detail thumbnails and a size table read in one glance.',
+        '거치대 위 제품컷, 디테일 썸네일 3장, 한눈에 읽히는 사이즈 표로 구성한 수제 머그 상세페이지.',
+        '台座に置いた商品カット、詳細サムネイル3点、一目で読めるサイズ表で構成した手作りマグの詳細ページ。',
+        '由台座产品图、三张细节缩略图与一眼可读的尺寸表组成的手工杯详情页。',
+        'Página de taza artesanal: foto sobre pedestal, tres miniaturas de detalle y una tabla de medidas clara.',
+        'Trang cốc thủ công: ảnh sản phẩm trên bệ, ba ảnh chi tiết và bảng kích thước dễ đọc.')
+    },
+    {
+      id: 'd-dawn', cat: 'detail', order: 12,
+      img: 'assets/img/portfolio/dp-04.jpg',
+      name: L('Dawn Tea Collection', '던 티 컬렉션', 'Dawn ティーコレクション', 'Dawn 茶品系列', 'Colección Dawn Tea', 'Bộ trà Dawn'),
+      desc: L('Tea collection page: loose leaves, a brewed cup and four tins on one grid, closed by a short brewing guide.',
+        '찻잎, 우린 한 잔, 네 가지 틴 케이스를 한 그리드에 담고 짧은 우림 가이드로 마무리한 티 컬렉션 페이지.',
+        '茶葉、淹れた一杯、4種のティンケースを1グリッドに収め、短い淹れ方ガイドで締めたティーコレクション。',
+        '把茶叶、冲泡一杯与四款茶罐放在同一网格，以简短冲泡指南收尾的茶品系列页。',
+        'Página de colección de té: hoja suelta, una taza infusionada y cuatro latas en una cuadrícula.',
+        'Trang bộ trà: lá trà, một tách đã pha và bốn hộp thiếc trên cùng lưới, kết bằng hướng dẫn pha ngắn.')
+    },
+
+    /* ---- brand logo -------------------------------------------------------- */
+    {
+      id: 'b-nomad', cat: 'brand', order: 3, featured: true,
+      img: 'assets/img/portfolio/bl-01.jpg',
+      name: 'Nomad Roasters',
+      desc: L('Identity for a specialty roaster: a round mark on kraft bags, cup sleeves, cards and a rubber stamp.',
+        '스페셜티 로스터리를 위한 아이덴티티. 크라프트 백, 컵 슬리브, 명함, 고무인에 원형 마크를 적용했습니다.',
+        'スペシャルティロースターのアイデンティティ。クラフトバッグ、カップスリーブ、名刺、ゴム印に円形マークを展開。',
+        '为精品烘焙商设计的品牌标识，圆形标志应用于牛皮纸袋、杯套、名片与橡皮章。',
+        'Identidad para un tostador de especialidad: marca circular en bolsas kraft, portavasos, tarjetas y sello.',
+        'Nhận diện cho xưởng rang specialty: dấu tròn trên túi kraft, ống giữ cốc, danh thiếp và con dấu.')
+    },
+    {
+      id: 'b-sora', cat: 'brand', order: 7,
+      img: 'assets/img/portfolio/bl-02.jpg',
+      name: 'Sora Pilates',
+      desc: L('Studio identity: a thin geometric mark on a canvas tote, a membership card and embossed paper.',
+        '스튜디오 아이덴티티. 캔버스 토트, 회원 카드, 엠보싱 카드에 얇은 기하형 마크를 적용했습니다.',
+        'スタジオのアイデンティティ。キャンバストート、会員カード、エンボス紙に細い幾何学マークを展開。',
+        '工作室标识：细线几何标志应用于帆布托特包、会员卡与压凹纸品。',
+        'Identidad de estudio: marca geométrica fina en un tote de lona, tarjeta de socio y papel gofrado.',
+        'Nhận diện studio: dấu hình học mảnh trên tote vải, thẻ hội viên và giấy dập nổi.')
+    },
+    {
+      id: 'b-moon', cat: 'brand', order: 10,
+      img: 'assets/img/portfolio/bl-03.jpg',
+      name: 'Moonlit Objects',
+      desc: L('Homeware identity: a debossed mark on ceramics, a hang tag and a paper bag in one quiet palette.',
+        '홈웨어 아이덴티티. 세라믹에 음각한 마크, 행택, 종이백을 차분한 한 가지 팔레트로 묶었습니다.',
+        'ホームウェアのアイデンティティ。陶器に型押ししたマーク、下げ札、紙袋を静かな1つの色数で統一。',
+        '家居器物品牌标识：压印于陶瓷的标志、吊牌与纸袋，统一在安静的色调里。',
+        'Identidad de menaje: marca en relieve sobre cerámica, etiqueta colgante y bolsa de papel.',
+        'Nhận diện đồ gia dụng: dấu dập trên gốm, thẻ treo và túi giấy trong một bảng màu tĩnh.')
+    },
+    {
+      id: 'b-verde', cat: 'brand', order: 13,
+      img: 'assets/img/portfolio/bl-04.jpg',
+      name: 'Verde Market',
+      desc: L('Local market identity: a circular mark on paper bags, produce labels and a sticker sheet.',
+        '동네 마켓 아이덴티티. 종이백, 농산물 라벨, 스티커 시트에 원형 마크를 적용했습니다.',
+        '地域マーケットのアイデンティティ。紙袋、青果ラベル、ステッカーシートに円形マークを展開。',
+        '社区市集标识：圆形标志应用于纸袋、果蔬标签与贴纸。',
+        'Identidad de mercado local: marca circular en bolsas de papel, etiquetas y hoja de pegatinas.',
+        'Nhận diện chợ địa phương: dấu tròn trên túi giấy, nhãn nông sản và tờ sticker.')
+    },
+
+    /* ---- print & marketing ------------------------------------------------- */
+    {
+      id: 'p-posters', cat: 'print', order: 8,
+      img: 'assets/img/portfolio/pm-01.jpg',
+      name: L('Slow Seoul Posters', '슬로우 서울 포스터', 'Slow Seoul ポスター', 'Slow Seoul 海报', 'Carteles Slow Seoul', 'Poster Slow Seoul'),
+      desc: L('Three-poster exhibition series: charcoal forms and one lime block on cream stock.',
+        '전시 포스터 3종 시리즈. 크림색 용지 위 차콜 도형과 라임 블록 하나로 완성했습니다.',
+        '展覧会ポスター3種。クリーム色の紙にチャコールの図形とライムのブロックを1つ。',
+        '展览海报三件套：米色纸上以炭黑图形与一块柠檬绿构成。',
+        'Serie de tres carteles de exposición: formas carbón y un bloque lima sobre papel crema.',
+        'Bộ ba poster triển lãm: hình khối than chì và một khối lime trên giấy kem.')
+    },
+    {
+      id: 'p-package', cat: 'print', order: 11,
+      img: 'assets/img/portfolio/pm-02.jpg',
+      name: L('Harbor Blend Packaging', '하버 블렌드 패키지', 'Harbor Blend パッケージ', 'Harbor Blend 包装', 'Packaging Harbor Blend', 'Bao bì Harbor Blend'),
+      desc: L('Single-origin release: a stand-up pouch, a rigid box and a folded card that share one label system.',
+        '싱글 오리진 출시를 위한 스탠드 파우치, 리지드 박스, 접지 카드. 하나의 라벨 시스템으로 묶었습니다.',
+        'シングルオリジン向けのスタンドパウチ、化粧箱、折りカード。1つのラベル体系で統一。',
+        '单一产地上市包装：自立袋、硬盒与折卡共用一套标签体系。',
+        'Lanzamiento de origen único: pouch, caja rígida y tarjeta plegada con un mismo sistema de etiqueta.',
+        'Ra mắt single origin: túi đứng, hộp cứng và thiệp gấp dùng chung một hệ nhãn.')
+    },
+    {
+      id: 'p-cards', cat: 'print', order: 14,
+      img: 'assets/img/portfolio/pm-03.jpg',
+      name: L('Letterpress Cards', '레터프레스 명함', '活版名刺', '凸版名片', 'Tarjetas letterpress', 'Danh thiếp letterpress'),
+      desc: L('Cards on thick cotton stock, cream paper with charcoal ink and a single lime edge.',
+        '두꺼운 면지에 레터프레스로 찍은 명함. 크림 용지, 차콜 잉크, 가장자리 한 줄의 라임.',
+        '厚手のコットン紙に活版印刷した名刺。クリーム紙にチャコールインク、縁にライムを1本。',
+        '厚棉纸凸版名片：米色纸、炭黑墨，边缘一道柠檬绿。',
+        'Tarjetas letterpress en cartulina de algodón: papel crema, tinta carbón y un canto lima.',
+        'Danh thiếp letterpress trên giấy cotton dày: giấy kem, mực than chì, một đường lime ở cạnh.')
+    },
+    {
+      id: 'p-leaflet', cat: 'print', order: 15,
+      img: 'assets/img/portfolio/pm-04.jpg',
+      name: L('Clinic Tri-fold Leaflet', '클리닉 리플렛', 'クリニック リーフレット', '诊所三折页', 'Tríptico de clínica', 'Tờ gấp phòng khám'),
+      desc: L('A three-panel leaflet for a skin clinic that opens into a treatment grid and a booking line.',
+        '피부 클리닉 3단 리플렛. 펼치면 진료 항목 그리드와 예약 안내가 이어집니다.',
+        '皮膚クリニックの3面リーフレット。開くと施術グリッドと予約案内が続きます。',
+        '皮肤诊所三折页，展开后是项目网格与预约指引。',
+        'Tríptico para una clínica de piel que se abre en una cuadrícula de tratamientos y una línea de reserva.',
+        'Tờ gấp ba mặt cho phòng khám da, mở ra là lưới dịch vụ và dòng đặt hẹn.')
+    },
+    {
+      id: 'p-menu', cat: 'print', order: 16,
+      img: 'assets/img/portfolio/pm-05.jpg',
+      name: L('Café Menu Card', '카페 메뉴 카드', 'カフェ メニューカード', '咖啡馆菜单卡', 'Carta de café', 'Menu quán cà phê'),
+      desc: L('A single-card menu for the table: prices set on one baseline, one accent for the seasonal pour.',
+        '테이블에 놓는 한 장 메뉴 카드. 가격선을 하나로 맞추고 시즌 메뉴에만 포인트를 주었습니다.',
+        'テーブルに置く1枚のメニューカード。価格のベースラインを揃え、季節の一杯だけにアクセント。',
+        '桌面单卡菜单：价格对齐同一基线，仅季节饮品加一点强调色。',
+        'Carta de una sola tarjeta para la mesa: precios en una misma línea y un acento para lo de temporada.',
+        'Menu một thẻ đặt bàn: giá trên cùng một đường, chỉ món theo mùa có điểm nhấn.')
+    },
+    {
+      id: 'p-labels', cat: 'print', order: 17,
+      img: 'assets/img/portfolio/pm-06.jpg',
+      name: L('Bottle Label Set', '보틀 라벨 세트', 'ボトルラベルセット', '瓶贴套装', 'Set de etiquetas', 'Bộ nhãn chai'),
+      desc: L('Labels and a sticker sheet for a small-batch drink line, printed on cream and kraft stock.',
+        '소량 생산 음료 라인을 위한 라벨과 스티커 시트. 크림·크라프트 용지에 인쇄했습니다.',
+        '小ロット飲料向けのラベルとステッカーシート。クリームとクラフトの紙に印刷。',
+        '小批量饮品线的标签与贴纸，印在米色与牛皮纸上。',
+        'Etiquetas y hoja de pegatinas para una bebida de pequeña producción, en papel crema y kraft.',
+        'Nhãn và tờ sticker cho dòng đồ uống sản xuất nhỏ, in trên giấy kem và kraft.')
+    },
+    {
+      id: 'p-signage', cat: 'print', order: 18,
+      img: 'assets/img/portfolio/pm-07.jpg',
+      name: L('Studio Signage', '스튜디오 사인', 'スタジオ サイン', '工作室标识', 'Rótulo de estudio', 'Biển hiệu studio'),
+      desc: L('Acrylic panel and a hanging sign for a studio entrance, lettered with a thin mark and no more.',
+        '스튜디오 입구의 아크릴 사인과 행잉 사인. 얇은 마크 하나만 남긴 서체 구성입니다.',
+        'スタジオ入口のアクリルサインと吊りサイン。細いマーク1つだけに絞った文字組み。',
+        '工作室入口的亚克力牌与吊牌，只留一个细线标志。',
+        'Panel de acrílico y rótulo colgante para la entrada de un estudio, solo con una marca fina.',
+        'Biển acrylic và biển treo cho lối vào studio, chỉ với một dấu mảnh.')
+    }
+  ].sort(function (a, b) { return a.order - b.order; });
 
   /* ---------------------------------------------------------------- work status */
   var workStatuses = [
@@ -405,15 +628,17 @@
   global.CATALOG = {
     categories: categories,
     products: products,
-    folioGroups: folioGroups,
-    folio: folio,
-    liveBuilds: liveBuilds,
+    folioCats: folioCats,
+    portfolio: portfolio,
     workStatuses: workStatuses,
     paymentStatuses: paymentStatuses,
     submissionStatuses: submissionStatuses,
     L: L,
     byId: function (id) { for (var i = 0; i < products.length; i++) { if (products[i].id === id) return products[i]; } return null; },
     byCat: function (cat) { return products.filter(function (p) { return p.cat === cat; }); },
-    cat: function (id) { for (var i = 0; i < categories.length; i++) { if (categories[i].id === id) return categories[i]; } return null; }
+    cat: function (id) { for (var i = 0; i < categories.length; i++) { if (categories[i].id === id) return categories[i]; } return null; },
+    folioCat: function (id) { for (var i = 0; i < folioCats.length; i++) { if (folioCats[i].id === id) return folioCats[i]; } return folioCats[0]; },
+    folioOf: function (cat) { return portfolio.filter(function (p) { return cat === 'all' || p.cat === cat; }); },
+    featured: function () { return portfolio.filter(function (p) { return p.featured; }); }
   };
 })(window);

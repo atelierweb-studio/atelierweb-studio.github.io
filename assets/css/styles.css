@@ -455,15 +455,30 @@ html[lang="vi"] .hero h1{font-size:clamp(32px,3.6vw,50px);line-height:1.2}
 .folio-thumb .fv b{font-family:var(--font-display);font-size:17px;font-weight:600;letter-spacing:-.02em;line-height:1.1}
 .folio-thumb .fv span{font-family:var(--font-mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;opacity:.72}
 .folio-thumb .fv i{position:absolute;left:16px;right:16px;top:16px;height:1px;background:currentColor;opacity:.18}
+.folio-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ease)}
+.folio-card:hover .folio-thumb img{transform:scale(1.035)}
+.folio-thumb .live-tag{position:absolute;left:0;top:0;z-index:2}
+.folio-cat{font-family:var(--font-mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--charcoal-48)}
+.folio-card.is-featured .folio-body h3{font-size:18px}
+.folio-card.is-featured .folio-body p{font-size:12.5px}
 .folio-body{padding:16px 17px 17px;display:flex;flex-direction:column;gap:9px;flex:1}
 .folio-body h3{font-family:var(--font-display);font-size:16.5px;font-weight:600;letter-spacing:-.02em}
 .folio-body p{font-size:12px;line-height:1.55;color:var(--charcoal-64);flex:1}
 .folio-acts{display:flex;gap:14px;align-items:center;flex-wrap:wrap;padding-top:4px}
 .folio-acts a,.folio-acts button{font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--charcoal-12);padding-bottom:2px;transition:.16s}
 .folio-acts a:hover,.folio-acts button:hover{border-color:var(--charcoal)}
-.folio-live{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:26px}
-.live-card{border:1px solid var(--charcoal-12);background:var(--ivory);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+.folio-featured{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.folio-explore{margin-top:66px;padding-top:44px;border-top:1px solid var(--charcoal-12)}
+.folio-explore-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:22px}
+.folio-explore-head h3{font-family:var(--font-display);font-size:clamp(24px,2.6vw,32px);font-weight:700;letter-spacing:-.03em;line-height:1.25}
+.folio-explore-head p{max-width:54ch;padding-bottom:4px}
+.folio-more-wrap{margin-top:28px;text-align:center}
+.folio-more-wrap button[hidden]{display:none}
 .live-tag{background:var(--charcoal);color:var(--lime);font-family:var(--font-mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;display:inline-flex;align-items:center;gap:5px;align-self:flex-start;border-radius:2px 0 2px 0}
+.folio-shot img{display:block;width:100%;height:auto}
+.folio-shot-meta{padding:15px 20px 18px;border-top:1px solid var(--charcoal-12);display:flex;flex-direction:column;gap:5px}
+.folio-shot-meta b{font-family:var(--font-display);font-size:16.5px;font-weight:600;letter-spacing:-.02em}
+.folio-shot-meta p{font-size:12.5px;line-height:1.6;color:var(--charcoal-64)}
 
 /* ==========================================================================
    PRICING / PLANS
@@ -953,7 +968,7 @@ details.faq:first-child{border-top:1px solid var(--charcoal-12)}
   .summary,.side-steps{position:static}
   .cat-grid{grid-template-columns:repeat(2,1fr)}
   .prod-grid,.prod-grid.is-4{grid-template-columns:repeat(2,1fr)}
-  .folio-grid,.folio-live{grid-template-columns:repeat(2,1fr)}
+  .folio-grid,.folio-featured{grid-template-columns:repeat(2,1fr)}
   .plans{grid-template-columns:1fr;border-radius:var(--radius)}
   .plan{border-right:0;border-bottom:1px solid var(--charcoal-12)}
   .plan:last-child{border-bottom:0}
@@ -1015,7 +1030,7 @@ details.faq:first-child{border-top:1px solid var(--charcoal-12)}
   .cat-card{min-height:auto;padding:22px 20px}
   .prod-grid,.prod-grid.is-4{grid-template-columns:1fr;gap:14px}
   .prod-thumb{aspect-ratio:16/10}
-  .folio-grid,.folio-live{grid-template-columns:1fr}
+  .folio-grid,.folio-featured{grid-template-columns:1fr}
   .why-grid{grid-template-columns:1fr}
   .why-item{border-right:0 !important;padding:20px 0}
   .why-item:nth-child(3){border-bottom:1px solid var(--charcoal-12)}

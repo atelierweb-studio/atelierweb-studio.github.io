@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css">
-<link rel="stylesheet" href="assets/css/styles.css?v=20261125g">
+<link rel="stylesheet" href="assets/css/styles.css?v=20261125h">
 </head>
 <body data-title-key="meta_title">
 
@@ -28,8 +28,8 @@
     <div class="wrap hero-top">
       <div>
         <div class="hero-kicker"><span class="pulse"></span><span data-i18n="hero_kicker">ATELIER WEB — CREATIVE DESIGN STUDIO</span></div>
-        <h1 data-i18n="hero_title">One Studio.<br><em>Every</em> Design<br>Your Brand Needs.</h1>
-        <p class="hero-lede" data-i18n="hero_lede">From brand identity and websites to e-commerce, digital marketing, and print design. We bring your brand together, from start to finish.</p>
+        <h1 data-i18n="hero_title">From Ideas to<br><em>Something</em> Beautiful.</h1>
+        <p class="hero-lede" data-i18n="hero_lede">From brand identities to digital experiences, explore creative work designed with purpose and attention to detail.</p>
         <div class="hero-cta">
           <a class="btn" href="services.html"><span data-i18n="hero_cta1">EXPLORE SERVICES</span><span aria-hidden="true">↘</span></a>
           <a class="btn btn-ghost" href="index.html#portfolio" data-i18n="hero_cta2">VIEW OUR WORKS</a>
@@ -182,22 +182,24 @@
     <div class="wrap">
       <div class="sec-head">
         <div>
-          <div class="eyebrow"><span data-i18n="folio_kicker">Portfolio</span></div>
-          <h2 data-i18n="folio_title">23 concept builds, three live sites.</h2>
+          <div class="eyebrow"><span data-i18n="folio_kicker">04 PORTFOLIO</span></div>
+          <h2 data-i18n="folio_title">Featured Projects</h2>
         </div>
-        <p class="lede" data-i18n="folio_lede">Each card opens a real, clickable build.</p>
+        <p class="lede" data-i18n="folio_lede">Three pieces that show how we work: a live six-language website, a product detail page and a brand identity. Each one is a studio-made sample you can open or inspect.</p>
       </div>
 
-      <h3 class="mono muted" style="margin-bottom:14px" data-i18n="folio_live">Live six-language builds</h3>
-      <div class="folio-live" id="liveGrid"></div>
+      <!-- featured 3 — pulled from the same portfolio array (featured: true) -->
+      <div class="folio-featured" id="featGrid"></div>
 
-      <div class="mt-48" style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px">
-        <h3 class="mono muted" data-i18n="folio_concepts">Concept previews</h3>
-        <span class="tiny muted" data-i18n="folio_note">Each build opens in a new tab.</span>
+      <div class="folio-explore">
+        <div class="folio-explore-head">
+          <h3 data-i18n="folio_explore">Explore Our Work</h3>
+          <p class="tiny muted" data-i18n="folio_note">Every piece here is a studio-made sample or concept study.</p>
+        </div>
+        <div class="folio-filter" id="folioFilter"></div>
+        <div class="folio-grid" id="folioGrid"></div>
+        <div class="folio-more-wrap"><button class="btn btn-ghost" id="folioMore" type="button" data-i18n="folio_more">View More</button></div>
       </div>
-      <div class="folio-filter" id="folioFilter"></div>
-      <div class="folio-grid" id="folioGrid"></div>
-      <div class="mt-24 center"><button class="btn btn-ghost" id="folioMore" type="button" data-i18n="svc_view_all">View all products</button></div>
     </div>
   </section>
 
@@ -382,15 +384,20 @@
 <div data-cw-footer></div>
 <noscript><div class="wrap" style="padding:20px" data-i18n="noscript">JavaScript is off.</div></noscript>
 
-<script src="assets/data/catalog.js?v=20261125g"></script>
-<script src="assets/js/i18n.js?v=20261125g"></script>
-<script src="assets/js/store.js?v=20261125g"></script>
-<script src="assets/js/components.js?v=20261125g"></script>
+<script src="assets/data/catalog.js?v=20261125h"></script>
+<script src="assets/js/i18n.js?v=20261125h"></script>
+<script src="assets/js/store.js?v=20261125h"></script>
+<script src="assets/js/components.js?v=20261125h"></script>
 <script>
 (function () {
   'use strict';
   var I = window.CWI18N, C = window.CATALOG, S = window.CWStore, U = window.CWComponents;
-  var folioLimit = 9, folioGroup = 'all';
+  var folioCatId = 'all', folioShown = 0, folioBaseLast = 0, folioStep = 3;
+  /* PC·tablet open with 6 cards, mobile with 3; View More adds 3 at a time. */
+  function folioBase() { return window.matchMedia('(max-width:620px)').matches ? 3 : 6; }
+  function esc(v) {
+    return String(v == null ? '' : v).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
 
   function renderCategories() {
     var host = document.getElementById('catGrid');
@@ -437,62 +444,63 @@
     }).join('');
   }
 
-  function renderLive() {
-    var host = document.getElementById('liveGrid');
+  /* one card builder for both rows — the featured row is the same portfolio data */
+  function folioCard(p, featured) {
+    var cat = C.folioCat(p.cat);
+    var thumb = p.img
+      ? '<div class="folio-thumb has-shot"><img src="' + p.img + '" alt="' + esc(I.tv(p.name)) + '" loading="lazy" decoding="async" width="1200" height="825">' +
+        (p.live ? '<span class="live-tag">● LIVE</span>' : '') + '</div>'
+      : '<div class="folio-thumb ' + p.tone + '">' +
+        (p.live ? '<span class="live-tag">● LIVE</span>' : '') +
+        '<div class="fv"><b>' + esc(I.tv(p.name)) + '</b><span>' + esc(I.tv(p.sub)) + '</span></div></div>';
+    var acts = p.file
+      ? '<a href="' + p.file + '" target="_blank" rel="noopener">' + I.t('folio_open') + ' ↗</a>' +
+        '<button type="button" data-preview="' + p.file + '" data-name="' + esc(I.tv(p.name)) + '">' + I.t('folio_preview') + '</button>'
+      : '<button type="button" data-shot="' + p.img + '" data-name="' + esc(I.tv(p.name)) + '" data-desc="' + esc(I.tv(p.desc)) + '">' + I.t('folio_view') + ' ↗</button>';
+    return '<article class="folio-card' + (featured ? ' is-featured' : '') + '">' + thumb +
+      '<div class="folio-body">' +
+      '<span class="folio-cat">' + esc(I.tv(cat.name)) + '</span>' +
+      '<h3>' + esc(I.tv(p.name)) + '</h3>' +
+      '<p>' + esc(I.tv(p.desc || p.sub)) + '</p>' +
+      '<div class="folio-acts">' + acts + '</div>' +
+      '</div></article>';
+  }
+
+  function renderFeatProjects() {
+    var host = document.getElementById('featGrid');
     if (!host) return;
-    host.innerHTML = C.liveBuilds.map(function (b) {
-      return '<article class="live-card">' +
-        '<div class="folio-thumb ' + b.tone + '" style="aspect-ratio:16/10">' +
-        '  <span class="live-tag">● LIVE</span>' +
-        '  <div class="fv"><b>' + b.name + '</b><span>' + I.tv(b.tag) + '</span></div>' +
-        '</div>' +
-        '<div class="folio-body">' +
-        '  <h3>' + b.name + '</h3>' +
-        '  <p>' + I.tv(b.desc) + '</p>' +
-        '  <div class="folio-acts">' +
-        '    <a href="' + b.file + '" target="_blank" rel="noopener">' + I.t('folio_open') + ' ↗</a>' +
-        '    <button type="button" data-preview="' + b.file + '" data-name="' + b.name + '">' + I.t('folio_preview') + '</button>' +
-        '  </div>' +
-        '</div>' +
-        '</article>';
-    }).join('');
+    host.innerHTML = C.featured().map(function (p) { return folioCard(p, true); }).join('');
   }
 
   function renderFolioFilter() {
     var host = document.getElementById('folioFilter');
     if (!host) return;
-    host.innerHTML = C.folioGroups.map(function (g) {
-      return '<button type="button" class="chip' + (g.id === folioGroup ? ' is-on' : '') + '" data-group="' + g.id + '">' + I.tv(g.name) + '</button>';
+    host.innerHTML = C.folioCats.map(function (g) {
+      var on = g.id === folioCatId;
+      return '<button type="button" class="chip' + (on ? ' is-on' : '') + '" data-cat="' + g.id + '" aria-pressed="' + on + '">' + esc(I.tv(g.name)) + '</button>';
     }).join('');
   }
 
   function renderFolio() {
     var host = document.getElementById('folioGrid');
     if (!host) return;
-    var list = C.folio.filter(function (f) { return folioGroup === 'all' || f.group === folioGroup; });
-    var shown = list.slice(0, folioLimit);
-    host.innerHTML = shown.map(function (f) {
-      return '<article class="folio-card">' +
-        '<div class="folio-thumb ' + f.tone + '">' +
-        '  <div class="fv"><b>' + I.tv(f.name) + '</b><span>' + I.tv(f.sub) + '</span></div>' +
-        '</div>' +
-        '<div class="folio-body">' +
-        '  <h3>' + I.tv(f.name) + '</h3>' +
-        '  <p>' + I.tv(f.sub) + '</p>' +
-        '  <div class="folio-acts">' +
-        '    <a href="previews/' + f.file + '" target="_blank" rel="noopener">' + I.t('folio_open') + ' ↗</a>' +
-        '    <button type="button" data-preview="previews/' + f.file + '" data-name="' + I.tv(f.name) + '">' + I.t('folio_preview') + '</button>' +
-        '  </div>' +
-        '</div>' +
-        '</article>';
-    }).join('');
-
+    var list = C.folioOf(folioCatId);
+    if (!folioShown) { folioShown = folioBase(); folioBaseLast = folioShown; }
+    var shown = list.slice(0, folioShown);
+    host.innerHTML = shown.map(function (p) { return folioCard(p, false); }).join('');
     var more = document.getElementById('folioMore');
-    if (more) {
-      var rest = list.length - shown.length;
-      more.hidden = rest <= 0;
-      more.textContent = I.t('svc_view_all') + ' (' + list.length + ')';
-    }
+    if (more) more.hidden = list.length <= shown.length;
+  }
+
+  function shotModal(src, name, desc) {
+    var w = U.openModal(
+      '<div class="folio-shot">' +
+      '<img src="' + esc(src) + '" alt="' + esc(name) + '">' +
+      '<div class="folio-shot-meta"><b>' + esc(name) + '</b><p>' + esc(desc) + '</p></div>' +
+      '</div>', false);
+    var card = w.querySelector('.cw-modal-card');
+    card.style.gridTemplateColumns = '1fr';
+    card.style.maxWidth = '1040px';
   }
 
   function previewModal(src, name) {
@@ -514,9 +522,16 @@
     document.addEventListener('click', function (e) {
       var pv = e.target.closest('[data-preview]');
       if (pv) { previewModal(pv.getAttribute('data-preview'), pv.getAttribute('data-name')); return; }
-      var chip = e.target.closest('[data-group]');
-      if (chip) { folioGroup = chip.getAttribute('data-group'); folioLimit = 9; renderFolioFilter(); renderFolio(); return; }
-      if (e.target.closest('#folioMore')) { folioLimit = 99; renderFolio(); }
+      var shot = e.target.closest('[data-shot]');
+      if (shot) { shotModal(shot.getAttribute('data-shot'), shot.getAttribute('data-name'), shot.getAttribute('data-desc')); return; }
+      var chip = e.target.closest('[data-cat]');
+      if (chip) {
+        folioCatId = chip.getAttribute('data-cat');
+        folioShown = folioBase(); folioBaseLast = folioShown;
+        renderFolioFilter(); renderFolio();
+        return;
+      }
+      if (e.target.closest('#folioMore')) { folioShown += folioStep; renderFolio(); }
     });
 
     var form = document.getElementById('inquiry');
@@ -555,17 +570,22 @@
     });
   }
 
-  function renderAll() { renderCategories(); renderFeatured(); renderLive(); renderFolioFilter(); renderFolio(); }
+  function renderAll() { renderCategories(); renderFeatured(); renderFeatProjects(); renderFolioFilter(); renderFolio(); }
 
   var marqueeTimer;
   window.addEventListener('resize', function () {
     clearTimeout(marqueeTimer);
-    marqueeTimer = setTimeout(renderMarquee, 180);
+    marqueeTimer = setTimeout(function () {
+      renderMarquee();
+      var b = folioBase();
+      if (b !== folioBaseLast) { folioBaseLast = b; folioShown = b; renderFolio(); }
+    }, 180);
   });
 
   document.addEventListener('DOMContentLoaded', function () {
     U.init({ active: 'home' });
     renderMarquee();
+    folioShown = folioBase(); folioBaseLast = folioShown;
     renderAll();
     bind();
     I.onChange(renderAll);
