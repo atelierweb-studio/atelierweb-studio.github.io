@@ -969,12 +969,13 @@ details.faq:first-child{border-top:1px solid var(--charcoal-12)}
   .hero-art{max-width:520px}
   .hero-media{max-width:620px}
   .sub-head{grid-template-columns:1fr;gap:12px;margin-bottom:24px}
-  .sub-head p{padding-bottom:0}
+  .sub-head p{padding-bottom:0;text-align:left;margin-left:0}
+  #about .intro-body p{text-align:left;margin-left:0}
   .svc-products{margin-top:44px;padding-top:34px}
   .preview-band{grid-template-columns:1fr;gap:34px;margin-top:48px;padding-top:40px}
   .preview-art{max-width:520px;padding-bottom:54px}
   .sec-head{grid-template-columns:1fr;gap:18px;margin-bottom:34px}
-  .sec-head .lede{padding-bottom:0}
+  .sec-head .lede{padding-bottom:0;text-align:left;margin-left:0}
   .intro-grid,.contact-grid,.faq-grid,.form-layout,.cart-layout{grid-template-columns:1fr;gap:34px}
   .summary,.side-steps{position:static}
   .cat-grid{grid-template-columns:repeat(2,1fr)}
