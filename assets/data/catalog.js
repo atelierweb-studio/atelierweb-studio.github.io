@@ -361,7 +361,7 @@
     },
     {
       id: 'w-lumiere', cat: 'web', order: 4, live: true, tone: 'clinic',
-      file: 'sample_clinic_lumiere.html',
+      img: 'assets/img/portfolio/web-lumiere.jpg', file: 'sample_clinic_lumiere.html',
       name: 'Lumière Dental & Care',
       sub: L('Healthcare · Dental & Wellness', '헬스케어 · 치과 & 웰니스', 'ヘルスケア・歯科＆ウェルネス', '医疗 · 齿科与健康', 'Salud · Dental', 'Y tế · Nha khoa'),
       desc: L('A calm clinic site for international patients: treatments, doctors and appointment requests.',
@@ -373,7 +373,7 @@
     },
     {
       id: 'w-apex', cat: 'web', order: 5, live: true, tone: 'b2b',
-      file: 'sample_b2b_apex.html',
+      img: 'assets/img/portfolio/web-apex.jpg', file: 'sample_b2b_apex.html',
       name: 'Apex Advisory',
       sub: L('B2B · Consulting', 'B2B · 컨설팅', 'B2B・コンサルティング', 'B2B · 咨询', 'B2B · Consultoría', 'B2B · Tư vấn'),
       desc: L('A sharp agency presence with services, illustrative metrics and a consultation form.',
