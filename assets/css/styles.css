@@ -1008,6 +1008,11 @@ details.faq:first-child{border-top:1px solid var(--charcoal-12)}
 
 @media (max-width:620px){
   :root{--pad:20px;--header-h:64px}
+  .folio-filter{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .folio-filter::-webkit-scrollbar{display:none}
+  .folio-filter .chip{flex:0 0 auto}
+  .folio-explore{margin-top:52px;padding-top:36px}
+  .folio-more-wrap .btn{width:100%}
   body{font-size:15px}
   .sec{padding:66px 0}
   .page-hero{padding-top:48px}
