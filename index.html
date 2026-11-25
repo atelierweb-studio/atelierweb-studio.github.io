@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css">
-<link rel="stylesheet" href="assets/css/styles.css?v=20261125c">
+<link rel="stylesheet" href="assets/css/styles.css?v=20261125d">
 </head>
 <body data-title-key="meta_title">
 
@@ -289,13 +289,15 @@
 
   <!-- ⑨ FAQ ----------------------------------------------------------------->
   <section class="sec" id="faq">
-    <div class="wrap faq-grid">
-      <div>
-        <div class="eyebrow"><span data-i18n="faq_kicker">FAQ</span></div>
-        <h2 data-i18n="faq_title">Questions before you order.</h2>
-        <p class="lede mt-16" data-i18n="faq_lede">Short answers.</p>
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow"><span data-i18n="faq_kicker">FAQ</span></div>
+          <h2 data-i18n="faq_title">Questions before you order.</h2>
+        </div>
+        <p class="lede" data-i18n="faq_lede">Short answers.</p>
       </div>
-      <div>
+      <div class="faq-list">
         <details class="faq" open><summary data-i18n="q1">Can I buy without asking first?</summary><div class="faq-a" data-i18n="a1"></div></details>
         <details class="faq"><summary data-i18n="q2">How is the price calculated?</summary><div class="faq-a" data-i18n="a2"></div></details>
         <details class="faq"><summary data-i18n="q3">I have no copy or plan. What then?</summary><div class="faq-a" data-i18n="a3"></div></details>
@@ -310,11 +312,16 @@
 
   <!-- ⑩ CONTACT ------------------------------------------------------------->
   <section class="sec" id="contact">
-    <div class="wrap contact-grid">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow"><span data-i18n="contact_kicker">Contact</span></div>
+          <h2 data-i18n="contact_title">Tell us what you are making.</h2>
+        </div>
+        <p class="lede" data-i18n="contact_lede">Send a short brief and we reply.</p>
+      </div>
+      <div class="contact-grid">
       <div>
-        <div class="eyebrow"><span data-i18n="contact_kicker">Contact</span></div>
-        <h2 data-i18n="contact_title">Tell us what you are making.</h2>
-        <p class="lede mt-16" data-i18n="contact_lede">Send a short brief and we reply.</p>
         <div class="info-card">
           <div class="lbl" data-i18n="contact_email_label">Email</div>
           <div class="val"><a href="mailto:atelierweb.seoul@gmail.com">atelierweb.seoul@gmail.com</a></div>
@@ -367,6 +374,7 @@
           </div>
         </div>
       </form>
+      </div>
     </div>
   </section>
 </main>
