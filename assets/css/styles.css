@@ -314,6 +314,8 @@ html[lang="vi"] .hero h1{font-size:clamp(32px,3.6vw,50px);line-height:1.2}
 /* live language-switch preview, moved into the design-service section */
 .preview-band{display:grid;grid-template-columns:.88fr 1.12fr;gap:54px;align-items:center;margin-top:64px;padding-top:52px;border-top:1px solid var(--charcoal-12)}
 .preview-copy .eyebrow{margin-bottom:0}
+/* the live-preview label sits in charcoal with white type, matching the preview window beside it (2026-11-25 rev.3) */
+.preview-copy .eyebrow{background:var(--charcoal);color:#ffffff;font-size:10px;font-weight:400}
 .preview-copy h3{font-family:var(--font-display);font-size:clamp(22px,2.5vw,31px);font-weight:600;letter-spacing:-.035em;line-height:1.2;margin-top:14px}
 .preview-copy p{font-size:14.5px;line-height:1.75;color:var(--charcoal-64);margin-top:14px;max-width:46ch}
 .preview-note{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--charcoal-48);margin-top:22px}
