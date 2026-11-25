@@ -45,10 +45,17 @@
       '      <a class="icon-btn" href="mypage.html" data-i18n-aria="nav_mypage" aria-label="' + t('nav_mypage') + '" data-i18n-title="nav_mypage" title="' + t('nav_mypage') + '">' +
       '        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c0-3.8 3.4-6.2 7.5-6.2s7.5 2.4 7.5 6.2"/></svg>' +
       '      </a>' +
-      '      <a class="icon-btn" href="order.html" data-i18n-aria="nav_cart" aria-label="' + t('nav_cart') + '" data-i18n-title="nav_cart" title="' + t('nav_cart') + '">' +
+      '      <a class="icon-btn cart-btn" href="order.html" data-i18n-aria="nav_cart" aria-label="' + t('nav_cart') + '" data-i18n-title="nav_cart" title="' + t('nav_cart') + '">' +
       '        <svg viewBox="0 0 24 24"><path d="M5 7h14l-1.3 10.2a2 2 0 0 1-2 1.8H8.3a2 2 0 0 1-2-1.8L5 7z"/><path d="M9 7V5.6A3 3 0 0 1 12 3a3 3 0 0 1 3 2.6V7"/></svg>' +
       '        <span class="cart-count" data-cart-count data-empty="true">0</span>' +
       '      </a>' +
+      '      <div class="cw-lang" data-lang-wrap>' +
+      '        <button type="button" class="lang-pill" data-lang-menu-btn aria-expanded="false" aria-haspopup="true" aria-controls="cw-lang-menu" data-i18n-aria="lang_label" aria-label="' + t('lang_label') + '">' +
+      '          <span class="lang-pill-code" data-lang-current>' + (I.LABEL[I.lang] || 'EN') + '</span>' +
+      '          <span class="lang-pill-caret" aria-hidden="true">▾</span>' +
+      '        </button>' +
+      '        <div class="lang-menu" id="cw-lang-menu" data-lang-menu role="group" data-i18n-aria="lang_label" aria-label="' + t('lang_label') + '">' + langButtons() + '</div>' +
+      '      </div>' +
       '      <button type="button" class="icon-btn menu-toggle" data-menu-toggle data-i18n-aria="menu_open" aria-label="' + t('menu_open') + '" aria-expanded="false">' +
       '        <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>' +
       '      </button>' +
@@ -64,6 +71,10 @@
       '  <div class="drawer-foot">' +
       '    <div class="lang-switch" style="align-self:flex-start">' + langButtons() + '</div>' +
       '    <a class="btn" href="services.html" data-i18n="cta_products">' + t('cta_products') + '</a>' +
+      '    <a class="btn btn-ghost drawer-cart" href="order.html">' +
+      '      <span data-i18n="nav_cart">' + t('nav_cart') + '</span>' +
+      '      <span class="cart-count" data-cart-count data-empty="true">0</span>' +
+      '    </a>' +
       '    <a class="btn btn-ghost" href="mypage.html" data-i18n="nav_mypage">' + t('nav_mypage') + '</a>' +
       '  </div>' +
       '</div>';
@@ -253,6 +264,48 @@
     var footSlot = document.querySelector('[data-cw-footer]');
     if (footSlot) footSlot.innerHTML = footer();
 
+    /* mobile language pill + dropdown (<=980px) */
+    var langBtn = document.querySelector('[data-lang-menu-btn]');
+    var langMenu = document.querySelector('[data-lang-menu]');
+
+    function langMenuState(open) {
+      if (!langBtn || !langMenu) return;
+      langMenu.classList.toggle('is-open', !!open);
+      langBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    function syncLangUI() {
+      var code = document.querySelector('[data-lang-current]');
+      if (code) code.textContent = I.LABEL[I.lang] || 'EN';
+    }
+
+    if (langBtn && langMenu) {
+      langBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        langMenuState(!langMenu.classList.contains('is-open'));
+      });
+      langMenu.addEventListener('click', function (e) {
+        if (e.target.closest && e.target.closest('[data-lang-set]')) {
+          langMenuState(false);
+          langBtn.focus();
+        }
+      });
+      document.addEventListener('click', function (e) {
+        if (!langMenu.classList.contains('is-open')) return;
+        if (e.target.closest && e.target.closest('[data-lang-wrap]')) return;
+        langMenuState(false);
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && langMenu.classList.contains('is-open')) {
+          langMenuState(false);
+          langBtn.focus();
+        }
+      });
+      syncLangUI();
+      /* keep the pill label in step with the drawer lang-switch and setLang() */
+      I.onChange(function () { syncLangUI(); langMenuState(false); });
+    }
+
     var toggle = document.querySelector('[data-menu-toggle]');
     var drawer = document.querySelector('[data-drawer]');
     if (toggle && drawer) {
@@ -260,6 +313,7 @@
         var open = drawer.classList.toggle('is-open');
         toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
         document.body.style.overflow = open ? 'hidden' : '';
+        langMenuState(false);
       });
       drawer.addEventListener('click', function (e) {
         if (e.target.closest('a')) { drawer.classList.remove('is-open'); document.body.style.overflow = ''; }
