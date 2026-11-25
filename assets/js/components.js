@@ -109,7 +109,8 @@
       '        <div><dt data-i18n="biz_ceo_l">' + t('biz_ceo_l') + '</dt><dd data-i18n="biz_ceo_v">' + t('biz_ceo_v') + '</dd></div>' +
       '        <div><dt data-i18n="biz_reg_l">' + t('biz_reg_l') + '</dt><dd>321-10-03198</dd></div>' +
       '        <div><dt data-i18n="biz_privacy_l">' + t('biz_privacy_l') + '</dt><dd data-i18n="biz_ceo_v">' + t('biz_ceo_v') + '</dd></div>' +
-      '        <div><dt data-i18n="biz_addr_l">' + t('biz_addr_l') + '</dt><dd data-i18n="biz_addr_v">경상북도 구미시 고아읍 평성로9길 7-12, 103동 2104호(원호자이더포레)</dd></div>' +
+      '        <div><dt data-i18n="biz_addr_l">' + t('biz_addr_l') + '</dt><dd data-i18n="biz_addr_v">경상북도 구미시 고아읍 평성로9길 7-12(원호자이더포레)</dd></div>' +
+      '        <div><dt data-i18n="biz_tel_l">' + t('biz_tel_l') + '</dt><dd><a href="tel:010-4369-5455">010-4369-5455</a></dd></div>' +
       '        <div><dt data-i18n="biz_email_l">' + t('biz_email_l') + '</dt><dd><a href="mailto:atelierweb.seoul@gmail.com">atelierweb.seoul@gmail.com</a></dd></div>' +
       '        <div><dt data-i18n="biz_mailorder_l">' + t('biz_mailorder_l') + '</dt><dd data-i18n="biz_mailorder_v">' + t('biz_mailorder_v') + '</dd></div>' +
       '      </dl>' +
