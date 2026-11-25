@@ -193,7 +193,6 @@
     var buy = p.price.mode === 'fixed';
     return '' +
       '<a class="prod-card" href="product.html?id=' + p.id + '">' +
-      (buy ? '<span class="prod-flag">' + t('badge_buy') + '</span>' : '') +
       '  <div class="prod-thumb">' +
       '    <div class="th-fill ' + (p.tone || 'th-a') + '"></div>' +
       '    <span class="th-label">' + cat.code + '</span>' +

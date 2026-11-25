@@ -211,6 +211,8 @@ ul,ol,dl,dd{margin:0;padding:0;list-style:none}
 /* 02 subtext: the two sentences must each hold on one line, so this section's
    subtext runs to the full column edge instead of the 52ch measure (2026-11-25) */
 #service .sec-head .lede{max-width:none}
+/* 04 subtext: same treatment, so the sentence break lands as two lines (2026-11-25 rev.3) */
+#portfolio .sec-head .lede{max-width:none}
 
 .page-hero{padding:74px 0 62px;border-bottom:1px solid var(--charcoal-12);position:relative;overflow:hidden}
 .page-hero h1{font-family:var(--font-display);font-size:clamp(38px,6vw,74px);font-weight:600;letter-spacing:-.045em;line-height:.98}
@@ -268,7 +270,11 @@ html[lang="vi"] .hero h1{font-size:clamp(32px,3.6vw,50px);line-height:1.2}
 .hero-media img{width:100%;height:auto;max-width:none;mix-blend-mode:multiply}
 /* the artwork is a white-background render, so its frame edge is invisible against the ivory;
    it takes ~120% of its former size by growing into the page's side padding (2026-11-25) */
-@media (min-width:981px){.hero-media{width:calc(100% + 24px)}}
+@media (min-width:981px){
+  .hero-media{width:calc(100% + 24px)}
+  /* 01 right-hand text takes a little more of the row so both briefed lines hold (2026-11-25 rev.3) */
+  #about .intro-grid{grid-template-columns:.82fr 1.18fr;gap:52px}
+}
 
 /* hero live preview card */
 .hero-art{position:relative}
@@ -331,6 +337,9 @@ html[lang="vi"] .hero h1{font-size:clamp(32px,3.6vw,50px);line-height:1.2}
 .intro-quote em{font-style:normal;color:var(--charcoal-48)}
 .intro-body{display:grid;grid-template-columns:1fr;gap:28px}
 .intro-body p{font-size:14.5px;line-height:1.75;color:var(--charcoal-64)}
+/* 01 right-hand text: flush right on the margin line, two lines as briefed (2026-11-25 rev.3).
+   The measure is released so each given line can hold without an extra wrap. */
+#about .intro-body p{max-width:none;text-align:right}
 .intro-body p b{color:var(--charcoal);font-weight:600}
 .intro-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:46px;border-top:1px solid var(--charcoal-12)}
 .intro-metrics div{padding:20px 16px 0 16px;border-right:1px solid var(--charcoal-12)}
@@ -354,15 +363,17 @@ html[lang="vi"] .hero h1{font-size:clamp(32px,3.6vw,50px);line-height:1.2}
 .cat-card h3{font-family:var(--font-display);font-size:21px;font-weight:600;letter-spacing:-.03em}
 .cat-card p{font-size:12.5px;line-height:1.6;color:var(--charcoal-64);flex:1}
 .cat-card .cat-tags{display:flex;flex-wrap:wrap;gap:5px}
-.cat-card .cat-tags i{font-style:normal;font-family:var(--font-mono);font-size:8.5px;letter-spacing:.06em;color:var(--charcoal-64);border:1px solid var(--charcoal-12);border-radius:2px;padding:3px 6px}
+.cat-card .cat-tags i{font-style:normal;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.06em;color:var(--charcoal-64);border:1px solid var(--charcoal-12);border-radius:2px;padding:3px 6px}
 .cat-card .cat-go{position:absolute;top:26px;right:24px;width:24px;height:24px;border:1px solid var(--charcoal-12);border-radius:50%;display:grid;place-items:center;font-size:11px;opacity:0;transform:translateX(-4px);transition:.2s var(--ease)}
 .cat-card:hover .cat-go{opacity:1;transform:translateX(0);background:var(--lime);border-color:var(--lime)}
 
 /* 02 DESIGN SERVICES — featured products live inside the same section */
 .svc-products{margin-top:56px;padding-top:42px;border-top:1px solid var(--charcoal-12)}
 .sub-head{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:end;margin-bottom:28px}
+.sub-head.is-single{grid-template-columns:1fr}
 .sub-head h3{font-family:var(--font-display);font-size:clamp(24px,2.8vw,36px);font-weight:600;letter-spacing:-.03em;line-height:1.08}
-.sub-head p{font-size:14.5px;line-height:1.7;color:var(--charcoal-64);max-width:46ch;padding-bottom:4px}
+/* subtext sits on the right margin line, same as the section heads */
+.sub-head p{font-size:14.5px;line-height:1.7;color:var(--charcoal-64);max-width:46ch;padding-bottom:4px;margin-left:auto;text-align:right}
 .svc-products .prod-name{font-size:19px;letter-spacing:-.03em}
 .svc-products .prod-price b{font-size:18px;letter-spacing:-.02em}
 
@@ -419,7 +430,6 @@ html[lang="vi"] .hero h1{font-size:clamp(32px,3.6vw,50px);line-height:1.2}
   display:inline-flex;align-items:center;gap:6px;
 }
 .prod-card:hover .prod-more{background:var(--lime);border-color:var(--lime)}
-.prod-flag{position:absolute;top:0;right:0;background:var(--lime);color:var(--charcoal);font-family:var(--font-mono);font-size:8px;font-weight:700;letter-spacing:.1em;padding:5px 8px;z-index:2}
 
 /* ==========================================================================
    HOME — WHY
@@ -470,6 +480,8 @@ html[lang="vi"] .hero h1{font-size:clamp(32px,3.6vw,50px);line-height:1.2}
 .folio-featured{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .folio-explore{margin-top:66px;padding-top:44px;border-top:1px solid var(--charcoal-12)}
 .folio-more-wrap{margin-top:28px;text-align:center}
+/* View More hover: lime field with the site's darkest ink on top (2026-11-25) */
+.folio-more-wrap .btn:hover{background:var(--lime);border-color:var(--charcoal);color:var(--charcoal)}
 .folio-more-wrap button[hidden]{display:none}
 .live-tag{background:var(--charcoal);color:var(--lime);font-family:var(--font-mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;display:inline-flex;align-items:center;gap:5px;align-self:flex-start;border-radius:2px 0 2px 0}
 .folio-shot img{display:block;width:100%;height:auto}

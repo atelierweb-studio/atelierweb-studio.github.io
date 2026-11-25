@@ -11,7 +11,7 @@
   /* ---------------------------------------------------------------- categories */
   var categories = [
     {
-      id: 'detail', code: 'DTL', order: 1, tone: 'th-b',
+      id: 'detail', code: 'PDP', order: 1, tone: 'th-b',
       name: L('Detail Page Design', '상세페이지 디자인', '詳細ページデザイン', '详情页设计', 'Diseño de página de producto', 'Thiết kế trang chi tiết'),
       short: L('Design that turns a product into a purchase', '제품의 매력을 구매로 연결하는 디자인', '商品の魅力を購入につなげるデザイン', '把产品魅力转化为购买的设计', 'Diseño que convierte el atractivo en compra', 'Thiết kế biến sản phẩm thành đơn hàng'),
       desc: L('Conversion-focused detail pages for smart stores and brand shops — layout, typography and copy rhythm planned around the product photo.',
@@ -30,7 +30,7 @@
     {
       id: 'website', code: 'WEB', order: 2, tone: 'th-a',
       name: L('Website Production', '웹사이트 제작', 'ウェブサイト制作', '网站制作', 'Producción web', 'Thiết kế website'),
-      short: L('A website built around your brand', '브랜드를 위한 맞춤형 웹사이트', 'ブランドのためのオーダーメイドサイト', '为品牌量身打造的网站', 'Un sitio web hecho para tu marca', 'Website riêng cho thương hiệu của bạn'),
+      short: L('Custom websites for your brand, supporting six languages.', '6개 언어를 지원하는 브랜드 맞춤형 웹사이트', '6言語に対応するブランド専用のウェブサイト', '支持六种语言的品牌定制网站', 'Sitios web a medida para tu marca, en seis idiomas.', 'Website riêng cho thương hiệu, hỗ trợ sáu ngôn ngữ.'),
       desc: L('Hand-written HTML, CSS and plain JavaScript — no template, no plugin. Every build ships with the six-language switch and a mobile-first layout.',
         '직접 작성한 HTML·CSS·순수 JavaScript로 제작합니다. 템플릿도 플러그인도 없습니다. 모든 결과물에 6개국어 전환과 모바일 우선 레이아웃이 포함됩니다.',
         '手書きのHTML・CSS・素のJavaScriptで制作。テンプレートもプラグインも使いません。全案件に6言語切替とモバイル優先レイアウトが付きます。',
