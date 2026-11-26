@@ -14,6 +14,7 @@
 (function () {
   var I = window.CWI18N;
   var out = document.getElementById('out');
+  I.init();   /* starts the rate load so money() uses the cache/live rate */
   function line(ok, text) {
     var li = document.createElement('li');
     li.className = ok ? 'ok' : 'ng';
