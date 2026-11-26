@@ -1025,6 +1025,8 @@ details.faq:first-child{border-top:1px solid var(--charcoal-12)}
   .steps{grid-template-columns:repeat(2,1fr);border-top:0}
   .step{border-right:0;border-top:1px solid var(--charcoal-12);padding:22px 18px 22px 0}
   .services-layout{grid-template-columns:1fr;gap:22px;padding-top:30px}
+  /* the chip row scrolls inside its own box instead of widening the grid column */
+  .services-layout > *{min-width:0}
   .cat-side{display:none;position:static}
   .mobile-cats{display:block;margin-bottom:6px;overflow-x:auto;scrollbar-width:none}
   .mobile-cats::-webkit-scrollbar{display:none}
