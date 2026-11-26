@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<title>QA — FX / detect</title>
+<style>body{font-family:monospace;font-size:13px;padding:18px;line-height:1.6}li{white-space:pre-wrap}.ok{color:#0a7d2c}.ng{color:#b00020}</style>
+</head>
+<body>
+<h1>QA — detect() &amp; FX money()</h1>
+<ul id="out"></ul>
+<script src="assets/js/i18n.js?v=20261126g"></script>
+<script>
+(function () {
+  var I = window.CWI18N;
+  var out = document.getElementById('out');
+  function line(ok, text) {
+    var li = document.createElement('li');
+    li.className = ok ? 'ok' : 'ng';
+    li.textContent = (ok ? 'PASS ' : 'FAIL ') + text;
+    out.appendChild(li);
+  }
+  function setNav(langs) {
+    var list = Array.prototype.slice.call(langs);
+    Object.defineProperty(navigator, 'language', { get: function () { return list[0]; }, configurable: true });
+    Object.defineProperty(navigator, 'languages', { get: function () { return list; }, configurable: true });
+  }
+  function freshDetect(langs) {
+    try { localStorage.removeItem('aw_lang'); } catch (e) {}
+    setNav(langs);
+    return I.detect();
+  }
+
+  /* 1) ?lang= first, then stored value, then device language */
+  var q = new URLSearchParams(location.search).get('lang');
+  if (q) {
+    try { localStorage.setItem('aw_lang', 'ja'); } catch (e) {}
+    setNav(['fr-FR']);
+    var got = I.detect();
+    line(got === q, '?lang=' + q + ' wins over aw_lang=ja and fr-FR → ' + got);
+    try { localStorage.removeItem('aw_lang'); } catch (e) {}
+  }
+
+  /* 2) stored value wins over device */
+  try { localStorage.setItem('aw_lang', 'es'); } catch (e) {}
+  setNav(['ja-JP', 'en-US']);
+  line(I.detect() === 'es', 'aw_lang=es wins over ja-JP → ' + I.detect());
+  try { localStorage.removeItem('aw_lang'); } catch (e) {}
+
+  /* 3) device language mapping */
+  var cases = [
+    [['ja-JP'], 'ja'],
+    [['zh-CN'], 'zh'],
+    [['zh-Hant-TW'], 'zh'],
+    [['es-ES'], 'es'],
+    [['vi-VN'], 'vi'],
+    [['ko-KR'], 'ko'],
+    [['en-US'], 'en'],
+    [['fr-FR'], 'en'],
+    [['de-DE', 'ja-JP'], 'ja'],
+    [['fr-CA', 'es-419'], 'es']
+  ];
+  cases.forEach(function (c) {
+    var got = freshDetect(c[0]);
+    line(got === c[1], 'device ' + c[0].join(',') + ' → ' + got + ' (expected ' + c[1] + ')');
+  });
+
+  /* 4) money() per language, live rates */
+  var sample = 110000;
+  ['en', 'ko', 'ja', 'zh', 'es', 'vi'].forEach(function (l) {
+    I.setLang(l);
+    line(true, l + ': money(110000)=' + I.money(sample) + ' | money(55000)=' + I.money(55000) + ' | money(0)=' + I.money(0) +
+      ' | fromMoney(110000)=' + I.fromMoney(sample) + ' | fromMoney(390,USD)=' + I.fromMoney(390, 'USD'));
+  });
+
+  /* 5) rate snapshot and cache */
+  var snap = I.fx.snapshot();
+  line(true, 'fx source=' + snap.source + ' updated=' + snap.updated + ' rates=' + JSON.stringify(snap.rates));
+  var cached = null;
+  try { cached = JSON.parse(localStorage.getItem('aw_fx_v1') || 'null'); } catch (e) {}
+  line(!!cached, 'cache aw_fx_v1=' + JSON.stringify(cached));
+  line(true, 'auction: USD 110000 → ' + I.fx.toLocal(110000, 'en') + ' / JPY ' + I.fx.toLocal(110000, 'ja') + ' / CNY ' + I.fx.toLocal(110000, 'zh') + ' / EUR ' + I.fx.toLocal(110000, 'es') + ' / VND ' + I.fx.toLocal(110000, 'vi'));
+})();
+</script>
+</body>
+</html>

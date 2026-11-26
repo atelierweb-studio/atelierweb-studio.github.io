@@ -311,7 +311,7 @@
     ['order_title', 'Cart &amp; <em>test order.</em>', '장바구니 &amp; <em>테스트 주문.</em>', 'カート＆<em>テスト注文。</em>', '购物车与<em>测试下单</em>', 'Carrito y <em>pedido de prueba</em>', 'Giỏ hàng và <em>đơn thử</em>'],
     ['order_empty_t', 'Your cart is empty.', '장바구니가 비어 있습니다.', 'カートは空です。', '购物车是空的。', 'Tu carrito está vacío.', 'Giỏ hàng trống.'],
     ['order_empty_p', 'Pick a design item and add it here — the detail page calculator sets the price.', '디자인 상품을 골라 담아 주세요. 상세 페이지 계산기에서 금액이 정해집니다.', 'デザイン商品を選んで追加してください。詳細ページの計算機で金額が決まります。', '挑选设计商品加入购物车，价格由详情页计算器确定。', 'Elige un artículo y añádelo: el calculador de la página fija el precio.', 'Chọn sản phẩm và thêm vào: máy tính ở trang chi tiết đặt giá.'],
-    ['order_summary', 'Order summary', '주문 요약', '注文概要', 'Resumen del pedido', 'Tóm tắt đơn', 'Tóm tắt đơn'],
+    ['order_summary', 'Order summary', '주문 요약', '注文概要', '订单摘要', 'Resumen del pedido', 'Tóm tắt đơn'],
     ['sum_items', 'Items', '상품', '商品', '商品', 'Artículos', 'Sản phẩm'],
     ['sum_supply', 'Supply price', '공급가', '供給価格', '供应价', 'Precio base', 'Giá gốc'],
     ['sum_vat', 'VAT (10%)', '부가세 (10%)', '消費税（10%）', '增值税（10%）', 'IVA (10%)', 'VAT (10%)'],
