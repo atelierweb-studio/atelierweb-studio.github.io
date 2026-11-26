@@ -532,6 +532,9 @@ html[lang="vi"] .hero h1{font-size:clamp(32px,3.6vw,50px);line-height:1.2}
 .plan.is-feature .p-name{color:var(--lime)}
 .plan h3{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.03em;margin-top:10px}
 .plan .p-price{font-family:var(--font-display);font-size:31px;font-weight:600;letter-spacing:-.04em;margin-top:16px}
+/* live FX (2026-11-26 rev k): local amount stays on the big line, the won reference sits under it */
+.plan .p-price .fx-krw{display:block;margin-top:4px;font-family:var(--font-mono);font-size:11.5px;font-weight:500;letter-spacing:.01em;line-height:1.2;color:var(--charcoal-48)}
+.plan.is-feature .p-price .fx-krw{color:rgba(249,248,246,.58)}
 .plan .p-note{font-size:12px;line-height:1.6;color:var(--charcoal-64);margin-top:8px;min-height:38px}
 .plan.is-feature .p-note{color:rgba(249,248,246,.66)}
 .plan ul{margin:20px 0 24px;display:flex;flex-direction:column;gap:9px;flex:1}
@@ -695,7 +698,6 @@ details.faq:first-child{border-top:1px solid var(--charcoal-12)}
 .svc-head h2{font-family:var(--font-display);font-size:27px;font-weight:600;letter-spacing:-.035em;display:flex;align-items:baseline;gap:10px}
 .svc-head h2 span{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;color:var(--charcoal-48);text-transform:uppercase;font-weight:500}
 .svc-head p{font-size:12.5px;color:var(--charcoal-64);max-width:52ch}
-.svc-sort{display:flex;gap:6px}
 .mobile-cats{display:none}
 
 /* ==========================================================================

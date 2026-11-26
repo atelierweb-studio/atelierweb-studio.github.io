@@ -147,7 +147,8 @@
         {
           id: 'plan', required: true, def: 'none',
           label: L('Content planning', '기획 여부', '企画の有無', '是否包含策划', 'Planificación', 'Kế hoạch nội dung'),
-          hint: L('+50,000 per 10,000px', '10,000px당 +50,000원', '10,000pxごとに+50,000ウォン', '每 10,000px +50,000韩元', '+50.000 por 10.000px', '+50.000 mỗi 10.000px'),
+          hint: L('+{m} per 10,000px', '10,000px당 +{m}', '10,000pxごとに+{m}', '每 10,000px +{m}', '+{m} por 10.000px', '+{m} mỗi 10.000px'),
+          hintAmount: 50000,
           values: [
             { id: 'none', price: 0, label: L('Not included', '미포함', 'なし', '不包含', 'No incluida', 'Không gồm'), note: L('You send the copy', '원고·기획안 고객 제공', '原稿はお客様', '客户提供文案', 'Tú envías el texto', 'Bạn gửi nội dung') },
             { id: 'included', per10k: 50000, label: L('Included', '포함', 'あり', '包含', 'Incluida', 'Có gồm'), note: L('Structure + copywriting', '구성·카피라이팅 포함', '構成・コピー込み', '含结构与文案', 'Estructura y textos', 'Cấu trúc và nội dung') }
@@ -156,7 +157,8 @@
         {
           id: 'source', required: true, def: 'none',
           label: L('Source file', '원본 파일', '元データ', '源文件', 'Archivo fuente', 'Tệp nguồn'),
-          hint: L('+50,000 per product', '상품 1개당 +50,000원', '商品1点につき+50,000ウォン', '每件 +50,000韩元', '+50.000 por producto', '+50.000 mỗi sản phẩm'),
+          hint: L('+{m} per product', '상품 1개당 +{m}', '商品1点につき+{m}', '每件 +{m}', '+{m} por producto', '+{m} mỗi sản phẩm'),
+          hintAmount: 50000,
           values: [
             { id: 'none', price: 0, label: L('Not included', '미포함', 'なし', '不包含', 'No incluido', 'Không gồm'), note: L('Final images only', '최종 이미지로 납품', '最終画像のみ', '仅交付图片', 'Solo imágenes finales', 'Chỉ ảnh cuối') },
             { id: 'included', price: 50000, label: L('Included', '포함', 'あり', '包含', 'Incluido', 'Có gồm'), note: L('Editable layers', '수정 가능한 원본', '編集可能な元データ', '可编辑源文件', 'Capas editables', 'Lớp chỉnh sửa được') }
