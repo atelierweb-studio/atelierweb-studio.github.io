@@ -1,7 +1,10 @@
 /* ==========================================================================
    Atelier Web — i18n.js
    Six-language dictionary (EN · KO · JA · ZH · ES · VI) + instant switch engine.
-   Resolution order: ?lang= → localStorage.aw_lang → browser language (ko, else en)
+   Resolution order: ?lang= → localStorage.aw_lang → device language
+   (ko · ja · zh · es · vi, anything else en).
+   Prices stay in KRW; other languages add the local currency from a live rate:
+   $82 (₩110,000).
    ========================================================================== */
 (function (global) {
   'use strict';
@@ -286,7 +289,7 @@
     ['pd_tab_faq', 'FAQ', 'FAQ', 'FAQ', '常见问题', 'FAQ', 'FAQ'],
     ['pd_includes', 'What is included', '기본 제공 사항', '基本提供内容', '基本包含内容', 'Qué incluye', 'Bao gồm'],
     ['pd_revision', 'Basic revision scope', '기본 수정 범위', '基本修正の範囲', '基础修改范围', 'Alcance de la revisión', 'Phạm vi sửa cơ bản'],
-    ['pd_price_note', 'All amounts are calculated as supply price + 10% VAT. The total shown is the amount you would pay.', '모든 금액은 공급가 + 부가세 10%로 계산됩니다. 표시된 총액이 결제 금액입니다.', 'すべて供給価格＋10％の税で計算されます。表示の合計が支払額です。', '所有金额按供应价 + 10% 增值税计算，显示总额即应付金额。', 'Todo se calcula como precio base + 10% IVA. El total mostrado es lo que pagarías.', 'Mọi số tiền là giá gốc + VAT 10%. Tổng hiển thị là số phải trả.'],
+    ['pd_price_note', 'All amounts are calculated as supply price + 10% VAT. The total shown is the amount you would pay. Local currency amounts are converted at the live exchange rate for reference only; payment is made in KRW.', '모든 금액은 공급가 + 부가세 10%로 계산됩니다. 표시된 총액이 결제 금액입니다.', 'すべて供給価格＋10％の税で計算されます。表示の合計が支払額です。現地通貨の金額はリアルタイムの為替レートによる参考表示で、実際のお支払いはKRW（韓国ウォン）で行われます。', '所有金额按供应价 + 10% 增值税计算，显示总额即应付金额。当地货币金额按实时汇率折算，仅供参考；实际付款以韩元（KRW）结算。', 'Todo se calcula como precio base + 10% IVA. El total mostrado es lo que pagarías. Los importes en moneda local se convierten al tipo de cambio en tiempo real solo como referencia; el pago se realiza en KRW.', 'Mọi số tiền là giá gốc + VAT 10%. Tổng hiển thị là số phải trả. Số tiền theo tiền địa phương được quy đổi theo tỷ giá thời gian thực để tham khảo; thanh toán thực tế bằng KRW.'],
     ['pd_quote_note', 'This item has no fixed price. Send a short brief and we reply with a written quote — the price is never invented on the page.', '이 상품은 확정 단가가 없습니다. 짧은 브리프를 보내주시면 서면 견적을 드립니다. 페이지에 임의 가격을 표시하지 않습니다.', 'この商品に確定単価はありません。短いブリーフをお送りいただければ書面で見積もります。ページに勝手な価格は表示しません。', '该商品没有固定价格。发送简短需求，我们以书面报价回复，不会在页面擅自标价。', 'Este artículo no tiene precio fijo. Envía un resumen y respondemos con presupuesto escrito.', 'Sản phẩm không có giá cố định. Gửi mô tả ngắn, chúng tôi báo giá bằng văn bản.'],
     ['pd_cat_label', 'Category', '카테고리', 'カテゴリ', '分类', 'Categoría', 'Nhóm'],
     ['pd_purchase', 'How to order', '구매 방식', '購入方法', '购买方式', 'Cómo pedir', 'Cách đặt'],
@@ -472,8 +475,24 @@
     var stored = null;
     try { stored = localStorage.getItem('aw_lang'); } catch (e) { stored = null; }
     if (stored && LANGS.indexOf(stored) >= 0) return stored;
-    var nav = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
-    return nav.indexOf('ko') === 0 ? 'ko' : 'en';
+    return deviceLang();
+  }
+
+  /* device language → one of the six, or 'en' for everything else */
+  function deviceLang() {
+    var prefs = [];
+    try {
+      if (navigator.languages && navigator.languages.length) prefs = Array.prototype.slice.call(navigator.languages);
+    } catch (e) { prefs = []; }
+    if (!prefs.length) {
+      var one = navigator.language || navigator.userLanguage || '';
+      if (one) prefs = [one];
+    }
+    for (var i = 0; i < prefs.length; i++) {
+      var code = String(prefs[i] || '').toLowerCase().split('-')[0];
+      if (LANGS.indexOf(code) >= 0) return code;
+    }
+    return 'en';
   }
 
   function t(key, fallback) {
@@ -496,7 +515,116 @@
 
   function num(n) { return Number(n || 0).toLocaleString('en-US'); }
 
-  /* ₩110,000 / 110,000원 */
+  /* ---------------------------------------------------------------- FX
+     Every stored amount is KRW. A visitor reading another language sees the
+     local currency in front of the won amount: $82 (₩110,000).
+     Rates come from a public endpoint (no key, CORS open), cached in
+     localStorage for 12 hours; a built-in table covers the first paint and
+     any fetch failure, so a price is never left blank. */
+  var FX_KEY = 'aw_fx_v1';
+  var FX_TTL = 12 * 60 * 60 * 1000;
+  var FX_URL = 'https://open.er-api.com/v6/latest/KRW';
+  var FX_CUR = { en: 'USD', ja: 'JPY', zh: 'CNY', es: 'EUR', vi: 'VND' };
+  /* fallback: units of currency per 1 KRW */
+  var FX_FALLBACK = { USD: 0.000745, JPY: 0.1185, CNY: 0.004976, EUR: 0.000679, VND: 19.18 };
+  var fxRates = { USD: FX_FALLBACK.USD, JPY: FX_FALLBACK.JPY, CNY: FX_FALLBACK.CNY, EUR: FX_FALLBACK.EUR, VND: FX_FALLBACK.VND };
+  var fxMeta = { source: 'fallback', updated: null, at: 0 };
+  var fxListeners = [];
+  var fxLoading = false;
+  var fxStarted = false;
+
+  function fxSnapshot() {
+    return {
+      base: 'KRW',
+      rates: { USD: fxRates.USD, JPY: fxRates.JPY, CNY: fxRates.CNY, EUR: fxRates.EUR, VND: fxRates.VND },
+      source: fxMeta.source,
+      updated: fxMeta.updated,
+      at: fxMeta.at
+    };
+  }
+
+  function fxApply(obj) {
+    if (!obj) return false;
+    var ok = false;
+    for (var c in FX_FALLBACK) {
+      var v = Number(obj[c]);
+      if (v > 0 && isFinite(v)) { fxRates[c] = v; ok = true; }
+    }
+    return ok;
+  }
+
+  function fxReadCache() {
+    try {
+      var raw = localStorage.getItem(FX_KEY);
+      if (!raw) return null;
+      var o = JSON.parse(raw);
+      return (o && o.rates) ? o : null;
+    } catch (e) { return null; }
+  }
+
+  function fxWriteCache(rates, updated) {
+    try {
+      localStorage.setItem(FX_KEY, JSON.stringify({ base: 'KRW', rates: rates, ts: Date.now(), updated: updated || null }));
+    } catch (e) {}
+  }
+
+  function fxNotify() {
+    var snap = fxSnapshot();
+    fxListeners.forEach(function (fn) { try { fn(snap); } catch (e) {} });
+    try { window.dispatchEvent(new CustomEvent('cw:rateupdate', { detail: snap })); } catch (e) {}
+  }
+
+  function loadFx() {
+    var cache = fxReadCache();
+    if (cache) {
+      var used = fxApply(cache.rates);
+      if (used) fxMeta = { source: 'cache', updated: cache.updated || null, at: cache.ts || 0 };
+      if (cache.ts && (Date.now() - cache.ts) < FX_TTL) return;   /* still fresh: no network call */
+    }
+    if (fxLoading || typeof fetch !== 'function') return;
+    fxLoading = true;
+    fetch(FX_URL, { mode: 'cors', credentials: 'omit', cache: 'default' }
+    ).then(function (r) { return r && r.ok ? r.json() : null; })
+     .then(function (d) {
+       if (!d || d.result === 'error' || !d.rates) return;
+       var next = {};
+       var ok = false;
+       for (var c in FX_FALLBACK) {
+         var v = Number(d.rates[c]);
+         if (v > 0 && isFinite(v)) { next[c] = v; ok = true; } else { next[c] = fxRates[c]; }
+       }
+       if (!ok) return;
+       for (var k in next) fxRates[k] = next[k];
+       fxMeta = { source: 'live', updated: d.time_last_update_utc || null, at: Date.now() };
+       fxWriteCache(next, fxMeta.updated);
+       fxNotify();
+     })
+     .catch(function () { /* keep cache or fallback */ })
+     .then(function () { fxLoading = false; });
+  }
+
+  /* local amount, rounded the way each currency is read */
+  function fxLocal(amountKRW, lang) {
+    var cur = FX_CUR[lang || current];
+    if (!cur) return null;
+    var rate = fxRates[cur];
+    if (!(rate > 0)) return null;
+    var v = Number(amountKRW || 0) * rate;
+    if (cur === 'JPY') v = Math.round(v / 100) * 100;
+    else if (cur === 'VND') v = Math.round(v / 1000) * 1000;
+    else v = Math.round(v);
+    if (v < 0) v = 0;
+    switch (cur) {
+      case 'USD': return '$' + num(v);
+      case 'JPY': return '¥' + num(v);
+      case 'CNY': return 'CN¥' + num(v);
+      case 'EUR': return '€' + num(v);
+      case 'VND': return '₫' + num(v);
+    }
+    return null;
+  }
+
+  /* 110,000원 / $82 (₩110,000) */
   function money(amount, currency) {
     currency = currency || 'KRW';
     if (currency === 'USD') {
@@ -504,7 +632,9 @@
       return current === 'ko' ? usd + '달러' : '$' + usd;
     }
     if (current === 'ko') return num(amount) + '원';
-    return '₩' + num(amount);
+    var local = Number(amount) ? fxLocal(amount) : null;
+    if (!local) return '₩' + num(amount);
+    return local + ' (₩' + num(amount) + ')';
   }
 
   function fromMoney(amount, currency) {
@@ -520,14 +650,15 @@
         default: return 'from $' + usd;
       }
     }
-    var kr = num(amount);
+    if (current === 'ko') return num(amount) + '원부터';
+    var local = fxLocal(amount) || ('₩' + num(amount));
+    var won = ' (₩' + num(amount) + ')';
     switch (current) {
-      case 'ko': return kr + '원부터';
-      case 'ja': return '₩' + kr + '〜';
-      case 'zh': return '₩' + kr + ' 起';
-      case 'es': return 'desde ₩' + kr;
-      case 'vi': return 'từ ₩' + kr;
-      default: return 'from ₩' + kr;
+      case 'ja': return local + '〜' + won;
+      case 'zh': return local + ' 起' + won;
+      case 'es': return 'desde ' + local + won;
+      case 'vi': return 'từ ' + local + won;
+      default: return 'from ' + local + won;
     }
   }
 
@@ -588,6 +719,7 @@
     current = detect();
     apply();
     listeners.forEach(function (fn) { try { fn(current); } catch (e) {} });
+    if (!fxStarted) { fxStarted = true; loadFx(); }
   }
 
   global.CWI18N = {
@@ -602,8 +734,16 @@
     apply: apply,
     setLang: setLang,
     init: init,
+    detect: detect,
+    fx: {
+      snapshot: fxSnapshot,
+      currency: function (lang) { return FX_CUR[lang || current] || null; },
+      toLocal: fxLocal,
+      refresh: loadFx
+    },
     get lang() { return current; },
-    onChange: function (fn) { listeners.push(fn); }
+    onChange: function (fn) { listeners.push(fn); },
+    onRateChange: function (fn) { fxListeners.push(fn); }
   };
 
   /* every [data-lang-set] button switches language */
