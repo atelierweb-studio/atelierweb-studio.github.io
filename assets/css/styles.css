@@ -1026,7 +1026,7 @@ details.faq:first-child{border-top:1px solid var(--charcoal-12)}
   /* the chip row wraps onto several lines inside its own column instead of widening the grid */
   .services-layout > *{min-width:0}
   .cat-side{display:none;position:static}
-  .mobile-cats{display:block;margin-bottom:6px;overflow-x:visible}
+  .mobile-cats{display:block;margin-bottom:20px;overflow-x:visible}
   .mobile-cats .chip-row{display:flex;flex-wrap:wrap;gap:8px 6px;padding-bottom:2px}
   .pd-top{grid-template-columns:1fr;gap:28px;padding-bottom:40px}
   .pd-media{position:static}
