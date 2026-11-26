@@ -460,7 +460,7 @@
       var txt = el.hasAttribute('data-krw-from') ? I.fromMoney(amt, 'KRW') : I.money(amt, 'KRW');
       var m = txt.match(/^(.*?)\s*(\(₩[0-9,]+\))$/);
       if (m) {
-        el.innerHTML = '<span class="fx-cur">' + m[1] + '</span><span class="fx-krw">' + m[2] + '</span>';
+        el.innerHTML = '<span class="fx-cur">' + m[1] + '</span> <span class="fx-krw">' + m[2] + '</span>';
       } else {
         el.textContent = txt;
       }
