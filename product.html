@@ -236,7 +236,7 @@
     if (fixed) {
       h += '<div class="pd-pricebase"><b>' + I.fromMoney(product.price.fromInclVat) + '</b><span>' + I.t('price_vat') + '</span></div>';
     } else if (product.price.amountFrom) {
-      h += '<div class="pd-pricebase"><b>' + I.fromMoney(product.price.amountFrom, product.price.currency) + '</b><span>' + I.t('price_from') + ' · ' + I.t('badge_quote') + '</span></div>';
+      h += '<div class="pd-pricebase"><b>' + I.fromMoney(product.price.amountFrom, product.price.currency) + '</b><span>' + I.t('badge_quote') + '</span></div>';
     } else {
       h += '<div class="pd-pricebase"><b>' + I.t('price_quote') + '</b><span>' + (product.quoteFrom ? I.tv(product.quoteFrom) : '') + '</span></div>';
     }
