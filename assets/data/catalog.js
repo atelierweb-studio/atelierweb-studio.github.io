@@ -223,7 +223,7 @@
     /* ② 웹사이트 제작 (기존 상품 유지) -------------------------------------- */
     {
       id: 'web-starter', cat: 'website', tone: 'th-a', word: 'STARTER', order: 5, legacy: true,
-      price: { mode: 'quote', currency: 'USD', amountFrom: 390 },
+      price: { mode: 'quote', currency: 'KRW', amountFrom: 550000 },
       name: L('Starter · 1-Page', 'Starter · 1페이지', 'Starter・1ページ', 'Starter 单页', 'Starter · 1 página', 'Starter · 1 trang'),
       desc: L('One page, done well. For a new brand, a launch or a single offer.', '한 페이지를 제대로. 새 브랜드, 런칭, 단일 상품 소개에.', '1ページを丁寧に。新ブランド、ローンチ、単一サービスの紹介に。', '把一页做好。适合新品牌、上线或单一服务。', 'Una página bien hecha, para una marca nueva o un lanzamiento.', 'Một trang chỉn chu cho thương hiệu mới hoặc ra mắt.'),
       features: [
@@ -235,7 +235,7 @@
     },
     {
       id: 'web-business', cat: 'website', tone: 'th-d', word: 'BUSINESS', order: 6, legacy: true,
-      price: { mode: 'quote', currency: 'USD', amountFrom: 890 },
+      price: { mode: 'quote', currency: 'KRW', amountFrom: 1200000 },
       name: L('Business · Multi-Page', 'Business · 멀티 페이지', 'Business・複数ページ', 'Business 多页', 'Business · multipágina', 'Business · nhiều trang'),
       desc: L('For shops, clinics and local service businesses.', '매장, 클리닉, 지역 서비스업에.', '店舗、クリニック、地域サービス業に。', '适合门店、诊所与本地服务业。', 'Para tiendas, clínicas y servicios locales.', 'Cho cửa hàng, phòng khám và dịch vụ địa phương.'),
       features: [
@@ -247,7 +247,7 @@
     },
     {
       id: 'web-global', cat: 'website', tone: 'th-b', word: 'GLOBAL', order: 7, legacy: true,
-      price: { mode: 'quote', currency: 'USD', amountFrom: 1490 },
+      price: { mode: 'quote', currency: 'KRW', amountFrom: 2000000 },
       name: L('Global Multilingual Pro', 'Global Multilingual Pro', 'Global Multilingual Pro', 'Global Multilingual Pro', 'Global Multilingual Pro', 'Global Multilingual Pro'),
       desc: L('Two days, six markets. For teams selling across borders from day one.', '이틀이면 여섯 시장. 첫날부터 국경을 넘어 판매하는 팀에.', '2日で6市場。初日から国境を越えて販売するチームに。', '两天进入六个市场，适合起步即跨境的团队。', 'Dos días, seis mercados, para equipos que venden fuera desde el inicio.', 'Hai ngày, sáu thị trường cho đội bán xuyên biên giới.'),
       features: [
