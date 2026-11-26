@@ -146,6 +146,27 @@
     return t;
   }
 
+  /* ------------------------------------------------------------ payment */
+
+  /* Print items are physical goods, so they can only be paid by card online.
+     An order made of intangible design services may also be paid by bank transfer. */
+  function lineIsPhysical(line) {
+    if (!line) return false;
+    var p = line.product || (global.CATALOG && global.CATALOG.byId(line.productId));
+    return !!(global.CATALOG && global.CATALOG.isPhysical(p));
+  }
+  function hasPhysical(items) {
+    for (var i = 0; i < (items || []).length; i++) if (lineIsPhysical(items[i])) return true;
+    return false;
+  }
+  function cartHasPhysical() { return hasPhysical(cartLines()); }
+  function allowedPaymentMethods(items) {
+    return hasPhysical(items) ? ['card'] : ['card', 'transfer'];
+  }
+  function resolvePayment(items, requested) {
+    return (requested === 'transfer' && !hasPhysical(items)) ? 'transfer' : 'card';
+  }
+
   /* ------------------------------------------------------------ orders */
 
   function pad(n, len) { var s = String(n); while (s.length < len) s = '0' + s; return s; }
@@ -175,8 +196,9 @@
     return found;
   }
 
-  function createOrder(items, customer) {
+  function createOrder(items, customer, payment) {
     var no = newOrderNo();
+    var paymentMethod = resolvePayment(items, payment && payment.method);
     var amount = { supply: 0, vat: 0, total: 0 };
     items.forEach(function (it) { amount.supply += it.supply; amount.vat += it.vat; amount.total += it.total; });
 
@@ -196,6 +218,7 @@
       }),
       amount: amount,
       currency: items.length ? items[0].currency : 'KRW',
+      paymentMethod: paymentMethod,
       /* three statuses are intentionally separate */
       paymentStatus: 'paid_test',
       submissionStatus: 'awaiting_materials',
@@ -329,6 +352,10 @@
     cartCount: cartCount,
     cartLines: cartLines,
     cartTotals: cartTotals,
+    hasPhysical: hasPhysical,
+    cartHasPhysical: cartHasPhysical,
+    allowedPaymentMethods: allowedPaymentMethods,
+    resolvePayment: resolvePayment,
     getOrders: getOrders,
     getOrder: getOrder,
     createOrder: createOrder,

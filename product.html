@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css">
-<link rel="stylesheet" href="assets/css/styles.css?v=20261126e">
+<link rel="stylesheet" href="assets/css/styles.css?v=20261126f">
 </head>
 <body>
 
@@ -78,10 +78,10 @@
 <div data-cw-footer></div>
 <noscript><div class="wrap" style="padding:20px" data-i18n="noscript">JavaScript is off.</div></noscript>
 
-<script src="assets/data/catalog.js?v=20261126e"></script>
-<script src="assets/js/i18n.js?v=20261126e"></script>
-<script src="assets/js/store.js?v=20261126e"></script>
-<script src="assets/js/components.js?v=20261126e"></script>
+<script src="assets/data/catalog.js?v=20261126f"></script>
+<script src="assets/js/i18n.js?v=20261126f"></script>
+<script src="assets/js/store.js?v=20261126f"></script>
+<script src="assets/js/components.js?v=20261126f"></script>
 <script>
 (function () {
   'use strict';
@@ -136,7 +136,7 @@
   }
 
   function optionsHTML() {
-    if (!product.options) return quoteBoxHTML();
+    if (!product.options) return product.price.mode === 'fixed' ? fixedBoxHTML() : quoteBoxHTML();
     var h = '<div class="opt-box">';
     h += '<div class="opt-head"><b data-i18n="pd_options">' + I.t('pd_options') + '</b><span class="tiny muted">' + I.t('price_vat_add') + '</span></div>';
     product.options.forEach(function (o, oi) {
@@ -167,6 +167,21 @@
     return h;
   }
 
+  /* Fixed unit price, no options — quantity only. Used by web design, SNS, print
+     artwork and package items, whose price is a single supply price + 10% VAT. */
+  function fixedBoxHTML() {
+    var deliverables = C.cat(product.cat).deliverables.map(function (d) { return '<li>' + I.tv(d) + '</li>'; }).join('');
+    var max = product.qty ? product.qty.max : 99;
+    return '<div class="opt-box">' +
+      '<div class="opt-head"><b data-i18n="pd_options">' + I.t('pd_options') + '</b><span class="tiny muted">' + I.t('price_vat_add') + '</span></div>' +
+      '<div class="opt-group"><div class="qty-row"><div><div class="opt-label"><b data-i18n="pd_qty">' + I.t('pd_qty') + '</b></div>' +
+      '<span class="tiny muted">1 – ' + max + '</span></div>' +
+      '<div class="qty"><button type="button" data-qty="-1" aria-label="minus">−</button><input type="number" id="qtyInput" value="' + qty + '" min="1" max="' + max + '"><button type="button" data-qty="1" aria-label="plus">+</button></div></div></div>' +
+      '<div class="opt-group"><div class="opt-label"><b>' + I.t('pd_includes') + '</b></div><ul class="spec-list">' + deliverables + '</ul></div>' +
+      '<div class="opt-sum" id="calcMount"></div>' +
+      '</div>';
+  }
+
   function quoteBoxHTML() {
     var deliverables = C.cat(product.cat).deliverables.map(function (d) { return '<li>' + I.tv(d) + '</li>'; }).join('');
     var feats = product.features ? product.features.map(function (f) { return '<li>' + I.tv(f) + '</li>'; }).join('') : '';
@@ -187,6 +202,9 @@
     if (!mount) return;
     var c = calc();
     var h = '';
+    if (!c.optionLabels.length) {
+      h += '<div class="opt-line"><span>' + I.t('pd_supply') + (c.qty > 1 ? ' × ' + c.qty : '') + '</span><b>' + I.money(c.supply) + '</b></div>';
+    }
     c.optionLabels.forEach(function (l) {
       var amt = 0;
       if (l.opt.id === 'length') amt = c.design;
@@ -233,15 +251,19 @@
         '<button class="btn btn-ghost" type="button" id="addCart">' + I.t('pd_add_cart') + '</button>' +
         '</div>';
       h += '<div class="notice mt-16" style="font-size:11.5px"><span class="notice-mark">i</span><p>' + I.t('pd_price_note') + '</p></div>';
-      h += '<ul class="pd-notes mt-16">' +
-        (product.includes ? product.includes.map(function (x) { return '<li>' + I.tv(x) + '</li>'; }).join('') : '') +
-        '</ul>';
+      h += paymentNotesHTML(cat);
+      if (product.includes) {
+        h += '<ul class="pd-notes mt-16">' +
+          product.includes.map(function (x) { return '<li>' + I.tv(x) + '</li>'; }).join('') +
+          '</ul>';
+      }
     } else {
       h += '<div class="pd-actions">' +
         '<a class="btn btn-accent" id="askBtn" href="#contact-mail">' + I.t('pd_ask') + '</a>' +
         '<a class="btn btn-ghost" href="services.html" data-i18n="back_to_products">' + I.t('back_to_products') + '</a>' +
         '</div>';
-      h += '<div class="notice mt-16" style="font-size:11.5px"><span class="notice-mark">i</span><p>' + I.t('pd_quote_note') + '</p></div>';
+      h += '<div class="notice mt-16" style="font-size:11.5px"><span class="notice-mark">i</span><p>' + I.t('pd_quote_note') + '</p></div>' +
+        paymentNotesHTML(cat);
     }
 
     /* option notes */
@@ -266,6 +288,19 @@
         'Business / brand:\nContact name:\nPhone:\nDeadline:\n\nWhat we need:\n';
       ask.href = 'mailto:atelierweb.seoul@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
     }
+  }
+
+  /* Print artwork is billed separately from printing and delivery; the payment
+     note differs for physical print, intangible design and quote items. */
+  function paymentNotesHTML(cat) {
+    var key = cat.id === 'print'
+      ? 'pd_artwork_note'
+      : (product.price.mode === 'fixed' ? 'pd_intangible_pay_note' : 'pd_quote_pay_note');
+    var h = '<div class="notice mt-16" style="font-size:11.5px"><span class="notice-mark">i</span><p>' + I.t(key) + '</p></div>';
+    if (cat.id === 'print') {
+      h += '<div class="notice mt-16" style="font-size:11.5px"><span class="notice-mark">i</span><p>' + I.t('pd_print_pay_note') + '</p></div>';
+    }
+    return h;
   }
 
   function buy(goOrder) {

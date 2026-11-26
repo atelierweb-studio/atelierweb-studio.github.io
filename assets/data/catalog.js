@@ -259,56 +259,56 @@
     },
 
     /* ③ 웹디자인 ------------------------------------------------------------ */
-    { id: 'web-banner', cat: 'webdesign', tone: 'th-c', word: 'BANNER', order: 8, price: { mode: 'quote', currency: 'KRW' },
+    { id: 'web-banner', cat: 'webdesign', tone: 'th-c', word: 'BANNER', order: 8, price: { mode: 'fixed', currency: 'KRW', base: 30000, fromInclVat: 33000 }, qty: { min: 1, max: 9, def: 1 },
       name: L('Web Banner', '웹배너', 'ウェブバナー', '网页横幅', 'Banner web', 'Banner web'),
       desc: L('Small, sharp banner sets for a site header, sidebar or campaign slot.', '사이트 상단·사이드·캠페인 영역에 들어가는 배너 세트입니다.', 'サイト上部・サイド・キャンペーン枠に入るバナーセット。', '用于站点头部、侧栏或活动位的横幅套组。', 'Juegos de banners para cabecera, lateral o campaña.', 'Bộ banner cho đầu trang, cột bên hoặc chiến dịch.') },
-    { id: 'web-event', cat: 'webdesign', tone: 'th-a', word: 'EVENT', order: 9, price: { mode: 'quote', currency: 'KRW' },
+    { id: 'web-event', cat: 'webdesign', tone: 'th-a', word: 'EVENT', order: 9, price: { mode: 'fixed', currency: 'KRW', base: 80000, fromInclVat: 88000 }, qty: { min: 1, max: 9, def: 1 },
       name: L('Event Page', '이벤트페이지', 'イベントページ', '活动页', 'Página de evento', 'Trang sự kiện'),
       desc: L('A one-scroll landing page for a sale, opening or seasonal campaign.', '세일·오픈·시즌 캠페인을 위한 원스크롤 랜딩 페이지입니다.', 'セール・開業・季節キャンペーンの1スクロールLP。', '用于促销、开业或季节活动的单页落地页。', 'Landing de un scroll para una oferta o campaña.', 'Landing một cuộn cho khuyến mãi hoặc mở bán.') },
-    { id: 'web-promo', cat: 'webdesign', tone: 'th-f', word: 'PROMO', order: 10, price: { mode: 'quote', currency: 'KRW' },
+    { id: 'web-promo', cat: 'webdesign', tone: 'th-f', word: 'PROMO', order: 10, price: { mode: 'fixed', currency: 'KRW', base: 120000, fromInclVat: 132000 }, qty: { min: 1, max: 9, def: 1 },
       name: L('Promotion Page', '프로모션 페이지', 'プロモーションページ', '推广页', 'Página promocional', 'Trang khuyến mãi'),
       desc: L('A campaign page with a clear offer, proof and one action.', '혜택·근거·행동 하나가 분명한 캠페인 페이지입니다.', '特典・根拠・行動が明確なキャンペーンページ。', '卖点、信任与行动一目了然的推广页。', 'Página de campaña con oferta, prueba y una acción.', 'Trang chiến dịch với ưu đãi, bằng chứng và một hành động.') },
-    { id: 'web-popup', cat: 'webdesign', tone: 'th-h', word: 'POP-UP', order: 11, price: { mode: 'quote', currency: 'KRW' },
+    { id: 'web-popup', cat: 'webdesign', tone: 'th-h', word: 'POP-UP', order: 11, price: { mode: 'fixed', currency: 'KRW', base: 30000, fromInclVat: 33000 }, qty: { min: 1, max: 9, def: 1 },
       name: L('Pop-up Image', '팝업 이미지', 'ポップアップ画像', '弹窗图片', 'Imagen emergente', 'Ảnh pop-up'),
       desc: L('Popup artwork sized for the platform that shows it.', '노출되는 플랫폼 규격에 맞춘 팝업 이미지입니다.', '表示されるプラットフォームの規格に合わせたポップアップ。', '按展示平台规格制作的弹窗图。', 'Arte emergente al tamaño de la plataforma.', 'Ảnh pop-up đúng quy cách nền tảng.') },
-    { id: 'web-smartstore', cat: 'webdesign', tone: 'th-g', word: 'STORE', order: 12, price: { mode: 'quote', currency: 'KRW' },
+    { id: 'web-smartstore', cat: 'webdesign', tone: 'th-g', word: 'STORE', order: 12, price: { mode: 'fixed', currency: 'KRW', base: 100000, fromInclVat: 110000 }, qty: { min: 1, max: 9, def: 1 },
       name: L('Smart Store Design', '스마트스토어 디자인', 'スマートストアデザイン', '智能商店设计', 'Diseño de Smart Store', 'Thiết kế Smart Store'),
       desc: L('Store skin, category images and thumbnail rules for a marketplace shop.', '마켓플레이스 매장의 스킨·카테고리 이미지·썸네일 규칙을 정리합니다.', 'モール店舗のスキン・カテゴリ画像・サムネイル規則を整えます。', '整理平台店铺皮肤、分类图与缩略图规则。', 'Skin de tienda, imágenes de categoría y reglas de miniaturas.', 'Giao diện shop, ảnh danh mục và quy tắc thumbnail.') },
 
     /* ④ SNS 디자인 ---------------------------------------------------------- */
-    { id: 'sns-feed', cat: 'sns', tone: 'th-e', word: 'FEED', order: 13, price: { mode: 'quote', currency: 'KRW' },
+    { id: 'sns-feed', cat: 'sns', tone: 'th-e', word: 'FEED', order: 13, price: { mode: 'fixed', currency: 'KRW', base: 50000, fromInclVat: 55000 }, qty: { min: 1, max: 9, def: 1 },
       name: L('Instagram Feed', '인스타그램 피드', 'Instagramフィード', 'Instagram 帖文', 'Feed de Instagram', 'Feed Instagram'),
       desc: L('A grid of feed posts that reads as one brand at a glance.', '한눈에 하나의 브랜드로 읽히는 피드 그리드입니다.', '一目で1つのブランドに見えるフィードグリッド。', '一眼看去像一个品牌的帖文网格。', 'Una cuadrícula de publicaciones que se lee como una marca.', 'Lưới bài đăng đọc như một thương hiệu.') },
-    { id: 'sns-cardnews', cat: 'sns', tone: 'th-a', word: 'CARD NEWS', order: 14, price: { mode: 'quote', currency: 'KRW' },
+    { id: 'sns-cardnews', cat: 'sns', tone: 'th-a', word: 'CARD NEWS', order: 14, price: { mode: 'fixed', currency: 'KRW', base: 80000, fromInclVat: 88000 }, qty: { min: 1, max: 9, def: 1 },
       name: L('Card News', '카드뉴스', 'カードニュース', '卡片新闻', 'Card news', 'Card news'),
       desc: L('A swipeable card sequence for one message, built to the last slide.', '하나의 메시지를 마지막 장까지 설계한 카드뉴스 시퀀스입니다.', '1つのメッセージを最後まで設計したカードニュース。', '围绕一个信息设计到最后一页的卡片序列。', 'Secuencia de tarjetas para un mensaje, diseñada hasta el final.', 'Chuỗi thẻ cho một thông điệp, thiết kế đến thẻ cuối.') },
-    { id: 'sns-ad', cat: 'sns', tone: 'th-g', word: 'AD SET', order: 15, price: { mode: 'quote', currency: 'KRW' },
+    { id: 'sns-ad', cat: 'sns', tone: 'th-g', word: 'AD SET', order: 15, price: { mode: 'fixed', currency: 'KRW', base: 60000, fromInclVat: 66000 }, qty: { min: 1, max: 9, def: 1 },
       name: L('SNS Ad Banner', 'SNS 광고 배너', 'SNS広告バナー', 'SNS 广告横幅', 'Banner publicitario', 'Banner quảng cáo'),
       desc: L('Ad creatives in every ratio the channel asks for.', '채널이 요구하는 모든 비율로 광고 소재를 준비합니다.', 'チャンネルが求める全比率で広告クリエイティブを用意。', '按渠道要求的全部比例准备广告素材。', 'Creativos en todas las proporciones que pide el canal.', 'Ấn phẩm đủ mọi tỷ lệ kênh yêu cầu.') },
-    { id: 'sns-promo', cat: 'sns', tone: 'th-c', word: 'CONTENT', order: 16, price: { mode: 'quote', currency: 'KRW' },
+    { id: 'sns-promo', cat: 'sns', tone: 'th-c', word: 'CONTENT', order: 16, price: { mode: 'fixed', currency: 'KRW', base: 100000, fromInclVat: 110000 }, qty: { min: 1, max: 9, def: 1 },
       name: L('Online Promo Content', '온라인 홍보 콘텐츠', 'オンライン広報コンテンツ', '线上宣传内容', 'Contenido promocional', 'Nội dung quảng bá'),
       desc: L('A set of images and short copy for a launch or a seasonal push.', '런칭·시즌 홍보를 위한 이미지 세트와 짧은 카피입니다.', 'ローンチや季節PR向けの画像セットと短いコピー。', '为上线或季节推广准备的图片套组与短文案。', 'Set de imágenes y textos breves para un lanzamiento.', 'Bộ ảnh và nội dung ngắn cho ra mắt.') },
 
     /* ⑤ 인쇄 디자인 ---------------------------------------------------------- */
-    { id: 'print-card', cat: 'print', tone: 'th-f', word: 'CARD', order: 17, price: { mode: 'quote', currency: 'KRW' },
+    { id: 'print-card', cat: 'print', tone: 'th-f', word: 'CARD', order: 17, price: { mode: 'fixed', currency: 'KRW', base: 50000, fromInclVat: 55000 }, qty: { min: 1, max: 9, def: 1 },
       name: L('Business Card', '명함', '名刺', '名片', 'Tarjeta de visita', 'Danh thiếp'),
       desc: L('Front and back, print-ready, with the paper and finish noted for the printer.', '앞면·뒷면 인쇄용 원고와 인쇄소 전달용 용지·후가공 메모를 함께 드립니다.', '表裏の入稿データと、用紙・加工の指示メモを添えます。', '正反面印刷文件，并附纸张与工艺说明。', 'Anverso y reverso listos para imprimir, con nota de papel y acabado.', 'Hai mặt sẵn in, kèm ghi chú giấy và gia công.') },
-    { id: 'print-xbanner', cat: 'print', tone: 'th-a', word: 'X-BANNER', order: 18, price: { mode: 'quote', currency: 'KRW' },
+    { id: 'print-xbanner', cat: 'print', tone: 'th-a', word: 'X-BANNER', order: 18, price: { mode: 'fixed', currency: 'KRW', base: 50000, fromInclVat: 55000 }, qty: { min: 1, max: 9, def: 1 },
       name: L('X-Banner', 'X배너', 'Xバナー', 'X 展架', 'X-Banner', 'X-banner'),
       desc: L('Standing banner artwork at the printer’s output size.', '인쇄소 출력 규격에 맞춘 X배너 원고입니다.', '印刷所の出力規格に合わせたXバナー入稿データ。', '按印刷厂输出尺寸制作的 X 展架画面。', 'Arte de banner de pie al tamaño de salida.', 'File X-banner đúng khổ nhà in.') },
-    { id: 'print-banner', cat: 'print', tone: 'th-d', word: 'BANNER', order: 19, price: { mode: 'quote', currency: 'KRW' },
+    { id: 'print-banner', cat: 'print', tone: 'th-d', word: 'BANNER', order: 19, price: { mode: 'fixed', currency: 'KRW', base: 50000, fromInclVat: 55000 }, qty: { min: 1, max: 9, def: 1 },
       name: L('Large Banner', '현수막', 'のぼり・横断幕', '横幅布幔', 'Lona de gran formato', 'Băng rôn lớn'),
       desc: L('Outdoor banner artwork with distance-readable type.', '멀리서도 읽히는 타이포로 설계한 옥외 현수막 원고입니다.', '遠くから読める文字組みの屋外幕データ。', '远距离可读的户外布幔画面。', 'Arte para exterior con tipografía legible a distancia.', 'File ngoài trời với chữ đọc được từ xa.') },
-    { id: 'print-menu', cat: 'print', tone: 'th-c', word: 'MENU', order: 20, price: { mode: 'quote', currency: 'KRW' },
+    { id: 'print-menu', cat: 'print', tone: 'th-c', word: 'MENU', order: 20, price: { mode: 'fixed', currency: 'KRW', base: 60000, fromInclVat: 66000 }, qty: { min: 1, max: 9, def: 1 },
       name: L('Menu Board', '메뉴판', 'メニューボード', '菜单板', 'Carta / menú', 'Bảng menu'),
       desc: L('A menu laid out for the way the shop actually serves.', '매장 운영 방식에 맞춰 정보 위계를 잡은 메뉴판입니다.', '店舗の運用に合わせた情報階層のメニュー。', '按门店实际运营方式编排信息层级的菜单。', 'Carta organizada según cómo sirve realmente el local.', 'Menu sắp xếp theo cách quán vận hành.') },
-    { id: 'print-poster', cat: 'print', tone: 'th-g', word: 'POSTER', order: 21, price: { mode: 'quote', currency: 'KRW' },
+    { id: 'print-poster', cat: 'print', tone: 'th-g', word: 'POSTER', order: 21, price: { mode: 'fixed', currency: 'KRW', base: 70000, fromInclVat: 77000 }, qty: { min: 1, max: 9, def: 1 },
       name: L('Poster', '포스터', 'ポスター', '海报', 'Póster', 'Poster'),
       desc: L('One strong image and one message, sized for the wall it hangs on.', '하나의 이미지와 하나의 메시지로 정리한 포스터입니다.', '1つの画像と1つのメッセージに絞ったポスター。', '一个画面、一个信息的海报。', 'Una imagen y un mensaje, al tamaño del muro.', 'Một hình ảnh, một thông điệp, đúng khổ treo.') },
-    { id: 'print-flyer', cat: 'print', tone: 'th-a', word: 'FLYER', order: 22, price: { mode: 'quote', currency: 'KRW' },
+    { id: 'print-flyer', cat: 'print', tone: 'th-a', word: 'FLYER', order: 22, price: { mode: 'fixed', currency: 'KRW', base: 60000, fromInclVat: 66000 }, qty: { min: 1, max: 9, def: 1 },
       name: L('Flyer', '전단지', 'チラシ', '传单', 'Folleto', 'Tờ rơi'),
       desc: L('A hand-out sheet with a single offer and a clear next step.', '혜택 하나와 다음 행동이 분명한 배포용 전단입니다.', '特典1つと次の行動が明確な配布用チラシ。', '单一优惠与明确下一步的派发传单。', 'Hoja con una oferta y un paso siguiente claro.', 'Tờ rơi một ưu đãi, một bước tiếp theo rõ ràng.') },
-    { id: 'print-leaflet', cat: 'print', tone: 'th-h', word: 'LEAFLET', order: 23, price: { mode: 'quote', currency: 'KRW' },
+    { id: 'print-leaflet', cat: 'print', tone: 'th-h', word: 'LEAFLET', order: 23, price: { mode: 'fixed', currency: 'KRW', base: 180000, fromInclVat: 198000 }, qty: { min: 1, max: 9, def: 1 },
       name: L('Leaflet', '리플렛', 'リーフレット', '折页', 'Díptico / tríptico', 'Tờ gấp'),
       desc: L('Folded leaflet with a panel-by-panel reading order.', '접히는 면 순서대로 읽히도록 설계한 리플렛입니다.', '折り面ごとの読み順を設計したリーフレット。', '按折页面顺序设计阅读节奏的折页。', 'Díptico con orden de lectura panel a panel.', 'Tờ gấp với thứ tự đọc từng mặt.') },
     { id: 'print-etc', cat: 'print', tone: 'th-f', word: 'PRINT', order: 24, price: { mode: 'quote', currency: 'KRW' },
@@ -316,13 +316,13 @@
       desc: L('Signage, stickers, packaging inserts — tell us the item and the printer.', '사인물, 스티커, 패키지 동봉물 등 품목과 인쇄소를 알려 주세요.', 'サインツール、ステッカー、同梱物など、品目と印刷所をお知らせください。', '标识、贴纸、包装附件等，请告知品项与印刷厂。', 'Señalética, pegatinas, insertos: dinos el artículo y la imprenta.', 'Biển hiệu, sticker, phụ kiện đóng gói: cho chúng tôi biết hạng mục và nhà in.') },
 
     /* ⑥ 디자인 패키지 -------------------------------------------------------- */
-    { id: 'pkg-brand', cat: 'package', tone: 'th-d', word: 'BRAND', order: 25, price: { mode: 'quote', currency: 'KRW' },
+    { id: 'pkg-brand', cat: 'package', tone: 'th-d', word: 'BRAND', order: 25, price: { mode: 'fixed', currency: 'KRW', base: 350000, fromInclVat: 385000 }, qty: { min: 1, max: 9, def: 1 },
       name: L('Brand Promo Package', '브랜드 홍보 패키지', 'ブランドPRパッケージ', '品牌宣传套餐', 'Paquete de marca', 'Gói quảng bá thương hiệu'),
       desc: L('Identity pieces, detail page and SNS set planned as one brand system.', '아이덴티티물·상세페이지·SNS 세트를 하나의 브랜드 시스템으로 기획합니다.', 'アイデンティティ・詳細ページ・SNSを1つのブランド体系として企画。', '把品牌物料、详情页与 SNS 套组作为一套品牌系统策划。', 'Identidad, página de producto y set SNS como un sistema de marca.', 'Nhận diện, trang chi tiết và bộ SNS trong một hệ thống thương hiệu.') },
-    { id: 'pkg-shop', cat: 'package', tone: 'th-g', word: 'LAUNCH', order: 26, price: { mode: 'quote', currency: 'KRW' },
+    { id: 'pkg-shop', cat: 'package', tone: 'th-g', word: 'LAUNCH', order: 26, price: { mode: 'fixed', currency: 'KRW', base: 380000, fromInclVat: 418000 }, qty: { min: 1, max: 9, def: 1 },
       name: L('Shop Launch Package', '쇼핑몰 오픈 패키지', 'ショップ開業パッケージ', '网店开业套餐', 'Paquete de apertura', 'Gói mở shop'),
       desc: L('Store skin, detail pages and launch creatives for an opening date.', '오픈일에 맞춰 스토어 스킨·상세페이지·런칭 소재를 함께 준비합니다.', '開業日に合わせてストアスキン・詳細ページ・ローンチ素材を用意。', '围绕开业日准备店铺皮肤、详情页与上线素材。', 'Skin de tienda, páginas y creativos para la fecha de apertura.', 'Giao diện shop, trang chi tiết và ấn phẩm khai trương.') },
-    { id: 'pkg-retainer', cat: 'package', tone: 'th-e', word: 'MONTHLY', order: 27, price: { mode: 'quote', currency: 'KRW' },
+    { id: 'pkg-retainer', cat: 'package', tone: 'th-e', word: 'MONTHLY', order: 27, price: { mode: 'fixed', currency: 'KRW', base: 400000, fromInclVat: 440000 }, qty: { min: 1, max: 9, def: 1 },
       name: L('Monthly Design Service', '정기 디자인 서비스', '定額デザインサービス', '包月设计服务', 'Servicio mensual', 'Dịch vụ thiết kế định kỳ'),
       desc: L('A monthly design slot for brands that publish every week.', '매주 콘텐츠를 내보내는 브랜드를 위한 월 단위 디자인 슬롯입니다.', '毎週発信するブランド向けの月額デザイン枠。', '为每周发布内容的品牌保留的按月设计额度。', 'Cupo de diseño mensual para marcas que publican cada semana.', 'Suất thiết kế hàng tháng cho thương hiệu đăng đều.') }
   ];
@@ -625,6 +625,13 @@
     { id: 'incomplete', def: L('Needs more', '보완 필요', '追加必要', '需补充', 'Requiere más', 'Cần bổ sung') }
   ];
 
+  /* Print items are shipped as physical goods (design artwork + printing); every other
+     category is an intangible service. Checkout offers bank transfer only for the latter. */
+  var PHYSICAL_CATS = ['print'];
+  function isPhysical(product) {
+    return !!product && PHYSICAL_CATS.indexOf(product.cat) >= 0;
+  }
+
   global.CATALOG = {
     categories: categories,
     products: products,
@@ -634,6 +641,8 @@
     paymentStatuses: paymentStatuses,
     submissionStatuses: submissionStatuses,
     L: L,
+    PHYSICAL_CATS: PHYSICAL_CATS,
+    isPhysical: isPhysical,
     byId: function (id) { for (var i = 0; i < products.length; i++) { if (products[i].id === id) return products[i]; } return null; },
     byCat: function (cat) { return products.filter(function (p) { return p.cat === cat; }); },
     cat: function (id) { for (var i = 0; i < categories.length; i++) { if (categories[i].id === id) return categories[i]; } return null; },
